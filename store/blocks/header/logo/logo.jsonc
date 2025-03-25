@@ -3,9 +3,9 @@
     "props": {
       "title": "Logo",
       "href": "/",
-      "url": "assets/logos/logo-feron.svg",
-      "width": "196",
-      "height": "27"
+      "url": "assets/logos/logo.svg",
+      "width": "159",
+      "height": "38"
     }
   }
 }

@@ -1,16 +1,15 @@
 import React, { useState, useRef } from 'react'
 import { Link } from 'vtex.render-runtime'
 import PropTypes from 'prop-types'
-import { categoryItemShape } from './propTypes'
-
-import ItemContainer from './ItemContainer'
 import classNames from 'classnames'
+
+import { categoryItemShape } from './propTypes'
+import ItemContainer from './ItemContainer'
 import styles from './categoryMenu.css'
 import categoryMenuPosition, {
   getMenuPositionValues,
 } from '../../utils/categoryMenuPosition'
 import { getSortSubcategoriesValues } from '../../utils/sortSubcategoriesItems'
-
 import { HamburguerIcon } from '../Icons'
 
 /**
@@ -57,7 +56,7 @@ const CategoryItem = ({
       className={`${styles.itemContainer} ${
         styles['itemContainer--department']
       } flex items-center db list${
-        noRedirect ? ' ' + styles.allCategories : ''
+        noRedirect ? ` ${styles.allCategories}` : ''
       }`}
       ref={itemRef}
       onMouseEnter={() => setHover(true)}
@@ -66,8 +65,8 @@ const CategoryItem = ({
       {noRedirect ? (
         <strong className={categoryClasses}>
           <span style={{ display: 'none' }}>{name}</span>
-          <span>Categorias</span>
           <HamburguerIcon />
+          <span>Produtos</span>
         </strong>
       ) : (
         <Link

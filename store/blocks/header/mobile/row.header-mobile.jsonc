@@ -32,7 +32,7 @@
       "mobileMode": true,
       "CustomComponent": "login#mobile"
     },
-    "children": ["overlay-trigger#store-info","flex-layout.row#social-networks-mobi"]
+    "children": ["flex-layout.row#social-networks-mobi"]
   },
   "login#mobile": {
     "props": {

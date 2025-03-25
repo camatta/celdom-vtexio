@@ -10,7 +10,7 @@
 }
 .styledLinkContent {
   padding: 0 0 2px;
-  color: #fff;
+  color: #2D2926;
   font-size: 14px;
   transition: all 0.3s ease-in-out;
   font-weight: 400;
@@ -18,7 +18,7 @@
   border-bottom: 1px solid transparent;
 }
 .styledLinkContent:hover {
-  border-color: #fff;
+  border-color: #2D2926;
 }
 
 :global(.vtex-flex-layout-0-x-flexRowContent--cms-about)

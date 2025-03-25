@@ -1,0 +1,49 @@
+{
+    "flex-layout.row#aviso-projeto": {
+        "props": {
+            "blockClass": [
+                "custom-container",
+                "row-aviso-projeto"
+            ]
+        },
+        "children": [
+            "flex-layout.col#aviso-projeto"
+        ]
+    },
+
+    "flex-layout.col#aviso-projeto": {
+        "props": {
+            "blockClass": [
+                "wrapper-aviso-projeto"
+            ]
+        },
+        "children": [
+            "image#icon-aviso-projeto",
+            "rich-text#text-aviso-projeto",
+            "rich-text#cta-aviso-projeto"
+        ]
+    },
+
+    "image#icon-aviso-projeto": {
+        "props": {
+            "blockClass": "icon-aviso-projeto",
+            "src": "assets/icons/projeto.svg",
+            "alt": "Projeto Arquitetônico",
+            "maxWidth": 40
+        }
+    },
+
+    "rich-text#text-aviso-projeto": {
+        "props": {
+        "text": "Possui um **projeto arquitetônico** para trabalhar junto a Celdom?",
+        "blockClass": ["aviso-projeto"]
+        }
+    },
+
+    "rich-text#cta-aviso-projeto": {
+        "props": {
+        "text": "Área logada para **arquitetos**",
+        "blockClass": ["cta-aviso-projeto"]
+        }
+    }
+}

@@ -15,7 +15,13 @@
 /* HEADER */
 .flexRow--header-container {
   padding: 23px 0;
+  background-color: #FFF8EB;
 }
+
+.flexRow--menu-container {
+  background-color: #fff;
+}
+
 .flexRowContent--header-container {
   align-items: center;
 }
@@ -121,6 +127,46 @@
   width: 100%;
   line-height: 0;
   margin-top: 6px;
+}
+
+/* SEÇÃO AVISO PROJETO ARQUITETÔNICO */
+
+.flexRow--row-aviso-projeto {
+  margin-bottom: 80px;
+}
+
+.flexCol--wrapper-aviso-projeto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF8EB;
+  border-radius: 8px;
+  flex-direction: row;
+  padding: 12px;
+}
+
+.flexColChild--wrapper-aviso-projeto {
+  height: auto !important;
+}
+
+.flexColChild--wrapper-aviso-projeto :global(.vtex-store-components-3-x-imageElement--icon-aviso-projeto) {
+  margin-right: 16px;
+}
+
+.flexColChild--wrapper-aviso-projeto :global(.vtex-rich-text-0-x-container--aviso-projeto) {
+  margin-right: 80px;
+}
+
+.flexColChild--wrapper-aviso-projeto :global(.vtex-rich-text-0-x-paragraph--cta-aviso-projeto) {
+  padding: 8px 24px;
+  padding-right: 48px;
+  border: 1px solid #CCCCCC;
+  border-radius: 50px;
+  transition: all .5s;
+}
+
+.flexColChild--wrapper-aviso-projeto :global(.vtex-rich-text-0-x-paragraph--cta-aviso-projeto):hover {
+  border-color: #FE5000;
 }
 
 /* CARD PRODUTO */
@@ -242,27 +288,27 @@
   width: 100%;
 }
 
-/* FOOTER CONTEÚDO */
-.flexRowContent--footer-container {
-  background: url(assets/icons/fundo-footer.png) no-repeat;
-  background-size: cover;
-  padding: 48px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  display: block;
-  position: relative;
+/* FOOTER BAR ORANGE INSPIRATION */
+
+.flexRowContent--wrapper-bar-inspiration {
+  background-color: #FE5000;
+  border-radius: 11px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
 }
 
-.flexRowContent--footer-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: url(assets/icons/detalhe-footer.svg) no-repeat;
+/* FOOTER CONTEÚDO */
+.flexRowContent--footer-container {
+  background-color: #FFF8EB;
   background-size: cover;
-  background-position: bottom;
-  width: 189px;
-  height: 212px;
+  padding: 48px;
+  border-radius: 11px;
+  display: block;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .flexRowContent--footer-container .stretchChildrenWidth:first-child {
@@ -339,7 +385,7 @@
 .flexColChild--footer-category-menu-content
   :global(.vtex-category-menu-2-x-departmentLink) {
   padding: 0 0 2px;
-  color: #fff;
+  color: #2D2926;
   font-size: 14px;
   transition: all 0.3s ease-in-out;
   font-weight: 400;
@@ -382,7 +428,7 @@
 /* SEÇÃO MÉTODO DE PAGAMENTO, SEGURANÇA, ENTREGA */
 .flexRowContent--services-flags-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background: #fff;
   padding-bottom: 12px;
@@ -438,16 +484,6 @@
 }
 .flexCol--sac-content {
   position: relative;
-}
-.flexCol--sac-content::before {
-  content: '';
-  position: absolute;
-  width: 351px;
-  height: 253px;
-  background: #D9D9D91C;
-  top: -20px;
-  left: -43px;
-  z-index: -1;
 }
 .flexRow--sac-group-topo, .flexRow--sac-topoheader {
   background-color: #fff;
@@ -678,7 +714,6 @@
     margin: 10px 0 80px;
   }
   .flexRowContent--header-desktoptopo {
-    padding: 0 30px;
     z-index: 1;
   }
   .flexRowContent--controle-share {

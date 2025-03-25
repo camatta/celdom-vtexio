@@ -1,47 +1,39 @@
 @font-face {
-  font-family: 'Titillium Web';
-  font-style: normal;
-  font-weight: 200;
-  font-display: swap;
-  src: url('assets/fonts/TitilliumWeb-ExtraLight.ttf');
-}
-
-@font-face {
-  font-family: 'Titillium Web';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url('assets/fonts/TitilliumWeb-Light.ttf');
-}
-
-@font-face {
-  font-family: 'Titillium Web';
+  font-family: 'DM Sans';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('assets/fonts/TitilliumWeb-Regular.ttf');
+  src: url('assets/fonts/DMSans-Regular.ttf');
 }
 
 @font-face {
-  font-family: 'Titillium Web';
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('assets/fonts/DMSans-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'DM Sans';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('assets/fonts/TitilliumWeb-SemiBold.ttf');
+  src: url('assets/fonts/DMSans-SemiBold.ttf');
 }
 
 @font-face {
-  font-family: 'Titillium Web';
+  font-family: 'DM Sans';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('assets/fonts/TitilliumWeb-Bold.ttf');
+  src: url('assets/fonts/DMSans-Bold.ttf');
 }
 
 @font-face {
-  font-family: 'Titillium Web';
+  font-family: 'DM Sans';
   font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: url('assets/fonts/TitilliumWeb-Black.ttf');
+  src: url('assets/fonts/DMSans-ExtraBold.ttf');
 }

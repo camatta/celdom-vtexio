@@ -6,9 +6,9 @@
       "colSizing": "auto"
     },
     "children": [
-      "flex-layout.col#companies-flags",
+      "flex-layout.col#payments-flags",
       "flex-layout.col#security-flags",
-      "flex-layout.col#payments-flags"
+      "flex-layout.col#companies-flags"
     ]
   }
 }

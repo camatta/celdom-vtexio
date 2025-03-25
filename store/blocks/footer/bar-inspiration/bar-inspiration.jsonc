@@ -1,0 +1,26 @@
+{
+    "flex-layout.row#bar-inspiration": {
+        "props": {
+            "blockClass": ["wrapper-bar-inspiration", "custom-container"]
+        },
+        "children": [
+            "flex-layout.col#bar-inspiration"
+        ]
+    },
+
+    "flex-layout.col#bar-inspiration": {
+        "children": [
+            "image#logo-bar-inspiration"
+        ]
+    },
+    
+    "image#logo-bar-inspiration": {
+        "title": "Logo",
+        "props": {
+            "blockClass": "logo-bar-inspiration",
+            "src": "assets/logos/celdom-inspiration.svg",
+            "alt": "Celdom - Alto grau de inspiração",
+            "maxWidth": 195
+        }
+    }
+}

@@ -22,29 +22,8 @@
       "menu-item#trocas",
       "menu-item#politica-vendas",
       "menu-item#privacidade",
-      "menu-item#formas-pagamento",
-      "flex-layout.row#btn-catalogo"
+      "menu-item#formas-pagamento"
     ]
-  },
-
-  "flex-layout.row#btn-catalogo": {
-    "props": {
-      "blockClass": "sac-group-container"
-    },
-    "children": ["flex-layout.col#sac-catalogo"]
-  },
-  "flex-layout.col#sac-catalogo": {
-    "props": {
-      "blockClass": "sac-group-content"
-    },
-    "children": ["rich-text#sac-catalogo"]
-  },
-  
-  "rich-text#sac-catalogo": {
-    "props": {
-      "blockClass": ["sac-group-link", "sac-group-btn"],
-      "text": "<a href='https://drive.google.com/file/d/1BFrJ5w9ON73-FgM7TeGEkUiL6MlkTIU7/view' target='_blank' class='vtex-rich-text-0-x-link vtex-rich-text-0-x-link--sac-group-link vtex-rich-text-0-x-link--sac-group-catalogo'>Baixe nosso catálogo</a>"
-    }
   },
 
   "menu-item#sobre": {

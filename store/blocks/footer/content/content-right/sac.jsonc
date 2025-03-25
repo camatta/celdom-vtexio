@@ -10,7 +10,7 @@
       "flex-layout.row#sac-wpp",
       "flex-layout.row#sac-tel",
       "flex-layout.row#sac-email",
-      "flex-layout.row#sac-btncontato"
+      "flex-layout.row#sac-horario"
     ]
   },
 
@@ -29,7 +29,7 @@
   "rich-text#sac-title": {
     "props": {
       "blockClass": "footer-title",
-      "text": "#### Fale Conosco"
+      "text": "#### Contato"
     }
   },
 
@@ -49,7 +49,7 @@
   "rich-text#sac-email": {
     "props": {
       "blockClass": ["sac-group-link", "sac-group-email"],
-      "text": "<a href='mailto:sac@grupoferon.com.br' target='_blank' class='vtex-rich-text-0-x-link vtex-rich-text-0-x-link--sac-group-link vtex-rich-text-0-x-link--sac-group-email'>sac@grupoferon.com.br</a>"
+      "text": "<a href='mailto:lojavirtual@celdom.com.br' target='_blank' class='vtex-rich-text-0-x-link vtex-rich-text-0-x-link--sac-group-link vtex-rich-text-0-x-link--sac-group-email'>lojavirtual@celdom.com.br</a>"
     }
   },
 
@@ -69,7 +69,7 @@
   "rich-text#sac-wpp-first": {
     "props": {
       "blockClass": ["sac-group-link"],
-      "text": "<a href='https://wa.me/5511963227188' target='_blank' class='vtex-rich-text-0-x-link vtex-rich-text-0-x-link--sac-group-link vtex-rich-text-0-x-link--sac-group-wpp'>(11) 96322-7188</a>"
+      "text": "<a href='https://wa.me/551199000-0479' target='_blank' class='vtex-rich-text-0-x-link vtex-rich-text-0-x-link--sac-group-link vtex-rich-text-0-x-link--sac-group-wpp'>(11) 99000-0479</a>"
     }
   },
   "flex-layout.row#sac-tel": {
@@ -88,26 +88,26 @@
   "rich-text#sac-tel": {
     "props": {
       "blockClass": ["sac-group-link","sac-group-tel"],
-      "text": "<a href='tel:1140242070' target='_blank' class='vtex-rich-text-0-x-link vtex-rich-text-0-x-link--sac-group-link vtex-rich-text-0-x-link--sac-group-tel'>(11) 4024-2070</a>"
+      "text": "<a href='tel:1131359990' target='_blank' class='vtex-rich-text-0-x-link vtex-rich-text-0-x-link--sac-group-link vtex-rich-text-0-x-link--sac-group-tel'>(11) 3135-9990</a>"
     }
   },
-  "flex-layout.row#sac-btncontato": {
+
+  "flex-layout.row#sac-horario": {
     "props": {
-      "blockClass": "sac-group-container"
+      "blockClass": "sac-horario-container"
     },
-    "children": ["flex-layout.col#sac-btn"]
+    "children": ["flex-layout.col#sac-horario-content"]
   },
-  "flex-layout.col#sac-btn": {
+  "flex-layout.col#sac-horario-content": {
     "props": {
-      "blockClass": "sac-group-content"
+      "blockClass": "sac-horario-content"
     },
-    "children": ["rich-text#sac-btn"]
+    "children": ["rich-text#sac-horario"]
   },
-  
-  "rich-text#sac-btn": {
+  "rich-text#sac-horario": {
     "props": {
-      "blockClass": ["sac-group-link", "sac-group-btn"],
-      "text": "<a href='https://wa.me/5511963227188' target='_blank' class='vtex-rich-text-0-x-link vtex-rich-text-0-x-link--sac-group-link vtex-rich-text-0-x-link--sac-group-btn'>Envie uma mensagem</a>"
+      "blockClass": "footer-horario",
+      "text": "Segunda à sexta, das 9h às 18h.\nSábados, domingos e feriados, das 14h às 20h."
     }
   }
 }

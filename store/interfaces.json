@@ -31,5 +31,11 @@
   },
   "banner-slider": {
     "component": "BannerSlider"
+  },
+  "carrossel-lojas": {
+    "component": "CarrosselLojas"
+  },
+  "historia-home": {
+    "component": "HistoriaHome"
   }
 }

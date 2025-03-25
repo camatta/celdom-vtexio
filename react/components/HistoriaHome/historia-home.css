@@ -1,0 +1,162 @@
+p {
+    margin: 0;
+}
+
+.topoHistoria {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.wrapperLogoHistoria {
+    display: flex;
+    gap: 72px;
+    align-items: center;
+}
+
+.fraseHistoria p {
+    max-width: 432px;
+    font-family: DM Sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px;
+    color: #000;
+}
+
+.fraseHistoria p strong {
+    font-weight: 700;
+}
+
+.saibaMaisHistoria a {
+    font-family: DM Sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px;
+    color: #2D2926;
+    transition: all .5s;
+    text-decoration: unset;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.saibaMaisHistoria {
+    position: relative;
+    transition: all .5s;
+}
+
+.saibaMaisHistoria:hover {
+    border-bottom: 1px solid #2D2926;
+}
+
+.numerosHistoria {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 48px;
+}
+
+.cardNumero {
+    background-color: #FFF8EB;
+    border-radius: 4px;
+    padding: 8px 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.bigNumero p {
+    font-family: DM Sans;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 32px;
+    color: #FE5000;
+    margin-bottom: 0;
+}
+
+.textNumero p {
+    font-family: DM Sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px;
+    color: #000;
+    margin-bottom: 0;
+}
+
+.wrapperHistoriaAbas {
+    padding-top: 52px;
+    padding-bottom: 49px;
+    padding-left: 48px;
+    padding-right: 48px;
+    border-radius: 8px;
+    margin-bottom: 80px;
+    background-image: url('/_v/private/assets/v1/linked/celdom.store-theme@1.0.0/public/react/16cbf7a67341c97d3d5299c9b40d86f1.png');
+    background-size: cover;
+    transition: all .7s;
+}
+
+.wrapperHistoriaAbas.tabactive1 {
+    background-image: url('/_v/private/assets/v1/linked/celdom.store-theme@1.0.0/public/react/7cec934e65b88b6efeec3222e4442b15.png');
+}
+
+.wrapperHistoriaAbas.tabactive2 {
+    background-image: url('/_v/private/assets/v1/linked/celdom.store-theme@1.0.0/public/react/03af891046ed564ff0d71fa87939306f.png');
+}
+
+.abaNavegacao {
+    position: relative;
+    text-align: center;
+    margin-bottom: 118px;
+}
+
+.abaNavegacao button {
+    font-family: DM Sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px;
+    padding: 0 16px;
+    color: #ECECEC;
+    border: unset;
+    border-bottom: 1px solid #ECECEC;
+    background: unset;
+    cursor: pointer;
+    padding-bottom: 4px;
+}
+
+.abaNavegacao button.activeTab {
+    color: #fff;
+    font-weight: 700;
+    border-bottom: 2px solid #fff;
+}
+
+.tabPanel p {
+    font-family: DM Sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px;
+    max-width: 490px;
+    margin-bottom: 16px;
+    color: #fff;
+}
+
+.buttonMain {
+    font-family: DM Sans;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 4px 20px;
+    color: #2D2926;
+    text-decoration: unset;
+    background-color: #fff;
+    border-radius: 500px;
+    margin-right: 16px;
+}
+
+.buttonSecond {
+    font-family: DM Sans;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 4px 20px;
+    color: #fff;
+    text-decoration: unset;
+}

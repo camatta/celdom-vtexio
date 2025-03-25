@@ -6,7 +6,6 @@
       "colSizing": "auto"
     },
     "children": [
-      "flex-layout.row#primeiralinha",
       "flex-layout.col#content-right"
     ]
   },

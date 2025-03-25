@@ -1,0 +1,10 @@
+{
+    "flex-layout.row#historia-home": {
+        "props": {
+            "blockClass": ["custom-container"]
+        },
+        "children": [
+            "historia-home"
+        ]
+    }
+}
