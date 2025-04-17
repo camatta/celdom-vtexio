@@ -1,0 +1,61 @@
+{
+    "store.custom#arquitetos-e-decoracoes": {
+      "children": ["flex-layout.row#linha-bread","flex-layout.row#arquitetos-e-decoracoes"]
+    },
+    "flex-layout.row#arquitetos-e-decoracoes": {
+      "props": {
+        "blockClass": ["custom-container", "cms-page-container", "cms-arquitetura-decoracao"],
+        "colSizing": "auto"
+      },
+      "children": [
+        "flex-layout.col#side-cms-menu",
+        "flex-layout.col#arquitetos-e-decoracoes"
+      ]
+    },
+  
+    "flex-layout.col#arquitetos-e-decoracoes": {
+      "props": {
+        "blockClass": ["container", "content-cms"],
+        "preventVerticalStretch": true
+      },
+      "children": ["rich-text#arquitetos-e-decoracoes-title", "flex-layout.row#arquitetos-e-decoracoes-content"]
+    },
+    "rich-text#arquitetos-e-decoracoes-title": {
+      "props": {
+        "text": "# Arquitetos e Decoradores",
+        "blockClass": ["cms", "title"]
+      }
+    },
+    "flex-layout.row#arquitetos-e-decoracoes-content": {
+      "props": {
+        "blockClass": ["flex-column"],
+        "colSizing": "auto"
+      },
+      "children": [
+        "rich-text#arquitetos-e-decoracoes",
+        "image#img-institucional-deco"
+      ]
+    },
+    "rich-text#arquitetos-e-decoracoes": {
+      "props": {
+        "text": "## Celdom VIP \n\n Temos o prazer de sermos parceiros dos principais arquitetos e decoradores do País. Venha fazer parte do nosso programa de relacionamento Celdom VIP. \n\n Por você fazer parte do Programa, seus clientes se beneficiarão de algumas comodidades: \n - Armazenamento gratuito; \n - Troca de produtos não entregues; \n - Realização de entregas parciais gratuitas; \n - Além disso, pontuamos nos Programas Gabriel Pro e Casa Premium; \n - O melhor mix de eletrodomésticos do mercado com benefícios exclusivos para você. \n\nPara exercer seus direitos, envie um e-mail para: privacidade@celdom.com.br.",
+        "textAlignment": "initial",
+        "textPosition": "initial",
+        "blockClass": ["cms"]
+      }
+    },
+    "image#img-institucional-deco": {
+ 
+             "title": "Celdom loja",
+             "props": {
+             "blockClass": "institucional-deco",
+             "src": "assets/institucional/decoracoes.jpg",
+             "alt": "Celdom",
+             "link": {
+             "url": "/"
+   
+            }
+        }
+    }
+  }
+  

@@ -22,7 +22,7 @@
   },
   "rich-text#termos-title": {
     "props": {
-      "text": "# TERMOS E CONDIÇÕES GERAIS DE USO E DE COMPRA E VENDA DO SITE TECFAG.COM.BR",
+      "text": "# Termos de uso",
       "blockClass": ["cms", "title"]
     }
   },

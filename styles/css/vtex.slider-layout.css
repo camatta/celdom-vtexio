@@ -117,6 +117,29 @@
   max-width: 826px;
 }
 
+/*PÁGINAS INSTITUCIONAIS*/
+
+:global(.vtex-slider-layout-0-x-slideChildrenContainer--slider-ponto){
+  max-width: 392px;
+  width:100%!important;
+}
+
+:global(.vtex-slider-layout-0-x-paginationDotsContainer--slider-ponto){
+  bottom:-16px!important;
+  left:-6px!important;
+  right: unset;
+}
+
+:global(.vtex-slider-layout-0-x-paginationDot--slider-ponto){
+  width: 39px!important;
+  background: #2D2926;
+}
+
+.paginationDot--slider-ponto--isActive{
+  width: 73px!important;
+  background: #FE5000;
+}
+
 @media screen and (max-width: 1199px) {
   .sliderLeftArrow {
     left: 0;

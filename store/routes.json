@@ -1,14 +1,18 @@
 {
   "store.custom#sobre-nos": {
-    "path": "/quem-somos"
+    "path": "/nossa-historia"
+  },
+
+  "store.custom#politica-frete": {
+    "path": "/politica-frete"
   },
 
   "store.custom#trocas-e-devolucoes": {
-    "path": "/trocas-e-devolucoes"
+    "path": "/politica-garantia"
   },
 
-  "store.custom#politica-vendas": {
-    "path": "/politica-vendas"
+  "store.custom#pontos-vendas": {
+    "path": "/pontos-vendas"
   },
 
   "store.custom#politica-privacidade": {
@@ -21,5 +25,13 @@
 
   "store.custom#termos-de-uso": {
     "path": "/termos-de-uso"
+  },
+
+  "store.custom#arquitetos-e-decoracoes": {
+    "path": "/arquitetos-e-decoracoes"
+  },
+
+  "store.custom#faq": {
+    "path": "/faq"
   }
 }

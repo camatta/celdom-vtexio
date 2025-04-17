@@ -31,8 +31,9 @@
   padding: 0;
   border: 0;
   background: 0;
-  width: 100%;
   cursor: pointer;
+  max-width: 100%;
+  width: 100%;
 }
 .trigger:not(.trigger--cms-menu)::after {
   content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cmask id='mask0_204_7078' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='16' height='16'%3E%3Crect y='16' width='16' height='16' transform='rotate(-90 0 16)' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_204_7078)'%3E%3Cpath d='M14.6663 5.33333L7.99968 12L1.33301 5.33333L2.51634 4.15L7.99968 9.63333L13.483 4.15L14.6663 5.33333Z' fill='%23767676'/%3E%3C/g%3E%3C/svg%3E");

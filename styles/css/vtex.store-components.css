@@ -306,6 +306,26 @@
   display: none;
 }
 
+/*Página institucional*/
+
+.imageElement--institucional{
+  max-width: 450px;
+}
+
+:global(.vtex-slider-layout-0-x-slideChildrenContainer--slider-ponto) .imageElement{
+  max-width: 392px;
+  width:100%!important;
+  height: 286px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.imageElement--institucional-deco{
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top:1px solid #D9D9D9; 
+}
+
 /*custom carrossel marcas*/
 
 .infoCardContainer--info-card-marca {

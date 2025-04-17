@@ -1,0 +1,209 @@
+{
+  "store.custom#pontos-vendas": {
+    "children": ["flex-layout.row#linha-bread","flex-layout.row#pontos-vendas"]
+  },
+
+  "flex-layout.row#pontos-vendas": {
+    "props": {
+      "blockClass": ["custom-container", "cms-page-container", "cms-vendas"],
+      "colSizing": "auto"
+    },
+    "children": [
+      "flex-layout.col#side-cms-menu",
+      "flex-layout.col#conteudo-vendas"
+    ]
+  },
+
+  "flex-layout.col#conteudo-vendas": {
+    "props": {
+      "blockClass": ["container", "content-cms"],
+      "preventVerticalStretch": true
+    },
+    "children": ["rich-text#vendas-title", "flex-layout.row#vendas-content"]
+  },
+  "rich-text#vendas-title": {
+    "props": {
+      "text": "# Pontos de Venda",
+      "blockClass": ["cms", "title"]
+    }
+  },
+  "flex-layout.row#vendas-content": {
+    "props": {
+      "blockClass": ["flex-column"],
+      "colSizing": "auto"
+    },
+    "children": [
+      "rich-text#vendas",
+      "flex-layout.row#vendas-pontos"
+    ]
+  },
+  "rich-text#vendas": {
+    "props": {
+      "text": "A *CELDOM* possui Pontos de Venda no Rio de Janeiro e em São Paulo, situadas nos melhores points de decoração das cidades. No Rio de Janeiro fica localizado no CasaShopping, na Barra da Tijuca, no Studio LW, em Ipanema, e em São Paulo na Alameda Gabriel Monteiro da Silva, no Jardins, ambas com exposição completa das marcas, em espaços ambientados para facilitar ainda mais a escolha dos eletrodomésticos para seu projeto. \n\n *Atenção!* A CELDOM não vende via Mercado Livre, Shopee, OLX, ou em qualquer outro Marketplace.\n\n Fale com nosso time comercial pelo WhatsApp.  Nosso horário de atendimento é de 10:00 às 19:00hs, de Seg a Sab, e de 14:00 às 20:00hs, Dom e Feriados. ",
+      "textAlignment": "initial",
+      "textPosition": "initial",
+      "blockClass": ["cms-vendas"]
+    }
+  },
+
+  "flex-layout.row#vendas-pontos": {
+    "props": {
+      "blockClass": ["vendas-pontos"],
+      "rowGap": 3
+    },
+    "children": [
+      "flex-layout.col#jardins",
+      "flex-layout.col#barra",
+      "flex-layout.col#icarai",
+      "flex-layout.col#ipanema"
+    ]
+  },
+
+  "flex-layout.col#jardins": {
+    "props": { "blockClass": ["ponto-venda"] },
+    "children": [
+      "slider-layout#jardins-slider",
+      "flex-layout.row#jardins-infos",
+      "rich-text#jardins-contato"
+    ]
+  },
+
+  "flex-layout.row#jardins-infos": {
+    "props": { "blockClass": ["bairro-localizacao"] },
+    "children": ["rich-text#jardins-titulo", "rich-text#jardins-local"]
+  },
+
+  "rich-text#jardins-local": {
+    "props": {
+      "text": "[Localização](https://maps.app.goo.gl/9Tdg5cCVdbJNmNPKA)",
+      "blockClass": ["localizacao"]
+    }
+  },
+
+  "slider-layout#jardins-slider": {
+    "props": {
+      "itemsPerPage": { "desktop": 1, "tablet": 1, "phone": 1 },
+      "infinite": true,
+      "showNavigationArrows": "never",
+      "blockClass": "slider-ponto"
+    },
+    "children": ["image#jardins1", "image#jardins2", "image#jardins3"]
+  },
+
+  "image#jardins1": { "props": { "src": "assets/institucional/celdom.jpg", "alt": "Jardins 1" } },
+  "image#jardins2": { "props": { "src": "assets/institucional/celdom.jpg", "alt": "Jardins 2" } },
+  "image#jardins3": { "props": { "src": "assets/institucional/celdom.jpg", "alt": "Jardins 3" } },
+  "rich-text#jardins-titulo": { "props": { "text": "Jardins<br>**São Paulo/SP**" } },
+  "rich-text#jardins-contato": { "props": { "blockClass": ["texto-infos"], "text": "**E-mail:** lojajardins@celdom.com.br \n **Telefone:** lojajardins@celdom.com.br \n **Telefone/WhatsApp:** (11) 98977-3757 \n Seg a Sex 10h as 19h \n Sáb 10h às 16h" } },
+
+  "flex-layout.col#barra": {
+    "props": { "blockClass": ["ponto-venda"] },
+    "children": [
+      "slider-layout#barra-slider",
+      "flex-layout.row#barra-infos",
+      "rich-text#barra-contato"
+    ]
+  },
+
+  "flex-layout.row#barra-infos": {
+    "props": { "blockClass": ["bairro-localizacao"] },
+    "children": ["rich-text#barra-titulo", "rich-text#barra-local"]
+  },
+
+  "rich-text#barra-local": {
+    "props": {
+      "text": "[Localização](https://maps.app.goo.gl/rnCfhu93ATV51ufV8)",
+      "blockClass": ["localizacao"]
+    }
+  },
+
+  "slider-layout#barra-slider": {
+    "props": {
+      "itemsPerPage": { "desktop": 1, "tablet": 1, "phone": 1 },
+      "infinite": true,
+      "showNavigationArrows": "never",
+      "blockClass": "slider-ponto"
+    },
+    "children": ["image#barra1", "image#barra2", "image#barra3"]
+  },
+
+  "image#barra1": { "props": { "src": "assets/institucional/barra.jpg", "alt": "Barra 1" } },
+  "image#barra2": { "props": { "src": "assets/institucional/barra.jpg", "alt": "Barra 2" } },
+  "image#barra3": { "props": { "src": "assets/institucional/barra.jpg", "alt": "Barra 3" } },
+  "rich-text#barra-titulo": { "props": { "text": "Barra da Tijuca<br>**Rio de Janeiro/RJ**" } },
+  "rich-text#barra-contato": { "props": { "blockClass": ["texto-infos"], "text": "**E-mail:** lojaipanema@celdom.com.br \n **Telefone/WhatsApp:** (21) 96802-4741 \n Seg a Sex 10h as 19h \n Sáb 10h às 14h" } },
+
+  "flex-layout.col#icarai": {
+    "props": { "blockClass": ["ponto-venda"] },
+    "children": [
+      "slider-layout#icarai-slider",
+      "flex-layout.row#icarai-infos",
+      "rich-text#icarai-contato"
+    ]
+  },
+
+  "flex-layout.row#icarai-infos": {
+    "props": { "blockClass": ["bairro-localizacao"] },
+    "children": ["rich-text#icarai-titulo", "rich-text#icarai-local"]
+  },
+
+  "rich-text#icarai-local": {
+    "props": {
+      "text": "[Localização](https://maps.app.goo.gl/qtyHQLTTDSGcogy66)",
+      "blockClass": ["localizacao"]
+    }
+  },
+
+  "slider-layout#icarai-slider": {
+    "props": {
+      "itemsPerPage": { "desktop": 1, "tablet": 1, "phone": 1 },
+      "infinite": true,
+      "showNavigationArrows": "never",
+      "blockClass": "slider-ponto"
+    },
+    "children": ["image#icarai1", "image#icarai2", "image#icarai3"]
+  },
+
+  "image#icarai1": { "props": { "src": "assets/institucional/icarai.jpg", "alt": "Icarai 1" } },
+  "image#icarai2": { "props": { "src": "assets/institucional/icarai.jpg", "alt": "Icarai 2" } },
+  "image#icarai3": { "props": { "src": "assets/institucional/icarai.jpg", "alt": "Icarai 3" } },
+  "rich-text#icarai-titulo": { "props": { "text": "Icaraí<br>**Niterói/RJ**" } },
+  "rich-text#icarai-contato": { "props": { "blockClass": ["texto-infos"], "text": "**E-mail:** lojaniteroi@celdom.com.br \n **Telefone/WhatsApp:** (21) 96802-4741 \n Seg a Sex 10h as 19h \n Sáb 10h às 14h" } },
+
+  "flex-layout.col#ipanema": {
+    "props": { "blockClass": ["ponto-venda"] },
+    "children": [
+      "slider-layout#ipanema-slider",
+      "flex-layout.row#ipanema-infos",
+      "rich-text#ipanema-contato"
+    ]
+  },
+
+  "flex-layout.row#ipanema-infos": {
+    "props": { "blockClass": ["bairro-localizacao"] },
+    "children": ["rich-text#ipanema-titulo", "rich-text#ipanema-local"]
+  },
+
+"rich-text#ipanema-local": {
+  "props": {
+    "text": "[Localização](https://maps.app.goo.gl/MfeZGLzLaXNKoP439)",
+    "blockClass": ["localizacao"]
+  }
+},
+
+  "slider-layout#ipanema-slider": {
+    "props": {
+      "itemsPerPage": { "desktop": 1, "tablet": 1, "phone": 1 },
+      "infinite": true,
+      "showNavigationArrows": "never",
+      "blockClass": "slider-ponto"
+    },
+    "children": ["image#ipanema1", "image#ipanema2", "image#ipanema3"]
+  },
+
+  "image#ipanema1": { "props": { "src": "assets/institucional/ipanema.jpg", "alt": "Ipanema 1" } },
+  "image#ipanema2": { "props": { "src": "assets/institucional/ipanema.jpg", "alt": "Ipanema 2" } },
+  "image#ipanema3": { "props": { "src": "assets/institucional/ipanema.jpg", "alt": "Ipanema 3" } },
+  "rich-text#ipanema-titulo": { "props": { "text": "Ipanema<br>**Rio de Janeiro/RJ**" } },
+  "rich-text#ipanema-contato": { "props": { "blockClass": ["texto-infos"], "text": "**E-mail:** lojaipanema@celdom.com.br \n **Telefone/WhatsApp:** (21) 96802-4741 \n Seg a Sex 10h as 19h \n Sáb 10h às 14h" } }
+}

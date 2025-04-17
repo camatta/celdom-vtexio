@@ -646,6 +646,11 @@
 .flexRow--cms-page-container {
   margin: 40px 0 80px;
 }
+.flexRowContent--box2{
+  padding-top: 3rem;
+  margin-top: 3rem;
+  border-top:1px solid #D9D9D9;
+}
 .flexColChild--side-cms-menu {
   width: 215px !important;
   border-right: 1px solid #efefef;
@@ -659,6 +664,15 @@
 .flexRowContent--faqs .stretchChildrenWidth {
   display: block;
 }
+.flexRowContent--cms-faq{
+  gap:3rem
+}
+:global(.vtex-flex-layout-0-x-flexRowContent--cms-faq) .stretchChildrenWidth{
+  width: auto!important;
+}
+:global(.vtex-flex-layout-0-x-flexRowContent--cms-faq) .stretchChildrenWidth:last-child{
+  width: 100%!important;
+}
 .flexRowContent--faqs .stretchChildrenWidth:not(:first-child) {
   margin-top: 24px;
   padding-top: 24px;
@@ -670,6 +684,32 @@
   flex-wrap: wrap;
   gap: 16px;
   margin-top: 16px;
+}
+.flexRowContent--vendas-pontos{
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 3rem;
+  border-top: 1px solid #D9D9D9;
+  gap:2rem;
+  
+}
+:global(.vtex-flex-layout-0-x-flexRowContent--vendas-pontos) .stretchChildrenWidth{
+  max-width: 392px;
+  width: 100%!important;
+}
+
+.flexColChild--cms-sidebar-faq:not(.flexColChild--cms-sidebar-faq:last-child){
+  border-bottom:1px solid #D9D9D9;
+}
+
+:global(.vtex-flex-layout-0-x-flexColChild--ponto-venda) .stretchChildrenWidth{
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.flexColChild--ponto-venda{
+  padding-bottom: 0;
 }
 
 .flexCol--drawer-mobile-content {
@@ -695,6 +735,10 @@
 
 .flexRow--montadora {
   margin: 0px 0;
+}
+
+.flexRowContent--bairro-localizacao{
+  margin-top: 1rem;
 }
 
 /*inserção plataforma e desenvolvimento*/

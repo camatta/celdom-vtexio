@@ -1,0 +1,324 @@
+{
+    "store.custom#faq": {
+      "children": ["flex-layout.row#linha-bread","flex-layout.row#faq"]
+    },
+    "flex-layout.row#faq": {
+      "props": {
+        "blockClass": ["custom-container", "cms-page-container", "cms-faq"]
+      },
+      "children": [
+        "flex-layout.col#side-cms-menu",
+        "flex-layout.col#conteudo-faq"
+      ]
+    },
+  
+    "flex-layout.col#conteudo-faq": {
+      "props": {
+        "blockClass": ["container", "content-cms-teeeste"],
+        "preventVerticalStretch": true
+      },
+      "children": ["rich-text#faq-title", "flex-layout.row#faq-content"]
+    },
+    "rich-text#faq-title": {
+      "props": {
+        "text": "# FAQ",
+        "blockClass": ["cms", "title"]
+      }
+    },
+    "flex-layout.row#faq-content": {
+      "props": {
+        "blockClass": ["flex-column"],
+        "colSizing": "auto"
+      },
+      "children": [
+        
+        "flex-layout.row#menu-cms-faq"
+      ]
+    },
+    "flex-layout.row#menu-cms-faq": {
+      "props": {
+        "blockClass": ["menu-faq"]
+      },
+      "children": [
+        "flex-layout.col#side-menu-cms-page-faq"
+      ]
+    },
+    "flex-layout.col#side-menu-cms-page-faq": {
+    "props": {
+      "blockClass": ["cms-sidebar-faq"]
+    },
+    "children": [
+      "disclosure-layout#menu-faq",
+      "disclosure-layout#menu-faq1",
+      "disclosure-layout#menu-faq2",
+      "disclosure-layout#menu-faq3",
+      "disclosure-layout#menu-faq4",
+      "disclosure-layout#menu-faq5",
+      "disclosure-layout#menu-faq6"
+    ]
+  },
+  
+  "disclosure-layout#menu-faq": {
+    "props": {
+      "blockClass": ["faq-dropdown"]
+    },
+    "children": [
+      "disclosure-trigger#menu-faq",
+      "disclosure-content#menu-faq"
+    ]
+  },
+  "disclosure-layout#menu-faq1": {
+    "props": {
+      "blockClass": ["faq-dropdown"]
+    },
+    "children": [
+      "disclosure-trigger#menu-faq1",
+      "disclosure-content#menu-faq1"
+    ]
+  },
+  "disclosure-layout#menu-faq2": {
+    "props": {
+      "blockClass": ["faq-dropdown"]
+    },
+    "children": [
+      "disclosure-trigger#menu-faq2",
+      "disclosure-content#menu-faq2"
+    ]
+  },
+  "disclosure-layout#menu-faq3": {
+    "props": {
+      "blockClass": ["faq-dropdown"]
+    },
+    "children": [
+      "disclosure-trigger#menu-faq3",
+      "disclosure-content#menu-faq3"
+    ]
+  },
+  "disclosure-layout#menu-faq4": {
+    "props": {
+      "blockClass": ["faq-dropdown"]
+    },
+    "children": [
+      "disclosure-trigger#menu-faq4",
+      "disclosure-content#menu-faq4"
+    ]
+  },
+  "disclosure-layout#menu-faq5": {
+    "props": {
+      "blockClass": ["faq-dropdown"]
+    },
+    "children": [
+      "disclosure-trigger#menu-faq5",
+      "disclosure-content#menu-faq5"
+    ]
+  },
+  "disclosure-layout#menu-faq6": {
+    "props": {
+      "blockClass": ["faq-dropdown"]
+    },
+    "children": [
+      "disclosure-trigger#menu-faq6",
+      "disclosure-content#menu-faq6"
+    ]
+  },
+  "disclosure-trigger#menu-faq": {
+    "children": [
+      "rich-text#menu-title-faq"
+    ],
+    "props": {
+      "blockClass": ["faq-trigger"]
+    }
+  },
+  "disclosure-trigger#menu-faq1": {
+    "children": [
+      "rich-text#menu-title-faq1"
+    ],
+    "props": {
+      "blockClass": ["faq-trigger"]
+    }
+  },
+  "disclosure-trigger#menu-faq2": {
+    "children": [
+      "rich-text#menu-title-faq2"
+    ],
+    "props": {
+      "blockClass": ["faq-trigger"]
+    }
+  },
+  "disclosure-trigger#menu-faq3": {
+    "children": [
+      "rich-text#menu-title-faq3"
+    ],
+    "props": {
+      "blockClass": ["faq-trigger"]
+    }
+  },
+  "disclosure-trigger#menu-faq4": {
+    "children": [
+      "rich-text#menu-title-faq4"
+    ],
+    "props": {
+      "blockClass": ["faq-trigger"]
+    }
+  },
+  "disclosure-trigger#menu-faq5": {
+    "children": [
+      "rich-text#menu-title-faq5"
+    ],
+    "props": {
+      "blockClass": ["faq-trigger"]
+    }
+  },
+  "disclosure-trigger#menu-faq6": {
+    "children": [
+      "rich-text#menu-title-faq6"
+    ],
+    "props": {
+      "blockClass": ["faq-trigger"]
+    }
+  },
+
+  "disclosure-content#menu-faq": {
+    "props": {
+      "blockClass": ["faq-dropdown-content"]
+    },
+    "children": [
+      "rich-text#menu-texto"
+    ]
+  },
+    
+  "disclosure-content#menu-faq1": {
+    "props": {
+      "blockClass": ["faq-dropdown-content"]
+    },
+    "children": [
+      "rich-text#menu-texto1"
+    ]
+  },
+  "disclosure-content#menu-faq2": {
+    "props": {
+      "blockClass": ["faq-dropdown-content"]
+    },
+    "children": [
+      "rich-text#menu-texto2"
+    ]
+  },
+  "disclosure-content#menu-faq3": {
+    "props": {
+      "blockClass": ["faq-dropdown-content"]
+    },
+    "children": [
+      "rich-text#menu-texto3"
+    ]
+  },
+  "disclosure-content#menu-faq4": {
+    "props": {
+      "blockClass": ["faq-dropdown-content"]
+    },
+    "children": [
+      "rich-text#menu-texto4"
+    ]
+  },
+  "disclosure-content#menu-faq5": {
+    "props": {
+      "blockClass": ["faq-dropdown-content"]
+    },
+    "children": [
+      "rich-text#menu-texto5"
+    ]
+  },
+  "disclosure-content#menu-faq6": {
+    "props": {
+      "blockClass": ["faq-dropdown-content"]
+    },
+    "children": [
+      "rich-text#menu-texto6"
+    ]
+  },
+  "rich-text#menu-title-faq": {
+    "props": {
+      "text": "Os produtos têm garantia? Como funciona?",
+      "blockClass": ["current-page-faq"]
+    }
+  },
+  "rich-text#menu-title-faq1": {
+    "props": {
+      "text": "Vocês oferecem serviço de instalação dos produtos?",
+      "blockClass": ["current-page-faq"]
+    }
+  },
+  "rich-text#menu-title-faq2": {
+    "props": {
+      "text": "Os móveis são feitos sob medida ou têm tamanhos padrão?",
+      "blockClass": ["current-page-faq"]
+    }
+  },
+  "rich-text#menu-title-faq3": {
+    "props": {
+      "text": "Quais são os prazos de entrega?",
+      "blockClass": ["current-page-faq"]
+    }
+  },
+  "rich-text#menu-title-faq4": {
+    "props": {
+      "text": "É possível agendar a entrega para um dia específico?",
+      "blockClass": ["current-page-faq"]
+    }
+  },
+  "rich-text#menu-title-faq5": {
+    "props": {
+      "text": "Qual o prazo de aprovação do pedido?",
+      "blockClass": ["current-page-faq"]
+    }
+  },
+  "rich-text#menu-title-faq6": {
+    "props": {
+      "text": "Quais canais de atendimento e horários?",
+      "blockClass": ["current-page-faq"]
+    }
+  },
+  "rich-text#menu-texto": {
+    "props": {
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "blockClass": ["current-text-faq"]
+    }
+  },
+  "rich-text#menu-texto1": {
+    "props": {
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "blockClass": ["current-text-faq"]
+    }
+  },
+  
+  "rich-text#menu-texto2": {
+    "props": {
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "blockClass": ["current-text-faq"]
+    }
+  },
+  "rich-text#menu-texto3": {
+    "props": {
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "blockClass": ["current-text-faq"]
+    }
+  },
+  "rich-text#menu-texto4": {
+    "props": {
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "blockClass": ["current-text-faq"]
+    }
+  },
+  "rich-text#menu-texto5": {
+    "props": {
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "blockClass": ["current-text-faq"]
+    }
+  },
+  "rich-text#menu-texto6": {
+    "props": {
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "blockClass": ["current-text-faq"]
+    }
+  }
+  }
+  

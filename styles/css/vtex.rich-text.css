@@ -236,9 +236,6 @@
   line-height: 16px;
 }
 
-.paragraph--cmstopo {
-  padding-left: 27px;
-}
 .paragraph--cmsbread2 {
   color: #212121;
   font-size: 12px;
@@ -255,6 +252,8 @@
   left: -4px;
   top: 4px;
 }
+
+/*
 .link--cmstopo::before { 
   content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cmask id='mask0_194_8322' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='24' height='24'%3E%3Crect width='24' height='24' fill='%23263572'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_194_8322)'%3E%3Cpath d='M6 19H9V13H15V19H18V10L12 5.5L6 10V19ZM4 21V9L12 3L20 9V21H13V15H11V21H4Z' fill='%23263572'/%3E%3C/g%3E%3C/svg%3E");
   line-height: 0;
@@ -262,8 +261,9 @@
   left: 11px;
   top: 16px;
 }
+*/
 
-/* PÁGINA DO PRODUTO */
+/* PÁGINAS CMS*/
 .paragraph--shipping-simulator-text {
   display: flex;
   align-items: center;
@@ -282,12 +282,15 @@
   margin-bottom: 32px;
 }
 .headingLevel1--cms,
-.headingLevel2--cms,
 .headingLevel3--cms,
 .headingLevel4--cms {
   font-weight: 700;
-  color: #263572;
+  color: #1C1C1C;
   margin: 0;
+}
+.headingLevel2--cms{
+  font-size:16px;
+  color:#FE5000;
 }
 .headingLevel1--cms {
   font-size: 20px;
@@ -298,14 +301,23 @@
   font-size: 14px;
   line-height: 19px;
 }
+
+:global(.vtex-render__container-id-politicas-de-privacidade) .headingLevel2--cms{
+  margin-bottom: 0;
+}
+
 .paragraph--cms, .link--cms {
   margin: 0;
   font-size: 14px;
   line-height: 21px;
 }
-.paragraph--cms .link--cms, .link--cms {
-  color: #263572;
-  font-weight: 700;
+:global(.vtex-render__container-id-politicas-de-privacidade) .paragraph--cms{
+  margin-top: 0!important
+}
+.paragraph--cms .link--cms, .link--cms{
+  color:#2D2926;
+  font-weight: 400;
+  font-size: 14px;
   text-decoration: inherit;
 }
 .italic--cms {
@@ -387,6 +399,13 @@
   border-bottom: 1px solid #ababab;
 }
 
+.container--cms-fim{
+  border-top:1px solid #A2A2A2;
+  border-bottom:1px solid #A2A2A2;
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+
 :global(.vtex-menu-2-x-menuContainerNav) .wrapper--sac-group-btn  {
   margin-top: 8px;
 }
@@ -421,6 +440,66 @@
   top: 20px;
 }
 /*fim inclusão borda título*/
+
+/*PÁGINAS INSTITUCIONAIS*/
+
+.heading--side-cms-menu-title{
+  color:#1C1C1C;
+}
+
+.paragraph--current-page-faq{
+  font-size: 16px;
+  color:#2D2926;
+  font-weight: 700;
+}
+
+.paragraph--cms-vendas{
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+.container--texto-infos{
+  margin-top: 0;
+  padding-top: 0.2rem;
+  border-top: 1px solid #D9D9D9;
+  font-size: 14px;
+}
+
+:global(.vtex-rich-text-0-x-wrapper--current-text-faq) .paragraph--current-page-faq{
+  font-size: 14px;
+  font-weight: 400;
+}
+
+:global(.vtex-rich-text-0-x-wrapper--cms-vendas) .italic--cms-vendas{
+  background:transparent;
+  font-weight: 700;
+  color:#FE5000;
+  padding: 0;
+  font-style:unset;
+}
+
+.container--localizacao{
+  align-items: center;
+  text-align: right;
+  justify-content: flex-end;
+  width: fit-content !important;
+  padding: 13px 15px;
+  height: 27px;
+  border: 1px solid rgb(236, 236, 236);
+  font-size: 14px;
+  border-radius: 40px;
+}
+
+:global(.vtex-rich-text-0-x-link--localizacao){
+  text-decoration: none;
+  color:#2D2926;
+}
+
+.container--localizacao::before{
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' viewBox='0 0 19 19' fill='none'%3E%3Cpath d='M9.09164 17.8481C9.20643 17.955 9.35289 18.0104 9.49935 18.0104C9.64581 18.0104 9.79227 17.955 9.90706 17.8481C10.1723 17.5948 16.4264 11.6256 16.4264 7.91665C16.4264 4.09685 13.3191 0.989563 9.49935 0.989563C5.67956 0.989563 2.57227 4.09685 2.57227 7.91665C2.57227 11.6256 8.82643 17.5948 9.09164 17.8481ZM9.49935 2.17706C12.666 2.17706 15.2389 4.74998 15.2389 7.91665C15.2389 10.3827 11.4152 14.6854 9.49935 16.5894C7.58352 14.6854 3.75977 10.3866 3.75977 7.91665C3.75977 4.74998 6.33268 2.17706 9.49935 2.17706Z' fill='%232D2926'/%3E%3Cpath d='M12.4688 7.91663C12.4688 6.27788 11.1388 4.94788 9.5 4.94788C7.86125 4.94788 6.53125 6.27788 6.53125 7.91663C6.53125 9.55538 7.86125 10.8854 9.5 10.8854C11.1388 10.8854 12.4688 9.55538 12.4688 7.91663ZM7.71875 7.91663C7.71875 6.93496 8.51833 6.13538 9.5 6.13538C10.4817 6.13538 11.2812 6.93496 11.2812 7.91663C11.2812 8.89829 10.4817 9.69788 9.5 9.69788C8.51833 9.69788 7.71875 8.89829 7.71875 7.91663Z' fill='%232D2926'/%3E%3C/svg%3E");
+  padding-top:5px;
+  padding-right: 5px;
+}
 
 @media screen and (max-width: 1025px) {
   .heading--shelf-title {
