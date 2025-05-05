@@ -710,6 +710,7 @@
 
 .flexColChild--ponto-venda{
   padding-bottom: 0;
+  height: auto;
 }
 
 .flexCol--drawer-mobile-content {
@@ -799,7 +800,7 @@
     margin-left: 0;
   }
   .flexRow--cms-page-container {
-    margin-top: 10px;
+    margin-top: 0px;
   }
   .flexRow--search-products-container {
     margin-bottom: 50px;
@@ -928,6 +929,26 @@
 }
 
 @media (max-width: 991px) {
+
+  /*Páginas institucionais*/
+
+  .flexRowContent--bairro-localizacao{
+    display: flex;
+  }
+
+  .flexRowContent--bairro-localizacao{
+    margin-top: 1.5rem;
+  }
+
+  .flexRowContent--vendas-pontos{
+    margin-top: 0.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .flexRow--linha-breadcms {
+    display: none!important;
+  }
+
   .flexRowContent--product-tags-pdp {
     display: flex;
   }
@@ -971,8 +992,21 @@
     align-items: center;
     gap: 40px;
   }
+
+  .flexRowContent--box2{
+    padding-top:unset;
+    margin-top:2.5rem;
+    border-top:unset;
+  }
+
+  /*
   .flexCol--side-cms-menu {
     display: none;
+  }
+    */
+
+  .flexCol--side-cms-menu{
+    margin-bottom: 2rem;
   }
   .flexRowContent--controle-share {
     display: flex;

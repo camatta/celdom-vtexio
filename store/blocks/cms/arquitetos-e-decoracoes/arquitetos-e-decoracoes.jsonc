@@ -33,7 +33,8 @@
       },
       "children": [
         "rich-text#arquitetos-e-decoracoes",
-        "image#img-institucional-deco"
+        "image#img-institucional-deco",
+        "image#img-institucional-deco-mob"
       ]
     },
     "rich-text#arquitetos-e-decoracoes": {
@@ -50,6 +51,19 @@
              "props": {
              "blockClass": "institucional-deco",
              "src": "assets/institucional/decoracoes.jpg",
+             "alt": "Celdom",
+             "link": {
+             "url": "/"
+   
+            }
+        }
+    },
+    "image#img-institucional-deco-mob": {
+ 
+             "title": "Celdom loja",
+             "props": {
+             "blockClass": "institucional-deco-mob",
+             "src": "assets/institucional/decoracoesmob.jpg",
              "alt": "Celdom",
              "link": {
              "url": "/"

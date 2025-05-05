@@ -279,7 +279,7 @@
 }
 
 .container--title {
-  margin-bottom: 32px;
+  margin-bottom: 1rem;
 }
 .headingLevel1--cms,
 .headingLevel3--cms,
@@ -291,6 +291,7 @@
 .headingLevel2--cms{
   font-size:16px;
   color:#FE5000;
+  margin-bottom: 1.4rem;
 }
 .headingLevel1--cms {
   font-size: 20px;
@@ -318,7 +319,7 @@
   color:#2D2926;
   font-weight: 400;
   font-size: 14px;
-  text-decoration: inherit;
+  text-decoration: underline;
 }
 .italic--cms {
   margin: 8px 8px 12px 0;
@@ -562,10 +563,51 @@
   .headingLevel4--marcas-title.headingLevel4--montadora-title::before {
     width: 300px;
   }
+
+  /*Páginas institucionais*/
+
+  .heading--side-cms-menu-title::before {
+    content: 'Nossa história';
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+  }
+
+  :global(.vtex-render__container-id-faq) .heading--side-cms-menu-title::before{
+    content:'FAQ'!important;
+  }
+
+  :global(.vtex-flex-layout-0-x-flexRowContent--cms-frete) .heading--side-cms-menu-title::before{
+    content:'Política de frete'!important;
+  }
+
+  :global(.vtex-flex-layout-0-x-flexRowContent--cms-vendas) .heading--side-cms-menu-title::before{
+    content:'Pontos de Vendas'!important;
+  }
+
+  :global(.vtex-flex-layout-0-x-flexRowContent--cms-trocas-e-devolucoes) .heading--side-cms-menu-title::before{
+    content:'Políticas de Garantia'!important;
+  }
+
+  :global(.vtex-flex-layout-0-x-flexRowContent--cms-pagamento) .heading--side-cms-menu-title::before{
+    content:'Formas de Pagamento'!important;
+  }
+
+  :global(.vtex-flex-layout-0-x-flexRowContent--cms-privacidade) .heading--side-cms-menu-title::before{
+    content:'Políticas de Privacidade'!important;
+  }
+
+  :global(.vtex-flex-layout-0-x-flexRowContent--cms-termos) .heading--side-cms-menu-title::before{
+    content:'Termos de uso'!important;
+  }
   
+  :global(.vtex-flex-layout-0-x-flexRowContent--cms-arquitetura-decoracao) .heading--side-cms-menu-title::before{
+    content:'Arquitetos e Decoradores'!important;
+  }
 }
 
 @media (max-width: 991px) {
+  
   .container--newsletter-cta {
     justify-content: center;
   }
@@ -576,6 +618,18 @@
 
   .paragraph--textocompa {
     margin: 0;
+  }
+
+  /*Páginas institucionais*/
+
+  :global(.vtex-disclosure-layout-1-x-content--visible) .paragraph{
+    font-size: 14px;
+    color:#2D2926;
+    margin-top: 0;
+  }
+
+  .heading-level-2{
+    font-size: 16px;
   }
 }
 

@@ -94,7 +94,7 @@
   "image#jardins2": { "props": { "src": "assets/institucional/celdom.jpg", "alt": "Jardins 2" } },
   "image#jardins3": { "props": { "src": "assets/institucional/celdom.jpg", "alt": "Jardins 3" } },
   "rich-text#jardins-titulo": { "props": { "text": "Jardins<br>**São Paulo/SP**" } },
-  "rich-text#jardins-contato": { "props": { "blockClass": ["texto-infos"], "text": "**E-mail:** lojajardins@celdom.com.br \n **Telefone:** lojajardins@celdom.com.br \n **Telefone/WhatsApp:** (11) 98977-3757 \n Seg a Sex 10h as 19h \n Sáb 10h às 16h" } },
+  "rich-text#jardins-contato": { "props": { "blockClass": ["texto-infos"], "text": "**E-mail:** lojajardins@celdom.com.br \n **Telefone:** (11) 3135-9990 \n **Telefone/WhatsApp:** (11) 98977-3757 \n Seg a Sex 10h as 19h \n Sáb 10h às 16h" } },
 
   "flex-layout.col#barra": {
     "props": { "blockClass": ["ponto-venda"] },

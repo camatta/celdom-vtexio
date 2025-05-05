@@ -320,10 +320,15 @@
   border-radius: 8px;
 }
 
-.imageElement--institucional-deco{
+.imageElement--institucional-deco, .imageElement--institucional-deco-mob{
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top:1px solid #D9D9D9; 
+  border-top:1px solid #D9D9D9;
+  width: 100%; 
+}
+
+.imageElement--institucional-deco-mob{
+  display: none;
 }
 
 /*custom carrossel marcas*/
@@ -425,6 +430,7 @@
 }
 
 @media screen and (max-width: 991px) {
+
   .swiperCaret--pdp {
     margin: 0 4px;
   }
@@ -477,4 +483,19 @@
     border-radius: 10px 10px 0 0;
     overflow: hidden;
   }
+
+  /*Páginas institucionais*/
+
+  .imageElement--institucional{
+    width:100%;
+  }
+
+  .imageElement--institucional-deco{
+    display: none;
+  }
+
+  .imageElement--institucional-deco-mob{
+    display:block;
+  }
+
 }

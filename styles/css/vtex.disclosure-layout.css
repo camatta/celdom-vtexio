@@ -51,26 +51,49 @@
 @media (max-width: 1025px) {
   .trigger--cms-menu {
     pointer-events: initial;
-    padding: 10px 30px;
-    border: 1px solid #1a1a1a;
-    border-radius: 6px;
+    padding: 12px 0px;
+    width: 100%;
+  }
+
+  .trigger--cms-menu--hidden::before, .trigger--cms-menu--hidden::after{
+    content: '';
+    width: 15px;
+    height: 46px;
+    background: #F3F3F3;
+    position: absolute;
+    top: 0;
+  }
+
+  .trigger--cms-menu--hidden::before{
+    left: 0;
+  }
+
+  .trigger--cms-menu--hidden::after{
+    right:0;
+  }
+
+  .trigger--cms-menu{
+    background:#F3F3F3;
   }
 
   :global(.vtex-rich-text-0-x-heading--side-cms-menu-title) {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
     gap: 30px;
     font-size: 0;
     line-height: 0;
   }
-  :global(.vtex-rich-text-0-x-heading--side-cms-menu-title)::before {
-    content: 'Navegue pelo menu';
-    font-size: 16px;
-    line-height: 22px;
+  :global(.vtex-rich-text-0-x-container--side-cms-menu-title) .wrapper--side-cms-menu-title{
+    width: 100%!important;
   }
   :global(.vtex-rich-text-0-x-heading--side-cms-menu-title)::after {
     content: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' fill='none'%3E%3Cpath d='M5.93 6.81l4.894-5.302A.675.675 0 0011 1.047a.675.675 0 00-.176-.461l-.36-.39a.57.57 0 00-.851 0l-4.11 4.452L1.386.19A.575.575 0 00.962 0a.576.576 0 00-.426.19l-.36.39A.676.676 0 000 1.043c0 .174.062.338.176.46l4.9 5.308a.576.576 0 00.853 0z' fill='%234F4F4F'/%3E%3C/svg%3E");
     transition: all 0.3s ease-in-out;
+  }
+  :global(.vtex-rich-text-0-x-wrapper--side-cms-menu-title){
+    width: 100%;
   }
   .trigger--cms-menu--visible
     :global(.vtex-rich-text-0-x-heading--side-cms-menu-title)::after {

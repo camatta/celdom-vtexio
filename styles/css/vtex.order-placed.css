@@ -18,11 +18,11 @@
 }
 
 .confirmationIconWrapper::before {
-  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none'%3E%3Cg clip-path='url(%23clip0_571_18488)'%3E%3Cpath d='M39.0281 17.6428L36.3 14.9152C35.6525 14.2677 35.1219 12.9882 35.1219 12.0706V8.21311C35.1219 6.37811 33.6229 4.87906 31.7884 4.87809H27.9293C27.0128 4.87809 25.7318 4.34653 25.0843 3.69955L22.3567 0.971955C21.0606 -0.324066 18.9386 -0.324066 17.6426 0.971955L14.915 3.7015C14.267 4.34897 12.9845 4.87906 12.0699 4.87906H8.21244C6.37988 4.87906 4.87888 6.37811 4.87888 8.21311V12.0707C4.87888 12.9847 4.3484 14.2682 3.70083 14.9153L0.972748 17.6429C-0.324249 18.9389 -0.324249 21.0609 0.972748 22.359L3.70083 25.0866C4.34879 25.7341 4.87888 27.0171 4.87888 27.9312V31.7888C4.87888 33.6218 6.37988 35.1228 8.21244 35.1228H12.07C12.9866 35.1228 14.2675 35.6533 14.9151 36.3004L17.6427 39.0289C18.9387 40.324 21.0607 40.324 22.3568 39.0289L25.0844 36.3004C25.7324 35.6529 27.0129 35.1228 27.9294 35.1228H31.7885C33.623 35.1228 35.122 33.6218 35.122 31.7888V27.9312C35.122 27.0132 35.653 25.7337 36.3001 25.0866L39.0282 22.359C40.3231 21.0609 40.3231 18.9388 39.0281 17.6428ZM17.3536 27.5005L9.999 20.1449L12.3561 17.7883L17.3542 22.7864L27.6429 12.5002L29.9994 14.8568L17.3536 27.5005Z' fill='%23263572'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_571_18488'%3E%3Crect width='40' height='40' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none'%3E%3Cg clip-path='url(%23clip0_14001_8951)'%3E%3Cpath d='M39.0281 17.6428L36.3 14.9152C35.6525 14.2677 35.1219 12.9882 35.1219 12.0706V8.21311C35.1219 6.37811 33.6229 4.87906 31.7884 4.87809H27.9293C27.0128 4.87809 25.7318 4.34653 25.0843 3.69955L22.3567 0.971955C21.0606 -0.324066 18.9386 -0.324066 17.6426 0.971955L14.915 3.7015C14.267 4.34897 12.9845 4.87906 12.0699 4.87906H8.21244C6.37988 4.87906 4.87888 6.37811 4.87888 8.21311V12.0707C4.87888 12.9847 4.3484 14.2682 3.70083 14.9153L0.972748 17.6429C-0.324249 18.9389 -0.324249 21.0609 0.972748 22.359L3.70083 25.0866C4.34879 25.7341 4.87888 27.0171 4.87888 27.9312V31.7888C4.87888 33.6218 6.37988 35.1228 8.21244 35.1228H12.07C12.9866 35.1228 14.2675 35.6533 14.9151 36.3004L17.6427 39.0289C18.9387 40.324 21.0607 40.324 22.3568 39.0289L25.0844 36.3004C25.7324 35.6529 27.0129 35.1228 27.9294 35.1228H31.7885C33.623 35.1228 35.122 33.6218 35.122 31.7888V27.9312C35.122 27.0132 35.653 25.7337 36.3001 25.0866L39.0282 22.359C40.3231 21.0609 40.3231 18.9388 39.0281 17.6428ZM17.3536 27.5005L9.999 20.1449L12.3561 17.7883L17.3542 22.7864L27.6429 12.5002L29.9994 14.8568L17.3536 27.5005Z' fill='%23FE5000'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_14001_8951'%3E%3Crect width='40' height='40' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
 }
 
 .confirmationTitle {
-  color: #263572;
+  color: #1C1C1C;
   font-size: 24px;
   font-weight: 700;
   line-height: normal;
@@ -39,22 +39,25 @@
 }
 
 .section--confirmation :global(.vtex-button) {
-  border-radius: 0px;
+  border-radius: 50px;
   border: 0;
   background: transparent;
   min-height: initial;
-  box-shadow: inset 0 0 0 1px #263572;
-  padding: 8px 16px !important;
-  color: #1a1a1a;
+  box-shadow: inset 0 0 0 1px #2D2926;
+  padding: 8px 25px !important;
+  color: #2D2926;
   font-size: 14px;
   font-weight: 700;
   line-height: 17px;
   text-transform: initial;
   transition: all 0.3s ease-in-out;
 }
+.section--confirmation :global(.vtex-button):hover{
+  background:#FE5000;
+}
 .section--confirmation :global(.vtex-button__label) {
   padding: 0 !important;
-  color: #263572;
+  color: #2D2926;
 }
 
 .orderPlacedMainWrapper {
@@ -75,10 +78,10 @@
 .orderPlacedMainWrapper .orderOptionsWrapper :global(.vtex-button) {
   min-height: initial;
   border: 0;
-  border-radius: 0 !important;
+  border-radius: 50px !important;
   background: transparent;
   padding: 8px 16px;
-  box-shadow: inset 0 0 0 1px #263572;
+  box-shadow: inset 0 0 0 1px #2D2926;
   border-radius: 6px;
   color: #1a1a1a;
   font-size: 14px;
@@ -87,9 +90,14 @@
   text-transform: initial;
   transition: all 0.3s ease-in-out;
 }
+
+.orderPlacedMainWrapper .orderOptionsWrapper :global(.vtex-button):hover{
+  background: #FE5000!important;
+}
+
 .orderOptionsWrapper :global(.vtex-button__label) {
   padding: 0 !important;
-  color: #263572;
+  color: #2D2926;
 }
 .updateOrderButton,
 .myOrdersButton {
@@ -98,7 +106,7 @@
 .cancelOrderButton :global(.vtex-button__label) {
   box-shadow: none;
   padding: 8px 0;
-  color: #263572;
+  color: #1C1C1C;
   font-weight: 400;
   border: 0;
 }
