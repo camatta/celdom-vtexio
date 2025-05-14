@@ -9,6 +9,14 @@
     "composition": "children"
   },
 
+   "minicart-coupon": {
+    "component": "MinicartCoupon"
+  },
+    
+  "minicart-subtotal": {
+    "component": "MinicartSubtotal"
+  }, 
+
   "product-model": {
     "component": "ProductModel"
   },

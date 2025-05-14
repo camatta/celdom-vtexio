@@ -21,25 +21,43 @@
     "blocks": ["minicart-empty-state"],
     "children": ["minicart-product-list", "flex-layout.row#minicart-footer"]
   },
+
   "flex-layout.row#minicart-footer": {
     "props": {
       "blockClass": "minicart-footer"
     },
-    "children": ["flex-layout.col#minicart-footer"]
+    "children": ["flex-layout.col#coupon-subtotal", "flex-layout.col#minicart-footer"]
   },
+
+  "flex-layout.col#coupon-subtotal": {
+    "props": {
+      "blockClass": "coupon-subtotal-wrapper"
+    },
+    "children": [
+      "minicart-summary",
+      "rich-text#title-cupom",
+      "minicart-subtotal",
+      "minicart-coupon"
+    ]
+  },
+
+  "rich-text#title-cupom": {
+    "props": {
+      "blockClass": "title-cupom",
+      "text": "Adicionar cupom de desconto"
+    }
+  },
+
   "flex-layout.col#minicart-footer": {
-    "children": ["minicart-summary", "minicart-checkout-button"]
+    "children": ["minicart-checkout-button"]
   },
+
   "minicart-product-list": {
     "blocks": ["product-list#minicart"]
   },
+
   "minicart-summary": {
     "blocks": ["checkout-summary.compact#minicart"]
-  },
-  "minicart-checkout-button": {
-    "props": {
-      "finishShoppingButtonLink": "/checkout/#/cart"
-    }
   },
 
   "checkout-summary.compact#minicart": {
@@ -49,6 +67,7 @@
       "blockClass": ["minicart"]
     }
   },
+
   "summary-totalizers#minicart": {
     "props": {
       "showTotal": false,
@@ -56,12 +75,21 @@
       "blockClass": ["minicart"]
     }
   },
+
+  "minicart-checkout-button": {
+    "props": {
+      "finishShoppingButtonLink": "/checkout/#/cart"
+    }
+  },
+
   "minicart-empty-state": {
     "children": ["flex-layout.row#empty-state"]
   },
+
   "flex-layout.row#empty-state": {
     "children": ["flex-layout.col#empty-state"]
   },
+
   "flex-layout.col#empty-state": {
     "children": [
       "icon-cart#minicart-empty-state",
@@ -72,6 +100,7 @@
       "verticalAlign": "middle"
     }
   },
+
   "icon-cart#minicart-empty-state": {
     "props": {
       "size": 48,
@@ -79,6 +108,7 @@
       "blockClass": "minicart-empty-state"
     }
   },
+
   "rich-text#minicart-default-empty-state": {
     "props": {
       "text": "Carrinho vazio."
