@@ -23,8 +23,8 @@
     "path": "/formas-pagamento"
   },
 
-  "store.custom#termos-de-uso": {
-    "path": "/termos-de-uso"
+  "store.custom#trocas-e-devolucoes": {
+    "path": "/trocas-e-devolucoes"
   },
 
   "store.custom#arquitetos-e-decoracoes": {

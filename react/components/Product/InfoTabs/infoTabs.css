@@ -1,7 +1,5 @@
 .productInfoTabs {
-  padding: 40px 0 0;
-  margin-top: 40px;
-  border-top: 1px solid #d9d9d9;
+  padding: 50px 0 0;
 }
 
 .tabHeader {
@@ -18,7 +16,7 @@
   padding: 7px 16px;
   border-radius: 4px;
   background: transparent;
-  border: 1px solid #d9d9d9;
+  border: 1px solid #CCCCCC;
   color: #696969;
   font-size: 16px;
   font-weight: 700;
@@ -29,17 +27,15 @@
 }
 .infoControl.active,
 .infoControl:hover {
-  color: #EA5A1C;
-  border-color: #EA5A1C;
-  font-family: DM Sans, sans-serif;
+  color: #2D2926;
+  border-color: #FE5000;
 }
 
 .tabContent {
-  background: #fff;
+  padding-top: 24px;
   font-size: 14px;
   line-height: 20px;
-  color: #101010;
-  position: relative;
+  color: #2D2926;
 }
 .tabContent p {
   margin: 0;
@@ -48,134 +44,60 @@
   margin-top: 15px;
 }
 
-.tabContent a[href$='.pdf'] {
+.downloadButton {
   display: inline-block;
-  padding: 12px 18px 12px 40px;
-  border: 1px solid #000;
+  width: 188px;
+  height: 34px;
+  background-color: #FE5000;
+  color: #000000;
   font-size: 14px;
-  line-height: 18px;
-  color: #000;
+  font-weight: 700;
+  text-align: center;
   text-decoration: none;
+  border: none;
+  border-radius: 40px;
+  line-height: 34px;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.contentBox {
+  max-height: 300px;
+  overflow: hidden;
   position: relative;
-  z-index: 0;
-}
-.tabContent a[href$='.pdf']::before {
-  content: '';
-  position: absolute;
-  z-index: 0;
-  width: 14px;
-  height: 14px;
-  background: url(../../../assets/icons/download.svg);
-  top: 50%;
-  left: 18px;
-  transform: translate(0, -50%);
+  transition: max-height 0.3s ease;
 }
 
-/*nova alteração tabs*/
-  .productInfoTabs {
-    display: flex;
-    background: #fff;
-    border-top: 0;
-    border-radius: 0;
-    padding: 20px;
-  }
-  .tabHeader {
-    text-wrap: auto;
-    overflow-x: inherit;
-    display: block;
-  }
-  .infoControl:hover {
-    border: 0;
-    color: #101010;
-  }
-  .infoControl { 
-    border: 0;
-    color: #101010;
-    font-size: 16px;
-    font-weight: 400;
-  }
-  .infoControl.active {
-    color: #263572;
-    border: 0;
-    padding: 0;
-    font-size: 18px;
-    border-radius: 0;
-    font-weight: 700;
-    position: relative;
-  }
-  .infoControl.active::before {
-    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cmask id='mask0_10285_3668' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='12' height='12'%3E%3Crect x='12' y='12' width='12' height='12' transform='rotate(180 12 12)' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_10285_3668)'%3E%3Cpath d='M4 0.999999L9 6L4 11L3.1125 10.1125L7.225 6L3.1125 1.8875L4 0.999999Z' fill='%23263572'/%3E%3C/g%3E%3C/svg%3E");
-    position: absolute;
-    z-index: 0;
-    width: 12px;
-    height: 12px;
-    top: 1%;
-    right: -27px;
-  }
-  .infoControl, .infoControl.active {
-    padding: 0;
-    margin-bottom: 1.3rem;
-  }
-  .tabContent {
-    min-height: 180px;
-    max-width: 780px;
-  }
-  .tabContent:before {
-    content: '';
-    background: #263572;
-    width: 1px;
-    height: 180px;
-    display: inline-block;
-    top: 5px;
-    left: -22px;
-    position: absolute;
-  }
-/*fim nova alteração tabs*/
+.expanded {
+  max-height: none;
+}
 
-@media (min-width: 1000px) {
-  .productInfoTabs{
-    justify-content: space-between;
-  }
-  .tabContent {
-    width: 780px;
-  }
+.seeMoreButton {
+  margin-top: 12px;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: transparent;
+  color: #2D2926;
+  border: none;
+  cursor: pointer;
+  border-bottom: 1px solid #2D2926;
 }
 
 @media (max-width: 991px) {
   .productInfoTabs {
     border: 0;
-    display: block;
+    padding: 0;
   }
 
-  .infoControl, .infoControl.active {
-    font-size: 14px;
+  .infoControl {
+    font-size: 12px;
+    line-height: 16px;
   }
 
   .tabContent {
+    font-size: 12px;
     padding: 24px 0 0;
   }
-
-  .tabHeader {
-    display: flex;
-    gap: 36px;
-  }
-
-  .tabContent:before {
-    width: 100%;
-    height: 1px;
-    top: -5px;
-    left: -4px;
-  }
-
-  .infoControl.active::before {
-    transform: rotateZ(90deg);
-    top: 22%;
-  }
-}
-
-@media (max-width: 400px) { 
-  .infoControl, .infoControl.active {
-    font-size: 12px;
-  }
-
 }

@@ -26,7 +26,7 @@
     "props": {
       "blockClass": "minicart-footer"
     },
-    "children": ["flex-layout.col#coupon-subtotal", "flex-layout.col#minicart-footer"]
+    "children": ["flex-layout.col#coupon-subtotal"]
   },
 
   "flex-layout.col#coupon-subtotal": {
@@ -34,18 +34,10 @@
       "blockClass": "coupon-subtotal-wrapper"
     },
     "children": [
-      "minicart-summary",
-      "rich-text#title-cupom",
       "minicart-subtotal",
-      "minicart-coupon"
+      "minicart-coupon",
+      "minicart-summary"
     ]
-  },
-
-  "rich-text#title-cupom": {
-    "props": {
-      "blockClass": "title-cupom",
-      "text": "Adicionar cupom de desconto"
-    }
   },
 
   "flex-layout.col#minicart-footer": {
@@ -61,7 +53,7 @@
   },
 
   "checkout-summary.compact#minicart": {
-    "children": ["summary-totalizers#minicart"],
+    "children": ["summary-totalizers#minicart","flex-layout.col#minicart-footer"],
     "props": {
       "totalizersToShow": ["Items"],
       "blockClass": ["minicart"]

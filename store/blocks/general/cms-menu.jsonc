@@ -25,7 +25,7 @@
       "menu-item#trocas",
       "menu-item#formas-pagamento",
       "menu-item#privacidade",
-      "menu-item#termos",
+      "menu-item#trocas-e-devolucoes",
       "menu-item#arquitetos-e-decoracoes"
 
     ]
@@ -149,19 +149,19 @@
     }
   },
 
-  "menu-item#termos": {
+  "menu-item#trocas-e-devolucoes": {
     "props": {
-      "id": "menu-item-termos",
-      "blockClass": "menu-item-termos",
+      "id": "menu-item-trocas-e-devolucoes",
+      "blockClass": "menu-item-trocas-e-devolucoes",
       "type": "custom",
       "iconId": null,
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/termos-de-uso",
+        "href": "/trocas-e-devolucoes",
         "noFollow": false,
-        "tagTitle": "Termos de uso",
-        "text": "Termos de uso"
+        "tagTitle": "Trocas e Devoluções",
+        "text": "Trocas e Devoluções"
       }
     }
   },
@@ -177,8 +177,8 @@
         "type": "internal",
         "href": "/arquitetos-e-decoracoes",
         "noFollow": false,
-        "tagTitle": "Arquitetos e decoradores",
-        "text": "Arquitetos e decoradores"
+        "tagTitle": "Arquitetos e Decoradores",
+        "text": "Arquitetos e Decoradores"
       }
     }
   }

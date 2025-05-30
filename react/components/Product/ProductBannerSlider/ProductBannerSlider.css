@@ -1,0 +1,9 @@
+.bannerSliderContainer {
+  padding: 0 15px !important;
+}
+
+@media (max-width: 991px) {
+  .bannerSliderContainer {
+    padding: 0 !important;
+  }
+}

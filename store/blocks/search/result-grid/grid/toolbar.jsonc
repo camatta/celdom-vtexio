@@ -5,9 +5,16 @@
       "colSizing": "auto"
     },
     "children": [
-      "flex-layout.col#search-title",
-      "flex-layout.col#order-by-and-switcher"
+      "flex-layout.row#search-title",
+      "flex-layout.row#filters"
     ]
+  },
+
+  "flex-layout.row#filters": {
+    "props": {
+      "blockClass": "filters"
+    },
+    "children": ["flex-layout.col#button-filter","flex-layout.col#order-by-and-switcher"]
   },
 
   "flex-layout.col#order-by-and-switcher": {
@@ -15,5 +22,12 @@
       "blockClass": "order-by-and-switcher-content"
     },
     "children": ["order-by.v2"]
+  },
+
+  "flex-layout.col#button-filter": {
+    "props": {
+      "blockClass": "button-filter"
+    },
+    "children": ["react-filter-toggle"]
   }
 }

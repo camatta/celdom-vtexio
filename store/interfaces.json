@@ -30,6 +30,22 @@
     "component": "InfoTabs",
     "composition": "children"
   },
+  "product-brand-info": {
+    "component": "ProductBrandInfo",
+    "composition": "children"
+  },
+  "react-filter-toggle": {
+    "component": "FilterToggleController",
+    "composition": "children"
+  },
+  "product-button-img-ambientada": {
+    "component": "AmbientImageSwitcher",
+    "composition": "children"
+  },
+    "product-banner-slider": {
+    "component": "ProductBannerSlider",
+    "composition": "children"
+  },
   "pix-label": {
     "component": "PixLabel"
   },

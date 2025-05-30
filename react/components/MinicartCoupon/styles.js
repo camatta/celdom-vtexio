@@ -23,6 +23,9 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-between;
     gap: 8px;
+    @media (max-width: 768px) {
+        flex-wrap:wrap;
+    }
 `;
 
 export const Message = styled.span`
@@ -31,13 +34,17 @@ export const Message = styled.span`
 `;
 
 export const Input = styled.input`
-    border: 0;
-    padding: 8px 8px 8px 16px;
+    border:0;
+    padding: 10px 15px;
     font-size: 14px;
     width: 70%;
-    border-radius: 61px;
+    border-radius: 48px;
     color: #696969;
+    background:#ECECEC;
     font-family: Barlow,arial,sans-serif;
+    @media (max-width: 768px) {
+        width:100%;
+    }
     @media (max-width: 428px) {
         font-size: 14px;
     }
@@ -58,18 +65,21 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-    background: #E14C25;
-    color: #fff;
+    background: #fff;
+    color:#1C1E21;
     font-size: 14px;
     font-weight: 700;
-    padding: 8.5px;
+    padding: 9.5px 21.5px;
     cursor: pointer;
-    border: none;
-    width: 25%;
+    border: 1px solid #FE5000;
+    width: 33%;
     border-radius: 46px;
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
     font-family: Barlow, arial, sans-serif;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
     @media (max-width: 428px) {
         font-size: 14px;
     }
@@ -81,7 +91,7 @@ export const Button = styled.button`
         border: none;
     }
     &:hover {
-        opacity: 0.8;
+        background: #FE5000;
     }
 `;
 

@@ -20,7 +20,7 @@ const MinicartCoupon = () => {
                                 <>
                                     <Styled.Input
                                         type={`text`}
-                                        placeholder={`Insira o código`}
+                                        placeholder={`Adicionar cupom de desconto`}
                                         value={context.state.coupon}
                                         onChange={(e) =>
                                             context.setState({
@@ -39,7 +39,7 @@ const MinicartCoupon = () => {
                                         {context.state.loading ? (
                                             <Styled.Spinner />
                                         ) : (
-                                            'Aplicar'
+                                            'Adicionar'
                                         )}
                                     </Styled.Button>
                                 </>

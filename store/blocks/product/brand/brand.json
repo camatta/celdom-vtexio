@@ -1,0 +1,15 @@
+{
+  "flex-layout.row#product-brand-info": {
+    "props": {
+      "blockClass": ["brand-info-row"]
+    },
+    "children": ["flex-layout.col#product-brand-info"]
+  },
+
+  "flex-layout.col#product-brand-info": {
+    "props": {
+      "blockClass": "brand-info-col"
+    },
+    "children": ["product-brand-info"]
+  }
+}

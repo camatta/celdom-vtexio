@@ -65,7 +65,7 @@
 }
 .minicartSideBarContentWrapper {
   height: 100% !important;
-  background: #fff;
+  background: #F3F3F3;
 }
 .minicartTitle {
   display: flex;
@@ -80,12 +80,17 @@
   border-bottom: 1px solid #d9d9d9;
   background:#FE5000;
 }
+.minicartSummary{
+  padding-top:20px!important;
+  margin-top: 12px;
+  border-top:1px solid #D9D9D9;
+}
 .minicartTitle::before {
   content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28' fill='none'%3E%3Cmask id='mask0_14001_8189' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='28' height='28'%3E%3Crect width='28' height='28' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_14001_8189)'%3E%3Cpath d='M8.16699 25.6667C7.52533 25.6667 6.97602 25.4382 6.51908 24.9813C6.06213 24.5243 5.83366 23.975 5.83366 23.3333C5.83366 22.6917 6.06213 22.1424 6.51908 21.6854C6.97602 21.2285 7.52533 21 8.16699 21C8.80866 21 9.35796 21.2285 9.81491 21.6854C10.2719 22.1424 10.5003 22.6917 10.5003 23.3333C10.5003 23.975 10.2719 24.5243 9.81491 24.9813C9.35796 25.4382 8.80866 25.6667 8.16699 25.6667ZM19.8337 25.6667C19.192 25.6667 18.6427 25.4382 18.1857 24.9813C17.7288 24.5243 17.5003 23.975 17.5003 23.3333C17.5003 22.6917 17.7288 22.1424 18.1857 21.6854C18.6427 21.2285 19.192 21 19.8337 21C20.4753 21 21.0246 21.2285 21.4816 21.6854C21.9385 22.1424 22.167 22.6917 22.167 23.3333C22.167 23.975 21.9385 24.5243 21.4816 24.9813C21.0246 25.4382 20.4753 25.6667 19.8337 25.6667ZM7.17533 7.00001L9.97533 12.8333H18.142L21.3503 7.00001H7.17533ZM6.06699 4.66668H23.2753C23.7225 4.66668 24.0628 4.86598 24.2962 5.26459C24.5295 5.6632 24.5392 6.06668 24.3253 6.47501L20.1837 13.9417C19.9698 14.3306 19.683 14.632 19.3232 14.8458C18.9635 15.0597 18.5698 15.1667 18.142 15.1667H9.45033L8.16699 17.5H22.167V19.8333H8.16699C7.29199 19.8333 6.63088 19.4493 6.18366 18.6813C5.73644 17.9132 5.71699 17.15 6.12533 16.3917L7.70033 13.5333L3.50033 4.66668H1.16699V2.33334H4.95866L6.06699 4.66668Z' fill='black'/%3E%3C/g%3E%3C/svg%3E");
   line-height: 0;
 }
 .minicartProductListContainer {
-  padding: 32px 32px 24px;
+  padding: 20px 24px 24px;
   height: calc(100vh - 91px - 251px);
   height: calc(100dvh - 91px - 251px);
 }
@@ -108,10 +113,11 @@
   padding: 12px 16px;
   min-height: initial;
   transition: all 0.3s ease-in-out;
-  border-radius: 0;
+  border-radius: 60px;
+  margin-top: 20px;
 }
 .minicartCheckoutButton :global(.vtex-button):hover {
-  background: #dc5115;
+  background: #E24700;
 }
 .minicartCheckoutButton :global(.vtex-button__label) {
   font-size: 0;
@@ -146,20 +152,20 @@
 
 @media screen and (max-width: 639px) {
   .closeIconButton {
-    margin: 8px 0 0 8px;
+    margin: 24px 0 0 8px;
   }
   .minicartTitle {
-    padding: 30px 0;
-    margin: 0 15px;
+    padding: 25px 40px;
+    
   }
   .minicartProductListContainer {
-    padding: 24px 15px;
+    padding: 40px 20px;
     height: calc(100vh - 76px - 203px);
     height: calc(100dvh - 76px - 203px);
   }
 
   .minicartCheckoutButton :global(.vtex-button) {
-    padding: 8px 16px;
+    padding: 12px 16px;
   }
 }
 

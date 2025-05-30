@@ -16,13 +16,14 @@
   "rich-text#shipping-simulator-text": {
     "props": {
       "blockClass": "shipping-simulator-text",
-      "text": "Calcule o Frete"
+      "text": "Calcule o frete e prazo"
     }
   },
 
   "shipping-simulator": {
     "props": {
-      "pricingMode": "grouped"
+      "pricingMode": "grouped",
+      "placeholder": "testando"
     }
   }
 }
