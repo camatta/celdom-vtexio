@@ -16,7 +16,7 @@
     "props": {
       "blockClass": ["summary"],
       "threshold": "100",
-      "lowStockMessage": "ÚLTIMAS UNIDADES"
+      "lowStockMessage": "Últimas unidades"
     }
   },
 
@@ -44,7 +44,7 @@
       "type": "collection",
       "filter": {
         "type": "show",
-        "highlightNames": ["Mais Vendidos", "Lançamento"]
+        "highlightNames": ["Mais Vendidos", "Lançamento", "Últimas unidades", "Novidades"]
       }
     },
     "children": ["product-highlight-text#collections-summary"]

@@ -31,35 +31,30 @@
   display: none;
 }
 .sliderLeftArrow {
-  left: -10px;
+  left: -30px;
 }
 .sliderLeftArrow::before {
   content: url(assets/icons/arrow_back_ios.svg);
   line-height: 0;
-  filter: brightness(0) saturate(100%) invert(100%);
+
 }
 .sliderRightArrow::before {
   content: url(assets/icons/arrow_next_ios.svg);
   line-height: 0;
-  filter: brightness(0) saturate(100%) invert(100%);
+
 }
 .sliderRightArrow {
-  right: -10px;
+  right: -30px;
 }
 .sliderArrows {
   margin: 0;
   padding: 0;
-  width: 30px;
-  height: 30px;
-  background:#263572 !important;
-  box-shadow: 0px 4px 6px 0px #00000026;
+  width: 20px;
+  height: 20px;
   border-radius: 0px;
   top: 45%; 
   transform: translate(0, -45%);
   transition: all 0.3s ease-in-out;
-}
-.sliderArrows:hover {
-  box-shadow: 0px 4px 8px 0px #00000040;
 }
 
 /* SLIDER PRINCIPAL */
@@ -103,6 +98,7 @@
 /* SLIDER PRODUTOS */
 .sliderTrackContainer--shelf-carousel {
   padding: 4px 0 30px;
+  margin-bottom: 2.5rem;
 }
 .paginationDotsContainer--shelf-carousel {
   display: none;
@@ -115,6 +111,29 @@
 }
 .sliderTrackContainer--wishlist {
   max-width: 826px;
+}
+
+/*PÁGINAS INSTITUCIONAIS*/
+
+:global(.vtex-slider-layout-0-x-slideChildrenContainer--slider-ponto){
+  max-width: 392px;
+  width:100%!important;
+}
+
+:global(.vtex-slider-layout-0-x-paginationDotsContainer--slider-ponto){
+  bottom:-16px!important;
+  left:-6px!important;
+  right: unset;
+}
+
+:global(.vtex-slider-layout-0-x-paginationDot--slider-ponto){
+  width: 39px!important;
+  background: #2D2926;
+}
+
+.paginationDot--slider-ponto--isActive{
+  width: 73px!important;
+  background: #FE5000;
 }
 
 @media screen and (max-width: 1199px) {

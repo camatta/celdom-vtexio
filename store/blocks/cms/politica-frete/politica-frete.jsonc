@@ -1,0 +1,47 @@
+{
+    "store.custom#politica-frete": {
+      "children": ["flex-layout.row#linha-bread","flex-layout.row#politica-frete"]
+    },
+    "flex-layout.row#politica-frete": {
+      "props": {
+        "blockClass": ["custom-container", "cms-page-container", "cms-frete"],
+        "colSizing": "auto"
+      },
+      "children": [
+        "flex-layout.col#side-cms-menu",
+        "flex-layout.col#conteudo-politica-frete"
+      ]
+    },
+  
+    "flex-layout.col#conteudo-politica-frete": {
+      "props": {
+        "blockClass": ["container", "content-cms"],
+        "preventVerticalStretch": true
+      },
+      "children": ["rich-text#politica-frete-title", "flex-layout.row#politica-frete-content"]
+    },
+    "rich-text#politica-frete-title": {
+      "props": {
+        "text": "# Política de frete",
+        "blockClass": ["cms", "title"]
+      }
+    },
+    "flex-layout.row#politica-frete-content": {
+      "props": {
+        "blockClass": ["flex-column"],
+        "colSizing": "auto"
+      },
+      "children": [
+        "rich-text#politica-frete"
+      ]
+    },
+    "rich-text#politica-frete": {
+      "props": {
+        "text": "Frete Grátis para Sul e Sudeste! \n\n- SUDESTE: ES, MG, RJ e SP.\n- SUL: PR, RS e SC.\n- Frete Grátis para todas as cidades.\n\n1. Devido aos recentes acontecimentos no Rio Grande do Sul, temporariamente será cobrada uma taxa de frete para essa região.\n\n2. Para as demais localidades do Brasil, a tarifa de frete será cobrada em função do local de entrega dos produtos adquiridos. Podemos negociar valor especial de frete na compra de \"pacotes\", através de contato no Televendas.\n\n3. Para localidades de difícil acesso, onde não haja acesso por caminhões, a viabilidade da entrega deverá ser consultada antes da compra e nestes casos poderá ser cobrada uma taxa de entrega especial.\n\n4. As entregas serão efetuadas somente no endereço mencionado no pedido, de acordo com as regiões atendidas.\n\nAtenção! Para sua comodidade, confira as dimensões do produto e certifique-se de que ele passa, com embalagem, pela porta e entra no elevador do seu prédio. A Celdom não entrega produtos em locais onde seja necessário subir ou descer escadas.\n\nVerifique abaixo as nossas condições de entrega:\n\n- Entregas para fora do Rio de Janeiro e São Paulo: Caso o produto não passe com embalagem pelas portas e elevadores, a transportadora responsável deixará o produto em uma área comum do prédio. \n\n- Entregas em Rio de Janeiro e São Paulo: Caso o produto não passe com embalagem pelas portas e elevadores, a Celdom retornará com o produto para o seu depósito até que o cliente providencie as alterações necessárias.\n\nPronta Entrega \n\nO prazo de entrega do(s) produto(s) serão entregues de acordo com o tipo de entrega informado ao inserir o CEP. O prazo conta a partir da aprovação do pagamento. \n\n Sob Encomenda: O prazo deve ser consultado no Televendas/WhatsApp: (11) 99000-0479.",
+        "textAlignment": "initial",
+        "textPosition": "initial",
+        "blockClass": ["cms"]
+      }
+    }
+  }
+  

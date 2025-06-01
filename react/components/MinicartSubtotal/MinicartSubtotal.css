@@ -1,0 +1,21 @@
+.subtotalContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #292929;
+    border-bottom: 1px solid #CBCBCB;
+    padding-bottom: 22px;
+  }
+  
+  @media (max-width: 428px) {
+    .subtotalContainer {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 404px) {
+    .subtotalContainer {
+      font-size: 12px;
+    }
+  }

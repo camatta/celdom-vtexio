@@ -1,0 +1,14 @@
+:global(.vtex-flex-layout-0-x-flexColChild--coupon-subtotal-wrapper) :global(.dcorp-store-theme-7-x-currencyNan) {
+    font-size: 0;
+    position: relative;
+}
+
+:global(.vtex-flex-layout-0-x-flexColChild--coupon-subtotal-wrapper) :global(.dcorp-store-theme-7-x-currencyNan:before) {
+    content:'0,00';
+    position: relative;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    font-size: initial;
+}

@@ -1,0 +1,15 @@
+{
+  "flex-layout.row#product-banner-slider": {
+    "props": {
+      "blockClass": ["product-banner-slider-row"]
+    },
+    "children": ["flex-layout.col#product-banner-slider"]
+  },
+
+  "flex-layout.col#product-banner-slider": {
+    "props": {
+      "blockClass": "product-banner-slider-col"
+    },
+    "children": ["product-banner-slider"]
+  }
+}

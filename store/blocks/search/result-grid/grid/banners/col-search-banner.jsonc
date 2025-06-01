@@ -1,7 +1,8 @@
 {
     "flex-layout.col#search-banner": {
       "props": {
-        "blockClass": ["category-banner"]
+        "blockClass": ["category-banner"],
+        "width":"100%"
       },
       "children": [
         "image#category-banner-desk",
@@ -11,16 +12,17 @@
     "image#category-banner-desk": {
       "title": "Banner Desktop",
       "props": {
-        "src": "assets/categories/Banner-SEO.png",
+        "src": "assets/categories/category-celdom.jpg",
         "alt": "Imperdível, até 30% de desconto",
-        "maxHeight": "102px",
+        "maxHeight": "142px",
+        "maxWidth":"100%",
         "blockClass": ["category-banner", "category-banner-desk"]
       }
     },
     "image#category-banner-mobi": {
       "title": "Banner Mobile",
       "props": {
-        "src": "assets/categories/Banner-SEO-mobile.png",
+        "src": "assets/categories/category-celdom-mob.jpg",
         "alt": "Imperdível, até 30% de desconto",
         "maxHeight": "145px",
         "blockClass": ["category-banner", "category-banner-mobi"]

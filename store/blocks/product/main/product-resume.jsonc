@@ -5,20 +5,27 @@
       "preventVerticalStretch": true
     },
     "children": [
-      "flex-layout.row#pdp-tags",
-      "flex-layout.row#name-wish",
+      "flex-layout.row#topo",
       "flex-layout.row#nome-produto",
+      "flex-layout.row#sku",
+      "flex-layout.row#sku-selector",
       "flex-layout.col#row-actions"
     ]
+  },
+    "flex-layout.row#topo": {
+    "props": {
+      "blockClass": "reviews-pdp"
+    },
+    "children": ["product-rating-inline", "flex-layout.row#product-brand-info", "flex-layout.row#summary-tags"]
   },
 
   "flex-layout.col#row-actions": {
     "children": [
       "flex-layout.row#prices-pdp",
-      "flex-layout.row#sku-selector",
       "flex-layout.row#actions-pdp",
       "availability-notify",
-      "flex-layout.row#shipping"
+      "flex-layout.row#shipping",
+      "flex-layout.row#wish-review"
     ]
   }
 }

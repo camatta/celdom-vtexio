@@ -1,0 +1,27 @@
+.ambientSwitcherWrapper {
+  text-align: center;
+}
+
+.productImage {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.ambientButton {
+  margin-top: 16px;
+  border: 1px solid #CCCCCC;
+  border-radius: 40px;
+  color: #2D2926;
+  font-weight: 700;
+  font-size: 12px;
+  background-color: transparent;
+  width: 192px;
+  height: 32px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.ambientButton:hover {
+  background-color: #f2f2f2;
+}

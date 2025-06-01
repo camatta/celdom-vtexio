@@ -30,7 +30,7 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 16.39px;
-  color: #101010;
+  color: #A2A2A2;
   display: block;
 }
 .installmentsTotalValue {
@@ -43,15 +43,13 @@
 }
 .spotPrice,
 .spotPriceValue {
-  color: #263572;
+  color: #FE5000;
 }
-.spotPrice {
-  display: flex;
-  flex-direction: column;
-}
+
 .spotPrice--summary {
-  font-size: 12px;
+  font-size: 20px;
   line-height: 16.39px;
+  font-weight: 700;
 }
 .spotPriceValue {
   font-weight: 700;
@@ -69,14 +67,14 @@
 
 /* PÁGINA DO PRODUTO */
 .spotPriceValue--pdp {
-  font-size: 32px;
+  font-size: 24px;
   line-height: 49px;
   font-weight: 800;
 }
 
 .installments--installments-pdp {
-  font-size: 14px;
-  color: #101010;
+  font-size: 16px;
+  color: #A2A2A2;
 }
 .installmentsTotalValue--installments-pdp {
   font-weight: 700;
@@ -98,13 +96,35 @@
 :global(.vtex-flex-layout-0-x-flexCol--prices-pdp-content) .spotPrice {
   font-weight: 700;
 }
-
+/*
 @media (min-width: 1100px) {
   .spotPrice {
     margin-bottom: 15px;
   }
 }
+*/
 
+@media screen and (max-width: 991px){
+
+  .spotPriceValue--pdp,
+  .spotPrice{
+    font-size: 20px;
+  }
+
+  :global(.vtex-slider-layout-0-x-sliderLayoutContainer--shelf-carousel) .spotPrice,
+  :global(.vtex-search-result-3-x-gallery) .spotPrice{
+    font-size: 16px;
+  }
+
+  .spotPriceValue--summary{
+    font-size: 16px!important;
+    line-height: 16px;
+  }
+
+  .installmentsTotalValue--installments-pdp{
+    font-size: 14px;
+  }
+}
 @media screen and (max-width: 575px) {
   .spotPrice--summary,
   .installments--installments-summary .installmentsTotalValue {

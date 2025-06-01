@@ -1,0 +1,49 @@
+{
+  "store.custom#trocas-e-devolucoes": {
+    "children": ["flex-layout.row#linha-bread","flex-layout.row#trocas-e-devolucoes"]
+  },
+  "flex-layout.row#trocas-e-devolucoes": {
+    "props": {
+      "blockClass": [
+        "custom-container",
+        "cms-page-container",
+        "cms-trocas-e-devolucoes"
+      ],
+      "colSizing": "auto"
+    },
+    "children": [
+      "flex-layout.col#side-cms-menu",
+      "flex-layout.col#conteudo-trocas-e-devolucoes"
+    ]
+  },
+
+  "flex-layout.col#conteudo-trocas-e-devolucoes": {
+    "props": {
+      "blockClass": ["container", "content-cms"],
+      "preventVerticalStretch": true
+    },
+    "children": ["rich-text#trocas-title", "flex-layout.row#trocas-content"]
+  },
+  "rich-text#trocas-title": {
+    "props": {
+      "text": "# Política de Garantia",
+      "blockClass": ["cms", "title"]
+    }
+  },
+  "flex-layout.row#trocas-content": {
+    "props": {
+      "blockClass": ["flex-column"],
+      "colSizing": "auto"
+    },
+    "children": ["rich-text#trocas"]
+  },
+
+  "rich-text#trocas": {
+    "props": {
+      "text": "Nossos produtos têm suas garantias asseguradas pelos fabricantes, distribuidores e importadores, onde os prazos de garantia diferem entre produto, de acordo com cada fabricante. \n\n Sabemos que boa parte dos nossos clientes está em obra, e de forma a garantir a integridade dos seus produtos, oferecemos o armazenamento de produtos em nosso Centro de Distribuição, sob completa responsabilidade da Celdom, sem riscos de avarias e sem perda da garantia do fabricante.",
+      "textAlignment": "initial",
+      "textPosition": "initial",
+      "blockClass": ["cms"]
+    }
+  }
+}

@@ -18,12 +18,34 @@
       "orientation": "vertical"
     },
     "children": [
+      "menu-item#faq",
       "menu-item#sobre",
+      "menu-item#frete",
+      "menu-item#pontos-vendas",
       "menu-item#trocas",
-      "menu-item#politica-vendas",
+      "menu-item#formas-pagamento",
       "menu-item#privacidade",
-      "menu-item#formas-pagamento"
+      "menu-item#trocas-e-devolucoes",
+      "menu-item#arquitetos-e-decoracoes"
+
     ]
+  },
+
+  "menu-item#faq": {
+    "props": {
+      "id": "menu-item-faq",
+      "blockClass": "menu-item-faq",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/faq",
+        "noFollow": false,
+        "tagTitle": "FAQ",
+        "text": "FAQ"
+      }
+    }
   },
 
   "menu-item#sobre": {
@@ -35,10 +57,26 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/quem-somos",
+        "href": "/nossa-historia",
         "noFollow": false,
-        "tagTitle": "Quem Somos",
-        "text": "Quem Somos"
+        "tagTitle": "Nossa história",
+        "text": "Nossa história"
+      }
+    }
+  },
+"menu-item#frete": {
+    "props": {
+      "id": "menu-item-frete",
+      "blockClass": "menu-item-frete",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/politica-frete",
+        "noFollow": false,
+        "tagTitle": "Política de Frete",
+        "text": "Política de Frete"
       }
     }
   },
@@ -52,15 +90,15 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/trocas-e-devolucoes",
+        "href": "/politica-garantia",
         "noFollow": false,
-        "tagTitle": "Política de Trocas e Devoluções",
-        "text": "Política de Trocas e Devoluções"
+        "tagTitle": "Política de Garantia",
+        "text": "Política de Garantia"
       }
     }
   },
 
-  "menu-item#politica-vendas": {
+  "menu-item#pontos-vendas": {
     "props": {
       "id": "menu-item-vendas",
       "blockClass": "menu-item-vendas",
@@ -69,10 +107,10 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/politica-vendas",
+        "href": "/pontos-vendas",
         "noFollow": false,
-        "tagTitle": "Politica de Vendas",
-        "text": "Política de Vendas"
+        "tagTitle": "Pontos de Vendas",
+        "text": "Pontos de Vendas"
       }
     }
   },
@@ -107,6 +145,40 @@
         "noFollow": false,
         "tagTitle": "Formas de Pagamento",
         "text": "Formas de Pagamento"
+      }
+    }
+  },
+
+  "menu-item#trocas-e-devolucoes": {
+    "props": {
+      "id": "menu-item-trocas-e-devolucoes",
+      "blockClass": "menu-item-trocas-e-devolucoes",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/trocas-e-devolucoes",
+        "noFollow": false,
+        "tagTitle": "Trocas e Devoluções",
+        "text": "Trocas e Devoluções"
+      }
+    }
+  },
+
+  "menu-item#arquitetos-e-decoracoes": {
+    "props": {
+      "id": "menu-item-arquitetos-e-decoracoes",
+      "blockClass": "menu-item-arquitetos-e-decoracoes",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/arquitetos-e-decoracoes",
+        "noFollow": false,
+        "tagTitle": "Arquitetos e Decoradores",
+        "text": "Arquitetos e Decoradores"
       }
     }
   }

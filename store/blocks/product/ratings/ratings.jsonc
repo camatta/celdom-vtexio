@@ -1,0 +1,9 @@
+{
+  "flex-layout.row#ratings": {
+    "title": "Avalie este produto",
+    "props": {
+      "blockClass": ["ratings"]
+    },
+    "children": ["product-reviews"]
+  }
+}

@@ -4,7 +4,9 @@
       "flex-layout.row#product-breadcrumb",
       "flex-layout.row#product-main",
       "flex-layout.row#sku-specifications",
+      "flex-layout.row#product-banner-slider",
       "flex-layout.row#product-info-tabs",
+      "flex-layout.row#ratings",
       "flex-layout.row#related-products"
     ]
   }

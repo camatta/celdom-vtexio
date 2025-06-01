@@ -1,46 +1,42 @@
 {
   "store.custom#trocas-e-devolucoes": {
-    "children": ["flex-layout.row#linha-bread","flex-layout.row#trocas-e-devolucoes"]
+    "children": ["flex-layout.row#linha-bread","flex-layout.row#termos-de-uso"]
   },
-  "flex-layout.row#trocas-e-devolucoes": {
+  "flex-layout.row#termos-de-uso": {
     "props": {
-      "blockClass": [
-        "custom-container",
-        "cms-page-container",
-        "cms-trocas-e-devolucoes"
-      ],
+      "blockClass": ["custom-container", "cms-page-container", "cms-termos"],
       "colSizing": "auto"
     },
     "children": [
       "flex-layout.col#side-cms-menu",
-      "flex-layout.col#conteudo-trocas-e-devolucoes"
+      "flex-layout.col#conteudo-termos"
     ]
   },
 
-  "flex-layout.col#conteudo-trocas-e-devolucoes": {
+  "flex-layout.col#conteudo-termos": {
     "props": {
       "blockClass": ["container", "content-cms"],
       "preventVerticalStretch": true
     },
-    "children": ["rich-text#trocas-title", "flex-layout.row#trocas-content"]
+    "children": ["rich-text#termos-title", "flex-layout.row#termos-content"]
   },
-  "rich-text#trocas-title": {
+  "rich-text#termos-title": {
     "props": {
-      "text": "# Trocas e Devoluções",
+      "text": "# Política de Troca",
       "blockClass": ["cms", "title"]
     }
   },
-  "flex-layout.row#trocas-content": {
+
+  "flex-layout.row#termos-content": {
     "props": {
       "blockClass": ["flex-column"],
       "colSizing": "auto"
     },
-    "children": ["rich-text#trocas"]
+    "children": ["rich-text#termos"]
   },
-
-  "rich-text#trocas": {
+  "rich-text#termos": {
     "props": {
-      "text": "Olá! Aqui temos algumas dicas se precisar fazer uma troca|devolução de um dos nossos produtos\n Veja aqui os casos em que você pode precisar realizar uma troca ou devolução: \n\n## Política de Devolução\n\n Se você recebeu um produto e não ficou satisfeito, ele não serviu ou se arrependeu da compra, é possível fazer a solicitação de devolução para estorno em até 7 (sete) dias corridos. Para isso, o pedido deverá estar em sua embalagem original, sem indícios de uso e com todos os itens e acessórios recebidos. Para solicitar a troca, basta enviar um e-mail para <a href='mailto:sac@grupoferon.com.br' target='_blank' class='vtex-rich-text-0-x-link--cms'>sac@grupoferon.com.br</a>, informando o número do seu pedido e anexar imagens do produto que demonstrem que não houve uso. \n\n ## Política de Troca \n\n Se você recebeu um produto diferente do comprado em nosso site ou sem algum acessório, entre em contato por meio de nosso e-mail: <a href='mailto:sac@grupoferon.com.br' target='_blank' class='vtex-rich-text-0-x-link--cms'>sac@grupoferon.com.br.</a> Esta solicitação deverá ser feita no prazo máximo de 7 (sete) dias corridos após o recebimento do produto. Para comprovar o erro, solicitamos que sejam enviadas fotos do produto recebido, bem como que seja informado o número do pedido realizado. Iremos analisar as fotografias e, comprovado o erro, iniciaremos o procedimento de troca sem custos adicionais ao cliente. Em caso de erro no tamanho, é importante fotografar também a etiqueta.\n\n ## Defeito no produto recebido \n\n Se você identificar algum tipo de defeito de fabricação, você terá 90 (noventa) dias corridos após a entrega para solicitar a troca ou a devolução.\n\n Para comprovar o defeito, solicitamos que sejam enviadas fotos do produto, bem como que seja informado o número do pedido realizado. Iremos analisar as fotografias e, comprovado o defeito, iniciaremos o procedimento de troca sem custos adicionais ao cliente.\n Atenção: Caso o defeito tenha sido causado por problemas na utilização ou uso indevido, a responsabilidade de reparo é totalmente do comprador.\n\n ## Condições de Troca e Devolução \n\nPara que a troca ou a devolução seja efetuada, o produto deverá respeitar as seguintes exigências:\n <ul class='vtex-rich-text-0-x-list vtex-rich-text-0-x-list--cms'><li class='vtex-rich-text-0-x-listItem vtex-rich-text-0-x-listItem--cms'>não possuir sinais de uso, manchas, sujeira, suor ou deterioração da peça;</li><li class='vtex-rich-text-0-x-listItem vtex-rich-text-0-x-listItem--cms'> preservar a embalagem interna e etiquetas originais aplicadas à peça;</li> <li class='vtex-rich-text-0-x-listItem vtex-rich-text-0-x-listItem--cms'>respeitar os seguintes prazos: 90 (noventa) dias corridos em caso de defeitos ou 7 (sete) dias corridos em casos de erro no pedido ou arrependimento de compra, contados a partir da data de recebimento da mercadoria.</li></ul>\n Para trocar um produto, entre em contato por meio de nosso e-mail <a href='mailto:sac@grupoferon.com.br' target='_blank' class='vtex-rich-text-0-x-link--cms'>sac@grupoferon.com.br.</a>, anexando as devidas evidências e iremos retornar com as instruções de troca no prazo de até 5 (cinco) dias úteis.\n\n ## Formas de Restituição de Valores \n\n Confira a seguir as opções disponíveis para restituição de valores:\n ### Cupom de desconto\nVocê opta pelo cupom de desconto em qualquer situação referente a trocas por insatisfação.\nO cupom tem validade de 90 (noventa) dias e poderá ser utilizado exclusivamente pelo titular da conta na loja virtual, mediante uso de login e senha. Não é permitido vendê-lo para terceiros nem tampouco convertê-lo em dinheiro.Para utilizar o cupom, basta realizar uma nova compra e inseri-lo no momento de finalizar o pedido.\n ### Estorno parcial ou integral - pagamento por cartão de crédito\nApós o recebimento do produto em nosso Centro de Distribuição e aprovação da devolução mediante análise dos itens, a Loja das Ferramentas Online envia a solicitação de estorno para a administradora do cartão de crédito em até 7 (sete) dias úteis; esta por sua vez tem o prazo para processar a requisição de acordo com a política de cada administradora de cartão de crédito.\nExclusivo para pagamentos em cartão de crédito, o procedimento de estorno parcial ou integral do valor pago em seu pedido seguirá as regras da administradora do cartão, podendo demorar de um a dois meses para que o valor seja devolvido, dependendo da data de vencimento de sua fatura.\n ### Estorno parcial ou integral - pagamento por pix e transferência\n Após o recebimento do produto em nosso Centro de Distribuição e aprovação da devolução mediante análise dos itens, a Loja das Ferramentas Online irá realizar o estorno do valor em até 30 (trinta) dias para a conta do intermediador de pagamento e você poderá solicitar o saque do mesmo.\n ### Estorno parcial ou integral - pagamento por boleto\n\n Após o recebimento do produto em nosso Centro de Distribuição e aprovação da devolução mediante análise dos itens, a Loja das Ferramentas Online irá realizar o estorno do valor de 7 (sete) a 10 (dez) dias para a conta do intermediador de pagamento e você poderá solicitar o saque do mesmo.",
+      "text": "Procedimentos para Trocas e Devoluções\n\nA CELDOM possui um processo rigoroso de qualidade, e confere e aprova 100% dos produtos que recebe das fábricas e entrega para seus clientes.\n\nMesmo com todo este controle de qualidade na intenção de enviar seus produtos sempre em perfeito estado, podem ocorrer eventualidades durante o transporte, causando avarias.\n\nÉ muito importante que todos os produtos sejam abertos e vistoriados no ato da entrega, com o entregador ainda no local. As transportadoras têm obrigação de aguardar a desembalagem e conferência dos produtos no ato da entrega.\n\nNo caso de serem encontradas quaisquer avarias, solicitamos que você recuse a entrega do produto e imediatamente entre em contato com a loja que originou o pedido.\n\nPara a troca e devoluções adotamos as seguintes condições:\n\nDesistência por Arrependimento:\n\nPrazo de até 7 dias após o recebimento do produto;\nDevolução do produto deverá ser com embalagem original, nota fiscal e todos os acessórios;\nO produto não poderá ter sido usado;\nO produto não poderá apresentar avarias;\n\nTroca por Defeito Funcional:\n\nPrazo de até 7 dias após o recebimento do produto, mediante apresentação de laudo do serviço de Assistência Técnica Autorizado da marca;\nProduto deve estar completo, e com embalagem original;\nNão há troca por defeitos ocasionados por mau uso;\nNão há troca por produtos avariados.\nA substituição do produto é realizada após a coleta na sua residência e recebimento em nosso estoque. O prazo para realização da troca dependerá da disponibilidade do produto em nosso estoque.\n\nProdutos Outlet (Mostruário):\n\nDevido serem peças únicas, não é possível trocar os produtos, apenas devolvê-los no ato da entrega e solicitar o cancelamento da compra.\nTodas as ocorrências que envolvam devolução devem ser feitas no prazo de até 7 (sete) dias após o recebimento do produto. Os cancelamentos devem ser solicitados diretamente pelo email: lojavirtual@celdom.com.br.\nA Celdom isenta-se da obrigação de atender às solicitações de devolução de qualquer produto devolvido sem essa comunicação, fora do prazo ou com ausência de itens/acessórios que o acompanharam, de acordo com o Check List de Vistoria.\nPara cancelar uma compra, as seguintes condições deverão ser observadas: os produtos devem ser devolvidos na mesma embalagem ou similar, sem indícios de uso, sem violação do lacre original do fabricante, acompanhado do DANFE (Documento Auxiliar da Nota Fiscal Eletrônica), do manual e todos os acessórios.\nA Celdom somente coleta o(s) produto(s) no mesmo endereço onde foi realizada a entrega.\nApós o recebimento do produto em seu depósito, a Celdom verificará se a solicitação preenche os requisitos da Política de Devoluções. Em caso afirmativo, providenciará a restituição no valor total da compra, exceto o valor do frete.\nA Celdom fará a restituição dos valores pagos utilizando a mesma forma de pagamento escolhida no processo da compra.\nA restituição dos valores será processada somente após o recebimento e análise do(s) produto(s) em nosso depósito.\n\nIMPORTANTE\n\nTrocas somente serão efetivadas após o recebimento das mercadorias em nosso Depósito.\n\nQuestões de defeito técnico ou mau funcionamento do produto devem ser comunicadas em até 7 dias corridos da data do recebimento. Nestes casos, a reposição em caso de troca será feita de acordo com a política de venda do referido produto (produtos vendidos por encomenda podem necessitar de uma nova encomenda junto ao fabricante), a partir da data de solicitação junto a Loja.\n\nHavendo indícios de mau uso do produto, ou caso a mercadoria não retorne em sua embalagem original, a solicitação de troca ou devolução não será aceita. Neste caso, o produto recolhido por nossos entregadores será devolvido ao cliente no endereço de entrega, sem a devida restituição de valores, e todo o processo de devolução ou troca será cancelado.\n\nToda troca ou cancelamento, com devolução do valor pago ao cliente, deverá ser solicitada a loja que originou o pedido. A restituição do valor ocorrerá no prazo de até 72 horas úteis após a confirmação do processo de recebimento do produto em nosso depósito.\n\nPara maiores informações:\n\nLoja Virtual\n(11) 99000-0479\nlojavirtual@celdom.com.br\n\nSão Paulo - Loja Jardins - Gabriel Monteiro da Silva\n(11) 3135-9980 - (21) 99775-2433\nlojajardins@celdom.com.br\n\nRio de Janeiro - Loja Barra - Cassshopping\n(21) 2431-0661 (21) 99645-7723\nlojabarra@celdom.com.br\n\nRio de Janeiro - StudioLW\n(21) 96802-4741\nlojaipanena@celdom.com.br\n\nRio de Janeiro - Coletivo Design\n(21) 96802-4741\nlojaniteroi@celdom.com.br",
       "textAlignment": "initial",
       "textPosition": "initial",
       "blockClass": ["cms"]

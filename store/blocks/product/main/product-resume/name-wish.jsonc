@@ -6,12 +6,28 @@
     "children": ["flex-layout.col#name-pdp"]
   },
 
-  "flex-layout.row#name-wish": {
+  "flex-layout.row#wish-review": {
     "props": {
       "blockClass": "name-wish-container",
       "colSizing": "auto"
     },
-    "children": ["flex-layout.row#sku", "flex-layout.row#controle-share"]
+    "children": ["flex-layout.row#review","flex-layout.col#wish-pdp"]
+  },
+
+    "flex-layout.row#review": {
+    "props": {
+      "blockClass": "controle-review"
+    },
+    "children": ["rich-text#review-product"]
+  },
+
+  "rich-text#review-product": {
+    "props": {
+      "text": "[Avalie este produto](#reviews-main-container)",
+      "textAlignment": "initial",
+      "textPosition": "initial",
+      "blockClass": "review-button"
+    }
   },
 
   "flex-layout.row#controle-share": {

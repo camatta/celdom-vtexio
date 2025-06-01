@@ -11,7 +11,18 @@
   margin-right: 8px;
 }
 .productHighlightText--collections, .productHighlightText--free-shipping {
-  background: #263572;
+  background: transparent;
+  color:#2D2926;
+  border:1px solid #FE5000;
+  text-align: center;
+  border-radius: 40px;
+  width: fit-content!important;
+  padding: 0 15px;
+  margin:0;
+}
+
+.productHighlightText--collections{
+  padding-top:2px!important;
 }
 
 @media (max-width: 991px) {

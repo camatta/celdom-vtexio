@@ -1,0 +1,24 @@
+{
+  "flex-layout.row#reviews": {
+    "props": {
+      "blockClass": "reviews-container"
+    },
+    "children": ["flex-layout.col#reviews"]
+  },
+
+  "flex-layout.col#reviews": {
+    "props": {
+      "blockClass": "reviews-content"
+    },
+    "children": [
+      "product-rating-inline"
+    ]
+  },
+
+  "product-rating-inline": {
+    "props": {
+      "label": "custom"
+      
+    }
+  }
+}

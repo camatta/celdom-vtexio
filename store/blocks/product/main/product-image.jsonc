@@ -4,6 +4,7 @@
       "blockClass": "product-image-content"
     },
     "children": [
+      "flex-layout.row#button-img-ambientada",
       "responsive-layout.desktop#image-pdp",
       "responsive-layout.mobile#image-pdp"
     ]
@@ -22,7 +23,8 @@
       "maxHeight": 489,
       "thumbnailMaxHeight": 72,
       "zoomMode": "in-place-hover",
-      "blockClass": ["pdp"]
+      "blockClass": ["pdp"],
+      "thumbnailsOrientation": "horizontal"
     }
   },
 
@@ -34,6 +36,7 @@
       "thumbnailAspectRatio": "1:1",
       "showNavigationArrows": false,
       "showPaginationDots": false,
+      "displayThumbnailsArrows": true,
       "maxHeight": 361,
       "thumbnailMaxHeight": 80,
       "zoomMode": "in-place-hover",

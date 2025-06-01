@@ -23,8 +23,8 @@
 .heading--shelf-title {
   font-size: 24px;
   line-height: 36px;
-  font-weight: 700;
-  margin: 0 0 50px;
+  font-weight: 300;
+  margin: 0 0 24px;
   position: relative;
 }
 
@@ -157,7 +157,7 @@
 .link--sac-group-topo.link--sac-group-hora::before {
   filter: inherit;
 }
-.link--sac-group-btn.link--sac-group-topo::before, .heading--related-title, .paragraph--unavailable {
+.link--sac-group-btn.link--sac-group-topo::before, .paragraph--unavailable {
   display: none;
 }
 .link--sac-group-topo {
@@ -194,6 +194,13 @@
 }
 
 /* DESCRIÇÃO CATEGORIA */
+
+.wrapper--description-text{
+  margin-bottom: 3.5rem;
+  border-top: 1px solid #CCCCCC;
+  padding-top: 2.5rem;
+}
+
 .heading--description-text {
   margin: 0 0 24px;
 }
@@ -208,7 +215,7 @@
 .headingLevel2--description-text {
   font-size: 16px;
   line-height: 22px;
-  color: #101010;
+  color: #2D2926;
 }
 .headingLevel3--description-text,
 .headingLevel4--description-text,
@@ -236,9 +243,6 @@
   line-height: 16px;
 }
 
-.paragraph--cmstopo {
-  padding-left: 27px;
-}
 .paragraph--cmsbread2 {
   color: #212121;
   font-size: 12px;
@@ -255,6 +259,8 @@
   left: -4px;
   top: 4px;
 }
+
+/*
 .link--cmstopo::before { 
   content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cmask id='mask0_194_8322' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='24' height='24'%3E%3Crect width='24' height='24' fill='%23263572'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_194_8322)'%3E%3Cpath d='M6 19H9V13H15V19H18V10L12 5.5L6 10V19ZM4 21V9L12 3L20 9V21H13V15H11V21H4Z' fill='%23263572'/%3E%3C/g%3E%3C/svg%3E");
   line-height: 0;
@@ -262,8 +268,32 @@
   left: 11px;
   top: 16px;
 }
+*/
 
-/* PÁGINA DO PRODUTO */
+/*página do produto*/
+
+
+.link--review-button{
+  font-size:12px;
+  font-weight: 700;;
+  color:#2D2926;
+  border:1px solid #CCCCCC;
+  text-decoration: none;
+  border-radius: 40px;
+  padding: 7px 23px;
+  transition: 0.5s;
+}
+
+:global(.vtex-wish-list-1-x-wishlistIconContainer) .hover-b--transparent{
+  width: 0;
+  height: 0;
+}
+
+.link--review-button:hover{
+  border:1px solid #FE5000;
+}
+
+/* PÁGINAS CMS*/
 .paragraph--shipping-simulator-text {
   display: flex;
   align-items: center;
@@ -273,21 +303,26 @@
   margin: 0;
   text-transform: initial;
 }
+/*
 .paragraph--shipping-simulator-text::before {
   content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='18' viewBox='0 0 22 18' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1 10.2371C1 9.91814 1.26233 9.6596 1.58594 9.6596H14.138C14.4616 9.6596 14.7239 9.91814 14.7239 10.2371V14.5669C14.7239 14.8858 14.4616 15.1444 14.138 15.1444H7.23438C6.91077 15.1444 6.64844 14.8858 6.64844 14.5669C6.64844 14.248 6.91077 13.9894 7.23438 13.9894H13.5521V10.8146H2.17188V13.3298C2.17188 13.505 2.24241 13.6727 2.36776 13.7961C2.49314 13.9197 2.66348 13.9894 2.84113 13.9894H3.46875C3.79235 13.9894 4.05469 14.2479 4.05469 14.5669C4.05469 14.8858 3.79235 15.1443 3.46875 15.1443H2.84113C2.35305 15.1443 1.88496 14.9535 1.53967 14.6133C1.19386 14.2728 1 13.8107 1 13.3298V10.2371Z' fill='%231A1A1A'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.53967 1.53133C1.8847 1.19143 2.35268 1 2.84113 1H12.8828C13.3714 1 13.8395 1.19153 14.1846 1.5316C14.5303 1.87206 14.7239 2.33386 14.7239 2.81455V10.2371C14.7239 10.556 14.4616 10.8146 14.138 10.8146H1.58594C1.26233 10.8146 1 10.556 1 10.2371H1.58594C1 10.2371 1 10.2371 1 10.2371V2.81455C1 2.33386 1.19391 1.87178 1.53967 1.53133ZM2.17188 9.6596H13.5521V2.81455C13.5521 2.63974 13.4816 2.47198 13.3562 2.34855C13.2305 2.22472 13.0601 2.15496 12.8828 2.15496H2.84113C2.66385 2.15496 2.49368 2.22445 2.36803 2.34828C2.24263 2.47171 2.17188 2.63974 2.17188 2.81455V9.6596Z' fill='%231A1A1A'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.5521 5.28878C13.5521 4.96985 13.8144 4.7113 14.138 4.7113H17.276C19.3328 4.7113 21 6.35479 21 8.38148V13.3298C21 13.8109 20.8063 14.2728 20.4603 14.6133C20.115 14.9535 19.6469 15.1444 19.1588 15.1444H17.9036C17.58 15.1444 17.3177 14.8858 17.3177 14.5669C17.3177 14.248 17.58 13.9894 17.9036 13.9894H19.1588C19.3365 13.9894 19.5065 13.92 19.6319 13.7964C19.7573 13.673 19.8281 13.505 19.8281 13.3298V8.38148C19.8281 6.99258 18.6855 5.86626 17.276 5.86626H14.7239V14.5669C14.7239 14.8858 14.4616 15.1444 14.138 15.1444C13.8144 15.1444 13.5521 14.8859 13.5521 14.5669V5.28878Z' fill='%231A1A1A'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.35156 13.2887C4.63532 13.2887 4.05469 13.8609 4.05469 14.5669C4.05469 15.2728 4.63532 15.845 5.35156 15.845C6.06781 15.845 6.64844 15.2728 6.64844 14.5669C6.64844 13.861 6.06781 13.2887 5.35156 13.2887ZM2.88281 14.5669C2.88281 13.2231 3.98811 12.1338 5.35156 12.1338C6.71502 12.1338 7.82031 13.2231 7.82031 14.5669C7.82031 15.9107 6.71502 17 5.35156 17C3.98811 17 2.88281 15.9107 2.88281 14.5669Z' fill='%231A1A1A'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16.0208 13.2887C15.3046 13.2887 14.7239 13.861 14.7239 14.5669C14.7239 15.2728 15.3046 15.845 16.0208 15.845C16.7371 15.845 17.3177 15.2728 17.3177 14.5669C17.3177 13.861 16.7371 13.2887 16.0208 13.2887ZM13.5521 14.5669C13.5521 13.2232 14.6574 12.1338 16.0208 12.1338C17.3843 12.1338 18.4896 13.2231 18.4896 14.5669C18.4896 15.9107 17.3843 17 16.0208 17C14.6574 17 13.5521 15.9107 13.5521 14.5669Z' fill='%231A1A1A'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M17.276 4.7113C17.5996 4.7113 17.862 4.96981 17.862 5.28874V9.6596H20.4141C20.7377 9.6596 21 9.91814 21 10.2371C21 10.556 20.7377 10.8146 20.4141 10.8146H17.2761C16.9524 10.8146 16.6901 10.556 16.6901 10.2371V5.28874C16.6901 4.96981 16.9524 4.7113 17.276 4.7113Z' fill='%231A1A1A'/%3E%3Cpath d='M1 10.2371C1 9.91814 1.26233 9.6596 1.58594 9.6596H14.138C14.4616 9.6596 14.7239 9.91814 14.7239 10.2371V14.5669C14.7239 14.8858 14.4616 15.1444 14.138 15.1444H7.23438C6.91077 15.1444 6.64844 14.8858 6.64844 14.5669C6.64844 14.248 6.91077 13.9894 7.23438 13.9894H13.5521V10.8146H2.17188V13.3298C2.17188 13.505 2.24241 13.6727 2.36776 13.7961C2.49314 13.9197 2.66348 13.9894 2.84113 13.9894H3.46875C3.79235 13.9894 4.05469 14.2479 4.05469 14.5669C4.05469 14.8858 3.79235 15.1443 3.46875 15.1443H2.84113C2.35305 15.1443 1.88496 14.9535 1.53967 14.6133C1.19386 14.2728 1 13.8107 1 13.3298V10.2371Z' fill='%231A1A1A'/%3E%3C/svg%3E%0A");
   line-height: 0;
 }
-
+*/
 .container--title {
-  margin-bottom: 32px;
+  margin-bottom: 1rem;
 }
 .headingLevel1--cms,
-.headingLevel2--cms,
 .headingLevel3--cms,
 .headingLevel4--cms {
   font-weight: 700;
-  color: #263572;
+  color: #1C1C1C;
   margin: 0;
+}
+.headingLevel2--cms{
+  font-size:16px;
+  color:#FE5000;
+  margin-bottom: 1.4rem;
 }
 .headingLevel1--cms {
   font-size: 20px;
@@ -298,15 +333,24 @@
   font-size: 14px;
   line-height: 19px;
 }
+
+:global(.vtex-render__container-id-politicas-de-privacidade) .headingLevel2--cms{
+  margin-bottom: 0;
+}
+
 .paragraph--cms, .link--cms {
   margin: 0;
   font-size: 14px;
   line-height: 21px;
 }
-.paragraph--cms .link--cms, .link--cms {
-  color: #263572;
-  font-weight: 700;
-  text-decoration: inherit;
+:global(.vtex-render__container-id-politicas-de-privacidade) .paragraph--cms{
+  margin-top: 0!important
+}
+.paragraph--cms .link--cms, .link--cms{
+  color:#2D2926;
+  font-weight: 400;
+  font-size: 14px;
+  text-decoration: underline;
 }
 .italic--cms {
   margin: 8px 8px 12px 0;
@@ -387,6 +431,13 @@
   border-bottom: 1px solid #ababab;
 }
 
+.container--cms-fim{
+  border-top:1px solid #A2A2A2;
+  border-bottom:1px solid #A2A2A2;
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+
 :global(.vtex-menu-2-x-menuContainerNav) .wrapper--sac-group-btn  {
   margin-top: 8px;
 }
@@ -400,6 +451,79 @@
 }
 /*fim inserção plataforma e desenvolvimento*/
 
+/*inclusão borda no título*/
+
+.headingLevel4--marcas-title.headingLevel4--montadora-title::after {
+  left: 370px;
+  width: 734px;
+  top: 20px;
+}
+.headingLevel4--marcas-title::after {
+  left: 264px;
+  width: 834px;
+  top: 20px;
+}
+/*fim inclusão borda título*/
+
+/*PÁGINAS INSTITUCIONAIS*/
+
+.heading--side-cms-menu-title{
+  color:#1C1C1C;
+}
+
+.paragraph--current-page-faq{
+  font-size: 16px;
+  color:#2D2926;
+  font-weight: 700;
+}
+
+.paragraph--cms-vendas{
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+.container--texto-infos{
+  margin-top: 0;
+  padding-top: 0.2rem;
+  border-top: 1px solid #D9D9D9;
+  font-size: 14px;
+}
+
+:global(.vtex-rich-text-0-x-wrapper--current-text-faq) .paragraph--current-page-faq{
+  font-size: 14px;
+  font-weight: 400;
+}
+
+:global(.vtex-rich-text-0-x-wrapper--cms-vendas) .italic--cms-vendas{
+  background:transparent;
+  font-weight: 700;
+  color:#FE5000;
+  padding: 0;
+  font-style:unset;
+}
+
+.container--localizacao{
+  align-items: center;
+  text-align: right;
+  justify-content: flex-end;
+  width: fit-content !important;
+  padding: 13px 15px;
+  height: 27px;
+  border: 1px solid rgb(236, 236, 236);
+  font-size: 14px;
+  border-radius: 40px;
+}
+
+:global(.vtex-rich-text-0-x-link--localizacao){
+  text-decoration: none;
+  color:#2D2926;
+}
+
+.container--localizacao::before{
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' viewBox='0 0 19 19' fill='none'%3E%3Cpath d='M9.09164 17.8481C9.20643 17.955 9.35289 18.0104 9.49935 18.0104C9.64581 18.0104 9.79227 17.955 9.90706 17.8481C10.1723 17.5948 16.4264 11.6256 16.4264 7.91665C16.4264 4.09685 13.3191 0.989563 9.49935 0.989563C5.67956 0.989563 2.57227 4.09685 2.57227 7.91665C2.57227 11.6256 8.82643 17.5948 9.09164 17.8481ZM9.49935 2.17706C12.666 2.17706 15.2389 4.74998 15.2389 7.91665C15.2389 10.3827 11.4152 14.6854 9.49935 16.5894C7.58352 14.6854 3.75977 10.3866 3.75977 7.91665C3.75977 4.74998 6.33268 2.17706 9.49935 2.17706Z' fill='%232D2926'/%3E%3Cpath d='M12.4688 7.91663C12.4688 6.27788 11.1388 4.94788 9.5 4.94788C7.86125 4.94788 6.53125 6.27788 6.53125 7.91663C6.53125 9.55538 7.86125 10.8854 9.5 10.8854C11.1388 10.8854 12.4688 9.55538 12.4688 7.91663ZM7.71875 7.91663C7.71875 6.93496 8.51833 6.13538 9.5 6.13538C10.4817 6.13538 11.2812 6.93496 11.2812 7.91663C11.2812 8.89829 10.4817 9.69788 9.5 9.69788C8.51833 9.69788 7.71875 8.89829 7.71875 7.91663Z' fill='%232D2926'/%3E%3C/svg%3E");
+  padding-top:5px;
+  padding-right: 5px;
+}
 
 @media screen and (max-width: 1025px) {
   .heading--shelf-title {
@@ -447,25 +571,57 @@
     right: 0;
     z-index: -2;
   }
-  .heading--shelf-title::before {
-    content: '';
-    background: #ececec;
-    height: 30px;
-    width: 170px;
-    position: absolute;
-    left: 0;
-    z-index: -1;
-  }
   .headingLevel4--marcas-title::before {
     width: 260px;
   }
   .headingLevel4--marcas-title.headingLevel4--montadora-title::before {
     width: 300px;
   }
+
+  /*Páginas institucionais*/
+
+  .heading--side-cms-menu-title::before {
+    content: 'Nossa história';
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+  }
+
+  :global(.vtex-render__container-id-faq) .heading--side-cms-menu-title::before{
+    content:'FAQ'!important;
+  }
+
+  :global(.vtex-flex-layout-0-x-flexRowContent--cms-frete) .heading--side-cms-menu-title::before{
+    content:'Política de frete'!important;
+  }
+
+  :global(.vtex-flex-layout-0-x-flexRowContent--cms-vendas) .heading--side-cms-menu-title::before{
+    content:'Pontos de Vendas'!important;
+  }
+
+  :global(.vtex-flex-layout-0-x-flexRowContent--cms-trocas-e-devolucoes) .heading--side-cms-menu-title::before{
+    content:'Políticas de Garantia'!important;
+  }
+
+  :global(.vtex-flex-layout-0-x-flexRowContent--cms-pagamento) .heading--side-cms-menu-title::before{
+    content:'Formas de Pagamento'!important;
+  }
+
+  :global(.vtex-flex-layout-0-x-flexRowContent--cms-privacidade) .heading--side-cms-menu-title::before{
+    content:'Políticas de Privacidade'!important;
+  }
+
+  :global(.vtex-flex-layout-0-x-flexRowContent--cms-termos) .heading--side-cms-menu-title::before{
+    content:'Termos de uso'!important;
+  }
   
+  :global(.vtex-flex-layout-0-x-flexRowContent--cms-arquitetura-decoracao) .heading--side-cms-menu-title::before{
+    content:'Arquitetos e Decoradoresssss'!important;
+  }
 }
 
 @media (max-width: 991px) {
+  
   .container--newsletter-cta {
     justify-content: center;
   }
@@ -476,6 +632,18 @@
 
   .paragraph--textocompa {
     margin: 0;
+  }
+
+  /*Páginas institucionais*/
+
+  :global(.vtex-disclosure-layout-1-x-content--visible) .paragraph{
+    font-size: 14px;
+    color:#2D2926;
+    margin-top: 0;
+  }
+
+  .heading-level-2{
+    font-size: 16px;
   }
 }
 

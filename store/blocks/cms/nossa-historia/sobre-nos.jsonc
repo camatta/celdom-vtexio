@@ -1,0 +1,80 @@
+{
+  "store.custom#sobre-nos": {
+    "children": ["flex-layout.row#linha-bread","flex-layout.row#sobre-nos"]
+  },
+  "flex-layout.row#sobre-nos": {
+    "props": {
+      "blockClass": ["custom-container", "cms-page-container", "cms-about"],
+      "colSizing": "auto"
+    },
+    "children": [
+      "flex-layout.col#side-cms-menu",
+      "flex-layout.col#conteudo-sobre"
+    ]
+  },
+
+  "flex-layout.col#conteudo-sobre": {
+    "props": {
+      "blockClass": ["container", "content-cms"],
+      "preventVerticalStretch": true
+    },
+    "children": ["rich-text#sobre-title", "flex-layout.row#sobre-content","flex-layout.row#sobre-content2"]
+  },
+  "rich-text#sobre-title": {
+    "props": {
+      "text": "# Nossa história",
+      "blockClass": ["cms", "title"]
+    }
+  },
+  "flex-layout.row#sobre-content": {
+    "props": {
+      "blockClass": ["flex-column"],
+      "colSizing": "auto"
+    },
+    "children": [
+      "rich-text#sobrequemsomos"
+    ]
+  },
+  "rich-text#sobrequemsomos": {
+    "props": {
+      "text": "## Tradição há mais de 45 anos \n\n A CELDOM é umas das empresas mais tradicionais no mercado de eletrodomésticos premium do país. Atuamos desde 1980, inspirando nossos clientes e parceiros com as melhores marcas para montar sua cozinha dos sonhos, com garantia nacional. \n\n Em 2020 atualizamos nossa marca para nos conectar aos novos conceitos do mercado gourmet. Nossa inspiração foi a cor laranja, a cor do urucum, corante natural, conhecido como açafrão do Brasil. É um dos ingredientes culinários mais usados pelos brasileiros, por seu poder de manter boca, nariz, olhos e estômago saudáveis. Isso tudo aliado a um conceito de natureza e sustentabilidade. \n\n Em 2021, inovamos mais uma vez e assinamos a nossa própria linha de equipamentos gourmet para residências, reunindo qualidade, design e tecnologia de um jeito bem brasileiro.",
+      "textAlignment": "initial",
+      "textPosition": "initial",
+      "blockClass": ["cms"]
+    }
+  },
+  "flex-layout.row#sobre-content2": {
+    "props": {
+      "blockClass": ["flex-row", "box2"],
+      "colSizing": "auto",
+      "rowGap": "8",
+      "colGap": "8"
+
+    },
+    "children": [
+      "image#img-institucional",
+      "rich-text#sobrequemsomosbox2"
+    ]
+  },
+  "rich-text#sobrequemsomosbox2": {
+    "props": {
+      "text": "## Celdom: Alto grau de inspiração \n\n A CELDOM quer inspirar esses momentos especiais, ligados ao prazer de cozinhar e unir as pessoas que amamos em volta da cozinha. Para isso conta com uma equipe especializada, pronta para lhe ajudar na especificação dos produtos para o seu projeto, seguindo os mais rigorosos padrões de qualidade. \n\n Temos um dos maiores estoques de eletrodomésticos premium do país e possuímos um pacote de Benefícios Exclusivos para adequar o nosso atendimento de acordo com o cronograma da sua obra. \n\n NOSSO PRINCIPAL OBJETIVO É VIABILIZAR A COMPRA PARA QUE VOCÊ E SEUS PROJETOS ALCANCEM O ALTO GRAU DE INSPIRAÇÃO!",
+      "textAlignment": "initial",
+      "textPosition": "initial",
+      "blockClass": ["cms"]
+    }
+  },
+  "image#img-institucional": {
+ 
+    "title": "Celdom loja",
+    "props": {
+    "blockClass": "institucional",
+    "src": "assets/institucional/celdom.jpg",
+    "alt": "Celdom",
+    "link": {
+    "url": "/"
+
+   }
+}
+}
+}
