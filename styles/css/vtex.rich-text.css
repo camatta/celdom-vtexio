@@ -400,27 +400,6 @@
 }
 /*fim inserção plataforma e desenvolvimento*/
 
-/*inclusão borda no título*/
-.heading--shelf-title::after {
-  content: '';
-  position: absolute;
-  top: 21px;
-  left: 168px;
-  height: 1px;
-  width: 937px;
-  background: #101010;
-}
-.headingLevel4--marcas-title.headingLevel4--montadora-title::after {
-  left: 370px;
-  width: 734px;
-  top: 20px;
-}
-.headingLevel4--marcas-title::after {
-  left: 264px;
-  width: 834px;
-  top: 20px;
-}
-/*fim inclusão borda título*/
 
 @media screen and (max-width: 1025px) {
   .heading--shelf-title {

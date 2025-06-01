@@ -3,17 +3,13 @@
     "blocks": [
       "list-context.media-list#main-slider",
       //"__fold__",
-      // "flex-layout.row#shelf-promotions",
-      // "flex-layout.row#shelf-releases",
-      // "flex-layout.row#slider-montadoras",
-      // "flex-layout.row#upper-mosaic",
-      // "flex-layout.row#shelf-best-sellers",
+      "flex-layout.row#shelf-best-sellers",
       // "flex-layout.row#mid-mosaic",
       // "flex-layout.row#shelf-highlights",
       // "flex-layout.row#slider-marcas"
-      "carrossel-lojas",
       "flex-layout.row#aviso-projeto",
-      "flex-layout.row#historia-home"
+      "flex-layout.row#historia-home",
+      "flex-layout.row#carrossel-lojas"
     ]
   }
 }

@@ -33,7 +33,7 @@
   "rich-text#best-sellers-title": {
     "title": "Título",
     "props": {
-      "text": "#### Ofertas",
+      "text": "#### Mais vendidos",
       "blockClass": ["best-sellers-title", "shelf-title"]
     }
   },
@@ -52,7 +52,7 @@
   },
   "list-context.product-list#shelf-best-sellers": {
     "props": {
-      "category": "3",
+      "category": "7",
       "listName": "Destaques",
       "installmentCriteria": "MAX_WITH_INTEREST"
     },
@@ -63,9 +63,9 @@
     "props": {
       "blockClass": ["shelf-carousel", "best-sellers-products"],
       "itemsPerPage": {
-        "desktop": 4,
-        "tablet": 3,
-        "phone": 2
+        "desktop": 3,
+        "tablet": 2,
+        "phone": 1
       },
       "infinite": true,
       "showNavigationArrows": "always",

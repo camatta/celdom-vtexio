@@ -1,7 +1,0 @@
-{
-  "list-context.media-list#main-slidernew": {
-    "title": "Carrosel principal Desktop",
-    "children": ["banner-slider"]
-    
-  }
-}

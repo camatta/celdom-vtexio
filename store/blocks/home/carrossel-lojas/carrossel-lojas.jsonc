@@ -1,0 +1,10 @@
+{
+    "flex-layout.row#carrossel-lojas": {
+        "props": {
+            "blockClass": ["custom-container"]
+        },
+        "children": [
+            "carrossel-lojas"
+        ]
+    }
+}

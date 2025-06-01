@@ -89,17 +89,17 @@ p {
     padding-right: 48px;
     border-radius: 8px;
     margin-bottom: 80px;
-    background-image: url('/_v/private/assets/v1/linked/celdom.store-theme@1.0.0/public/react/16cbf7a67341c97d3d5299c9b40d86f1.png');
+    background-image: url('../../assets/historia/bg01-historia.png');
     background-size: cover;
     transition: all .7s;
 }
 
 .wrapperHistoriaAbas.tabactive1 {
-    background-image: url('/_v/private/assets/v1/linked/celdom.store-theme@1.0.0/public/react/7cec934e65b88b6efeec3222e4442b15.png');
+    background-image: url('../../assets/historia/bg02-historia.png');
 }
 
 .wrapperHistoriaAbas.tabactive2 {
-    background-image: url('/_v/private/assets/v1/linked/celdom.store-theme@1.0.0/public/react/03af891046ed564ff0d71fa87939306f.png');
+    background-image: url('../../assets/historia/bg03-historia.png');
 }
 
 .abaNavegacao {

@@ -84,6 +84,11 @@
   line-height: 0;
 }
 
+.flexRowContent--shelf-best-sellers-container {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
 /* SLIDER DE CATEGORIAS */
 .flexRow--categories-slider-container {
   margin: 56px 0;
