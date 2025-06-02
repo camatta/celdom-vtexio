@@ -24,7 +24,8 @@
       "thumbnailMaxHeight": 72,
       "zoomMode": "in-place-hover",
       "blockClass": ["pdp"],
-      "thumbnailsOrientation": "horizontal"
+      "thumbnailsOrientation": "horizontal",
+      "hiddenImages": ["azul", "vermelho", "verde", "rosa", "preto", "amarelo", "bege"]
     }
   },
 
