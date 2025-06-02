@@ -30,4 +30,9 @@
     margin-bottom: 0px;
     text-align: center;
   }
+
+  .productHighlightText--collections, .productHighlightText--free-shipping{
+    max-width: 154px!important;
+    width: unset!important;
+  }
 }

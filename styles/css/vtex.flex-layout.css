@@ -220,6 +220,10 @@
   .flexRow--summary-action-container {
   opacity: 1;
 }
+:global(.vtex-product-summary-2-x-element):hover .flexCol--summary-price-content{
+  opacity: 0;
+}
+
 .flexColChild--summary-action-content:first-child {
   width: 100%;
 }
@@ -1083,7 +1087,26 @@
 
 @media (max-width: 991px) {
 
+   /* CATÁLOGO */
+
+  .flexRowContent--summary-tags .stretchChildrenWidth{
+      flex-direction: column;
+  }
+
+  .flexRow--summary-tags{
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin-bottom:0.5rem;
+    top:unset;
+    left: unset;
+  }
+
   /* Página Catálogo*/
+
+  :global(.vtex-product-summary-2-x-element):hover .flexCol--summary-price-content{
+    opacity: 1;
+  }
 
   .flexRow--spot-price-summary-container {
       margin-bottom: 10px;
