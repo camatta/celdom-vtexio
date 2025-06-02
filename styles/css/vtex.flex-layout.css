@@ -281,6 +281,9 @@
 
 /* CATÁLOGO */
 
+.flexRowContent--product-tags-pdp .stretchChildrenWidth{
+  gap:0.5rem!important;
+}
 
 .flexRowContent--summary-tags .stretchChildrenWidth{
   gap:0.5rem!important;

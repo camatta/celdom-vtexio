@@ -111,8 +111,8 @@
 
 /* Página do produto */
 
-:global(.review__comment--user){
-  margin: 1rem 3.3rem;
+:global(.vtex-reviews-and-ratings-3-x-showMoreButton){
+  color:#2D2926!important;
 }
 
 .c-action-primary {

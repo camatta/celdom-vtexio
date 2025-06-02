@@ -44,7 +44,7 @@
       "type": "collection",
       "filter": {
         "type": "show",
-        "highlightNames": ["Últimas unidades", "Mais vendidos", "Novidades"]
+        "highlightNames": ["Últimas unidades"]
       }
     },
     "children": ["product-highlight-text#collections"]

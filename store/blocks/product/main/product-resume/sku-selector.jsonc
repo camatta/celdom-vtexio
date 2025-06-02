@@ -16,8 +16,8 @@
     "props": {
       "blockClass": ["pdp"],
       "visibility": "more-than-one",
-      "visibleVariations": ["Alimentação", "Diâmetro da Rosca", "cor", "Tamanho da Fita", "Tamanho"],
-      "thumbnailImage": ["azul", "preto", "rosa", "verde", "vermelho", "amarelo", "bege"]
+      "visibleVariations": ["Alimentação", "cor", "Tamanho"],
+      "thumbnailImage": ["vermelho", "azul", "rosa", "verde", "amarelo", "preto", "bege"]
     } 
   }
 }
