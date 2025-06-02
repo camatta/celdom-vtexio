@@ -1,0 +1,106 @@
+{
+  "flex-layout.row#carousel-area-gourmet": {
+    "props": {
+            "blockClass": ["custom-container", "wrapper-areas"]
+        },
+    "children": ["slider-layout#area-gourmet-carousel", "rich-text#area-gourmet-cta"]
+  },
+  "slider-layout#area-gourmet-carousel": {
+    "props": {
+      "itemsPerPage": {
+        "desktop": 2,
+        "tablet": 2,
+        "phone": 1
+      },
+      "infinite": true,
+      "showNavigationArrows": "always",
+      "showPaginationDots": "never",
+      "fullWidth": false,
+      "blockClass": "areaGourmetCarousel"
+    },
+    "children": [
+      "stack-layout#sala-image",
+      "stack-layout#cozinha-image",
+      "stack-layout#area-gourmet-image",
+      "stack-layout#outro-lugar-image"
+    ]
+  },
+  "stack-layout#sala-image": {
+    "children": [
+      "image#sala",
+      "rich-text#sala-text"
+    ]
+  },
+  "stack-layout#cozinha-image": {
+    "children": [
+      "image#cozinha",
+      "rich-text#cozinha-text"
+    ]
+  },
+  "stack-layout#area-gourmet-image": {
+    "children": [
+      "image#area-gourmet",
+      "rich-text#area-gourmet-text"
+    ]
+  },
+  "stack-layout#outro-lugar-image": {
+    "children": [
+      "image#outro-lugar",
+      "rich-text#outro-lugar-text"
+    ]
+  },
+  "image#sala": {
+    "props": {
+      "src": "assets/areas/sala.png",
+      "alt": "Sala"
+    }
+  },
+  "rich-text#sala-text": {
+    "props": {
+      "text": "Sala",
+      "blockClass": "imageOverlayText"
+    }
+  },
+  "image#cozinha": {
+    "props": {
+      "src": "assets/areas/cozinha.png",
+      "alt": "Cozinha"
+    }
+  },
+  "rich-text#cozinha-text": {
+    "props": {
+      "text": "Cozinha",
+      "blockClass": "imageOverlayText"
+    }
+  },
+  "image#area-gourmet": {
+    "props": {
+      "src": "assets/areas/gourmet.png",
+      "alt": "Área Gourmet"
+    }
+  },
+  "rich-text#area-gourmet-text": {
+    "props": {
+      "text": "Área Gourmet",
+      "blockClass": "imageOverlayText"
+    }
+  },
+  "image#outro-lugar": {
+    "props": {
+      "src": "assets/areas/churrasqueira.png",
+      "alt": "Churrasqueira"
+    }
+  },
+  "rich-text#outro-lugar-text": {
+    "props": {
+      "text": "Churrasqueira",
+      "blockClass": "imageOverlayText"
+    }
+  },
+  "rich-text#area-gourmet-cta": {
+    "props": {
+      "text": "[Área Gourmet com até 20% OFF](/area-gourmet)",
+      "blockClass": "areaGourmetCta"
+    }
+  }
+}

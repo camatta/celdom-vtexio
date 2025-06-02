@@ -525,6 +525,34 @@
   padding-right: 5px;
 }
 
+.paragraph--imageOverlayText {
+  font-family: DM Sans;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 100%;
+  line-height: 36px;
+  color: #fff;
+  position: absolute;
+  bottom: 31px;
+  width: 90%;
+  left: 5%;
+  text-align: right;
+  border-bottom: 3px solid #FE5000;
+}
+
+.link--areaGourmetCta {
+      font-weight: 300;
+    font-size: 16px;
+    line-height: 22px;
+    color: #2D2926;
+    padding: 8px 24px;
+    padding-right: 48px;
+    position: relative;
+    border: 1px solid #CCC;
+    text-decoration: unset;
+    border-radius: 50px;
+}
+
 @media screen and (max-width: 1025px) {
   .heading--shelf-title {
     font-size: 24px;

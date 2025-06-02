@@ -251,6 +251,22 @@
   margin-bottom: 52px;
 }
 
+/* CARROSSEL AREAS */
+
+.flexRowContent--wrapper-areas {
+  flex-direction: column;
+}
+
+.flexRowContent--wrapper-areas  .stretchChildrenWidth {
+  width: 100% !important
+}
+
+.flexRowContent--wrapper-areas {
+  margin-bottom: 80px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #ECECEC;
+}
+
 /* SEÇÃO MOSAICO RODAPÉ */
 .flexRow--bottom-mosaic-container {
   margin-bottom: 80px;

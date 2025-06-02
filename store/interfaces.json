@@ -59,6 +59,9 @@
   "carrossel-lojas": {
     "component": "CarrosselLojas"
   },
+  "carrossel-areas": {
+    "component": "CarrosselAreas"
+  },
   "historia-home": {
     "component": "HistoriaHome"
   }

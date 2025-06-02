@@ -1,0 +1,79 @@
+{
+
+  "flex-layout.row#lancamentos-section": {
+    "props": {
+      "horizontalAlign": "center",
+      "verticalAlign": "middle",
+      "preserveLayoutOnMobile": true,
+      "blockClass": ["lancamentosSection", "custom-container"]
+    },
+    "children": [
+      "flex-layout.col#lancamentos-info",
+      "flex-layout.col#lancamentos-shelf"
+    ]
+  },
+
+  "flex-layout.col#lancamentos-info": {
+    "props": {
+      "width": "30%", // Ajuste a largura conforme necessário
+      "verticalAlign": "middle",
+      "horizontalAlign": "center",
+      "blockClass": "lancamentosInfoColumn"
+    },
+    "children": [
+      "rich-text#lancamentos-title",
+      "rich-text#lancamentos-cta"
+    ]
+  },
+
+  "rich-text#lancamentos-title": {
+    "props": {
+      "text": "## Lançamentos\n## Imperdíveis",
+      "textAlignment": "center",
+      "textPosition": "center",
+      "blockClass": "lancamentosTitle"
+    }
+  },
+
+  "rich-text#lancamentos-cta": {
+    "props": {
+      "text": "[VER TUDO](/lancamentos)",
+      "textAlignment": "center",
+      "textPosition": "center",
+      "blockClass": "lancamentosCtaButton"
+    }
+  },
+
+   "flex-layout.col#lancamentos-shelf": {
+    "props": {
+      "width": "70%", // O restante da largura para o carrossel de produtos
+      "blockClass": ["lancamentosProductsContent", "shelf-carousel"]
+    },
+    "children": ["list-context.product-list#lancamentos-shelf"]
+  },
+
+  "list-context.product-list#lancamentos-shelf": {
+    "props": {
+      "orderBy": "OrderByReleaseDateDESC", // Ordena por data de lançamento (mais recentes)
+      "category": "7", 
+      "maxItems": 12, // Número máximo de produtos para carregar
+      "listName": "Lancamentos Imperdiveis",
+      "installmentCriteria": "MAX_WITH_INTEREST"
+    },
+    "blocks": ["product-summary.shelf"],
+    "children": ["slider-layout#lancamentos-products"]
+  },
+
+  "slider-layout#lancamentos-products": {
+    "props": {
+      "blockClass": ["shelf-carousel", "lancamentos-products"],
+      "itemsPerPage": {
+        "desktop": 2, // Exibe 3 produtos por slide no desktop
+        "tablet": 2,  // Exibe 2 produtos por slide no tablet
+        "phone": 1    // Exibe 1 produto por slide no celular
+      },
+      "infinite": true,
+      "showNavigationArrows": "always"
+    }
+  }
+}

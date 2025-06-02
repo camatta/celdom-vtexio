@@ -95,6 +95,42 @@
   object-fit: contain;
 }
 
+/* SLIDER AREAS */
+
+.sliderLayoutContainer--areaGourmetCarousel {
+  padding: 0 !important;
+  position: relative;
+}
+
+.sliderLeftArrow--areaGourmetCarousel {
+    position: absolute;
+    right: 3rem;
+    bottom: -2rem;
+    top: unset;
+    left: unset;
+}
+
+.sliderRightArrow--areaGourmetCarousel {
+    position: absolute;
+    right: 0rem;
+    bottom: -2rem;
+    top: unset;
+    left: unset;
+}
+
+.sliderTrack--areaGourmetCarousel {
+  gap: 14px;
+}
+
+.slideChildrenContainer--areaGourmetCarousel {
+  position: relative;
+  margin-bottom: 34px;
+}
+
+.stackItem--imageOverlayTex {
+  position: relative !important;
+}
+
 /* SLIDER PRODUTOS */
 .sliderTrackContainer--shelf-carousel {
   padding: 4px 0 30px;

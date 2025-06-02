@@ -7,8 +7,11 @@
       // "flex-layout.row#mid-mosaic",
       // "flex-layout.row#shelf-highlights",
       // "flex-layout.row#slider-marcas"
+      "flex-layout.row#carousel-area-gourmet",
       "flex-layout.row#aviso-projeto",
+      "flex-layout.row#lancamentos-section",
       "flex-layout.row#historia-home",
+      "flex-layout.row#destaques-section",
       "flex-layout.row#carrossel-lojas"
     ]
   }
