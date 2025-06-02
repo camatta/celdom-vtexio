@@ -16,7 +16,7 @@
     "props": {
       "blockClass": ["pdp"],
       "visibility": "more-than-one",
-      "visibleVariations": ["Alimentação", "Diâmetro da Rosca", "cor", "Tamanho da Fita"]
+      "visibleVariations": ["Alimentação", "Diâmetro da Rosca", "cor", "Tamanho da Fita", "Tamanho"]
     } 
   }
 }

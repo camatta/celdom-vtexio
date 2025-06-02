@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useProduct } from 'vtex.product-context'
 
 const AmbientImageButton = () => {
@@ -7,8 +7,11 @@ const AmbientImageButton = () => {
   const [isAmbientActive, setIsAmbientActive] = useState(false)
   const [filteredImages, setFilteredImages] = useState([])
   const [isHovering, setIsHovering] = useState(false)
+  const swiperInstance = useRef(null)
+  const activeThumbRef = useRef(null)
+  const updateInterval = useRef(null)
 
-  // 1. Filtra imagens e encontra o índice relativo (sem banners)
+  // 1. Filtra imagens e encontra o índice relativo
   useEffect(() => {
     if (!selectedItem?.images) return
 
@@ -25,60 +28,125 @@ const AmbientImageButton = () => {
     setIsAmbientActive(false)
   }, [selectedItem])
 
-  // 2. Navegação usando o índice relativo
-  const navigateToAmbientImage = () => {
-    if (ambientIndex === null) return
-
-    const swiper = document.querySelector('.vtex-store-components-3-x-productImagesGallerySwiperContainer')?.swiper
-    if (swiper) {
-      swiper.slideTo(ambientIndex)
-      return
-    }
-
+  // 2. Controle total das classes active
+  const enforceActiveThumb = () => {
     const allThumbs = [...document.querySelectorAll('.vtex-store-components-3-x-productImagesThumb')]
-      .filter(thumb => !thumb.querySelector('img')?.alt?.toLowerCase().includes('banner-pdp'))
+    const nonBannerThumbs = allThumbs.filter(thumb => 
+      !thumb.querySelector('img')?.alt?.toLowerCase().includes('banner-pdp')
+    )
 
-    if (allThumbs[ambientIndex]) {
-      allThumbs[ambientIndex].click()
+    if (activeThumbRef.current !== null && nonBannerThumbs[activeThumbRef.current]) {
+      // Remove todas as classes ativas primeiro
+      allThumbs.forEach(thumb => {
+        thumb.classList.remove(
+          'vtex-store-components-3-x-productImagesThumbActive',
+          'vtex-store-components-3-x-productImagesThumbActive--pdp',
+          'swiper-slide-active'
+        )
+      })
+
+      // Aplica nossas classes no thumb correto
+      nonBannerThumbs[activeThumbRef.current].classList.add(
+        'vtex-store-components-3-x-productImagesThumbActive',
+        'vtex-store-components-3-x-productImagesThumbActive--pdp',
+        'swiper-slide-active'
+      )
     }
   }
 
-  // 3. Monitoramento de imagem ativa
+  // 3. Configuração do controle do Swiper
   useEffect(() => {
-    const swiperContainer = document.querySelector('.vtex-store-components-3-x-productImagesGallerySwiperContainer')
-    const swiper = swiperContainer?.swiper
+    const initSwiperControl = () => {
+      const container = document.querySelector('.vtex-store-components-3-x-productImagesGallerySwiperContainer')
+      if (!container || !container.swiper) return
 
-    const checkActiveImage = () => {
-      if (swiper) {
-        const currentImage = swiper.slides[swiper.activeIndex]?.querySelector('img')
-        const isActive = currentImage?.alt?.toLowerCase() === 'img-ambientada' ||
-          swiper.activeIndex === ambientIndex
-        setIsAmbientActive(isActive)
-      } else {
-        const mainImage = document.querySelector('.vtex-store-components-3-x-productImageTag--main')
-        setIsAmbientActive(mainImage?.alt?.toLowerCase() === 'img-ambientada')
+      swiperInstance.current = container.swiper
+
+      // Sobrescreve a função de update do Swiper
+      const originalUpdate = swiperInstance.current.update
+      swiperInstance.current.update = function() {
+        originalUpdate.apply(this)
+        enforceActiveThumb()
       }
+
+      // Monitora mudanças para manter nosso controle
+      swiperInstance.current.on('slideChange', enforceActiveThumb)
+      
+      // Força verificação a cada 300ms para garantir domínio
+      updateInterval.current = setInterval(enforceActiveThumb, 300)
     }
 
-    if (swiper) {
-      swiper.on('slideChange', checkActiveImage)
-    }
-
-    const interval = setInterval(checkActiveImage, 1000)
-
-    checkActiveImage()
+    initSwiperControl()
 
     return () => {
-      swiper?.off('slideChange', checkActiveImage)
-      clearInterval(interval)
+      if (swiperInstance.current) {
+        swiperInstance.current.off('slideChange', enforceActiveThumb)
+      }
+      if (updateInterval.current) {
+        clearInterval(updateInterval.current)
+      }
     }
-  }, [ambientIndex])
+  }, [filteredImages])
+
+  // 4. Navegação com controle absoluto
+  const navigateToImage = (relativeIndex) => {
+    if (relativeIndex === null) return
+
+    activeThumbRef.current = relativeIndex
+    enforceActiveThumb() // Aplica imediatamente
+
+    const allThumbs = [...document.querySelectorAll('.vtex-store-components-3-x-productImagesThumb')]
+    const nonBannerThumbs = allThumbs.filter(thumb => 
+      !thumb.querySelector('img')?.alt?.toLowerCase().includes('banner-pdp')
+    )
+
+    if (nonBannerThumbs[relativeIndex] && swiperInstance.current) {
+      // Navega no Swiper usando o índice relativo
+      swiperInstance.current.slideTo(relativeIndex)
+    }
+
+    setIsAmbientActive(relativeIndex === ambientIndex)
+  }
+
+  // 5. Manipulador de clique que previne o comportamento padrão
+  const handleThumbClick = (e) => {
+    const thumb = e.target.closest('.vtex-store-components-3-x-productImagesThumb')
+    if (!thumb) return
+    
+    const allThumbs = [...document.querySelectorAll('.vtex-store-components-3-x-productImagesThumb')]
+    const nonBannerThumbs = allThumbs.filter(thumb => 
+      !thumb.querySelector('img')?.alt?.toLowerCase().includes('banner-pdp')
+    )
+    const relativeIndex = nonBannerThumbs.indexOf(thumb)
+
+    if (relativeIndex === -1) {
+      e.preventDefault()
+      e.stopPropagation()
+      e.stopImmediatePropagation()
+      return
+    }
+
+    e.preventDefault()
+    e.stopPropagation()
+    e.stopImmediatePropagation()
+    
+    navigateToImage(relativeIndex)
+  }
+
+  // 6. Configuração inicial
+  useEffect(() => {
+    document.addEventListener('click', handleThumbClick, true)
+    
+    return () => {
+      document.removeEventListener('click', handleThumbClick, true)
+    }
+  }, [])
 
   if (ambientIndex === null) return null
 
   return (
     <button
-      onClick={navigateToAmbientImage}
+      onClick={() => navigateToImage(ambientIndex)}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       style={{

@@ -1,5 +1,5 @@
 {
-  "store.custom#trocas-e-devolucoes": {
+  "store.custom#politica-de-garantia": {
     "children": ["flex-layout.row#linha-bread","flex-layout.row#trocas-e-devolucoes"]
   },
   "flex-layout.row#trocas-e-devolucoes": {

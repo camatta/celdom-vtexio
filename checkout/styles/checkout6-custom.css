@@ -1331,6 +1331,10 @@ p.notification {
   .body-cart {
     padding-bottom: 0;
   }
+
+  .payment-confirmation-wrap{
+    border:unset;
+  }
 }
 
 @media (max-width: 767px) {

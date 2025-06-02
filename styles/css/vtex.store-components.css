@@ -130,6 +130,7 @@
 
 :global(.vtex-render__container-id-product-banner-slider){
   padding-top: 2rem;
+  margin-top: 1rem;
 }
 
 :global(.vtex-render__container-id-product-info-tabs){
@@ -509,6 +510,31 @@
 }
 
 /*CATÁLOGO*/
+
+.skuSelectorSubcontainer--tamanho::before,
+.skuSelectorSubcontainer--alimentacao::before,
+.skuSelectorSubcontainer--cor::before{
+  margin-bottom: 15px;
+  font-size: 12px;
+  color:#A2A2A2;
+}
+
+.skuSelectorSubcontainer--tamanho::before{
+    content: "Selecione o tamanho";
+}
+
+.skuSelectorSubcontainer--cor::before{
+  content: "Selecione a cor"
+}
+
+.skuSelectorSubcontainer--alimentacao::before{
+  content: "Selecione a voltagem"
+}
+
+:global(.vtex-store-components-3-x-skuSelectorSubcontainer--cor) .skuSelectorInternalBox--pdp{
+  border:unset;
+  border-radius: unset;
+}
 
 .imageElement--category-banner{
   width: 100%;

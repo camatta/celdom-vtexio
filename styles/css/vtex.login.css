@@ -123,7 +123,8 @@
     color:#2D2926!important;
   }
 
-:global(.swiper-slide:has(img[alt="banner-pdp"])) {
+:global(.swiper-slide:has(img[alt="banner-pdp"])),
+:global(.swiper-slide:has(img[alt="banner-pdp-mob"])) {
     display: none !important;
 }
 
@@ -275,6 +276,20 @@
 :global(.vtex-order-placed-2-x-confirmationIconWrapper) > svg {
   display: none;
 }
+
+/* Estilo específico para "Mais vendidos" */
+[data-highlight-name="Mais vendidos"] {
+  background:#3F3F3F!important;
+  color:#fff!important;
+  border:none!important;
+
+}
+
+/* Estilo específico para "Novidades" */
+[data-highlight-name="Novidades"] {
+  border: 1px solid #2D2926!important;
+}
+
 
 @media (min-width: 1100px) {
   .container :global(.vtex-button) {

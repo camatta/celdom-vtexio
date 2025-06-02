@@ -17,7 +17,7 @@ const SkuSpecifications = () => {
       Icon: Bolt,
     },
     {
-      name: 'Voltagem',
+      name: 'Alimentação',
       Icon: Power,
     },
     {

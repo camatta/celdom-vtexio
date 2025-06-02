@@ -541,14 +541,18 @@
 .flexCol--result-filter-content {
   min-width: 255px;
   position: fixed;
-  top: 0;
   bottom: 0;
   width: 30%;
-  height: fit-content;
+  height: 100%;
   z-index: 1001;
   left: -100%;
+  transform: translateZ(0);
   transition: all .4s;
-  margin: 4rem;
+  padding: 4rem 0;
+}
+
+.flexColChild--result-filter-content{
+  overflow-y: scroll;
 }
 
 .flexCol--category-banner{
@@ -597,7 +601,7 @@
 
 .flexRow--img-ambientada{
   position: absolute;
-  bottom: 32%;
+  bottom: 35%;
   z-index: 2;
 }
 
@@ -1094,7 +1098,7 @@
   /*página do produto*/
 
   .flexRow--img-ambientada{
-    bottom: 66%;
+    bottom: 71%;
   }
 
   .flexRow--name-wish-container{
@@ -1318,7 +1322,8 @@
   }
 
   .flexRow--minicart-footer {
-    padding: 21px 20px;
+    padding: 16px 0px;
+    margin: 24px 20px 0;
   }
 }
 
