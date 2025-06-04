@@ -43,7 +43,7 @@
       "blockClass": ["summary"],
       "type": "collection",
       "filter": {
-        "type": "show",
+        "type": "showAll",
         "highlightNames": ["Mais Vendidos", "Lançamento", "Últimas unidades", "Novidades"]
       }
     },

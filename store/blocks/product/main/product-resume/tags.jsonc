@@ -44,7 +44,7 @@
       "type": "collection",
       "filter": {
         "type": "show",
-        "highlightNames": ["Mais Vendidos", "Lançamento"]
+        "highlightNames": ["Últimas unidades"]
       }
     },
     "children": ["product-highlight-text#collections"]

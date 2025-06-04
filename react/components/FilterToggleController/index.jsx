@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useState } from 'react';
+import { useEffect, useCallback, useState, useRef } from 'react';
 
 const FilterToggleController = () => {
   const CLASS_NAMES = {
@@ -11,7 +11,8 @@ const FilterToggleController = () => {
     selectedCheckbox: '.vtex-search-result-3-x-selectedFilterItem input[type="checkbox"]',
     clearAllButton: '.vtex-search-result-3-x-clearAllFilters',
     applyButton: '.vtex-search-result-3-x-filterApplyButton button',
-    removeFilterButton: '.vtex-search-result-3-x-filterItem__remove'
+    removeFilterButton: '.vtex-search-result-3-x-filterItem__remove',
+    priceRangeContainer: '.vtex-search-result-3-x-filter__container--priceRange'
   };
 
   const IDS = {
@@ -22,6 +23,23 @@ const FilterToggleController = () => {
   };
 
   const [hasSelectedFilters, setHasSelectedFilters] = useState(false);
+  const initialRangeValues = useRef({ min: 0, max: 0 });
+
+  // Função para capturar os valores iniciais do range
+  const captureInitialRangeValues = useCallback(() => {
+    const priceRangeContainer = document.querySelector(CLASS_NAMES.priceRangeContainer);
+    if (priceRangeContainer) {
+      const leftValueText = priceRangeContainer.querySelector('.vtex-slider__left-value')?.textContent?.replace(/[^\d,]/g, '').replace(',', '.');
+      const rightValueText = priceRangeContainer.querySelector('.vtex-slider__right-value')?.textContent?.replace(/[^\d,]/g, '').replace(',', '.');
+      
+      if (leftValueText && rightValueText) {
+        initialRangeValues.current = {
+          min: parseFloat(leftValueText),
+          max: parseFloat(rightValueText)
+        };
+      }
+    }
+  }, []);
 
   const checkSelectedFilters = useCallback(() => {
     // Verifica checkboxes marcados
@@ -35,9 +53,43 @@ const FilterToggleController = () => {
     const hasSelectedFiltersInContainer = selectedFiltersContainer && 
       selectedFiltersContainer.querySelectorAll('.vtex-search-result-3-x-selectedFilterItem').length > 0;
 
+    // Verifica se há range ativo (para implementações com dois inputs)
+    const priceMinInput = document.querySelector('input[name="priceMin"]');
+    const priceMaxInput = document.querySelector('input[name="priceMax"]');
+    let hasActivePriceRange = false;
+    
+    if (priceMinInput && priceMaxInput) {
+      const minValue = parseFloat(priceMinInput.value);
+      const maxValue = parseFloat(priceMaxInput.value);
+      const minPossible = parseFloat(priceMinInput.min || '0');
+      const maxPossible = parseFloat(priceMaxInput.max || 'Infinity');
+      
+      hasActivePriceRange = minValue !== minPossible || maxValue !== maxPossible;
+    }
+
+    // Verifica se há slider range ativo (para o componente VTEX)
+    const priceRangeContainer = document.querySelector(CLASS_NAMES.priceRangeContainer);
+    let hasActiveSliderRange = false;
+    
+    if (priceRangeContainer) {
+      const leftValueText = priceRangeContainer.querySelector('.vtex-slider__left-value')?.textContent?.replace(/[^\d,]/g, '').replace(',', '.');
+      const rightValueText = priceRangeContainer.querySelector('.vtex-slider__right-value')?.textContent?.replace(/[^\d,]/g, '').replace(',', '.');
+      
+      if (leftValueText && rightValueText) {
+        const currentMin = parseFloat(leftValueText);
+        const currentMax = parseFloat(rightValueText);
+        
+        // Compara com os valores iniciais armazenados
+        hasActiveSliderRange = currentMin !== initialRangeValues.current.min || 
+                             currentMax !== initialRangeValues.current.max;
+      }
+    }
+
     const hasFilters = selectedCheckboxes.length > 0 || 
                      selectedFilterItems.length > 0 || 
-                     hasSelectedFiltersInContainer;
+                     hasSelectedFiltersInContainer ||
+                     hasActivePriceRange ||
+                     hasActiveSliderRange;
     
     setHasSelectedFilters(hasFilters);
     return hasFilters;
@@ -89,6 +141,24 @@ const FilterToggleController = () => {
         checkbox.dispatchEvent(new Event('click', { bubbles: true }));
         checkbox.dispatchEvent(new Event('input', { bubbles: true }));
       });
+    }
+
+    // Reseta os ranges
+    const rangeInputs = document.querySelectorAll('input[type="range"]');
+    rangeInputs.forEach(input => {
+      input.value = input.min;
+      input.dispatchEvent(new Event('change', { bubbles: true }));
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+
+    // Reseta os inputs de preço (se existirem)
+    const priceMinInput = document.querySelector('input[name="priceMin"]');
+    const priceMaxInput = document.querySelector('input[name="priceMax"]');
+    if (priceMinInput && priceMaxInput) {
+      priceMinInput.value = priceMinInput.min || '0';
+      priceMaxInput.value = priceMaxInput.max || '0';
+      priceMinInput.dispatchEvent(new Event('change', { bubbles: true }));
+      priceMaxInput.dispatchEvent(new Event('change', { bubbles: true }));
     }
 
     // Clica no botão aplicar se existir
@@ -204,6 +274,13 @@ const FilterToggleController = () => {
     }
   }, [closeFilter, checkSelectedFilters, addClearFiltersButton]);
 
+  const handleRangeChange = useCallback(() => {
+    setTimeout(() => {
+      checkSelectedFilters();
+      addClearFiltersButton();
+    }, 100);
+  }, [checkSelectedFilters, addClearFiltersButton]);
+
   const handleFilterClick = useCallback(() => {
     const stickyHeader = document.querySelector(CLASS_NAMES.stickyHeader);
     if (stickyHeader) {
@@ -215,7 +292,7 @@ const FilterToggleController = () => {
 
     if (filterContent && overlay) {
       filterContent.style.cssText = `
-        left: 0;
+        left: 60px;
         z-index: 1001 !important;
         position: fixed;
       `;
@@ -224,10 +301,11 @@ const FilterToggleController = () => {
 
       setTimeout(() => {
         addFilterHeader();
+        captureInitialRangeValues(); // Captura os valores iniciais quando o filtro é aberto
         addClearFiltersButton();
       }, 300);
     }
-  }, [addFilterHeader, addClearFiltersButton]);
+  }, [addFilterHeader, addClearFiltersButton, captureInitialRangeValues]);
 
   useEffect(() => {
     const overlay = createOverlay();
@@ -236,6 +314,7 @@ const FilterToggleController = () => {
     const observer = new MutationObserver(() => {
       if (document.querySelector(CLASS_NAMES.filtersWrapper)) {
         addFilterHeader();
+        captureInitialRangeValues(); // Captura os valores iniciais quando os filtros são carregados
         checkSelectedFilters();
         addClearFiltersButton();
       }
@@ -247,6 +326,11 @@ const FilterToggleController = () => {
     });
 
     document.addEventListener('change', handleFilterChange);
+    document.addEventListener('input', (e) => {
+      if (e.target.matches('input[type="range"], input[name="priceMin"], input[name="priceMax"]')) {
+        handleRangeChange();
+      }
+    });
     document.addEventListener('click', (e) => {
       if (e.target.closest(CLASS_NAMES.removeFilterButton)) {
         setTimeout(() => {
@@ -261,6 +345,7 @@ const FilterToggleController = () => {
     return () => {
       overlay.removeEventListener('click', closeFilter);
       document.removeEventListener('change', handleFilterChange);
+      document.removeEventListener('input', handleRangeChange);
       observer.disconnect();
 
       const closeBtn = document.getElementById(IDS.closeButton);
@@ -269,7 +354,7 @@ const FilterToggleController = () => {
       const clearBtn = document.getElementById(IDS.clearButton);
       if (clearBtn) clearBtn.removeEventListener('click', clearAllFilters);
     };
-  }, [closeFilter, addFilterHeader, addClearFiltersButton, handleFilterChange, checkSelectedFilters, clearAllFilters]);
+  }, [closeFilter, addFilterHeader, addClearFiltersButton, handleFilterChange, handleRangeChange, checkSelectedFilters, clearAllFilters, captureInitialRangeValues]);
 
   return (
     <button

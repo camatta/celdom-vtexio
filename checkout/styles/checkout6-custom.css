@@ -1152,6 +1152,7 @@ p.notification {
 }
 
 @media (max-width: 991px) {
+
   .checkout-container.orderform-active
     .orderform-template.active
     .orderform-template-holder {
@@ -1330,6 +1331,10 @@ p.notification {
 @media (max-width: 979px) {
   .body-cart {
     padding-bottom: 0;
+  }
+
+  .payment-confirmation-wrap{
+    border:unset;
   }
 }
 

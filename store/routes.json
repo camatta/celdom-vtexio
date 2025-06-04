@@ -7,8 +7,8 @@
     "path": "/politica-frete"
   },
 
-  "store.custom#trocas-e-devolucoes": {
-    "path": "/politica-garantia"
+  "store.custom#politica-de-garantia": {
+    "path": "/politica-de-garantia"
   },
 
   "store.custom#pontos-vendas": {

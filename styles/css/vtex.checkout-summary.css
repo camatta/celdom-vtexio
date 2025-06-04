@@ -32,7 +32,11 @@
 
 @media (max-width: 639px) {
   .summarySmallDisclaimer--minicart {
-    padding: 14px 17px;
+    padding: 17px 0 0;
     margin: 21px 0;
+  }
+
+  .summarySmallDisclaimer--minicart::after{
+    font-size: 12px;
   }
 }

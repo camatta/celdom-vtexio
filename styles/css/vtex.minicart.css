@@ -3,7 +3,14 @@
 }
 .closeIconButton {
   padding: 0;
-  margin: 25px 0 0 32px;
+  margin: 30px 21px 0 0px;
+}
+.closeIcon{
+  width: 0px!important;
+  height: 0px;
+}
+.closeIconButton::after{
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M1.6 16L0 14.4L6.4 8L0 1.6L1.6 0L8 6.4L14.4 0L16 1.6L9.6 8L16 14.4L14.4 16L8 9.6L1.6 16Z' fill='black'/%3E%3C/svg%3E");
 }
 :global(.vtex-minicart-2-x-opened){
   background:#F3F3F3;
@@ -71,7 +78,7 @@
   display: flex;
   align-items: center;
   justify-content: start;
-  gap: 16px;
+  gap: 8px;
   font-size: 20px;
   font-weight: 700;
   line-height: 27px;
@@ -79,6 +86,7 @@
   margin: 0;
   border-bottom: 1px solid #d9d9d9;
   background:#FE5000;
+  color:#000;
 }
 .minicartSummary{
   padding-top:20px!important;
@@ -152,7 +160,7 @@
 
 @media screen and (max-width: 639px) {
   .closeIconButton {
-    margin: 24px 0 0 8px;
+    margin: 30px 0 0 8px;
   }
   .minicartTitle {
     padding: 25px 40px;

@@ -44,7 +44,7 @@
   },
   "product-price-savings#summary": {
     "props": {
-      "message": "{savingsPercentage} OFF"
+      "message": "-{savingsPercentage}"
     }
   },
 

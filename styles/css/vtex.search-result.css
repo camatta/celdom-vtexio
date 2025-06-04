@@ -84,7 +84,8 @@
 }
 .filterItem :global(.vtex-checkbox__line-container) {
   display: flex;
-  align-items: baseline;
+  align-items: center;
+  padding: 5px;
 }
 .filterItem :global(.vtex-checkbox__label),
 .filter__container :global(.vtex-slider__left-value),

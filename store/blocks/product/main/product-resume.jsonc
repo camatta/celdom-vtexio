@@ -16,7 +16,7 @@
     "props": {
       "blockClass": "reviews-pdp"
     },
-    "children": ["product-rating-inline", "flex-layout.row#product-brand-info", "flex-layout.row#summary-tags"]
+    "children": ["product-rating-inline", "flex-layout.row#product-brand-info", "flex-layout.row#pdp-tags"]
   },
 
   "flex-layout.col#row-actions": {

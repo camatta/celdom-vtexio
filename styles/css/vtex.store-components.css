@@ -121,7 +121,14 @@
   border-radius: 2px;
 }
 
+/*PÁGINA DE CATÁLOGO*/
+
+
 /* PÁGINA DO PRODUTO */
+
+  :global(.vtex-reviews-and-ratings-3-x-reviewCommentRating) .review__comment--user{
+    margin: 0!important;
+  }
 
 :global(.vtex-render__container-id-product-info-tabs),
 :global(.vtex-render__container-id-product-banner-slider){
@@ -130,6 +137,7 @@
 
 :global(.vtex-render__container-id-product-banner-slider){
   padding-top: 2rem;
+  margin-top: 1rem;
 }
 
 :global(.vtex-render__container-id-product-info-tabs){
@@ -142,14 +150,11 @@
 
 :global(.vtex-reviews-and-ratings-3-x-reviewsHeading){
     font-size:0!important;
-    border-bottom: unset;
-    background:#fff;
-    padding-bottom: 2rem;
 }
 
 :global(.vtex-reviews-and-ratings-3-x-reviewsOrderBy){
     position: absolute;
-    top: 100px;
+    top: 42px;
     right: 5%;
 }
 
@@ -165,17 +170,14 @@
 
 :global(.vtex-reviews-and-ratings-3-x-reviewsRating){
   margin: 0;
-  padding: 0 3.3rem!important;
 }
 
 :global(.vtex-reviews-and-ratings-3-x-reviewComment){
-  margin: 0 3.4rem!important;
   border-bottom: 1px solid #CCCCCC;
   padding: 1.5rem 0;
 }
 
 :global(.vtex-reviews-and-ratings-3-x-writeReviewContainer){
-  margin: 1rem 4rem 0px 46px;
   padding-bottom: 1.5rem!important;
   border-bottom: 1px solid #CCCCCC;
 }
@@ -194,8 +196,9 @@
 
 :global(.vtex-reviews-and-ratings-3-x-container){
   max-width: 1140px!important;
-  padding: 0;
+  padding: 0 4rem;
   margin-bottom: 3rem;
+  background:#F3F3F3;
 }
 
 :global(.vtex-reviews-and-ratings-3-x-loginLink){
@@ -204,11 +207,16 @@
   padding: 0;
 }
 
-:global(.vtex-reviews-and-ratings-3-x-reviewsHeading)::before{
-  content:"Avalie este produto";
-  font-size:24px;
-  color:#2D2926;
-  font-weight: 400;
+:global(.vtex-render__container-id-ratings)::before{
+    content: "Avalie este produto";
+    font-size: 24px;
+    color: #2D2926;
+    font-weight: 400;
+    display: block;
+    max-width: 1140px;
+    width: 100% !important;
+    margin: auto;
+    margin-bottom: 2rem;
 }
 
 :global(.vtex-reviews-and-ratings-3-x-reviewAuthorName),
@@ -218,15 +226,19 @@
   color:#3F3F3F;
 }
 
+/*
+
 :global(.vtex__icon-caret-down), 
 :global(.vtex__icon-caret-up){
   display: none;
 }
+  
+*/
 
 .carouselGaleryThumbs {
   width: 100% !important;
   max-width: 100%;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 :global(.vtex-store-components-3-x-carouselGaleryThumbs) .productImagesThumbCaret::before{
   content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'%3E%3Cpath d='M13.4359 10.0625L0.5 10.0625L0.5 7.9375L13.4359 7.9375L7.48594 1.9875L9 0.5L17.5 9L9 17.5L7.48594 16.0125L13.4359 10.0625Z' fill='%23FE5000'/%3E%3C/svg%3E");
@@ -508,7 +520,42 @@
   width: 100%;
 }
 
-/*CATÁLOGO*/
+/*CATÁLOGO E PRODUTO*/
+
+.skuSelectorItemImage{
+  width:fit-content;
+}
+
+.skuSelectorItemImageValue{
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+}
+
+.skuSelectorSubcontainer--tamanho::before,
+.skuSelectorSubcontainer--alimentacao::before,
+.skuSelectorSubcontainer--cor::before{
+  margin-bottom: 15px;
+  font-size: 12px;
+  color:#A2A2A2;
+}
+
+.skuSelectorSubcontainer--tamanho::before{
+    content: "Selecione o tamanho";
+}
+
+.skuSelectorSubcontainer--cor::before{
+  content: "Selecione a cor"
+}
+
+.skuSelectorSubcontainer--alimentacao::before{
+  content: "Selecione a voltagem"
+}
+
+:global(.vtex-store-components-3-x-skuSelectorSubcontainer--cor) .skuSelectorInternalBox--pdp{
+  border:unset;
+  border-radius: unset;
+}
 
 .imageElement--category-banner{
   width: 100%;
@@ -568,7 +615,7 @@
   .carouselGaleryThumbs {
     display: flex;
     max-width: initial;
-    margin-top: 5rem;
+    margin-top: 1rem;
   }
   .productImagesThumb:not(:first-child) {
     margin-top: 0;
@@ -579,6 +626,10 @@
 @media screen and (max-width: 991px) {
 
   /* PRODUTO */
+
+  :global(.vtex-reviews-and-ratings-3-x-container){
+    padding: 0;
+  }
 
   :global(.vtex-reviews-and-ratings-3-x-reviewCommentRating){
     flex-direction:column;
@@ -628,7 +679,7 @@
 
   :global(.vtex-reviews-and-ratings-3-x-writeReviewContainer){
     margin: 0;
-    padding: 1rem 0 0 9px;
+    padding: 1rem 0 0 16px;
     background:#F3F3F3;
     border:unset;
   }
