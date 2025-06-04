@@ -9,8 +9,10 @@ const ProductBannerSlider = () => {
   const [banners, setBanners] = useState([])
   const [isMobile, setIsMobile] = useState(false)
   const sliderRef = useRef(null)
+  const slidesContainerRef = useRef(null)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [isAnimating, setIsAnimating] = useState(false)
 
   // Detecta mudanças no tamanho da tela
   useEffect(() => {
@@ -41,24 +43,30 @@ const ProductBannerSlider = () => {
 
   // Rotação automática dos banners
   useEffect(() => {
-    if (banners.length <= 1) return
+    if (banners.length <= 1 || isAnimating) return
 
     const interval = setInterval(() => {
       setCurrentIndex(prev => (prev + 1) % banners.length)
     }, 5000)
 
     return () => clearInterval(interval)
-  }, [banners.length])
+  }, [banners.length, isAnimating])
 
-  // Efeito para scroll suave
+  // Efeito para transição suave
   useEffect(() => {
-    if (!sliderRef.current || banners.length <= 1) return
+    if (!slidesContainerRef.current || banners.length <= 1) return
 
-    sliderRef.current.scrollTo({
-      left: currentIndex * sliderRef.current.offsetWidth,
-      behavior: 'smooth'
-    })
-  }, [currentIndex, banners.length])
+    setIsAnimating(true)
+    
+    const slideWidth = sliderRef.current.offsetWidth
+    slidesContainerRef.current.style.transform = `translateX(-${currentIndex * slideWidth}px)`
+
+    const timer = setTimeout(() => {
+      setIsAnimating(false)
+    }, 700) // Tempo deve corresponder à duração da transição no CSS
+
+    return () => clearTimeout(timer)
+  }, [currentIndex, banners.length, windowWidth])
 
   if (!banners.length) return null
 
@@ -67,20 +75,34 @@ const ProductBannerSlider = () => {
       <div className={styles.bannerSliderContainer} style={containerStyle}>
         <div
           ref={sliderRef}
-          className="banner-slider"
+          className={styles.bannerSlider}
           style={sliderStyle}
-          onTouchStart={() => clearAutoRotation()} // Opcional: pausar no touch
         >
-          {banners.map((url, index) => (
-            <div key={`${url}-${index}`} style={slideStyle}>
-              <img
-                src={url}
-                alt={`Banner ${index + 1}`}
-                style={imageStyle}
-                loading="lazy"
-              />
-            </div>
-          ))}
+          <div 
+            ref={slidesContainerRef}
+            className={styles.slidesContainer}
+            style={{
+              display: 'flex',
+              width: `${banners.length * 100}%`,
+            }}
+          >
+            {banners.map((url, index) => (
+              <div 
+                key={`${url}-${index}`} 
+                style={{
+                  ...slideStyle,
+                  width: `${100 / banners.length}%`,
+                }}
+              >
+                <img
+                  src={url}
+                  alt={`Banner ${index + 1}`}
+                  style={imageStyle}
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         {banners.length > 1 && (
@@ -93,8 +115,9 @@ const ProductBannerSlider = () => {
                   backgroundColor: index === currentIndex ? '#FE5000' : '#2D2926',
                   width: index === currentIndex ? '73px' : '39px',
                 }}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => !isAnimating && setCurrentIndex(index)}
                 aria-label={`Ir para banner ${index + 1}`}
+                disabled={isAnimating}
               />
             ))}
           </div>
@@ -104,7 +127,7 @@ const ProductBannerSlider = () => {
   )
 }
 
-// Estilos (pode ser movido para CSS)
+// Estilos atualizados
 const wrapperStyle = {
   width: '100%',
   padding: '0 16px',
@@ -117,16 +140,12 @@ const containerStyle = {
 }
 
 const sliderStyle = {
-  display: 'flex',
-  overflowX: 'hidden', // Alterado para hidden para evitar scroll indesejado
-  scrollBehavior: 'smooth',
-  scrollSnapType: 'x mandatory',
+  overflow: 'hidden',
+  position: 'relative',
 }
 
 const slideStyle = {
-  flex: '0 0 100%',
-  scrollSnapAlign: 'start',
-  minWidth: '100%',
+  flexShrink: 0,
 }
 
 const imageStyle = {

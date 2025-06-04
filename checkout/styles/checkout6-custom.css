@@ -1152,6 +1152,7 @@ p.notification {
 }
 
 @media (max-width: 991px) {
+
   .checkout-container.orderform-active
     .orderform-template.active
     .orderform-template-holder {

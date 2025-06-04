@@ -1,5 +1,17 @@
+/* ProductBannerSlider.css */
 .bannerSliderContainer {
   padding: 0 15px !important;
+}
+
+.bannerSlider {
+  position: relative;
+  overflow: hidden;
+}
+
+.slidesContainer {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: transform;
 }
 
 @media (max-width: 991px) {

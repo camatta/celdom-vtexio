@@ -17,7 +17,7 @@
       "blockClass": ["pdp"],
       "visibility": "more-than-one",
       "visibleVariations": ["Alimentação", "cor", "Tamanho"],
-      "thumbnailImage": ["vermelho", "azul", "rosa", "verde", "amarelo", "preto", "bege"]
+      "thumbnailImage": ["Cor"]
     } 
   }
 }

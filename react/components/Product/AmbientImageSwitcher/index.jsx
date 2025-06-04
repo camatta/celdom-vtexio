@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { useProduct } from 'vtex.product-context'
+import { createPortal } from 'react-dom'
 
 const AmbientImageButton = () => {
   const { selectedItem } = useProduct()
@@ -10,6 +11,7 @@ const AmbientImageButton = () => {
   const swiperInstance = useRef(null)
   const activeThumbRef = useRef(null)
   const updateInterval = useRef(null)
+  const buttonContainerRef = useRef(null)
 
   // 1. Filtra imagens e encontra o índice relativo
   useEffect(() => {
@@ -142,9 +144,35 @@ const AmbientImageButton = () => {
     }
   }, [])
 
-  if (ambientIndex === null) return null
+  // 7. Encontrar o container pai e criar elemento para o botão
+  useEffect(() => {
+    const parentElement = document.querySelector('.vtex-store-components-3-x-carouselGaleryCursor')
+    if (!parentElement) return
 
-  return (
+    // Cria um container para o botão
+    const buttonContainer = document.createElement('div')
+    buttonContainer.className = 'ambient-button-container'
+    buttonContainer.style.width = '100%'
+    buttonContainer.style.display = 'flex'
+    buttonContainer.style.justifyContent = 'start'
+    
+    // Insere antes do elemento de thumbs
+    const thumbsElement = parentElement.querySelector('.vtex-store-components-3-x-carouselGaleryThumbs')
+    if (thumbsElement) {
+      parentElement.insertBefore(buttonContainer, thumbsElement)
+      buttonContainerRef.current = buttonContainer
+    }
+
+    return () => {
+      if (buttonContainerRef.current && buttonContainerRef.current.parentNode) {
+        buttonContainerRef.current.parentNode.removeChild(buttonContainerRef.current)
+      }
+    }
+  }, [])
+
+  if (ambientIndex === null || !buttonContainerRef.current) return null
+
+  return createPortal(
     <button
       onClick={() => navigateToImage(ambientIndex)}
       onMouseEnter={() => setIsHovering(true)}
@@ -166,7 +194,8 @@ const AmbientImageButton = () => {
       aria-hidden={isAmbientActive}
     >
       Ver imagem ambientada
-    </button>
+    </button>,
+    buttonContainerRef.current
   )
 }
 
