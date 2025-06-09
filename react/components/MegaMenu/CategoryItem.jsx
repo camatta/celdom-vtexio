@@ -1,3 +1,5 @@
+// CategoryItem.js atualizado
+
 import React, { useState, useRef } from 'react'
 import { Link } from 'vtex.render-runtime'
 import PropTypes from 'prop-types'
@@ -12,10 +14,6 @@ import categoryMenuPosition, {
 import { getSortSubcategoriesValues } from '../../utils/sortSubcategoriesItems'
 import { HamburguerIcon } from '../Icons'
 
-/**
- * Component that represents a single category displayed in the menu, also displays
- * the subcategories, if the provided category has them
- */
 const CategoryItem = ({
   category,
   subcategoryLevels,
@@ -45,19 +43,19 @@ const CategoryItem = ({
   )
 
   const containerStyle = {
-    top:
-      itemRef.current &&
-      itemRef.current.offsetTop + itemRef.current.clientHeight,
+    top: '100%',
+    left: 0,
+    right: 0,
     display: isHover ? 'flex' : 'none',
+    position: 'absolute',
+    zIndex: 10,
   }
 
   return (
     <li
       className={`${styles.itemContainer} ${
         styles['itemContainer--department']
-      } flex items-center db list${
-        noRedirect ? ` ${styles.allCategories}` : ''
-      }`}
+      } flex items-center db list${noRedirect ? ` ${styles.allCategories}` : ''}`}
       ref={itemRef}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={handleCloseMenu}
@@ -95,17 +93,12 @@ const CategoryItem = ({
 }
 
 CategoryItem.propTypes = {
-  /** Category to be displayed */
   category: categoryItemShape.isRequired,
-  /** Set use of Link component */
   noRedirect: PropTypes.bool,
-  /** Number of subcategory levels */
   subcategoryLevels: PropTypes.oneOf([0, 1, 2]),
-  /** Defines the position of the category menu */
   menuPosition: PropTypes.oneOf(getMenuPositionValues()),
-  /** Menu category selection */
   isCategorySelected: PropTypes.bool,
-  sortSubcategories: PropTypes.oneOf(getSortSubcategoriesValues()),
+  sortSubcategories: PropTypes.oneOf(getSortSubcategoriesValues),
 }
 
-export default CategoryItem
+export default CategoryItem;

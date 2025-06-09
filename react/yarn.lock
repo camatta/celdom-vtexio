@@ -193,9 +193,9 @@ camelize@^1.0.0:
   resolved "https://registry.yarnpkg.com/camelize/-/camelize-1.0.1.tgz#89b7e16884056331a35d6b5ad064332c91daa6c3"
   integrity sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==
 
-"celdom.store-theme@https://dev00--celdom.myvtex.com/_v/private/typings/linked/v1/celdom.store-theme@1.0.1+build1742937336/public/@types/celdom.store-theme":
-  version "1.0.1"
-  resolved "https://dev00--celdom.myvtex.com/_v/private/typings/linked/v1/celdom.store-theme@1.0.1+build1742937336/public/@types/celdom.store-theme#563d9e1ae4c3db1f1118de56de75829a4d127e71"
+"celdom.store-theme@http://celdom.vtexassets.com/_v/public/typings/v1/celdom.store-theme@1.0.2/public/@types/celdom.store-theme":
+  version "1.0.2"
+  resolved "http://celdom.vtexassets.com/_v/public/typings/v1/celdom.store-theme@1.0.2/public/@types/celdom.store-theme#72aa604f8d9385f8fbd981d40a9faf5d7566c8b9"
 
 combined-stream@^1.0.8:
   version "1.0.8"
@@ -489,6 +489,10 @@ swiper@^8.4.7:
   version "2.8.1"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.condition-layout@2.8.1/public/@types/vtex.condition-layout#59d2d0f17849703ddea25436a72c6cf3e300d6b4"
 
+"vtex.coupon@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.coupon@0.11.0/public/@types/vtex.coupon":
+  version "0.11.0"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.coupon@0.11.0/public/@types/vtex.coupon#62ac89a9187021714c7d0f9591fd77eb08fe5035"
+
 "vtex.css-handles@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@1.0.1/public/@types/vtex.css-handles":
   version "1.0.1"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@1.0.1/public/@types/vtex.css-handles#9444e64afad49e3ace3461f170b7d28f29b78d07"
@@ -532,6 +536,10 @@ swiper@^8.4.7:
 "vtex.my-account@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.my-account@1.29.0/public/@types/vtex.my-account":
   version "1.29.0"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.my-account@1.29.0/public/@types/vtex.my-account#014ffc22855e21f321b5ed81d1c95e547740b0ba"
+
+"vtex.order-items@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.order-items@0.14.0/public/@types/vtex.order-items":
+  version "0.14.0"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.order-items@0.14.0/public/@types/vtex.order-items#73d1025ed6231ad4e6914c1896e3e17495b59699"
 
 "vtex.order-manager@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.order-manager@0.12.0/public/@types/vtex.order-manager":
   version "0.12.0"
@@ -589,9 +597,9 @@ swiper@^8.4.7:
   version "0.4.1"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-specification-badges@0.4.1/public/@types/vtex.product-specification-badges#2c8416e3c69b6b4b0e73b81fff67b448743b38a3"
 
-"vtex.product-summary@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-summary@2.90.3/public/@types/vtex.product-summary":
-  version "2.90.3"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-summary@2.90.3/public/@types/vtex.product-summary#019e2eb9123d750e73c313defb6d02254d652755"
+"vtex.product-summary@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-summary@2.90.4/public/@types/vtex.product-summary":
+  version "2.90.4"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-summary@2.90.4/public/@types/vtex.product-summary#fd8e1c455dc9363d86cfa957503d511d43458178"
 
 "vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.136.1/public/@types/vtex.render-runtime":
   version "8.136.1"

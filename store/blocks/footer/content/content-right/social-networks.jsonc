@@ -2,82 +2,90 @@
   "flex-layout.row#social-networks": {
     "title": "Redes Sociais",
     "props": {
-      "blockClass": "social-networks-container",
+      "blockClass": ["social-networks-container"],
       "colSizing": "auto"
     },
     "children": [
-      "flex-layout.col#social-face",
       "flex-layout.col#social-insta",
-      "flex-layout.col#social-wp"
+      "flex-layout.col#social-face",
+      "flex-layout.col#social-linkedin",
+      "flex-layout.col#social-youtube",
+      "flex-layout.col#social-pinterest"
     ]
   },
 
   "flex-layout.col#social-insta": {
     "props": {
-      "blockClass": "social-content"
+      "blockClass":["social-content"]
     },
-    "children": ["link#social-insta", "image#icon-insta"]
+    "children": ["link#social-insta"]
   },
   "link#social-insta": {
     "props": {
-      "blockClass": "social-link",
-      "label": "Instagram Feron",
-      "href": "https://www.instagram.com/ferramentas.online/",
+      "blockClass":[ "social-link", "instagram-icon"],
+      "label": "Instagram Celdom",
+      "href": "https://www.instagram.com/celdom_oficial/",
       "target": "_blank"
-    }
-  },
-  "image#icon-insta": {
-    "props": {
-      "src": "assets/icons/icon-insta.svg",
-      "maxHeight": 33,
-      "alt": "Icon Instagram",
-      "title": "Icon Instagram"
     }
   },
 
   "flex-layout.col#social-face": {
     "props": {
-      "blockClass": "social-content"
+      "blockClass": ["social-content"]
     },
-    "children": ["link#social-face", "image#icon-face"]
+    "children": ["link#social-face"]
   },
   "link#social-face": {
     "props": {
-      "blockClass": "social-link",
-      "label": "Facebook Feron",
-      "href": "https://www.facebook.com/alojadasferramentasonline",
+      "blockClass":["social-link","facebook-icon"],
+      "label": "Facebook Celdom",
+      "href": "https://www.facebook.com/celdom.oficial",
       "target": "_blank"
-    }
-  },
-  "image#icon-face": {
-    "props": {
-      "src": "assets/icons/icon-face.svg",
-      "maxHeight": 33,
-      "alt": "Icon Facebook",
-      "title": "Icon Facebook"
     }
   },
 
-  "flex-layout.col#social-wp": {
+  "flex-layout.col#social-linkedin": {
     "props": {
-      "blockClass": "social-content"
+      "blockClass": ["social-content", "linkedin-icon"]
     },
-    "children": ["link#social-wp", "image#icon-wpp"]
+    "children": ["link#social-linkedin"]
   },
-  "link#social-wp": {
+  "link#social-linkedin": {
     "props": {
-      "blockClass": "social-link",
-      "label": "Whats Feron",
-      "href": "https://api.whatsapp.com/send?phone=5511963227188",
+      "blockClass": ["social-link", "linkedin-icon"],
+      "label": "Linkedin Celdom",
+      "href": "https://www.linkedin.com/company/celdom",
       "target": "_blank"
     }
   },
-  "image#icon-wpp": {
+
+  "flex-layout.col#social-youtube": {
     "props": {
-      "src": "assets/icons/icon-whats.svg",
-      "maxHeight": 33,
-      "alt": "Icon Whats",
-      "title": "Icon Whtas"
+      "blockClass": ["social-content", "youtube-icon"]
+    },
+    "children": ["link#social-youtube"]
+  },
+  "link#social-youtube": {
+    "props": {
+      "blockClass": ["social-link", "youtube-icon"],
+      "label": "Youtube Celdom",
+      "href": "https://www.youtube.com/user/LOJACELDOM",
+      "target": "_blank"
+    }
+  },
+
+  "flex-layout.col#social-pinterest": {
+    "props": {
+      "blockClass": ["social-content", "pinterest-icon "]
+    },
+    "children": ["link#social-pinterest"]
+  },
+  "link#social-pinterest": {
+    "props": {
+      "blockClass":["social-link", "pinterest-icon"] ,
+      "label": "Pinterest Celdom",
+      "href": "https://br.pinterest.com/celdombr/",
+      "target": "_blank"
     }
   }
 }

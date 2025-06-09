@@ -8,7 +8,8 @@
     "children": [
       "flex-layout.col#footer-category-menu",
       "flex-layout.col#cms-menu",
-      "flex-layout.col#sac"
+      "flex-layout.col#sac",
+      "flex-layout.col#arquitetos-e-decoradores"
     ]
   }
 }

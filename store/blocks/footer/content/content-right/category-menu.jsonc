@@ -7,7 +7,8 @@
     },
     "children": [
       "rich-text#category-menu-title",
-      "category-menu#footer-category-menu"
+      "category-menu#footer-category-menu",
+      "rich-text#butto-all-category"
     ]
   },
 
@@ -30,6 +31,12 @@
         { "id": 82 },
         { "id": 63 }
       ]
+    }
+  },
+  "rich-text#butto-all-category": {
+    "props": {
+      "blockClass": "button-all-category",
+      "text": " **Ver tudo** "
     }
   }
 }

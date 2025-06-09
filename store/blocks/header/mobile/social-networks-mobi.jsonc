@@ -6,9 +6,7 @@
       "colSizing": "auto"
     },
     "children": [
-      "flex-layout.col#social-facemobi",
-      "flex-layout.col#social-instamobi",
-      "flex-layout.col#social-wpmobi"
+      "flex-layout.col#social-facemobi"
     ]
   },
 
@@ -28,7 +26,7 @@
   },
   "image#icon-instamobi": {
     "props": {
-      "src": "assets/icons/icon-insta.svg",
+      "src": "assets/icons/instagram.svg",
       "maxHeight": 33,
       "alt": "Icon Instagram",
       "title": "Icon Instagram"
@@ -51,33 +49,10 @@
   },
   "image#icon-facemobi": {
     "props": {
-      "src": "assets/icons/icon-face.svg",
+      "src": "assets/icons/facebook.svg",
       "maxHeight": 33,
       "alt": "Icon Facebook",
       "title": "Icon Facebook"
-    }
-  },
-
-  "flex-layout.col#social-wpmobi": {
-    "props": {
-      "blockClass": "social-content"
-    },
-    "children": ["link#social-wp", "image#icon-wpp"]
-  },
-  "link#social-wpmobi": {
-    "props": {
-      "blockClass": "social-link",
-      "label": "Whats Feron",
-      "href": "https://api.whatsapp.com/send?phone=5511963227188",
-      "target": "_blank"
-    }
-  },
-  "image#icon-wppmobi": {
-    "props": {
-      "src": "assets/icons/icon-whats.svg",
-      "maxHeight": 33,
-      "alt": "Icon Whats",
-      "title": "Icon Whtas"
     }
   }
 }

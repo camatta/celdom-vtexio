@@ -1,3 +1,4 @@
 .container--sticky-header {
   transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 4px 0px #00000014;
 }

@@ -109,6 +109,27 @@
   padding: 30px 0 60px;
 }
 
+/* Checkout */
+
+:global(.vtex-order-placed-2-x-confirmationMessage) strong{
+  font-size:16px!important;
+  white-space: wrap;
+  color:#1C1C1C;
+}
+
+:global(.vtex-order-placed-2-x-confirmationMessage) strong::before,
+:global(.vtex-order-placed-2-x-confirmationMessage) strong::after{
+  font-weight:400;
+
+}
+
+:global(.vtex-order-placed-2-x-confirmationMessage) strong::before{
+  content:"Em breve, enviaremos um e-mail para ";
+}
+:global(.vtex-order-placed-2-x-confirmationMessage) strong::after{
+  content:" com todos os detalhes do seu pedido. Confira a caixa de spam ou aba de promoções.";
+}
+
 /* Página do produto */
 
 :global(.vtex-reviews-and-ratings-3-x-showMoreButton){
@@ -202,6 +223,9 @@
 :global(.vtex-my-account-1-x-profileBoxContainer) > div,
 :global(.vtex-my-account-1-x-newsletterBoxContainer) > div {
   padding: 0;
+}
+:global(.vtex-flex-layout-0-x-flexRowContent--newsletter-container) > div{
+  width:100%!important;
 }
 :global(.vtex-my-account-1-x-profileBoxContainer) > div {
   margin-right: 41px;
@@ -390,4 +414,5 @@
   :global(.vtex-my-account-1-x-profile__header) > div:last-child {
     display: none;
   }
+
 }

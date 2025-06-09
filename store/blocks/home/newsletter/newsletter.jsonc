@@ -19,14 +19,16 @@
   "rich-text#newsletter-cta": {
     "title": "Título",
     "props": {
-      "text": "Fique por dentro de nosso conteúdo e promoções exclusivas!",
+      "text": "Receba nossas ofertas!",
       "blockClass": "newsletter-cta"
     }
   },
+
+
   "rich-text#newsletter-desc": {
     "title": "Descrição",
     "props": {
-      "text": "Não perca a oportunidade de transformar seus processos produtivos!",
+      "text": "",
       "blockClass": "newsletter-desc"
     }
   },
@@ -43,7 +45,7 @@
   },
   "newsletter-input-email": {
     "props": {
-      "placeholderText": "Insira o seu e-mail"
+      "placeholderText": "e-mail"
     }
   },
   "newsletter-submit": {

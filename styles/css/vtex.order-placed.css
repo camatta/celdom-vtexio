@@ -30,12 +30,12 @@
 }
 
 .confirmationMessage {
-  color: #1a1a1a;
-  font-size: 16px;
+  color: #1C1C1C;
+  font-size: 0;
   font-weight: 400;
   line-height: 22px;
-  max-width: 558px;
-  margin: 0 auto 32px;
+  max-width: 600px;
+  margin: 0 auto 0;
 }
 
 .section--confirmation :global(.vtex-button) {
@@ -70,7 +70,7 @@
   padding-top: 40px;
 }
 .orderNumber {
-  color: #1a1a1a;
+  color: #1C1C1C;
   font-size: 24px;
   font-weight: 700;
   line-height: normal;
@@ -155,7 +155,7 @@
   color: inherit;
 }
 .paymentGroup {
-  color: #1a1a1a;
+  color: #1C1C1C;
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
@@ -176,7 +176,7 @@
   margin-bottom: 72px;
 }
 .packageDeliveryTitle {
-  color: #1a1a1a;
+  color: #1C1C1C;
   font-size: 20px;
   font-weight: 400;
   line-height: normal;
@@ -217,10 +217,11 @@
   line-height: 20px;
 }
 .productPrice {
-  color: #1a1a1a;
+  color: #1C1C1C;
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;
+  font-family: 'DM Sans';
 }
 
 .totalList {

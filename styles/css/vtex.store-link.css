@@ -5,6 +5,74 @@
   position: absolute;
   inset: 0;
   z-index: 1;
+  border:0.5px solid #2D2926;
+  border-radius: 3px;
+  transition:0.5s;
+}
+
+.link--instagram-icon:hover,
+.link--facebook-icon:hover,
+.link--linkedin-icon:hover,
+.link--youtube-icon:hover,
+.link--pinterest-icon:hover{
+  background-color:#FE5000;
+  border: unset;
+}
+
+.link--instagram-icon:hover,
+.link--facebook-icon:hover,
+.link--linkedin-icon:hover,
+.link--youtube-icon:hover,
+.link--pinterest-icon:hover,
+.link--instagram-icon,
+.link--facebook-icon,
+.link--linkedin-icon,
+.link--youtube-icon,
+.link--pinterest-icon{
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+/* Ícones individuais (substitua pelos seus paths) */
+.link--instagram-icon {
+  background-image: url("assets/icons/instagram.svg");
+}
+.link--instagram-icon:hover {
+  background-image: url("assets/icons/instagram-hover.svg");
+}
+
+.link--facebook-icon {
+  background-image: url("assets/icons/facebook.svg");
+}
+.link--facebook-icon:hover {
+  background-image: url("assets/icons/facebook-hover.svg");
+}
+
+.link--linkedin-icon {
+  background-image: url("assets/icons/linkedin.svg");
+}
+.link--linkedin-icon:hover {
+  background-image: url("assets/icons/linkedin-hover.svg");
+}
+
+.link--youtube-icon {
+  background-image: url("assets/icons/youtube.svg");
+}
+.link--youtube-icon:hover {
+  background-image: url("assets/icons/youtube-hover.svg");
+}
+
+.link--pinterest-icon {
+  background-image: url("assets/icons/pinterest.svg");
+}
+.link--pinterest-icon:hover {
+  background-image: url("assets/icons/pinterest-hover.svg");
+}
+
+.link--link--social-link:hover{
+  border:unset;
+  background:#FE5000;
 }
 .label--social-link {
   font-size: 0;

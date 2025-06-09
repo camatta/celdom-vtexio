@@ -1,0 +1,47 @@
+{
+  "flex-layout.col#arquitetos-e-decoradores": {
+    "title": "Arquitetos e decoradores",
+    "props": {
+      "blockClass": ["footer-arquitetos-e-decoradores"],
+      "colSizing": "auto"
+    },
+    "children": [
+            "rich-text#title-arquitetos-e-decoradores",
+            "flex-layout.row#area-logada",
+            "flex-layout.row#newsletter",
+            "flex-layout.row#social-networks"
+           
+
+
+    ]
+  },
+    "rich-text#title-arquitetos-e-decoradores": {
+    "props": {
+      "blockClass": "footer-title",
+      "text": "#### Arquitetos e Decoradores"
+    }
+  },
+  "flex-layout.row#area-logada": {
+    "props": {
+      "blockClass": ["section-area-logada"]
+    },
+    "children": [
+           "rich-text#texto-arquitetos-e-decoradores",
+           "rich-text#cta-area-logada"
+    ]
+  },
+    "rich-text#texto-arquitetos-e-decoradores": {
+    "props": {
+      "blockClass": "footer-texto",
+      "text": "Faça parte do nosso programa de relacionamento **Celdom VIP!**"
+    }
+  },
+
+  "rich-text#cta-area-logada": {
+  "props": {
+    "text": "Área logada",
+    "blockClass": "button-area-logada"
+  }
+}
+
+}

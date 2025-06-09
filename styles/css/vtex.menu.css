@@ -40,15 +40,16 @@
 :global(.vtex-flex-layout-0-x-flexRowContent--cms-termos)
   .styledLinkContent--menu-item-termos, 
 :global(.vtex-flex-layout-0-x-flexRowContent--cms-vendas) .styledLinkContent--menu-item-vendas,
-:global(.vtex-flex-layout-0-x-flexRowContent--cms-pagamento) .styledLinkContent--menu-item-pagamento {
+:global(.vtex-flex-layout-0-x-flexRowContent--cms-pagamento) .styledLinkContent--menu-item-pagamento,
+:global(.vtex-flex-layout-0-x-flexRowContent--cms-termos) .styledLinkContent--menu-item-trocas-e-devolucoes {
   font-weight: 700;
   border-color: #FE5000;
-  color:#FE5000;
+  color:#FE5000!important;
 }
 
 @media screen and (max-width: 575px) {
   :global(.vtex-flex-layout-0-x-flexRowContent--first-line-container)
     .menuContainer {
-    text-align: center;
+    text-align: start;
   }
 }
