@@ -2,7 +2,8 @@
 .flexRowContent--custom-container {
   position: relative;
   width: 100%;
-  max-width: 1110px;
+  max-width: 1140px;
+  padding: 0 15px;
   margin: 0 auto;
 }
 
@@ -100,6 +101,9 @@
 }
 
 /* SLIDER DE CATEGORIAS */
+.flexRow--wrapper-area-gourmet :global(.vtex-store-components-3-x-container) {
+  max-width: 100%;
+}
 .flexRow--categories-slider-container {
   margin: 56px 0;
 }
@@ -361,7 +365,7 @@
 
 /* FOOTER BAR ORANGE INSPIRATION */
 
-.flexRowContent--wrapper-bar-inspiration {
+.flexCol--content-bar-inspiration {
   background-color: #FE5000;
   border-radius: 11px;
   margin-bottom: 20px;
@@ -369,6 +373,8 @@
   justify-content: center;
   padding: 20px;
   text-align: center;
+  height: initial;
+  margin: 0;
 }
 
 /* FOOTER CONTEÚDO */
@@ -381,7 +387,7 @@
   width: 100%!important;
 }
 
-.flexRowContent--footer-container {
+.flexCol--content-right-content {
   background-color: #FFF8EB;
   background-size: cover;
   padding: 48px;
@@ -515,7 +521,7 @@
   justify-content: space-between;
   align-items: center;
   background: #fff;
-  padding-bottom: 12px;
+  padding: 20px 15px;
 }
 .flexCol--payments-content {
   display: flex;
@@ -927,6 +933,64 @@
 
 :global(.vtex-render__container-id-sku-specifications){
   display: none
+}
+
+:global(.vtex-render__container-id-historia-home),
+:global(.vtex-render__container-id-carrossel-lojas) {
+  margin-top: 80px;
+}
+.flexRowContent--lancamentosSection,
+.flexRowContent--destaquesSection {
+  position: relative;
+  z-index: 0;
+}
+.flexRow--lancamentosSection :global(.vtex-store-components-3-x-container),
+.flexRow--destaquesSection :global(.vtex-store-components-3-x-container) {
+  max-width: 100%;
+}
+.flexCol--lancamentosProductsContent,
+.flexCol--destaquesProductsContent {
+  position: absolute;
+  z-index: 1;
+  max-width: 730px;
+  width: 100%;
+  top: 50%;
+  height: initial;
+}
+.flexCol--lancamentosProductsContent {
+  left: 64%;
+  transform: translate(-50%, -50%);
+}
+.flexCol--destaquesProductsContent {
+  right: 64%;
+  transform: translate(50%, -50%);
+}
+.flexCol--lancamentosProductsContent :global(.vtex-slider-layout-0-x-sliderTrackContainer--lancamentos-products),
+.flexCol--destaquesProductsContent :global(.vtex-slider-layout-0-x-sliderTrackContainer--destaques-products) {
+  margin: 0;
+  padding: 0;
+}
+.flexCol--lancamentosProductsContent :global(.vtex-slider-layout-0-x-sliderArrows--lancamentos-products),
+.flexCol--destaquesProductsContent :global(.vtex-slider-layout-0-x-sliderArrows--destaques-products) {
+  padding: 20px;
+  background: #fff !important;
+  border-radius: 100%;
+}
+.flexCol--lancamentosProductsContent :global(.vtex-slider-layout-0-x-sliderLeftArrow--lancamentos-products),
+.flexCol--destaquesProductsContent :global(.vtex-slider-layout-0-x-sliderLeftArrow--destaques-products) {
+  left: -45px;
+}
+.flexCol--lancamentosProductsContent :global(.vtex-slider-layout-0-x-sliderRightArrow--lancamentos-products),
+.flexCol--destaquesProductsContent :global(.vtex-slider-layout-0-x-sliderRightArrow--destaques-products) {
+  right: -45px;
+}
+.flexCol--lancamentosInfoColumn :global(.vtex-store-components-3-x-infoCardImage),
+.flexCol--destaquesInfoColumn :global(.vtex-store-components-3-x-infoCardImage) {
+  width: 100%;
+}
+
+.flexRow--wrapper-bar-inspiration {
+  margin-bottom: 20px;
 }
 
 @media (min-width: 1100px) {

@@ -1,10 +1,124 @@
 {
     "flex-layout.row#carrossel-lojas": {
         "props": {
-            "blockClass": ["custom-container"]
+            "blockClass": ["carrossel-lojas", "custom-container"]
         },
         "children": [
-            "carrossel-lojas"
+            //"carrossel-lojas"
+            "flex-layout.col#carrossel-lojas",
+            "flex-layout.col#link-lojas"
         ]
+    },
+    "flex-layout.col#carrossel-lojas": {
+        "props": {
+            "width": "100%",
+            "blockClass": ["carrossel-lojas"]
+        },
+        "children": ["slider-layout#carrossel-lojas"]
+    },
+    "flex-layout.col#link-lojas": {
+        "props": {
+            "width": "100%",
+            "blockClass": ["link-lojas"]
+        },
+        "children": ["link#lojas"]
+    },
+
+    "link#lojas": {
+        "props": {
+            "href": "/pontos-vendas",
+            "label": "Todas nossas lojas",
+            "blockClass": "link-lojas"
+        }
+    },
+
+    "slider-layout#carrossel-lojas": {
+        "props": {
+            "itemsPerPage": {
+                "desktop": 2,
+                "tablet": 2,
+                "phone": 1
+            },
+            "infinite": false,
+            "showNavigationArrows": "always",
+            "showPaginationDots": "never",
+            "centerMode": "to-the-left",
+            "blockClass": "lojasCarousel"
+        },
+        "children": [
+            "info-card#loja-1",
+            "info-card#loja-2",
+            "info-card#loja-3",
+            "info-card#loja-4"
+        ]
+    },
+
+    "info-card#loja-1": {
+        "props": {
+            "id": "info-card-jardins",
+            "isFullModeStyle": false,
+            "textPosition": "left",
+            "imageUrl": "assets/lojas/loja-jardins.png",
+            "headline": "Jardins \n**São Paulo/SP**",
+            "callToActionText": "Localização",
+            "callToActionUrl": "/sale/d",
+            "blockClass": "info-card-loja",
+            "fetchpriority": "auto",
+            "preload": true,
+            "textMode": {
+                "TextModeEnum": "rich-text"
+            }
+        }
+    },
+    "info-card#loja-2": {
+        "props": {
+            "id": "info-card-tijuca",
+            "isFullModeStyle": false,
+            "textPosition": "left",
+            "imageUrl": "assets/lojas/loja-tijuca.png",
+            "headline": "Barra da Tijuca \n**Rio de Janeiro/RJ**",
+            "callToActionText": "Localização",
+            "callToActionUrl": "/sale/d",
+            "blockClass": "info-card-loja",
+            "fetchpriority": "auto",
+            "preload": true,
+            "textMode": {
+                "TextModeEnum": "rich-text"
+            }
+        }
+    },
+    "info-card#loja-3": {
+        "props": {
+            "id": "info-card-icarai",
+            "isFullModeStyle": false,
+            "textPosition": "left",
+            "imageUrl": "assets/lojas/loja-icarai.png",
+            "headline": "Icaraí \n**Niterói/RJ**",
+            "callToActionText": "Localização",
+            "callToActionUrl": "/sale/d",
+            "blockClass": "info-card-loja",
+            "fetchpriority": "auto",
+            "preload": true,
+            "textMode": {
+                "TextModeEnum": "rich-text"
+            }
+        }
+    },
+    "info-card#loja-4": {
+        "props": {
+            "id": "info-card-ipanema",
+            "isFullModeStyle": false,
+            "textPosition": "left",
+            "imageUrl": "assets/lojas/loja-ipanema.png",
+            "headline": "Ipanema \n**Rio de Janeiro/RJ**",
+            "callToActionText": "Localização",
+            "callToActionUrl": "/sale/d",
+            "blockClass": "info-card-loja",
+            "fetchpriority": "auto",
+            "preload": true,
+            "textMode": {
+                "TextModeEnum": "rich-text"
+            }
+        }
     }
 }

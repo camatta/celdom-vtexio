@@ -4,7 +4,7 @@
       "horizontalAlign": "center",
       "verticalAlign": "middle",
       "preserveLayoutOnMobile": true,
-      "blockClass": ["destaquesSection", "custom-container"]
+      "blockClass": ["destaquesSection"]
     },
     "children": [
       "flex-layout.col#destaques-shelf",
@@ -14,15 +14,33 @@
 
   "flex-layout.col#destaques-info": {
     "props": {
-      "width": "30%",
+      "width": "50%",
       "verticalAlign": "middle",
       "horizontalAlign": "center",
       "blockClass": "destaquesInfoColumn"
     },
     "children": [
-      "rich-text#destaques-title",
-      "rich-text#destaques-cta"
+      /* "rich-text#destaques-title",
+      "rich-text#destaques-cta" */
+      "info-card#destaques-info"
     ]
+  },
+
+  "info-card#destaques-info": {
+    "props": {
+      "id": "info-destaques",
+      "isFullModeStyle": false,
+      "textPosition": "left",
+      "imageUrl": "assets/info-cards/destaque-banner.png",
+      "headline": "Coleção em \n**destaque**",
+      "callToActionText": "Ver tudo",
+      "callToActionUrl": "/sale/d",
+      "blockClass": "info-destaques",
+      "fetchpriority": "auto",
+      "textMode": {
+        "TextModeEnum": "rich-text"
+      }
+    }
   },
 
   "rich-text#destaques-title": {
@@ -45,7 +63,7 @@
 
   "flex-layout.col#destaques-shelf": {
     "props": {
-      "width": "70%",
+      "width": "50%",
       "blockClass": ["destaquesProductsContent", "shelf-carousel"]
     },
     "children": ["list-context.product-list#destaques-shelf"]
@@ -53,7 +71,7 @@
 
   "list-context.product-list#destaques-shelf": {
     "props": {
-      "category": "7"
+      "installmentCriteria": "MAX_WITH_INTEREST"
     },
     "blocks": ["product-summary.shelf"],
     "children": ["slider-layout#destaques-products"]

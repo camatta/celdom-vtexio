@@ -1,3 +1,11 @@
+.container--custom-container {
+  position: relative;
+  width: 100%;
+  max-width: 1110px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
 /* MINICART */
 .paragraph--utils-text {
   margin: 0;
@@ -576,16 +584,21 @@
 }
 
 .link--areaGourmetCta {
-      font-weight: 300;
-    font-size: 16px;
-    line-height: 22px;
-    color: #2D2926;
-    padding: 8px 24px;
-    padding-right: 48px;
-    position: relative;
-    border: 1px solid #CCC;
-    text-decoration: unset;
-    border-radius: 50px;
+  display: inline-block;
+  font-weight: 300; 
+  font-size: 16px;
+  line-height: 22px;
+  color: #2D2926;
+  padding: 8px 24px;
+  padding-right: 48px;
+  position: relative;
+  border: 1px solid #CCC;
+  text-decoration: unset;
+  border-radius: 50px;
+}
+
+.container--areaGourmetCta {
+  margin-top: 32px;
 }
 
 @media screen and (max-width: 1025px) {

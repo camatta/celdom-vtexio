@@ -1,7 +1,7 @@
 {
   "flex-layout.row#carousel-area-gourmet": {
     "props": {
-            "blockClass": ["custom-container", "wrapper-areas"]
+            "blockClass": ["wrapper-area-gourmet", "wrapper-areas"]
         },
     "children": ["slider-layout#area-gourmet-carousel", "rich-text#area-gourmet-cta"]
   },
@@ -12,10 +12,14 @@
         "tablet": 2,
         "phone": 1
       },
+      "autoplay": {
+        "timeout": 3000,
+        "stopOnHover": true
+      },
       "infinite": true,
       "showNavigationArrows": "always",
       "showPaginationDots": "never",
-      "fullWidth": false,
+      "centerMode": "center",
       "blockClass": "areaGourmetCarousel"
     },
     "children": [
@@ -100,7 +104,7 @@
   "rich-text#area-gourmet-cta": {
     "props": {
       "text": "[Área Gourmet com até 20% OFF](/area-gourmet)",
-      "blockClass": "areaGourmetCta"
+      "blockClass": ["custom-container", "areaGourmetCta"]
     }
   }
 }

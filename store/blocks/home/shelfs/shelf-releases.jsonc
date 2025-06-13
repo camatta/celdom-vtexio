@@ -89,8 +89,7 @@
   "list-context.product-list#shelf-releases": {
     "props": {
       "listName": "Lançamentos",
-      "installmentCriteria": "MAX_WITH_INTEREST",
-      "category": "3"
+      "installmentCriteria": "MAX_WITH_INTEREST"
     },
     "blocks": ["product-summary.shelf"],
     "children": ["slider-layout#products-triple"]

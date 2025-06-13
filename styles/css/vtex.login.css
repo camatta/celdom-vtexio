@@ -314,6 +314,9 @@
   border: 1px solid #2D2926!important;
 }
 
+:global(.vtex-slider-layout-0-x-sliderArrows)[disabled] {
+  opacity: 0.5;
+}
 
 @media (min-width: 1100px) {
   .container :global(.vtex-button) {

@@ -5,7 +5,7 @@
       "horizontalAlign": "center",
       "verticalAlign": "middle",
       "preserveLayoutOnMobile": true,
-      "blockClass": ["lancamentosSection", "custom-container"]
+      "blockClass": ["lancamentosSection"]
     },
     "children": [
       "flex-layout.col#lancamentos-info",
@@ -15,39 +15,39 @@
 
   "flex-layout.col#lancamentos-info": {
     "props": {
-      "width": "30%", // Ajuste a largura conforme necessário
+      "width": "50%", // Ajuste a largura conforme necessário
       "verticalAlign": "middle",
       "horizontalAlign": "center",
       "blockClass": "lancamentosInfoColumn"
     },
     "children": [
-      "rich-text#lancamentos-title",
-      "rich-text#lancamentos-cta"
+      /* "rich-text#lancamentos-title",
+      "rich-text#lancamentos-cta" */
+      "info-card#lancamentos-info"
     ]
   },
 
-  "rich-text#lancamentos-title": {
+  "info-card#lancamentos-info": {
     "props": {
-      "text": "## Lançamentos\n## Imperdíveis",
-      "textAlignment": "center",
-      "textPosition": "center",
-      "blockClass": "lancamentosTitle"
-    }
-  },
-
-  "rich-text#lancamentos-cta": {
-    "props": {
-      "text": "[VER TUDO](/lancamentos)",
-      "textAlignment": "center",
-      "textPosition": "center",
-      "blockClass": "lancamentosCtaButton"
+      "id": "info-lancamentos",
+      "isFullModeStyle": false,
+      "textPosition": "left",
+      "imageUrl": "assets/info-cards/lancamentos-banner.png",
+      "headline": "Lançamentos \n**Imperdíveis**",
+      "callToActionText": "Ver tudo",
+      "callToActionUrl": "/sale/d",
+      "blockClass": "info-lancamentos",
+      "fetchpriority": "auto",
+      "textMode": {
+        "TextModeEnum": "rich-text"
+      }
     }
   },
 
    "flex-layout.col#lancamentos-shelf": {
     "props": {
-      "width": "70%", // O restante da largura para o carrossel de produtos
-      "blockClass": ["lancamentosProductsContent", "shelf-carousel"]
+      "width": "50%", // O restante da largura para o carrossel de produtos
+      "blockClass": ["lancamentosProductsContent", "shelf-carousel", "custom-container"]
     },
     "children": ["list-context.product-list#lancamentos-shelf"]
   },
@@ -55,7 +55,6 @@
   "list-context.product-list#lancamentos-shelf": {
     "props": {
       "orderBy": "OrderByReleaseDateDESC", // Ordena por data de lançamento (mais recentes)
-      "category": "7", 
       "maxItems": 12, // Número máximo de produtos para carregar
       "listName": "Lancamentos Imperdiveis",
       "installmentCriteria": "MAX_WITH_INTEREST"

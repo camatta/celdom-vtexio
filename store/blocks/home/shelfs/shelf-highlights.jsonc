@@ -52,7 +52,6 @@
   },
   "list-context.product-list#shelf-highlights": {
     "props": {
-      "category": "3",
       "listName": "Imperdíveis",
       "installmentCriteria": "MAX_WITH_INTEREST"
     },

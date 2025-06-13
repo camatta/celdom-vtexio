@@ -47,6 +47,7 @@
   right: -30px;
 }
 .sliderArrows {
+  z-index: 10;
   margin: 0;
   padding: 0;
   width: 20px;
@@ -55,6 +56,19 @@
   top: 45%; 
   transform: translate(0, -45%);
   transition: all 0.3s ease-in-out;
+}
+
+.sliderArrows--lojasCarousel {
+  top: unset;
+  bottom: -60px;
+  transform: initial;
+}
+.sliderLeftArrow--lojasCarousel {
+  left: unset;
+  right: 50px;
+}
+.sliderRightArrow--lojasCarousel {
+  right: 0;
 }
 
 /* SLIDER PRINCIPAL */
@@ -104,27 +118,29 @@
 
 .sliderLeftArrow--areaGourmetCarousel {
     position: absolute;
-    right: 3rem;
+    right: 24%;
     bottom: -2rem;
-    top: unset;
+    top: 112%;
     left: unset;
 }
 
 .sliderRightArrow--areaGourmetCarousel {
     position: absolute;
-    right: 0rem;
+    right: 21%;
     bottom: -2rem;
-    top: unset;
+    top: 112%;
     left: unset;
-}
-
-.sliderTrack--areaGourmetCarousel {
-  gap: 14px;
 }
 
 .slideChildrenContainer--areaGourmetCarousel {
   position: relative;
-  margin-bottom: 34px;
+}
+/* .slide--areaGourmetCarousel {
+  margin: 0 !important;
+} */
+.slideChildrenContainer--areaGourmetCarousel :global(.vtex-stack-layout-0-x-stackContainer),
+.slideChildrenContainer--areaGourmetCarousel :global(.vtex-store-components-3-x-imageElement) {
+  width: 100%;
 }
 
 .stackItem--imageOverlayTex {

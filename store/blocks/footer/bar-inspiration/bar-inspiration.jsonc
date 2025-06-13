@@ -9,6 +9,9 @@
     },
 
     "flex-layout.col#bar-inspiration": {
+        "props": {
+            "blockClass": ["content-bar-inspiration"]
+        },
         "children": [
             "image#logo-bar-inspiration"
         ]

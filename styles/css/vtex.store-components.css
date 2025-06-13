@@ -561,6 +561,126 @@
   width: 100%;
 }
 
+:global(.vtex-flex-layout-0-x-flexColChild--lancamentosInfoColumn),
+:global(.vtex-flex-layout-0-x-flexColChild--destaquesInfoColumn) {
+  width: 100%;
+}
+.infoCardContainer--info-lancamentos,
+.infoCardContainer--info-destaques {
+  position: relative;
+  z-index: 0;
+  padding: 0;
+}
+.infoCardTextContainer--info-lancamentos,
+.infoCardTextContainer--info-destaques {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 12%;
+  width: max-content;
+}
+.infoCardTextContainer--info-lancamentos {
+  left: 17.5%;
+}
+.infoCardTextContainer--info-destaques {
+  right: 17.5%;
+}
+.paragraph--info-lancamentos,
+.paragraph--info-destaques {
+  font-size: 32px;
+  line-height: 42px;
+  color: #fff;
+}
+.paragraph--info-destaques {
+  text-align: right;
+  align-items: flex-end;
+}
+.infoCardCallActionContainer--info-lancamentos,
+.infoCardCallActionContainer--info-destaques {
+  margin-top: 24px;
+}
+.infoCardCallActionContainer--info-lancamentos :global(.vtex-button),
+.infoCardCallActionContainer--info-destaques :global(.vtex-button) {
+  background: #fff;
+  color: #000000;
+  min-height: initial;
+  border-radius: 91px;
+}
+.infoCardCallActionContainer--info-lancamentos :global(.vtex-button__label)::after,
+.infoCardCallActionContainer--info-destaques :global(.vtex-button__label)::after {
+  content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none"><mask id="mask0_12060_7608" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="19"><rect y="0.5" width="18" height="18" fill="%23D9D9D9"/></mask><g mask="url(%23mask0_12060_7608)"><path d="M12.1313 10.25H3V8.75H12.1313L7.93125 4.55L9 3.5L15 9.5L9 15.5L7.93125 14.45L12.1313 10.25Z" fill="%23FE5000"/></g></svg>');
+  line-height: 0;
+}
+.infoCardCallActionContainer--info-lancamentos :global(.vtex-button__label),
+.infoCardCallActionContainer--info-destaques :global(.vtex-button__label) {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 16px !important;
+}
+
+:global(.vtex-flex-layout-0-x-flexRowContent--carrossel-lojas) {
+  flex-direction: column;
+}
+.infoCardContainer--info-card-loja {
+  flex-direction: column-reverse;
+  padding: 0;
+}
+.infoCardTextContainer--info-card-loja {
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.paragraph--info-card-loja {
+  font-size: 14px;
+  font-weight: 300;
+}
+.infoCardCallActionContainer--info-card-loja {
+  margin: 0;
+}
+.infoCardCallActionContainer--info-card-loja :global(.vtex-button) {
+  color: #2D2926;
+  min-height: initial;
+  background: none;
+  font-size: 14px;
+  font-weight: 300;
+  border-radius: 50px;
+  border: 1px solid #ECECEC;
+}
+.infoCardCallActionContainer--info-card-loja :global(.vtex-button__label)::before {
+  content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none"><path d="M9.09237 17.8483C9.20716 17.9552 9.35362 18.0106 9.50008 18.0106C9.64654 18.0106 9.793 17.9552 9.90779 17.8483C10.173 17.595 16.4272 11.6258 16.4272 7.91683C16.4272 4.09704 13.3199 0.989746 9.50008 0.989746C5.68029 0.989746 2.573 4.09704 2.573 7.91683C2.573 11.6258 8.82716 17.595 9.09237 17.8483ZM9.50008 2.17725C12.6667 2.17725 15.2397 4.75016 15.2397 7.91683C15.2397 10.3829 11.4159 14.6856 9.50008 16.5895C7.58425 14.6856 3.7605 10.3868 3.7605 7.91683C3.7605 4.75016 6.33341 2.17725 9.50008 2.17725Z" fill="%232D2926"/><path d="M12.4688 7.91699C12.4688 6.27824 11.1388 4.94824 9.5 4.94824C7.86125 4.94824 6.53125 6.27824 6.53125 7.91699C6.53125 9.55574 7.86125 10.8857 9.5 10.8857C11.1388 10.8857 12.4688 9.55574 12.4688 7.91699ZM7.71875 7.91699C7.71875 6.93533 8.51833 6.13574 9.5 6.13574C10.4817 6.13574 11.2812 6.93533 11.2812 7.91699C11.2812 8.89866 10.4817 9.69824 9.5 9.69824C8.51833 9.69824 7.71875 8.89866 7.71875 7.91699Z" fill="%232D2926"/></svg>');
+  line-height: 0;
+}
+.infoCardCallActionContainer--info-card-loja :global(.vtex-button__label) {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 16px !important;
+}
+:global(.vtex-store-link-0-x-link--link-lojas) {
+  display: inline-block;
+  border-radius: 50px;
+  border: 1px solid #CCCCCC;
+  text-decoration: none;
+  color: #2D2926;
+}
+:global(.vtex-store-link-0-x-label--link-lojas)::after {
+  content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none"><mask id="mask0_18807_3203" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="21"><rect y="0.5" width="20" height="20" fill="%23D9D9D9"/></mask><g mask="url(%23mask0_18807_3203)"><path d="M5.33317 15.4998L4.1665 14.3332L12.1665 6.33317H4.99984V4.6665H14.9998V14.6665H13.3332V7.49984L5.33317 15.4998Z" fill="%23FE5000"/></g></svg>');
+  line-height: 0;
+}
+:global(.vtex-store-link-0-x-label--link-lojas) {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 16px !important;
+}
+:global(.vtex-flex-layout-0-x-flexColChild--link-lojas) {
+  height: 100%;
+  padding: 35px 0 40px;
+  border-bottom: 1px solid #ECECEC;
+  margin-bottom: 80px;
+}
+
 @media (min-width: 1100px) {
   .imageElement--image__upper-mosaic-mobile {
     display: none;

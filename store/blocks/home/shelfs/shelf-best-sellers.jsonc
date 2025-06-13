@@ -52,7 +52,6 @@
   },
   "list-context.product-list#shelf-best-sellers": {
     "props": {
-      "category": "7",
       "listName": "Destaques",
       "installmentCriteria": "MAX_WITH_INTEREST"
     },
