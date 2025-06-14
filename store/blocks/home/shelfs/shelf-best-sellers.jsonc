@@ -63,8 +63,8 @@
       "blockClass": ["shelf-carousel", "best-sellers-products"],
       "itemsPerPage": {
         "desktop": 3,
-        "tablet": 2,
-        "phone": 1
+        "tablet": 3,
+        "phone": 2
       },
       "infinite": true,
       "showNavigationArrows": "always",

@@ -235,13 +235,14 @@
 }
 .pointerNavigate,
 .sideBarItemTitleClasses {
-  color: #fff;
-  font-size: 14px;
+  color: #2D2926;
+  font-size: 16px;
+  font-weight: 700;
   line-height: 20px;
+  text-transform: lowercase;
 }
-.pointerNavigate,
-.subCategoryContainer .sideBarItemTitleClasses {
-  font-weight: 400;
+.sideBarItemTitleClasses::first-letter {
+  text-transform: uppercase;
 }
 
 .sidebarItem {
@@ -254,7 +255,7 @@
 }
 
 .sidebarDepartment:not(:first-child) {
-  border-top: 0.7px solid #efefef;
+  border-top: 1px solid #2D2926;
 }
 .sidebarItemContainer {
   padding: 16px 20px 16px 0;
@@ -283,7 +284,7 @@
   line-height: 0;
 }
 .sidebar {
-  background: #000;
+  background: #FFF8EB;
 }
 
 .sidebarDepartment:last-child .sideBarItemTitleClasses {

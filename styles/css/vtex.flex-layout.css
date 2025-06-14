@@ -430,6 +430,7 @@
 
 .flexRowContent--first-line-container {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content:space-between;
   margin-top: 1rem;
@@ -993,6 +994,28 @@
   margin-bottom: 20px;
 }
 
+@media screen and (max-width: 1199px) {
+    .flexCol--lancamentosProductsContent :global(.vtex-slider-layout-0-x-sliderLeftArrow--lancamentos-products),
+    .flexCol--destaquesProductsContent :global(.vtex-slider-layout-0-x-sliderLeftArrow--destaques-products) {
+      left: -15px;
+    }
+    .flexCol--lancamentosProductsContent :global(.vtex-slider-layout-0-x-sliderRightArrow--lancamentos-products),
+    .flexCol--destaquesProductsContent :global(.vtex-slider-layout-0-x-sliderRightArrow--destaques-products) {
+      right: -15px;
+    }
+}
+
+@media screen and (max-width: 1099px) {
+  .flexCol--lancamentosProductsContent :global(.vtex-slider-layout-0-x-sliderLeftArrow--lancamentos-products),
+  .flexCol--destaquesProductsContent :global(.vtex-slider-layout-0-x-sliderLeftArrow--destaques-products) {
+    left: 0;
+  }
+  .flexCol--lancamentosProductsContent :global(.vtex-slider-layout-0-x-sliderRightArrow--lancamentos-products),
+  .flexCol--destaquesProductsContent :global(.vtex-slider-layout-0-x-sliderRightArrow--destaques-products) {
+    right: 0;
+  }
+}
+
 @media (min-width: 1100px) {
   .flexRow--cms-page-container {
     margin: 10px 0 80px;
@@ -1162,6 +1185,15 @@
     height: 100px;
     display: grid;
   }
+
+  .flexCol--lancamentosProductsContent,
+  .flexCol--destaquesProductsContent {
+    max-width: 50%;
+  }
+
+  .flexCol--content-right-content {
+    padding: 30px 15px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1200,18 +1232,7 @@
   .flexRowContent--search-title-content{
     margin: 0 15px;
   }
-
-  .flexRow--custom-container{
-    padding: 0 15px;
-  }
-
-  /*página do produto*/
-
-  /*
-  .flexRow--img-ambientada{
-    bottom: 71%;
-  }
-  */
+  
   .flexRow--name-wish-container{
     margin-bottom: 2rem;
   }
@@ -1322,6 +1343,7 @@
     justify-content: left;
   }
   .flexRowContent--social-networks-container {
+    flex-wrap: wrap;
     justify-content: center;
     margin-top: 1rem;
   }
@@ -1335,6 +1357,11 @@
   .flexColChild--category-banner:last-child {
     display: block;
     text-align: center;
+  }
+
+  .flexRowContent--shelf-best-sellers-container {
+    margin-top: 40px;
+    margin-bottom: 48px;
   }
 }
 

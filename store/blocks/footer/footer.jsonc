@@ -15,6 +15,7 @@
   "footer-layout.mobile": {
     "title": "Rodapé Mobile",
     "children": [
+      "flex-layout.row#bar-inspiration",
       "flex-layout.row#content",
       "flex-layout.row#services-flags",
       "flex-layout.row#copy"

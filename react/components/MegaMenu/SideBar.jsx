@@ -61,7 +61,7 @@ const SideBar = ({
                 viewBox="0 0 15 14"
               >
                 <path
-                  stroke="#000"
+                  stroke="#EA5A1C"
                   strokeLinecap="round"
                   strokeWidth="2.5"
                   d="M1.783 12.732l11.06-11.088M12.863 12.732L1.803 1.644"

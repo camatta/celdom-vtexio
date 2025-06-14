@@ -19,7 +19,12 @@
       "infinite": true,
       "showNavigationArrows": "always",
       "showPaginationDots": "never",
-      "centerMode": "center",
+      "centerMode": {
+        "desktop": "center",
+        "tablet": "center",
+        "phone": "to-the-left",
+        "mobile": "to-the-left"
+      },
       "blockClass": "areaGourmetCarousel"
     },
     "children": [

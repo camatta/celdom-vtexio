@@ -3,6 +3,16 @@
     "title": "Carrosel principal Desktop",
     "children": ["slider-layout#main-slider"],
     "props": {
+      "mediaList": [
+        {
+          "image": "assets/slider-principal/banner-ambiente.png",
+          "mobileImage": "assets/slider-principal/banner-ambiente-mobile.png"
+        },
+        {
+          "image": "assets/slider-principal/banner-ambiente.png",
+          "mobileImage": "assets/slider-principal/banner-ambiente-mobile.png"
+        }
+      ]
     }
   },
 
@@ -14,10 +24,10 @@
         "phone": 1
       },
       "autoplay": {
-        "timeout": "10000",
+        "timeout": "5000",
         "stopOnHover": true
       },
-      "showNavigationArrows": "never",
+      "showNavigationArrows": "mobileOnly",
       "infinite": true,
       "blockClass": ["main-slider"]
     }

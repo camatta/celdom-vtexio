@@ -700,10 +700,10 @@
   .searchBarContainer {
     min-width: 240px;
     margin: 0 auto;
-    background: transparent;
+    background: #fff;
   }
   .searchBarContainer:hover {
-    background: transparent;
+    background: fff;
   }
   .searchBarContainer :global(.vtex-styleguide-9-x-input) {
     color: #fff;
@@ -744,6 +744,11 @@
 }
 
 @media screen and (max-width: 991px) {
+  .infoCardTextContainer--info-card-loja {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 
   /* PRODUTO */
 

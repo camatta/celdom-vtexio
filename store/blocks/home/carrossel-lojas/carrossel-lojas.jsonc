@@ -42,7 +42,12 @@
             "infinite": false,
             "showNavigationArrows": "always",
             "showPaginationDots": "never",
-            "centerMode": "to-the-left",
+            "centerMode": {
+                "desktop": "to-the-left",
+                "tablet": "to-the-left",
+                "phone": "disabled",
+                "mobile": "disabled"
+            },
             "blockClass": "lojasCarousel"
         },
         "children": [

@@ -6,7 +6,8 @@
       "colSizing": "auto"
     },
     "children": [
-      "flex-layout.col#social-facemobi"
+      //"flex-layout.col#social-facemobi",
+      "flex-layout.row#social-networks"
     ]
   },
 
