@@ -1,3 +1,40 @@
-.stackItem {
-  position: relative !important;
+.stackContainer--stack-areas {
+  border-radius: 6px;
+  overflow: hidden;
+}
+.stackItem--first {
+  line-height: 0;
+}
+.stackItem--imageOverlayText {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  padding: 32px;
+  background: linear-gradient(180deg, rgba(22, 22, 22, 0) 25.61%, rgba(22, 22, 22, 0.5) 100%);
+  transition: all .3s ease-in-out;
+}
+.stackItem--imageOverlayText::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+  background: linear-gradient(180deg, rgba(22, 22, 22, 0) 25.61%, #161616 100%);
+}
+.stackItem--imageOverlayText:hover::before {
+  opacity: 1;
+}
+
+.stackItem--stack-areas :global(.vtex-rich-text-0-x-container--imageOverlayText),
+.stackItem--stack-areas :global(.vtex-rich-text-0-x-wrapper--imageOverlayText),
+.stackItem--stack-areas :global(.vtex-rich-text-0-x-paragraph--imageOverlayText)  {
+  width: 100%;
+}
+.stackItem--stack-areas :global(.vtex-rich-text-0-x-paragraph--imageOverlayText) {
+  position: relative;
+  z-index: 5;
 }

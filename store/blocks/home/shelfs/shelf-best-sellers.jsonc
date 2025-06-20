@@ -28,13 +28,20 @@
     "props": {
       "blockClass": ["best-sellers-title-content"]
     },
-    "children": ["rich-text#best-sellers-title"]
+    "children": ["rich-text#best-sellers-title", "link#best-sellers"]
   },
   "rich-text#best-sellers-title": {
     "title": "Título",
     "props": {
       "text": "#### Mais vendidos",
       "blockClass": ["best-sellers-title", "shelf-title"]
+    }
+  },
+  "link#best-sellers": {
+    "props": {
+      "href": "/adegas-de-embutir?map=c",
+      "label": "Ver tudo",
+      "blockClass": ["best-sellers-link", "shelf-link"]
     }
   },
 

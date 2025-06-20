@@ -27,7 +27,8 @@
         "timeout": "5000",
         "stopOnHover": true
       },
-      "showNavigationArrows": "mobileOnly",
+      "showNavigationArrows": "always",
+      "showPaginationDots": "never",
       "infinite": true,
       "blockClass": ["main-slider"]
     }

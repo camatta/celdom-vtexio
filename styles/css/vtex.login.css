@@ -16,14 +16,18 @@
 
 .container :global(.vtex-button) {
   border: 0;
+  border-radius: 47px;
   min-height: initial;
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 7.5px 10px;
+  padding: 6px 8px;
   width: 95px;
   overflow: hidden;
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
+}
+.container :global(.vtex-button):hover {
+  background: #FFD6B933;
 }
 .profile {
   text-transform: initial;
@@ -50,7 +54,6 @@
   content: url(assets/icons/login.svg);
   line-height: 0;
 }
-.container :global(.vtex-button):hover,
 .container :global(.vtex-button):focus {
   background: transparent;
 }
@@ -316,16 +319,6 @@
 
 :global(.vtex-slider-layout-0-x-sliderArrows)[disabled] {
   opacity: 0.5;
-}
-
-@media (min-width: 1100px) {
-  .container :global(.vtex-button) {
-    color: #f4f4f426;
-  }
-  .container :global(.vtex-button):hover {
-    border: 1px solid #f4f4f426;
-    border-radius: 0;
-  }
 }
 
 @media (max-width: 1025px) {

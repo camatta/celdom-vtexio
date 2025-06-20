@@ -12,10 +12,10 @@
         "tablet": 2,
         "phone": 1
       },
-      "autoplay": {
+     /*  "autoplay": {
         "timeout": 3000,
         "stopOnHover": true
-      },
+      }, */
       "infinite": true,
       "showNavigationArrows": "always",
       "showPaginationDots": "never",
@@ -35,24 +35,36 @@
     ]
   },
   "stack-layout#sala-image": {
+    "props": {
+      "blockClass": ["stack-areas"]
+    },
     "children": [
       "image#sala",
       "rich-text#sala-text"
     ]
   },
   "stack-layout#cozinha-image": {
+    "props": {
+      "blockClass": ["stack-areas"]
+    },
     "children": [
       "image#cozinha",
       "rich-text#cozinha-text"
     ]
   },
   "stack-layout#area-gourmet-image": {
+    "props": {
+      "blockClass": ["stack-areas"]
+    },
     "children": [
       "image#area-gourmet",
       "rich-text#area-gourmet-text"
     ]
   },
   "stack-layout#outro-lugar-image": {
+    "props": {
+      "blockClass": ["stack-areas"]
+    },
     "children": [
       "image#outro-lugar",
       "rich-text#outro-lugar-text"

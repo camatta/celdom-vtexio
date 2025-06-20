@@ -6,9 +6,7 @@ const InfoTabs = () => {
   const productContext = useProduct()
   const productId = productContext?.product?.cacheId
   const productDescription = productContext?.product?.description
-  const productSpecificationGroups = productContext?.product?.specificationGroups
-
-  if (!productSpecificationGroups?.length) return null
+  const skuSpecifications = productContext?.product?.skuSpecifications
 
   const [productSpecifications, setProductSpecifications] = useState({
     activeSpecification: 0,
@@ -24,20 +22,29 @@ const InfoTabs = () => {
   useEffect(() => {
     const tabs = [{ name: 'Descrição', values: [productDescription] }]
 
-    const specificationsGroup = productSpecificationGroups?.find(
-      ({ name }) => name === 'Especificações' || name === 'allSpecifications'
-    )?.specifications
-
-    if (specificationsGroup?.length) {
-      tabs.push(...specificationsGroup)
+    // Adiciona a aba "Especificações Técnicas"
+    if (skuSpecifications?.length) {
+      const specContent = skuSpecifications
+        .map(spec => `${spec.field?.name}: ${spec.values?.[0]?.name}`)
+        .join('<br/>')
+      tabs.push({ name: 'Especificações Técnicas', values: [specContent] })
     }
 
-    setProductSpecifications(prev => ({
-      ...prev,
+    // Adiciona aba Gabarito, se existir
+    const gabaritoSpec = productContext?.product?.specificationGroups
+      ?.find(({ name }) => name === 'Especificações' || name === 'allSpecifications')
+      ?.specifications?.find(spec => spec.name === 'Gabarito')
+
+    if (gabaritoSpec?.values?.[0]) {
+      tabs.push({ name: 'Gabarito', values: [gabaritoSpec.values[0]] })
+    }
+
+    setProductSpecifications({
+      activeSpecification: 0,
       specificationsTabs: tabs,
-      specificationContent: tabs[0]?.values?.[0] || ''
-    }))
-  }, [productId, productDescription, productSpecificationGroups])
+      specificationContent: tabs[0]?.values?.[0] || '',
+    })
+  }, [productId, productDescription, skuSpecifications])
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -46,12 +53,12 @@ const InfoTabs = () => {
       } else {
         setShowSeeMore(false)
       }
-    }, 50) // aguarda o DOM renderizar
+    }, 50)
 
     return () => clearTimeout(timeout)
   }, [productSpecifications.activeSpecification, productSpecifications.specificationContent])
 
-  const handleBtnControl = tabIndex => {
+  const handleBtnControl = (tabIndex) => {
     setProductSpecifications(prevState => ({
       ...prevState,
       activeSpecification: tabIndex,

@@ -57,6 +57,20 @@
   transform: translate(0, -45%);
   transition: all 0.3s ease-in-out;
 }
+.sliderArrows.sliderArrows--main-slider {
+  width: 40px;
+  height: 40px;
+  background: #FFFFFF !important;
+  border-radius: 100%;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.sliderArrows.sliderLeftArrow--main-slider {
+  left: 60px;
+}
+.sliderArrows.sliderRightArrow--main-slider {
+  right: 60px;
+}
 
 .sliderArrows--lojasCarousel {
   top: unset;

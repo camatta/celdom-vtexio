@@ -39,6 +39,8 @@ p {
     display: flex;
     gap: 4px;
     align-items: center;
+    border-bottom: 1px solid transparent;
+    transition: all .3s ease-in-out;
 }
 
 .saibaMaisHistoria {

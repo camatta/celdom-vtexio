@@ -9,7 +9,7 @@
   display: inline-block;
 }
 .styledLinkContent {
-  padding: 0 0 0px;
+  padding: 0 0 2px;
   color: #2D2926;
   font-size: 14px;
   transition: all 0.3s ease-in-out;

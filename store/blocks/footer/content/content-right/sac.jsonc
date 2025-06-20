@@ -68,7 +68,7 @@
   
   "rich-text#sac-wpp-first": {
     "props": {
-      "blockClass": ["sac-group-link"],
+      "blockClass": ["sac-group-link", "sac-group-wpp"],
       "text": "<a href='https://wa.me/551199000-0479' target='_blank' class='vtex-rich-text-0-x-link vtex-rich-text-0-x-link--sac-group-link vtex-rich-text-0-x-link--sac-group-wpp'>(11) 99000-0479</a>"
     }
   },
