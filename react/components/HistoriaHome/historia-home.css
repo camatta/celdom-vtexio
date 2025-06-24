@@ -54,8 +54,14 @@ p {
 
 .numerosHistoria {
     display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
     justify-content: space-between;
+    gap: 16px;
     margin-bottom: 48px;
+}
+.numerosHistoria::-webkit-scrollbar {
+    display: none;
 }
 
 .cardNumero {
@@ -64,6 +70,7 @@ p {
     padding: 8px 32px;
     display: flex;
     flex-direction: column;
+    min-width: max-content;
 }
 
 .bigNumero p {

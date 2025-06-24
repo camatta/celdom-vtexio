@@ -221,6 +221,23 @@
   }
 }
 
+@media screen and (max-width: 991px) {
+  .sliderArrows.sliderArrows--main-slider {
+    width: 25px;
+    height: 25px;
+  }
+  .sliderArrows.sliderLeftArrow--main-slider {
+    left: 8px;
+  }
+  .sliderArrows.sliderRightArrow--main-slider {
+    right: 8px;
+  }
+  .sliderLeftArrow::before,
+  .sliderRightArrow::before {
+    transform: scale(0.75);
+  }
+}
+
 @media screen and (max-width: 767px) {
   .slide--shelf-carousel,
   .slide--partners,

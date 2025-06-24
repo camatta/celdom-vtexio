@@ -1076,7 +1076,15 @@
   }
 }
 
+@media screen and (max-width: 1099px) {
+  .flexCol--lancamentosProductsContent,
+  .flexCol--destaquesProductsContent {
+    max-width: calc(50% - 15px);
+  }
+}
+
 @media (max-width: 1025px) {
+  
   .flexRow--page-wishlist {
     padding: 30px 0;
   }
