@@ -31,7 +31,7 @@
 }
 .profile {
   text-transform: initial;
-  color: #fff;
+  color: #2D2926;
   display: inline-block;
   max-width: 55px;
 }
@@ -172,7 +172,7 @@
 }
 
 :global(.swiper-container-horizontal > .swiper-wrapper){
-  gap:20px;
+  gap:10px;
 }
 
 :global(.vtex-address-form__postalCode-forgottenURL) :global(.active-c-link)::after{

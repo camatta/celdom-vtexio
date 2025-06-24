@@ -5,6 +5,10 @@
   line-height: 26px;
   margin-bottom: 2px;
   color:#FE5000;
+  text-transform: lowercase;
+}
+.galleryTitle--layout::first-letter {
+  text-transform: capitalize;
 }
 
 .filter__container--brand {
@@ -139,6 +143,7 @@
 .totalProductsMessage {
   color: inherit;
   font-size: 0;
+  line-height: 0;
 }
 .totalProductsMessage::before {
   content: 'resultados';

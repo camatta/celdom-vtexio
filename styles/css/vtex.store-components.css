@@ -689,6 +689,10 @@
   margin-bottom: 80px;
 }
 
+.shippingTableRadioBtn {
+  display: none;
+}
+
 @media (min-width: 1100px) {
   .imageElement--image__upper-mosaic-mobile {
     display: none;

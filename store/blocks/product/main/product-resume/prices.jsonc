@@ -49,7 +49,7 @@
   "product-spot-price#pdp": {
     "props": {
       "blockClass": ["pdp"],
-      "message": "{spotPriceValue} à vista no Pix ou Boleto"
+      "message": "{spotPriceValue} no boleto ou pix"
     }
   },
 
@@ -62,7 +62,7 @@
   "product-installments#pdp": {
     "props": {
       "blockClass": "installments-pdp",
-      "message": "ou {installmentsTotalValue} em até {installmentsNumber}x de {hasInterest, select, true {{installmentValue} com juros} false {{installmentValue} }}"
+      "message": "ou {installmentsTotalValue} em {installmentsNumber}x de {hasInterest, select, true {{installmentValue} com juros} false {{installmentValue} sem juros}}"
     }
   }
 }

@@ -20,6 +20,9 @@
   },
 
   "flex-layout.col#row-actions": {
+    "props": {
+      "blockClass": ["pdp-actions"]
+    },
     "children": [
       "flex-layout.row#prices-pdp",
       "flex-layout.row#actions-pdp",

@@ -15,7 +15,7 @@
   margin-top: 24px;
 }
 .content--cms-menu :global(.vtex-menu-2-x-menuItem):not(:first-child) {
-  margin-top: 16px;
+  margin-top: 8px;
 }
 .content--cms-menu :global(.vtex-menu-2-x-styledLinkContent) {
   color: #101010;

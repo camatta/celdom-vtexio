@@ -67,7 +67,7 @@
 
   "flex-layout.row#qty-price": {
     "children": [
-      "flex-layout.col#qty-selector",
+      //"flex-layout.col#qty-selector",
       "flex-layout.col#price-container"
     ],
     "props": {

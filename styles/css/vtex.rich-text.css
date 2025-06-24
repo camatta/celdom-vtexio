@@ -41,7 +41,9 @@
 .container--footer-texto{
   font-size: 12px;
   color:#2D2926;
-  margin-bottom: 1rem;
+}
+.paragraph--footer-texto {
+  margin: 0;
 }
 
 .strong--footer-texto{
@@ -60,6 +62,7 @@
     font-size: 12px;
     padding: 4px 15px;
     border-radius: 40px;
+    margin: 16px 0 24px;
 }
 
 .paragraph--newsletter-cta {
@@ -262,7 +265,7 @@
 }
 .paragraph--description-text {
   margin: 0;
-  color: #101010;
+  color: #2D2926;
   line-height: 20px;
   font-size: 14px;
 }
@@ -283,7 +286,6 @@
   font-size: 12px;
   line-height: 16px;
   padding-left: 10px;
-  margin-bottom: 7px;
   position: relative;
 }
 .paragraph--cmsbread2::before {
@@ -345,7 +347,7 @@
 }
 */
 .container--title {
-  margin-bottom: 1rem;
+  margin-bottom: 26px;
 }
 .headingLevel1--cms,
 .headingLevel3--cms,
@@ -365,7 +367,7 @@
 }
 .headingLevel2--cms, .headingLevel3--cms,
 .headingLevel4--cms {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 19px;
 }
 
@@ -377,6 +379,7 @@
   margin: 0;
   font-size: 14px;
   line-height: 21px;
+  color: #3F3F3F;
 }
 :global(.vtex-render__container-id-politicas-de-privacidade) .paragraph--cms{
   margin-top: 0!important
@@ -417,6 +420,11 @@
 }
 .list {
   padding-left: 25px;
+}
+.paragraph--current-text-faq {
+  color: #2D2926;
+  font-size: 14px;
+  margin-top: 16px;
 }
 
 .container--contact {
@@ -482,7 +490,7 @@
   color: #474747;
   font-size: 12px;
   line-height: 16px;
-  margin-bottom: 4px;
+  margin: 0 0 8px;
 }
 /*fim inserção plataforma e desenvolvimento*/
 
@@ -512,9 +520,16 @@
   font-weight: 700;
 }
 
-.paragraph--cms-vendas{
+.paragraph--cms-vendas {
   font-size: 14px;
   margin-bottom: 1rem;
+}
+.paragraph--cms-vendas,
+.paragraph--texto-infos {
+  color: #3F3F3F;
+}
+.paragraph--titulo-ponto {
+  color: #2D2926;
 }
 
 .container--texto-infos{

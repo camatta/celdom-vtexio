@@ -1,6 +1,14 @@
 @font-face {
   font-family: 'DM Sans';
   font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('assets/fonts/DMSans-Light.ttf');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: url('assets/fonts/DMSans-Regular.ttf');

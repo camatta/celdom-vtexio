@@ -4,28 +4,25 @@
 }
 
 
-.wishlistIcon::before {
+.wishlistIconContainer :global(.vtex-button) {
+  border: 1px solid #CCCCCC;
+  transition: all 0.3s ease-in-out;
+  min-height: initial;
+  border-radius: 40px;
+}
+.wishlistIconContainer :global(.vtex-button)::before {
   content: "Adicionar à lista de desejos";
   font-size: 12px;
   display: block;
-  transition: all 0.3s ease-in-out;
   width: 168px;
   font-weight: 700;
   color: #2D2926;
-  border: 1px solid #CCCCCC;
   padding: 9px 20px;
-  border-radius: 40px;
 }
 
-.wishlistIcon:hover::before {
-  border: 1px solid #FE5000;
+.wishlistIconContainer :global(.vtex-button):hover {
+  border-color: #FE5000;
 }
-
-.wishlistIcon--add-to-list-btn-pdp{
-  background: unset!important;
-  width: 0;
-}
-
-:global(.vtex-flex-layout-0-x-flexRow--name-wish-container){
-  margin-top: 1rem;
+.wishlistIconContainer :global(.vtex-button__label) {
+  display: none !important;
 }

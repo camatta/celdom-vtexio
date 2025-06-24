@@ -93,7 +93,7 @@
   "image#jardins1": { "props": { "src": "assets/institucional/celdom.jpg", "alt": "Jardins 1" } },
   "image#jardins2": { "props": { "src": "assets/institucional/celdom.jpg", "alt": "Jardins 2" } },
   "image#jardins3": { "props": { "src": "assets/institucional/celdom.jpg", "alt": "Jardins 3" } },
-  "rich-text#jardins-titulo": { "props": { "text": "Jardins<br>**São Paulo/SP**" } },
+  "rich-text#jardins-titulo": { "props": { "blockClass": ["titulo-ponto"], "text": "Jardins<br>**São Paulo/SP**" } },
   "rich-text#jardins-contato": { "props": { "blockClass": ["texto-infos"], "text": "**E-mail:** lojajardins@celdom.com.br \n **Telefone:** (11) 3135-9990 \n **Telefone/WhatsApp:** (11) 98977-3757 \n Seg a Sex 10h as 19h \n Sáb 10h às 16h" } },
 
   "flex-layout.col#barra": {
@@ -130,7 +130,7 @@
   "image#barra1": { "props": { "src": "assets/institucional/barra.jpg", "alt": "Barra 1" } },
   "image#barra2": { "props": { "src": "assets/institucional/barra.jpg", "alt": "Barra 2" } },
   "image#barra3": { "props": { "src": "assets/institucional/barra.jpg", "alt": "Barra 3" } },
-  "rich-text#barra-titulo": { "props": { "text": "Barra da Tijuca<br>**Rio de Janeiro/RJ**" } },
+  "rich-text#barra-titulo": { "props": { "blockClass": ["titulo-ponto"], "text": "Barra da Tijuca<br>**Rio de Janeiro/RJ**" } },
   "rich-text#barra-contato": { "props": { "blockClass": ["texto-infos"], "text": "**E-mail:** lojaipanema@celdom.com.br \n **Telefone/WhatsApp:** (21) 96802-4741 \n Seg a Sex 10h as 19h \n Sáb 10h às 14h" } },
 
   "flex-layout.col#icarai": {
@@ -167,7 +167,7 @@
   "image#icarai1": { "props": { "src": "assets/institucional/icarai.jpg", "alt": "Icarai 1" } },
   "image#icarai2": { "props": { "src": "assets/institucional/icarai.jpg", "alt": "Icarai 2" } },
   "image#icarai3": { "props": { "src": "assets/institucional/icarai.jpg", "alt": "Icarai 3" } },
-  "rich-text#icarai-titulo": { "props": { "text": "Icaraí<br>**Niterói/RJ**" } },
+  "rich-text#icarai-titulo": { "props": { "blockClass": ["titulo-ponto"],"text": "Icaraí<br>**Niterói/RJ**" } },
   "rich-text#icarai-contato": { "props": { "blockClass": ["texto-infos"], "text": "**E-mail:** lojaniteroi@celdom.com.br \n **Telefone/WhatsApp:** (21) 96802-4741 \n Seg a Sex 10h as 19h \n Sáb 10h às 14h" } },
 
   "flex-layout.col#ipanema": {
@@ -204,6 +204,6 @@
   "image#ipanema1": { "props": { "src": "assets/institucional/ipanema.jpg", "alt": "Ipanema 1" } },
   "image#ipanema2": { "props": { "src": "assets/institucional/ipanema.jpg", "alt": "Ipanema 2" } },
   "image#ipanema3": { "props": { "src": "assets/institucional/ipanema.jpg", "alt": "Ipanema 3" } },
-  "rich-text#ipanema-titulo": { "props": { "text": "Ipanema<br>**Rio de Janeiro/RJ**" } },
+  "rich-text#ipanema-titulo": { "props": { "blockClass": ["titulo-ponto"], "text": "Ipanema<br>**Rio de Janeiro/RJ**" } },
   "rich-text#ipanema-contato": { "props": { "blockClass": ["texto-infos"], "text": "**E-mail:** lojaipanema@celdom.com.br \n **Telefone/WhatsApp:** (21) 96802-4741 \n Seg a Sex 10h as 19h \n Sáb 10h às 14h" } }
 }

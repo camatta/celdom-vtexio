@@ -31,6 +31,14 @@
   padding: 0 0 0 10px;
   line-height: 16px;
 }
+.link:not(.homeLink),
+.link--breadcrumb-search:not(.homeLink) {
+  text-transform: lowercase;
+}
+.link:not(.homeLink)::first-letter,
+.link--breadcrumb-search:not(.homeLink)::first-letter {
+  text-transform: capitalize;
+}
 .link:hover {
   color: #000;
 }
@@ -51,7 +59,7 @@
   line-height: 16px;
 }
 .arrow:last-child .link {
-  color: #212121;
+  color: #1C1C1C;
 }
 
 @media screen and (max-width: 1025px) {

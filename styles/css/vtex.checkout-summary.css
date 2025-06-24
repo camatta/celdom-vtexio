@@ -3,11 +3,15 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
+  color: #2D2926;
 }
 .price--minicart {
   font-size: 16px;
   font-weight: 700;
   line-height: 22px;
+}
+.summaryItemLabel--minicart {
+  font-weight: 400;
 }
 .summarySmallDisclaimer--minicart {
   padding: 16px 39px;

@@ -1,13 +1,7 @@
 {
   "flex-layout.row#search-title": {
     "props": {
-      "blockClass": ["search-title-container"],
-      "colSizing": "auto"
-    },
-    "children": ["flex-layout.row#search-title"]
-  },
-  "flex-layout.row#search-title": {
-    "props": {
+      "colSizing": "auto",
       "blockClass": "search-title-content"
     },
     "children": ["search-title.v2", "total-products.v2"]
