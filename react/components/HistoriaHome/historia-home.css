@@ -4,8 +4,10 @@ p {
 
 .topoHistoria {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    gap: 12px;
     margin-bottom: 24px;
 }
 
@@ -165,7 +167,91 @@ p {
     font-weight: 300;
     font-size: 14px;
     line-height: 18px;
-    padding: 4px 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     color: #fff;
     text-decoration: unset;
+    padding: 4px 0;
+}
+
+.tabIcon {
+    display: none;
+}
+
+@media screen and (max-width: 575px) {
+    .tabIcon {
+        display: block;
+        position: absolute;
+        top: 12px;
+        right: 0;
+        color: white;
+    }
+    .topoHistoria {
+        gap: 12px;
+        justify-content: center;
+    }
+    .wrapperLogoHistoria {
+        gap: 48px;
+    }
+    .fraseHistoria p {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .wrapperHistoriaAbas {
+        min-height: 350px;
+        padding: 16px 16px 31px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 48px;
+    }
+    .abaNavegacao {
+        display: flex;
+        flex-direction: column;
+        text-align: initial;
+        padding: 12px 7px;
+        height: 42px;
+        overflow: hidden;
+        transition: all .3s ease-in-out;
+        margin: 0;
+    }
+    .abaNavegacao.tabOpened {
+        background: #F3F3F3;
+        height: 154px;
+    }
+    .abaNavegacao.tabOpened button {
+        color: #2D2926;
+        border-color: #2D2926;
+    }
+    .abaNavegacao svg {
+        transition:  all .3s ease-in-out;
+    }
+    .abaNavegacao.tabOpened svg {
+        color: #2D2926;
+        transform: rotate(-180deg);
+    }
+    .abaNavegacao button {
+        width: 100%;
+        text-align: initial;
+        padding: 4px 8px;
+        font-size: 12px;
+        line-height: 16px;
+        transition: inherit;
+    }
+    .abaNavegacao:not(.tabOpened) button {
+        display: none;
+    }
+    .abaNavegacao button.activeTab {
+        padding: 4px 0 8px;
+        display: block;
+    }
+    .abaNavegacao button:last-of-type:not(.activeTab) {
+        border-color: transparent;
+    }
+    .tabPanel p {
+        font-size: 12px;
+        line-height: 16px;
+    }
 }

@@ -77,4 +77,7 @@
   :global(.vtex-store-newsletter-1-x-emailInputContainer){
     width: 100%;
   }
+  .emailInputContainer :global(.vtex-styleguide-9-x-input) {
+    max-width: 100%;
+  }
 }

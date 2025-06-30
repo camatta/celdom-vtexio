@@ -1,7 +1,7 @@
 .container--custom-container {
   position: relative;
   width: 100%;
-  max-width: 1110px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -708,6 +708,10 @@
 }
 
 @media (max-width: 991px) {
+  .paragraph--imageOverlayText {
+    font-size: 20px;
+    line-height: 26px;
+  }
   
   .container--newsletter-cta {
     justify-content: center;
@@ -745,9 +749,18 @@
     font-size: 12px;
     line-height: 18px;
   }
+
+  .container--areaGourmetCta {
+    padding: 0;
+  }
 }
 
 @media screen and (max-width: 575px) {
+  .paragraph--aviso-projeto {
+    font-size: 14px;
+    max-width: 220px;
+    line-height: 19px;
+  }
 
   .paragraph--copy-text{
     text-align: start;
@@ -784,10 +797,17 @@
     text-align: center;
   }
 
+  .link--areaGourmetCta {
+    font-size: 14px;
+  }
+
 }
 
 @media (max-width: 525px) {
   .heading--shelf-title {
+    font-size: 20px;
+    line-height: 26px;
+    margin-bottom: 10px;
     flex-direction: column;
     gap: 5px;
     align-items: baseline;

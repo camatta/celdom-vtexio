@@ -300,6 +300,7 @@
   .accordionFilterItemTitle {
     font-size: 14px;
   }
+  
   .container--layout--search-result-layout {
     margin-bottom: 80px;
   }
@@ -367,6 +368,12 @@
 @media screen and (max-width: 639px) {
   .gallery--grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .totalProducts--layout {
+    margin-bottom: 0;
   }
 }
 

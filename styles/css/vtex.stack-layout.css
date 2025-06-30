@@ -38,3 +38,9 @@
   position: relative;
   z-index: 5;
 }
+
+@media screen and (max-width: 991px) {
+  .stackItem--imageOverlayText {
+    padding: 17px 22px;
+  }
+}

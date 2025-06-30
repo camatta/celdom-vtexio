@@ -63,7 +63,7 @@
   background: #FFFFFF !important;
   border-radius: 100%;
   top: 50%;
-  transform: translate(0, -50%);
+  transform: translate(0, 50%);
 }
 .sliderArrows.sliderLeftArrow--main-slider {
   left: 60px;
@@ -202,6 +202,11 @@
   background: #FE5000;
 }
 
+.slide--lancamentos-products :global(.vtex-product-summary-2-x-container),
+.slide--destaques-products :global(.vtex-product-summary-2-x-container) {
+  border-radius: 8px;
+}
+
 @media screen and (max-width: 1199px) {
   .sliderRightArrow--shelf-carousel {
     right: 0;
@@ -249,12 +254,27 @@
   }
 }
 
+@media screen and (max-width: 575px) {
+  .sliderLeftArrow--areaGourmetCarousel {
+    right: 28px;
+    top: 117%;
+  }
+  .sliderRightArrow--areaGourmetCarousel {
+    right: 0;
+    top: 117%;
+  }
+
+  .slide--lojasCarousel {
+    margin: 0 7.5px;
+  }
+
+  .sliderRightArrow--lojasCarousel {
+    right: 10px;
+  }
+}
+
 @media screen and (max-width: 475px) {
   .sliderTrackContainer--shelf-carousel {
     padding: 4px 0 6px;
-  }
-
-  .sliderLayoutContainer--shelf-carousel {
-    padding-bottom: 30px;
   }
 }

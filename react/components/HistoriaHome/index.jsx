@@ -3,7 +3,13 @@ import React, { useState } from 'react'
 import styles from './historia-home.css'
 
 const HistoriaHome = () => {
-  const [activeTab, setActiveTab] = useState(0)
+  const [activeTab, setActiveTab] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleTab = (tabToActivate, setOpen) => {
+    setActiveTab(tabToActivate)
+    setIsOpen(setOpen);
+  }
 
   return (
     <>
@@ -139,37 +145,65 @@ const HistoriaHome = () => {
               styles[`tabactive${activeTab}`]
             }`}
           >
-            <div className={styles.abaNavegacao}>
+            <div className={`${styles.abaNavegacao}${isOpen ? ' '+styles.tabOpened : ''}`}>
               <button
-                onClick={() => setActiveTab(0)}
+                onClick={() => handleTab(0, !isOpen)}
                 className={activeTab === 0 ? styles.activeTab : ''}
               >
                 Celdom Profissional
               </button>
               <button
-                onClick={() => setActiveTab(1)}
+                onClick={() => handleTab(1, !isOpen)}
                 className={activeTab === 1 ? styles.activeTab : ''}
               >
                 KBIS 2025
               </button>
               <button
-                onClick={() => setActiveTab(2)}
+                onClick={() => handleTab(2, !isOpen)}
                 className={activeTab === 2 ? styles.activeTab : ''}
               >
                 Orange Expo
               </button>
               <button
-                onClick={() => setActiveTab(3)}
+                onClick={() => handleTab(3, !isOpen)}
                 className={activeTab === 3 ? styles.activeTab : ''}
               >
                 Exemplo 1
               </button>
               <button
-                onClick={() => setActiveTab(4)}
+                onClick={() => handleTab(4, !isOpen)}
                 className={activeTab === 4 ? styles.activeTab : ''}
               >
                 Exemplo 2
               </button>
+
+              <i className={styles.tabIcon}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <mask
+                    id="mask0_18405_6461"
+                    width="24"
+                    height="24"
+                    x="0"
+                    y="0"
+                    maskUnits="userSpaceOnUse"
+                    style={{ maskType: "alpha" }}
+                  >
+                    <path fill="#D9D9D9" d="M24 0v24H0V0z"></path>
+                  </mask>
+                  <g mask="url(#mask0_18405_6461)">
+                    <path
+                      fill="currentColor"
+                      d="M12 12.6 16.6 8 18 9.4l-6 6-6-6L7.4 8z"
+                    ></path>
+                  </g>
+                </svg>
+              </i>
             </div>
 
             {/* Conteúdo das abas, visibilidade controlada pelo estado */}
@@ -188,6 +222,31 @@ const HistoriaHome = () => {
                       Conheça
                     </a>
                     <a className={styles.buttonSecond} href="/pagina">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        fill="none"
+                        viewBox="0 0 18 18"
+                      >
+                        <mask
+                          id="mask0_14041_15491"
+                          width="18"
+                          height="18"
+                          x="0"
+                          y="0"
+                          maskUnits="userSpaceOnUse"
+                          style={{ maskType: "alpha" }}
+                        >
+                          <path fill="#D9D9D9" d="M0 0h18v18H0z"></path>
+                        </mask>
+                        <g mask="url(#mask0_14041_15491)">
+                          <path
+                            fill="currentColor"
+                            d="M9 12 5.25 8.25 6.3 7.162l1.95 1.95V3h1.5v6.113l1.95-1.95 1.05 1.087zm-4.5 3q-.618 0-1.06-.44A1.45 1.45 0 0 1 3 13.5v-2.25h1.5v2.25h9v-2.25H15v2.25q0 .619-.44 1.06-.442.44-1.06.44z"
+                          ></path>
+                        </g>
+                      </svg>
                       Baixar Catálogo
                     </a>
                   </div>

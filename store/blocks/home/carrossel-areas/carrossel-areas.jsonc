@@ -22,8 +22,8 @@
       "centerMode": {
         "desktop": "center",
         "tablet": "center",
-        "phone": "to-the-left",
-        "mobile": "to-the-left"
+        "phone": "disabled",
+        "mobile": "disabled"
       },
       "blockClass": "areaGourmetCarousel"
     },

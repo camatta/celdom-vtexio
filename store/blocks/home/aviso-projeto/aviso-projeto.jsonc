@@ -13,15 +13,29 @@
 
     "flex-layout.col#aviso-projeto": {
         "props": {
-            "blockClass": [
-                "wrapper-aviso-projeto"
-            ]
+            "blockClass": ["wrapper-aviso-projeto"]
+        },
+        "children": [
+            "flex-layout.col#aviso-projeto-left",
+            "flex-layout.col#aviso-projeto-right"
+        ]
+    },
+
+    "flex-layout.col#aviso-projeto-left": {
+        "props": {
+            "blockClass": ["content-aviso-projeto", "left"]
         },
         "children": [
             "image#icon-aviso-projeto",
-            "rich-text#text-aviso-projeto",
-            "rich-text#cta-aviso-projeto"
+            "rich-text#text-aviso-projeto"
         ]
+    },
+
+    "flex-layout.col#aviso-projeto-right": {
+        "props": {
+            "blockClass": ["content-aviso-projeto", "right"]
+        },
+        "children": ["rich-text#cta-aviso-projeto"]
     },
 
     "image#icon-aviso-projeto": {
