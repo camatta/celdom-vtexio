@@ -31,6 +31,9 @@ export const Container = styled.div`
 export const Message = styled.span`
     font-size: 12px;
     color: ${(p) => (p.error ? colors.red : colors.gray)};
+    position: absolute;
+    top: 10px;
+    left: 15px;
 `;
 
 export const Input = styled.input`

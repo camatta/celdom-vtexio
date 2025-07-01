@@ -570,6 +570,24 @@
   position: relative;
   z-index: 0;
   padding: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+.infoCardContainer--info-lancamentos {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+.infoCardContainer--info-destaques {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+.infoCardContainer--info-lancamentos::after,
+.infoCardContainer--info-destaques::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(25, 25, 25, 0) 0%, rgba(25, 25, 25, 0.4) 79.14%);
 }
 .infoCardTextContainer--info-lancamentos,
 .infoCardTextContainer--info-destaques {
@@ -578,6 +596,7 @@
   position: absolute;
   bottom: 12%;
   width: max-content;
+  z-index: 1;
 }
 .infoCardTextContainer--info-lancamentos {
   left: 17.5%;

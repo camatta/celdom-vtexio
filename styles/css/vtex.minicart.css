@@ -164,19 +164,12 @@
     
   }
   .minicartProductListContainer {
-    padding: 40px 20px;
-    height: calc(100vh - 76px - 203px);
-    height: calc(100dvh - 76px - 203px);
+    padding: 30px 15px 0;
+    height: calc(100vh - 79px - 385px);
+    height: calc(100dvh - 79px - 385px);
   }
 
   .minicartCheckoutButton :global(.vtex-button) {
     padding: 12px 16px;
-  }
-}
-
-@media (max-width: 420px) {
-  .minicartProductListContainer {
-    height: calc(100vh - 76px - 222px);
-    height: calc(100dvh - 76px - 222px);
   }
 }

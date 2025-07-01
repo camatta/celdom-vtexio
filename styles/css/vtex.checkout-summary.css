@@ -36,8 +36,8 @@
 
 @media (max-width: 639px) {
   .summarySmallDisclaimer--minicart {
-    padding: 17px 0 0;
-    margin: 21px 0;
+    padding: 15px 0 0;
+    margin: 24px 0 0;
   }
 
   .summarySmallDisclaimer--minicart::after{
