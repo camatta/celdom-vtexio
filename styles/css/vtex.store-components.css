@@ -80,6 +80,79 @@
   background: transparent;
 }
 
+/* CARROSSEL PRINCIPAL */
+.infoCardContainer--main-banner {
+  position: relative;
+  z-index: 0;
+  display: block;
+  padding: 0;
+}
+.infoCardContainer--main-banner::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 181px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(39, 39, 39, 0) 0%, rgba(39, 39, 39, 0.5) 77.07%);
+}
+.infoCardTextContainer--main-banner {
+  position: absolute;
+  z-index: 1;
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.paragraph--main-banner {
+  font-size: 20px;
+  line-height: 26px;
+  color: white;
+}
+.strong--main-banner {
+  font-weight: 900;
+}
+.infoCardTextContainer--main-banner .infoCardCallActionContainer--main-banner {
+  margin: 0;
+  height: initial;
+  display: flex;
+  align-self: center;
+  gap: 2px;
+  position: relative;
+  z-index: 0;
+  padding-bottom: 3px;
+}
+.infoCardTextContainer--main-banner .infoCardCallActionContainer--main-banner::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: #FFFFFF;
+}
+.infoCardTextContainer--main-banner .infoCardCallActionContainer--main-banner::after {
+  content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none"><mask id="mask0_12060_7577" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="19"><rect y="0.5" width="18" height="18" fill="%23D9D9D9"/></mask><g mask="url(%23mask0_12060_7577)"><path d="M12.1313 10.25H3V8.75H12.1313L7.93125 4.55L9 3.5L15 9.5L9 15.5L7.93125 14.45L12.1313 10.25Z" fill="%23FE5000"/></g></svg>');
+  line-height: 0;
+}
+.infoCardTextContainer--main-banner :global(.vtex-button) {
+  background: transparent;
+  min-height: initial;
+}
+.infoCardTextContainer--main-banner :global(.vtex-button__label) {
+  padding: 0 !important;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 400;
+}
+.infoCardImageContainer--main-banner {
+  line-height: 0;
+}
+
 /* LINHA CONDIÇÕES ABAIXO DO BANNER PRINCIPAL */
 .infoCardCallActionContainer--info-card-condition {
   display: none;
@@ -780,6 +853,14 @@
 }
 
 @media screen and (max-width: 991px) {
+  .paragraph--main-banner {
+    font-size: 16px;
+  }
+  .infoCardTextContainer--main-banner :global(.vtex-button__label) {
+    font-size: 16px;
+    line-height: 21px;
+  }
+
   .infoCardTextContainer--info-card-loja {
     flex-direction: column;
     align-items: flex-start;

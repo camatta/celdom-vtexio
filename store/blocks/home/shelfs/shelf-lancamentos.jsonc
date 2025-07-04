@@ -1,6 +1,7 @@
 {
 
   "flex-layout.row#lancamentos-section": {
+    "title": "Vitrine lançamentos",
     "props": {
       "horizontalAlign": "center",
       "verticalAlign": "middle",

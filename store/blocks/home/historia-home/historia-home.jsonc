@@ -1,5 +1,6 @@
 {
     "flex-layout.row#historia-home": {
+        "title": "História Celdom",
         "props": {
             "blockClass": ["custom-container"]
         },

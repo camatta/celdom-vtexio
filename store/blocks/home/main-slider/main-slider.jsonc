@@ -6,11 +6,17 @@
       "mediaList": [
         {
           "image": "assets/slider-principal/banner-ambiente.png",
-          "mobileImage": "assets/slider-principal/banner-ambiente-mobile.png"
+          "mobileImage": "assets/slider-principal/banner-ambiente-mobile.png",
+          "link": {
+            "url": "/adegas-de-embutir" 
+          }
         },
         {
           "image": "assets/slider-principal/banner-ambiente.png",
-          "mobileImage": "assets/slider-principal/banner-ambiente-mobile.png"
+          "mobileImage": "assets/slider-principal/banner-ambiente-mobile.png",
+          "link": {
+            "url": "/adegas-de-embutir" 
+          }
         }
       ]
     }

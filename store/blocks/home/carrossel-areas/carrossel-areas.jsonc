@@ -1,5 +1,6 @@
 {
   "flex-layout.row#carousel-area-gourmet": {
+    "title": "Área Gourmet",
     "props": {
             "blockClass": ["wrapper-area-gourmet", "wrapper-areas"]
         },
