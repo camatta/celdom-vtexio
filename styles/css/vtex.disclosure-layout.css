@@ -55,7 +55,7 @@
     width: 100%;
   }
 
-  .trigger--cms-menu--hidden::before, .trigger--cms-menu--hidden::after{
+  .trigger--cms-menu::before, .trigger--cms-menu::after{
     content: '';
     width: 15px;
     height: 46px;
@@ -64,11 +64,11 @@
     top: 0;
   }
 
-  .trigger--cms-menu--hidden::before{
+  .trigger--cms-menu::before{
     left: 0;
   }
 
-  .trigger--cms-menu--hidden::after{
+  .trigger--cms-menu::after{
     right:0;
   }
 

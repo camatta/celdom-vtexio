@@ -1257,6 +1257,10 @@
 }
 
 @media (max-width: 991px) {
+  .flexCol--lancamentosProductsContent :global(.vtex-slider-layout-0-x-sliderArrows--lancamentos-products),
+  .flexCol--destaquesProductsContent :global(.vtex-slider-layout-0-x-sliderArrows--destaques-products) {
+    padding: 0;
+  }
 
    /* CATÁLOGO */
 

@@ -227,9 +227,12 @@
 }
 
 @media screen and (max-width: 991px) {
-  .sliderArrows.sliderArrows--main-slider {
-    width: 25px;
-    height: 25px;
+  .sliderArrows:not(.sliderArrows--areaGourmetCarousel, .sliderArrows--lojasCarousel) {
+    width: 25px !important;
+    height: 25px !important;
+    box-shadow: 0px 2.82px 2.82px 0px #00000040;
+    background: #FFFFFF !important;
+    border-radius: 100%;
   }
   .sliderArrows.sliderLeftArrow--main-slider {
     left: 8px;
