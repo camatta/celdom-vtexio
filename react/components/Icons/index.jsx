@@ -207,18 +207,71 @@ export const LinkArrow = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="8"
-      height="8"
+      width="18"
+      height="19"
       fill="none"
-      viewBox="0 0 8 8"
+      viewBox="0 0 18 19"
     >
-      <path
-        fill="#202020"
-        d="m.656 6.156 5.011-2.092-5.01-2.351V.387l6.678 3.322v.813L.656 7.476z"
-      ></path>
+      <mask
+        id="mask0_12060_7577"
+        width="18"
+        height="19"
+        x="0"
+        y="0"
+        maskUnits="userSpaceOnUse"
+        style={{ maskType: "alpha" }}
+      >
+        <path fill="#D9D9D9" d="M0 .5h18v18H0z"></path>
+      </mask>
+      <g mask="url(#mask0_12060_7577)">
+        <path
+          fill="currentColor"
+          d="M12.131 10.25H3v-1.5h9.131l-4.2-4.2L9 3.5l6 6-6 6-1.069-1.05z"
+        ></path>
+      </g>
     </svg>
   )
 }
+
+export const SliderArrowNext = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="40"
+    height="40"
+    fill="none"
+    viewBox="0 0 40 40"
+  >
+    <rect width="40" height="40" fill="#fff" rx="20"></rect>
+    <path
+      fill="currentColor"
+      d="M25.219 21.25H10v-2.5h15.219l-7-7L20 10l10 10-10 10-1.781-1.75z"
+    ></path>
+  </svg>
+);
+
+export const SliderArrowPrev = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="40"
+    height="40"
+    fill="none"
+    viewBox="0 0 40 40"
+  >
+    <rect
+      width="40"
+      height="40"
+      x="40"
+      y="40"
+      fill="#fff"
+      rx="20"
+      transform="rotate(180 40 40)"
+    ></rect>
+    <path
+      fill="currentColor"
+      d="M14.781 18.75H30v2.5H14.781l7 7L20 30 10 20l10-10 1.781 1.75z"
+    ></path>
+  </svg>
+);
 
 export const Pix = () => {
   return (
