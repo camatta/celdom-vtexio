@@ -36,7 +36,6 @@ p {
     font-size: 16px;
     line-height: 21px;
     color: #2D2926;
-    transition: all .5s;
     text-decoration: unset;
     display: flex;
     gap: 4px;
@@ -47,11 +46,12 @@ p {
 
 .saibaMaisHistoria {
     position: relative;
-    transition: all .5s;
+    transition: all .3s ease-in-out;
+    border-bottom: 1px solid transparent;
 }
 
 .saibaMaisHistoria:hover {
-    border-bottom: 1px solid #2D2926;
+    border-color: #2D2926;
 }
 
 .numerosHistoria {
@@ -102,7 +102,7 @@ p {
     margin-bottom: 80px;
     background-image: url('../../assets/historia/bg01-historia.png');
     background-size: cover;
-    transition: all .7s;
+    transition: all .3s ease-in-out;
 }
 
 .wrapperHistoriaAbas.tabactive1 {

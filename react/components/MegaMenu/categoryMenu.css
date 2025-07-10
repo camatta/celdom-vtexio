@@ -90,21 +90,14 @@
   padding: 0;
 }
 .firstLevelLink {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 5px;
   font-size: 14px;
   line-height: 18px;
   white-space: break-spaces;
   color: #2D2926;
   font-weight: 700;
   text-decoration: none;
-  text-transform: lowercase;
 }
-.firstLevelLink::first-letter {
-  text-transform: capitalize;
-}
+
 .firstLevelLink svg {
   min-width: 8px;
 }
@@ -172,6 +165,10 @@
   row-gap: 2rem;
   background-color: #fff;
   border-radius: 12px;
+  text-transform: lowercase;
+}
+.submenuList *::first-letter {
+  text-transform: uppercase;
 }
 .submenuItem {
   display: block;

@@ -24,12 +24,7 @@
       "showAllDepartments": false,
       "showSubcategories": false,
       "departments": [
-        { "id": 95 },
-        { "id": 77 },
-        { "id": 115 },
-        { "id": 54 },
-        { "id": 82 },
-        { "id": 63 }
+        { "id": 2 }, { "id": 3 }, { "id": 4 }, { "id": 5 }, { "id": 6 }
       ]
     }
   },

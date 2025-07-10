@@ -1,0 +1,22 @@
+{
+  "banner-slider": {
+    "props": {
+      "imageItems": [
+        {
+          "imageDesktop": "assets/slider-principal/banner-ambiente.png",
+          "imageMobile": "assets/slider-principal/banner-ambiente-mobile.png",
+          "linha1": "seleção de destaques: <strong>cozinha</strong>",
+          "textoBotao": "confira",
+          "linkDesktop": "/adegas-de-embutir"
+        },
+        {
+          "imageDesktop": "assets/slider-principal/banner-ambiente.png",
+          "imageMobile": "assets/slider-principal/banner-ambiente-mobile.png",
+          "linha1": "seleção de destaques: <strong>cozinha</strong>",
+          "textoBotao": "confira",
+          "linkDesktop": "/adegas-de-embutir"
+        }
+      ]
+    }
+  }
+}
