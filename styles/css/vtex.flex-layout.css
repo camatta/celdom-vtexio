@@ -946,6 +946,8 @@
 
 .flexRowContent--bairro-localizacao{
   margin-top: 1rem;
+  padding-top: 24px;
+  padding-bottom: 16px;
 }
 
 /*inserção plataforma e desenvolvimento*/
@@ -1079,6 +1081,9 @@
   }
   .flexRowContent--controle-share {
     gap: 15px;
+  }
+  .flexRowContent--cms-faq{
+    padding-bottom: 46px;
   }
 }
 
@@ -1405,6 +1410,9 @@
   .flexRowContent--social-networks-container.flexRowContent--social-mobi {
     margin-left: 13px;
     justify-content: left;
+    background: #fff;
+    padding-left: 15px;
+    margin-left: 0;
   }
   .flexRowContent--social-networks-container {
     flex-wrap: wrap;

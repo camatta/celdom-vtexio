@@ -52,4 +52,31 @@
     .menuContainer {
     text-align: start;
   }
+  .menuItem:not(:first-child) {
+    border-bottom: 1px solid #cccc;
+    text-align: left;
+  }
+  :global(.vtex-flex-layout-0-x-flexRowContent--cms-about)
+  .styledLinkContent--menu-item-sobre,
+  :global(.vtex-flex-layout-0-x-flexRowContent--cms-frete)
+  .styledLinkContent--menu-item-frete,
+  :global(.vtex-flex-layout-0-x-flexRowContent--cms-arquitetura-decoracao)
+  .styledLinkContent--menu-item-arquitetos-e-decoracoes,
+:global(.vtex-flex-layout-0-x-flexRowContent--cms-faq)
+  .styledLinkContent--menu-item-faq,
+:global(.vtex-flex-layout-0-x-flexRowContent--cms-trocas-e-devolucoes)
+  .styledLinkContent--menu-item-trocas,
+:global(.vtex-flex-layout-0-x-flexRowContent--cms-shipping)
+  .styledLinkContent--menu-item-frete,
+:global(.vtex-flex-layout-0-x-flexRowContent--cms-assist)
+  .styledLinkContent--menu-item-assistencia,
+:global(.vtex-flex-layout-0-x-flexRowContent--cms-privacidade)
+  .styledLinkContent--menu-item-privacidade,
+:global(.vtex-flex-layout-0-x-flexRowContent--cms-termos)
+  .styledLinkContent--menu-item-termos, 
+:global(.vtex-flex-layout-0-x-flexRowContent--cms-vendas) .styledLinkContent--menu-item-vendas,
+:global(.vtex-flex-layout-0-x-flexRowContent--cms-pagamento) .styledLinkContent--menu-item-pagamento,
+:global(.vtex-flex-layout-0-x-flexRowContent--cms-termos) .styledLinkContent--menu-item-trocas-e-devolucoes {
+  border-bottom: 0;
+}
 }
