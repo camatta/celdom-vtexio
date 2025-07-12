@@ -226,6 +226,12 @@
   }
 }
 
+@media screen and (min-width: 1100px) {
+  .sliderLeftArrow--lancamentos-products, .sliderLeftArrow--destaques-products {
+    top: 46%;
+  }
+}
+
 @media screen and (max-width: 991px) {
   .sliderArrows:not(.sliderArrows--areaGourmetCarousel, .sliderArrows--lojasCarousel) {
     width: 25px !important;

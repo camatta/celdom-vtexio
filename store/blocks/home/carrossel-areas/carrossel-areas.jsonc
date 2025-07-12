@@ -74,7 +74,10 @@
   "image#sala": {
     "props": {
       "src": "assets/areas/sala.png",
-      "alt": "Sala"
+      "alt": "Sala",
+      "link": {
+        "url": "/adegas-de-embutir"
+      }
     }
   },
   "rich-text#sala-text": {
@@ -86,7 +89,10 @@
   "image#cozinha": {
     "props": {
       "src": "assets/areas/cozinha.png",
-      "alt": "Cozinha"
+      "alt": "Cozinha",
+      "link": {
+        "url": "/adegas-de-embutir"
+      }
     }
   },
   "rich-text#cozinha-text": {
@@ -98,7 +104,10 @@
   "image#area-gourmet": {
     "props": {
       "src": "assets/areas/gourmet.png",
-      "alt": "Área Gourmet"
+      "alt": "Área Gourmet",
+      "link": {
+        "url": "/adegas-de-embutir"
+      }
     }
   },
   "rich-text#area-gourmet-text": {
@@ -110,7 +119,10 @@
   "image#outro-lugar": {
     "props": {
       "src": "assets/areas/churrasqueira.png",
-      "alt": "Churrasqueira"
+      "alt": "Churrasqueira",
+      "link": {
+        "url": "/churrasqueiras-de-embutir"
+      }
     }
   },
   "rich-text#outro-lugar-text": {

@@ -219,7 +219,7 @@
   max-width: 100%;
 }
 
-:globaL(.vtex-flex-layout-0-x-flexColChild--ponto-venda) .container--texto-infos {
+:global(.vtex-flex-layout-0-x-flexColChild--ponto-venda) .container--texto-infos {
   padding-top: 16px;
 }
 
