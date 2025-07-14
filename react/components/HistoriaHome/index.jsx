@@ -79,7 +79,7 @@ const HistoriaHome = () => {
             </div>
           </div>
           <div className={styles.saibaMaisHistoria}>
-            <a href="/historia">
+            <a href="/nossa-historia">
               Saiba mais sobre nossa história
               <span>
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -218,10 +218,10 @@ const HistoriaHome = () => {
                     </p>
                   </div>
                   <div className={styles.tabButtons}>
-                    <a className={styles.buttonMain} href="/pagina">
+                    <a className={styles.buttonMain} href="/nossa-historia">
                       Conheça
                     </a>
-                    <a className={styles.buttonSecond} href="/pagina">
+                    <a className={styles.buttonSecond} href="/nossa-historia">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="18"
@@ -297,7 +297,7 @@ const HistoriaHome = () => {
                     </p>
                   </div>
                   <div className={styles.tabButtons}>
-                    <a className={styles.buttonMain} href="/pagina">
+                    <a className={styles.buttonMain} href="/historia">
                       Produtos Orange Expo
                     </a>
                   </div>
@@ -314,7 +314,7 @@ const HistoriaHome = () => {
                     </p>
                   </div>
                   <div className={styles.tabButtons}>
-                    <a className={styles.buttonMain} href="/pagina">
+                    <a className={styles.buttonMain} href="/historia">
                       Produtos Orange Expo
                     </a>
                   </div>

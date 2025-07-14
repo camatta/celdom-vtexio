@@ -173,6 +173,7 @@ p {
     color: #fff;
     text-decoration: unset;
     padding: 4px 0;
+    display: none;
 }
 
 .tabIcon {
