@@ -23,12 +23,22 @@ const InfoTabs = () => {
     const tabs = [{ name: 'Descrição', values: [productDescription] }]
 
     // Adiciona a aba "Especificações Técnicas"
-    if (skuSpecifications?.length) {
-      const specContent = skuSpecifications
-        .map(spec => `${spec.field?.name}: ${spec.values?.[0]?.name}`)
-        .join('<br/>')
-      tabs.push({ name: 'Especificações Técnicas', values: [specContent] })
-    }
+    if (skuSpecifications?.length || productContext?.product?.specificationGroups?.length) {
+  const skuSpecs = skuSpecifications
+    ?.map(spec => `${spec.field?.name}: ${spec.values?.[0]?.name}`)
+    .join('<br/>') || ''
+
+  // Busca a especificação técnica salva como conteúdo HTML no grupo "Especificações"
+  const groupSpecsContent = productContext?.product?.specificationGroups
+    ?.find(group => group.name === 'Especificações' || group.name === 'allSpecifications')
+    ?.specifications?.find(spec => spec.name === 'Especificação Técnica')?.values?.[0] || ''
+
+  // Junta os dois conteúdos (HTML + dados do SKU)
+  const combinedSpecs = `${groupSpecsContent}<br/>${skuSpecs}`
+
+  tabs.push({ name: 'Especificações Técnicas', values: [combinedSpecs] })
+}
+
 
     // Adiciona aba Gabarito, se existir
     const gabaritoSpec = productContext?.product?.specificationGroups
