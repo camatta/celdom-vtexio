@@ -23,7 +23,7 @@
     "children": [
       "image#visa",
       "image#master",
-      "image#hipercard",
+      "image#amex",
       "image#diners",
       "image#elo",
       "image#pix",
@@ -47,11 +47,11 @@
     }
   },
 
-  "image#hipercard": {
+  "image#amex": {
     "props": {
-      "src": "assets/flags/payment/hipercard.svg",
-      "alt": "Hipercard",
-      "title": "Hipercard"
+      "src": "assets/flags/payment/amexlogo.svg",
+      "alt": "Amex",
+      "title": "Amex"
     }
   },
 
