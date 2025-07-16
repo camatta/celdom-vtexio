@@ -18,16 +18,15 @@
       "orientation": "vertical"
     },
     "children": [
-      "menu-item#faq",
       "menu-item#sobre",
-      "menu-item#frete",
       "menu-item#pontos-vendas",
-      "menu-item#trocas",
+      "menu-item#arquitetos-e-decoracoes",
       "menu-item#formas-pagamento",
-      "menu-item#privacidade",
+      "menu-item#frete",
+      "menu-item#trocas",
       "menu-item#trocas-e-devolucoes",
-      "menu-item#arquitetos-e-decoracoes"
-
+      "menu-item#privacidade",
+      "menu-item#faq"
     ]
   },
 
