@@ -316,7 +316,7 @@
 }
 
 /* SUCESSO DO PEDIDO */
-:global(.vtex-order-placed-2-x-confirmationIconWrapper) > svg {
+:global(.vtex-order-placed-2-x-confirmationIconWrapper) > svg, :global(.render-route-store-search) :global(.vtex-flex-layout-0-x-flexRow--result-description-container) {
   display: none;
 }
 

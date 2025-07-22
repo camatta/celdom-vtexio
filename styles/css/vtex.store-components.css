@@ -814,9 +814,6 @@
   .searchBarContainer:hover {
     background: fff;
   }
-  .searchBarContainer :global(.vtex-styleguide-9-x-input) {
-    color: #fff;
-  }
   .swiperCaret--pdp {
     margin: 0 15px;
     padding: 8px;
