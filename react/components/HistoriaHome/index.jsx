@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from './historia-home.css'
 
 const HistoriaHome = ({
-  title = 'VTEX',
+  title = 'Nossa história',
   subtitle = 'Nosso principal objetivo é viabilizar a compra para que você e seus projetos alcancem o alto grau de inspiração!',
   linkText = 'Saiba mais sobre nossa história',
   linkUrl = '/nossa-historia',
@@ -19,28 +19,16 @@ const HistoriaHome = ({
       text: 'Desde 2021, assinamos a nossa própria linha de equipamentos gourmet para residências, reunindo qualidade, design e tecnologia de um jeito bem brasileiro.',
       primaryButton: { label: 'Conheça', link: '/nossa-historia' },
       secondaryButton: { label: 'Baixar Catálogo', link: '/nossa-historia', icon: true },
+      backgroundImage: '/arquivos/bg01-historia.png'
     },
     {
       title: 'KBIS 2025',
-      text: 'Estar no KBIS 2025 é sempre uma oportunidade única para explorar as maiores inovações do design de cozinhas e banheiros. Mas este ano teve um gostinho ainda mais especial!',
+      text: 'Estar no KBIS 2025 é sempre uma oportunidade única para explorar as maiores inovações do design de cozinhas e banheiros.',
       primaryButton: { label: 'Tendências 2025', link: '/pagina' },
-    },
-    {
-      title: 'Orange Expo',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      primaryButton: { label: 'Produtos Orange Expo', link: '/pagina' },
-    },
-    {
-      title: 'Exemplo 1',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      primaryButton: { label: 'Produtos Orange Expo', link: '/historia' },
-    },
-    {
-      title: 'Exemplo 2',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      primaryButton: { label: 'Produtos Orange Expo', link: '/historia' },
+      backgroundImage: '/arquivos/bg02-historia.png'
     }
-  ]
+  ],
+  defaultBackground = '/arquivos/bg-default-historia.png'
 }) => {
   const [activeTab, setActiveTab] = useState(0)
   const [isOpen, setIsOpen] = useState(false)
@@ -50,13 +38,24 @@ const HistoriaHome = ({
     setIsOpen(prev => !prev)
   }
 
+  const getTabBackgroundStyle = () => {
+    const activeTabData = tabs[activeTab]
+    const bgImage = activeTabData?.backgroundImage || defaultBackground
+    
+    return {
+      backgroundImage: `url('${bgImage}')`,
+      backgroundSize: 'cover',
+      transition: 'all .3s ease-in-out'
+    }
+  }
+
   return (
     <div className={styles.HistoriaHome}>
       {/* Topo com logo e subtítulo */}
       <div className={styles.topoHistoria}>
         <div className={styles.wrapperLogoHistoria}>
           <div className={styles.logoHistoria}>
-            <LogoVTEX />
+            <LogoCeldom />
           </div>
           <div className={styles.fraseHistoria}>
             <p>{subtitle}</p>
@@ -79,7 +78,10 @@ const HistoriaHome = ({
 
       {/* Abas */}
       <div className={styles.historiaAbas}>
-        <div className={`${styles.wrapperHistoriaAbas} ${styles[`tabactive${activeTab}`]}`}>
+        <div 
+          className={styles.wrapperHistoriaAbas}
+          style={getTabBackgroundStyle()}
+        >
           <div className={`${styles.abaNavegacao} ${isOpen ? styles.tabOpened : ''}`}>
             {tabs.map((tab, idx) => (
               <button
@@ -112,7 +114,7 @@ const HistoriaHome = ({
 }
 
 // Componentes auxiliares
-const LogoVTEX = () => (
+const LogoCeldom = () => (
   <svg width="121" height="30" viewBox="0 0 121 30" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clipPath="url(#clip0_12060_7623)">
       <path d="M21.5649 24.0083V28.5847C19.8345 29.125 17.5003 29.3743 14.4406 29.5V28.9596C17.3381 27.837 19.6724 25.8808 21.5649 24.0083Z" fill="#FE5000"/>
@@ -194,13 +196,12 @@ HistoriaHome.schema = {
     title: {
       title: 'Título',
       type: 'string',
-      default: 'VTEX',
+      default: 'Nossa história',
     },
     subtitle: {
       title: 'Subtítulo',
       type: 'string',
-      default:
-        'Nosso principal objetivo é viabilizar a compra para que você e seus projetos alcancem o alto grau de inspiração!',
+      default: 'Nosso principal objetivo é viabilizar a compra para que você e seus projetos alcancem o alto grau de inspiração!',
     },
     linkText: {
       title: 'Texto do Link',
@@ -211,6 +212,14 @@ HistoriaHome.schema = {
       title: 'URL do Link',
       type: 'string',
       default: '/nossa-historia',
+    },
+    defaultBackground: {
+      title: 'Background padrão das abas',
+      type: 'string',
+      default: '/arquivos/bg-default-historia.png',
+      widget: {
+        'ui:widget': 'image-uploader'
+      }
     },
     stats: {
       title: 'Estatísticas',
@@ -236,8 +245,21 @@ HistoriaHome.schema = {
       items: {
         type: 'object',
         properties: {
-          title: { title: 'Título da Aba', type: 'string' },
-          text: { title: 'Texto', type: 'string' },
+          title: { 
+            title: 'Título da Aba', 
+            type: 'string' 
+          },
+          text: { 
+            title: 'Texto', 
+            type: 'string' 
+          },
+          backgroundImage: {
+            title: 'Imagem de Background',
+            type: 'string',
+            widget: {
+              'ui:widget': 'image-uploader'
+            }
+          },
           primaryButton: {
             title: 'Botão Principal',
             type: 'object',
@@ -252,13 +274,33 @@ HistoriaHome.schema = {
             properties: {
               label: { title: 'Texto', type: 'string' },
               link: { title: 'Link', type: 'string' },
-              icon: { title: 'Mostrar Ícone', type: 'boolean' },
+              icon: { 
+                title: 'Mostrar Ícone', 
+                type: 'boolean',
+                default: true 
+              },
             },
           },
         },
       },
+      default: [
+        {
+          title: 'Celdom Profissional',
+          text: 'Desde 2021, assinamos a nossa própria linha de equipamentos gourmet para residências...',
+          backgroundImage: '/arquivos/bg01-historia.png',
+          primaryButton: { 
+            label: 'Conheça', 
+            link: '/nossa-historia' 
+          },
+          secondaryButton: { 
+            label: 'Baixar Catálogo', 
+            link: '/nossa-historia', 
+            icon: true 
+          }
+        }
+      ]
     },
   },
-};
+}
 
 export default HistoriaHome
