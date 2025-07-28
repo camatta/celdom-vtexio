@@ -186,4 +186,79 @@ const DownloadIcon = () => (
   </svg>
 )
 
+HistoriaHome.schema = {
+  title: 'Bloco História Home',
+  description: 'Bloco com estatísticas e abas customizáveis',
+  type: 'object',
+  properties: {
+    title: {
+      title: 'Título',
+      type: 'string',
+      default: 'VTEX',
+    },
+    subtitle: {
+      title: 'Subtítulo',
+      type: 'string',
+      default:
+        'Nosso principal objetivo é viabilizar a compra para que você e seus projetos alcancem o alto grau de inspiração!',
+    },
+    linkText: {
+      title: 'Texto do Link',
+      type: 'string',
+      default: 'Saiba mais sobre nossa história',
+    },
+    linkUrl: {
+      title: 'URL do Link',
+      type: 'string',
+      default: '/nossa-historia',
+    },
+    stats: {
+      title: 'Estatísticas',
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          number: { title: 'Número', type: 'string' },
+          label: { title: 'Texto', type: 'string' },
+        },
+      },
+      default: [
+        { number: '+45', label: 'anos de história' },
+        { number: '+2000', label: 'produtos em catálogo' },
+        { number: '+10', label: 'marcas parceiras' },
+        { number: '+500', label: 'projetos com arquitetos' },
+        { number: '+15', label: 'design weeks' },
+      ],
+    },
+    tabs: {
+      title: 'Abas',
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          title: { title: 'Título da Aba', type: 'string' },
+          text: { title: 'Texto', type: 'string' },
+          primaryButton: {
+            title: 'Botão Principal',
+            type: 'object',
+            properties: {
+              label: { title: 'Texto', type: 'string' },
+              link: { title: 'Link', type: 'string' },
+            },
+          },
+          secondaryButton: {
+            title: 'Botão Secundário',
+            type: 'object',
+            properties: {
+              label: { title: 'Texto', type: 'string' },
+              link: { title: 'Link', type: 'string' },
+              icon: { title: 'Mostrar Ícone', type: 'boolean' },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
 export default HistoriaHome
