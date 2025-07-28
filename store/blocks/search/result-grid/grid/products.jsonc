@@ -26,7 +26,8 @@
         {
           "name": "grid",
           "component": "GridSummary",
-          "itemsPerRow": 3
+          "itemsPerRow": 3,
+          "hideUnavailableItems" : true
         }
       ],
       "GridSummary": "product-summary.shelf"

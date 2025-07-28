@@ -1,4 +1,4 @@
-// CategoryItem.js atualizado
+// CategoryItem.js
 
 import React, { useState, useRef } from 'react'
 import { Link } from 'vtex.render-runtime'
@@ -51,6 +51,11 @@ const CategoryItem = ({
     zIndex: 10,
   }
 
+  // Subcategorias ordenadas
+  const sortedChildren = [...category.children].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  )
+
   return (
     <li
       className={`${styles.itemContainer} ${
@@ -81,7 +86,7 @@ const CategoryItem = ({
         <ItemContainer
           menuPosition={menuPosition}
           containerStyle={containerStyle}
-          categories={category.children}
+          categories={sortedChildren}
           parentSlug={category.slug}
           onCloseMenu={handleCloseMenu}
           showSecondLevel={subcategoryLevels === 2}
@@ -101,4 +106,4 @@ CategoryItem.propTypes = {
   sortSubcategories: PropTypes.oneOf(getSortSubcategoriesValues),
 }
 
-export default CategoryItem;
+export default CategoryItem

@@ -136,6 +136,11 @@
   text-decoration: none;
   list-style: none;
 }
+
+.verMaisLink {
+  font-weight:700!important;
+} 
+
 .secondLevelLink {
   padding: 0;
   color: #474747;
