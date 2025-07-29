@@ -1,61 +1,66 @@
 import { useState, useEffect, useRef } from 'react'
 import { useProduct } from 'vtex.product-context'
 import styles from './infoTabs.css'
-
+ 
 const InfoTabs = () => {
   const productContext = useProduct()
   const productId = productContext?.product?.cacheId
   const productDescription = productContext?.product?.description
   const skuSpecifications = productContext?.product?.skuSpecifications
-
+ 
   const [productSpecifications, setProductSpecifications] = useState({
     activeSpecification: 0,
     specificationsTabs: [],
     specificationContent: productDescription || '',
   })
-
+ 
   const [openTabHeader, setOpenTabHeader] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const [showSeeMore, setShowSeeMore] = useState(false)
   const contentRef = useRef(null)
-
+ 
   useEffect(() => {
     const tabs = [{ name: 'Descrição', values: [productDescription] }]
-
-    // Adiciona a aba "Especificações Técnicas"
-    if (skuSpecifications?.length || productContext?.product?.specificationGroups?.length) {
-  const skuSpecs = skuSpecifications
-    ?.map(spec => `${spec.field?.name}: ${spec.values?.[0]?.name}`)
-    .join('<br/>') || ''
-
-  // Busca a especificação técnica salva como conteúdo HTML no grupo "Especificações"
-  const groupSpecsContent = productContext?.product?.specificationGroups
-    ?.find(group => group.name === 'Especificações' || group.name === 'allSpecifications')
-    ?.specifications?.find(spec => spec.name === 'Especificação Técnica')?.values?.[0] || ''
-
-  // Junta os dois conteúdos (HTML + dados do SKU)
-  const combinedSpecs = `${groupSpecsContent}<br/>${skuSpecs}`
-
-  tabs.push({ name: 'Especificações Técnicas', values: [combinedSpecs] })
-}
-
-
-    // Adiciona aba Gabarito, se existir
-    const gabaritoSpec = productContext?.product?.specificationGroups
-      ?.find(({ name }) => name === 'Especificações' || name === 'allSpecifications')
-      ?.specifications?.find(spec => spec.name === 'Gabarito')
-
+ 
+    // Grupo de Especificações
+    const especificacoesGroup = productContext?.product?.specificationGroups
+      ?.find(group => group.name === 'Especificações' || group.name === 'allSpecifications')
+ 
+    // Monta HTML com todas as especificações do grupo
+    const especificacoesHTML = especificacoesGroup?.specifications
+      ?.map(spec => `<strong>${spec.name}:</strong> ${spec.values?.join(', ')}`)
+      .join('<br/>') || ''
+ 
+    // Monta HTML das especificações do SKU
+   const skuSpecs = skuSpecifications
+  ?.map(spec => {
+    const fieldName = spec.field?.name === 'Sku' ? 'Código' : spec.field?.name
+    return `<strong>${fieldName}:</strong> ${spec.values?.[0]?.name}`
+  })
+  .join('<br/>') || ''
+ 
+    // Junta tudo (grupo Especificações + especificações do SKU)
+    const combinedSpecs = `${especificacoesHTML}${especificacoesHTML && skuSpecs ? '<br/><br/>' : ''}${skuSpecs}`
+ 
+    if (combinedSpecs.trim()) {
+      tabs.push({ name: 'Especificações Técnicas', values: [combinedSpecs] })
+    }
+ 
+    // Aba Gabarito (se existir)
+    const gabaritoSpec = especificacoesGroup?.specifications
+      ?.find(spec => spec.name === 'Gabarito')
+ 
     if (gabaritoSpec?.values?.[0]) {
       tabs.push({ name: 'Gabarito', values: [gabaritoSpec.values[0]] })
     }
-
+ 
     setProductSpecifications({
       activeSpecification: 0,
       specificationsTabs: tabs,
       specificationContent: tabs[0]?.values?.[0] || '',
     })
   }, [productId, productDescription, skuSpecifications])
-
+ 
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (contentRef.current && contentRef.current.scrollHeight > 306) {
@@ -64,10 +69,10 @@ const InfoTabs = () => {
         setShowSeeMore(false)
       }
     }, 50)
-
+ 
     return () => clearTimeout(timeout)
   }, [productSpecifications.activeSpecification, productSpecifications.specificationContent])
-
+ 
   const handleBtnControl = (tabIndex) => {
     setProductSpecifications(prevState => ({
       ...prevState,
@@ -77,9 +82,9 @@ const InfoTabs = () => {
     setOpenTabHeader(!openTabHeader)
     setIsExpanded(false)
   }
-
+ 
   const activeTab = productSpecifications.specificationsTabs[productSpecifications.activeSpecification]
-
+ 
   return (
     <>
       {productSpecifications.specificationsTabs?.length > 0 && (
@@ -98,7 +103,7 @@ const InfoTabs = () => {
               </button>
             ))}
           </div>
-
+ 
           <div className={styles.tabContent}>
             {activeTab?.name === 'Gabarito' ? (
               <a
@@ -134,5 +139,5 @@ const InfoTabs = () => {
     </>
   )
 }
-
+ 
 export default InfoTabs

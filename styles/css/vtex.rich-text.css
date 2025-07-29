@@ -712,6 +712,13 @@
 }
 
 @media (max-width: 991px) {
+
+  .container--texto-infos{
+    border-top:unset;
+    padding-top:0!important;
+    padding-bottom: 3.5rem!important;
+  }
+
   .paragraph--imageOverlayText {
     font-size: 20px;
     line-height: 26px;

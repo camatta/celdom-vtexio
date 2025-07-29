@@ -71,19 +71,21 @@ const SideBar = ({
           </div>
 
           <ul className={`${styles.sidebarContent} list`}>
-            {departments.map(department => (
-              <li
-                key={department.id}
-                className={`${styles.sidebarDepartment} list`}
-              >
-                <SideBarItem
-                  item={department}
-                  linkValues={[department.slug]}
-                  onClose={onClose}
-                  showSubcategories={showSubcategories}
-                />
-              </li>
-            ))}
+{departments
+  .sort((a, b) => a.name.localeCompare(b.name))
+  .map(department => (
+    <li
+      key={department.id}
+      className={`${styles.sidebarDepartment} list`}
+    >
+      <SideBarItem
+        item={department}
+        linkValues={[department.slug]}
+        onClose={onClose}
+        showSubcategories={showSubcategories}
+      />
+    </li>
+))}
           </ul>
 
           {children && children}

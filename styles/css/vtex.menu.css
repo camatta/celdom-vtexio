@@ -56,6 +56,11 @@
     border-bottom: 1px solid #cccc;
     text-align: left;
   }
+
+  :global(.vtex-menu-2-x-menuContainer) .menuItem:not(:first-child){
+     border-bottom:unset!important;
+  }
+
   :global(.vtex-flex-layout-0-x-flexRowContent--cms-about)
   .styledLinkContent--menu-item-sobre,
   :global(.vtex-flex-layout-0-x-flexRowContent--cms-frete)

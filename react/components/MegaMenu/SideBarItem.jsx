@@ -86,6 +86,23 @@ const SideBarItem = ({
       </li>
       {subCategoriesVisible && open && (
         <>
+          {/* Renderiza os filhos ordenados alfabeticamente */}
+          {children
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map(child => (
+              <li key={child.id} className={`list ma0 pa0 ${styles.subCategoryContainer}`}>
+                <SideBarItem
+                  showSubcategories={showSubcategories}
+                  item={child}
+                  linkValues={[...linkValues, child.slug]}
+                  onClose={onClose}
+                  treeLevel={treeLevel + 1}
+                  runtime={runtime}
+                />
+              </li>
+            ))}
+          
+          {/* Renderiza o "Ver mais" por último */}
           <li
             className={`${styles.pointerNavigate} pointer t-body c-muted-2 ma0 list pl4`}
             onClick={navigateToPage}
@@ -94,21 +111,6 @@ const SideBarItem = ({
               {txt => <span>{txt}</span>}
             </FormattedMessage>
           </li>
-          {children.map(child => (
-            <li
-              key={child.id}
-              className={`list ma0 pa0 ${styles.subCategoryContainer}`}
-            >
-              <SideBarItem
-                showSubcategories={showSubcategories}
-                item={child}
-                linkValues={[...linkValues, child.slug]}
-                onClose={onClose}
-                treeLevel={treeLevel + 1}
-                runtime={runtime}
-              />
-            </li>
-          ))}
         </>
       )}
     </ul>
