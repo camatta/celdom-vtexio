@@ -187,6 +187,7 @@ p {
         top: 12px;
         right: 0;
         color: white;
+        pointer-events: none;
     }
     .topoHistoria {
         gap: 12px;
