@@ -155,6 +155,8 @@
 .slideChildrenContainer--areaGourmetCarousel :global(.vtex-stack-layout-0-x-stackContainer),
 .slideChildrenContainer--areaGourmetCarousel :global(.vtex-store-components-3-x-imageElement) {
   width: 100%;
+  height: 342px;
+  object-fit: cover;
 }
 
 .stackItem--imageOverlayTex {

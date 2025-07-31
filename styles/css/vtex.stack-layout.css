@@ -15,6 +15,7 @@
   padding: 32px;
   background: linear-gradient(180deg, rgba(22, 22, 22, 0) 25.61%, rgba(22, 22, 22, 0.5) 100%);
   transition: all .3s ease-in-out;
+  pointer-events: none;
 }
 .stackItem--imageOverlayText::before {
   content: '';
