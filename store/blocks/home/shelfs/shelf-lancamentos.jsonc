@@ -34,6 +34,7 @@
       "isFullModeStyle": false,
       "textPosition": "left",
       "imageUrl": "assets/info-cards/lancamentos-banner.png",
+      "mobileImageUrl": "assets/info-cards/lancamentos-banner-mobile.jpg",
       "headline": "Lançamentos \n**Imperdíveis**",
       "callToActionText": "Ver tudo",
       "callToActionUrl": "/sale/d",
