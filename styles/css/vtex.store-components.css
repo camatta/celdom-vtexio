@@ -5,6 +5,7 @@
 .imageElementLink {
   display: inline-block;
   line-height: 0;
+  width: 100%;
 }
 .paragraph {
   color: inherit;
@@ -198,6 +199,14 @@
 
 
 /* PÁGINA DO PRODUTO */
+
+ :global(.vtex-store-components-3-x-productImageTag--pdp){
+  width: unset!important;
+ }
+
+ .productImagesGallerySwiperContainer{
+  text-align: center;
+ }
 
   :global(.vtex-reviews-and-ratings-3-x-reviewCommentRating) .review__comment--user{
     margin: 0!important;
