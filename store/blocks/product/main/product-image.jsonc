@@ -31,7 +31,7 @@
   "responsive-layout.mobile#image-pdp": {
     "children": ["product-images#mobile", "flex-layout.row#button-img-ambientada"]
   },
-  " #mobile": {
+  "#mobile": {
     "props": {
       "thumbnailAspectRatio": "1:1",
       "showNavigationArrows": false,
