@@ -483,13 +483,20 @@
 
 .productImagesThumb {
   max-width: 118px;
-  max-height: 118px !important;
+  max-height: 125px !important;
+  height: 125px !important;
+  height: 100%;
   margin: 0;
-  border: 1px solid #eeeeee;
   transition: all 0.3s ease-in-out;
 }
-.productImagesThumb:hover,
-.productImagesThumbActive {
+
+.thumbImg--pdp{
+  border: 1px solid #eeeeee;
+  padding: 10px;
+}
+
+:global(.vtex-store-components-3-x-productImagesThumb):hover .thumbImg--pdp,
+:global(.vtex-store-components-3-x-productImagesThumbActive) .thumbImg--pdp {
   border: 1px solid #FE5000;
   border-radius:4px;
 }

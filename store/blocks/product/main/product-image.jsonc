@@ -24,14 +24,14 @@
       "zoomMode": "in-place-hover",
       "blockClass": ["pdp"],
       "thumbnailsOrientation": "horizontal",
-      "hiddenImages": ["Cor"]
+      "hiddenImages": ["Cor"] 
     }
   },
 
   "responsive-layout.mobile#image-pdp": {
     "children": ["product-images#mobile", "flex-layout.row#button-img-ambientada"]
   },
-  "#mobile": {
+  "product-images#mobile": {
     "props": {
       "thumbnailAspectRatio": "1:1",
       "showNavigationArrows": false,
@@ -42,7 +42,7 @@
       "zoomMode": "in-place-hover",
       "thumbnailsOrientation": "horizontal",
       "blockClass": ["pdp"],
-      "hiddenImages": ["Cor"] 
+      "hiddenImages": ["Cor"]
     }
   }
 }

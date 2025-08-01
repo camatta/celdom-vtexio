@@ -171,10 +171,6 @@
   display: none;
 }
 
-:global(.swiper-container-horizontal > .swiper-wrapper){
-  gap:10px;
-}
-
 :global(.vtex-address-form__postalCode-forgottenURL) :global(.active-c-link)::after{
   content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cmask id='mask0_16005_11312' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='12' height='12'%3E%3Crect width='12' height='12' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_16005_11312)'%3E%3Cpath d='M3.2 9L2.5 8.3L7.3 3.5H3V2.5H9V8.5H8V4.2L3.2 9Z' fill='%23666666'/%3E%3C/g%3E%3C/svg%3E");
   padding-top: 5px;
