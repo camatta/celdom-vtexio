@@ -30,28 +30,12 @@ const AmbientImageButton = () => {
     setIsAmbientActive(false)
   }, [selectedItem])
 
-  // 2. Controle total das classes active e opacidade dos slides
+  // 2. Controle total das classes active
   const enforceActiveThumb = () => {
     const allThumbs = [...document.querySelectorAll('.vtex-store-components-3-x-productImagesThumb')]
     const nonBannerThumbs = allThumbs.filter(thumb => 
       !thumb.querySelector('img')?.alt?.toLowerCase().includes('banner-pdp')
     )
-
-    // Controla a opacidade dos slides principais
-    const slides = document.querySelectorAll('.vtex-store-components-3-x-sliderFrame .vtex-store-components-3-x-slide')
-    if (slides && activeThumbRef.current !== null) {
-      slides.forEach((slide, index) => {
-        if (index === activeThumbRef.current) {
-          slide.style.opacity = '1'
-          slide.style.visibility = 'visible'
-          slide.style.position = 'relative'
-        } else {
-          slide.style.opacity = '0'
-          slide.style.visibility = 'hidden'
-          slide.style.position = 'absolute'
-        }
-      })
-    }
 
     if (activeThumbRef.current !== null && nonBannerThumbs[activeThumbRef.current]) {
       // Remove todas as classes ativas primeiro
