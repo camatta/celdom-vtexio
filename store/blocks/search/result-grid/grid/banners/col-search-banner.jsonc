@@ -13,7 +13,7 @@
       "title": "Banner Desktop",
       "props": {
         "src": "assets/categories/category-celdom.jpg",
-        "alt": "Imperdível, até 30% de desconto",
+        "alt": "Banner da Categoria",
         "maxHeight": "142px",
         "maxWidth":"100%",
         "blockClass": ["category-banner", "category-banner-desk"]

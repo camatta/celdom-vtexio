@@ -24,10 +24,10 @@ const HistoriaHome = ({
   // Estatísticas fixas (não mais configuráveis via props)
   const stats = [
     { number: '+45', label: 'anos de história' },
-    { number: '+2000', label: 'produtos em catálogo' },
-    { number: '+10', label: 'marcas parceiras' },
-    { number: '+500', label: 'projetos com arquitetos' },
-    { number: '+15', label: 'design weeks' },
+    { number: '+1000', label: 'produtos em catálogo' },
+    { number: '+15', label: 'marcas parceiras' },
+    { number: '+10.000', label: 'projetos com arquitetos' },
+    { number: '+10', label: 'design weeks' },
   ];
 
   const [activeTab, setActiveTab] = useState(0);
