@@ -1,0 +1,23 @@
+{
+  "store.custom#search-custom-pronta-entrega": {
+    "blocks": ["search-result-layout.customQuery#search-custom-pronta-entrega"]
+  },
+ 
+  "search-result-layout.customQuery#search-custom-pronta-entrega": {
+    "props": {
+      "querySchema": {
+        "orderByField": "OrderByScoreDESC",
+        "hideUnavailableItems": true,
+        "maxItemsPerPage": 8,
+        "queryField": "150",
+        "mapField": "productClusterIds",
+        "pageType": "search"
+      }
+    },
+    "blocks": [
+      "search-result-layout.desktop",
+      "search-result-layout.mobile",
+      "search-not-found-layout"
+    ]
+  }
+}

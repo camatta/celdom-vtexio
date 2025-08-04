@@ -738,6 +738,7 @@
 }
 .infoCardImage--info-card-loja {
   border-radius: 8px;
+  object-position: 0% 20%;
 }
 .infoCardTextContainer--info-card-loja {
   align-items: center;

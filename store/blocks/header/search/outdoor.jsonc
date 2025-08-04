@@ -1,0 +1,23 @@
+{
+  "store.custom#search-custom-outdoor": {
+    "blocks": ["search-result-layout.customQuery#search-custom-outdoor"]
+  },
+ 
+  "search-result-layout.customQuery#search-custom-outdoor": {
+    "props": {
+      "querySchema": {
+        "orderByField": "OrderByScoreDESC",
+        "hideUnavailableItems": true,
+        "maxItemsPerPage": 8,
+        "queryField": "148",
+        "mapField": "productClusterIds",
+        "pageType": "search"
+      }
+    },
+    "blocks": [
+      "search-result-layout.desktop",
+      "search-result-layout.mobile",
+      "search-not-found-layout"
+    ]
+  }
+}

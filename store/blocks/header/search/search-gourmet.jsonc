@@ -1,0 +1,23 @@
+{
+  "store.custom#search-custom-gourmet": {
+    "blocks": ["search-result-layout.customQuery#search-custom-gourmet"]
+  },
+ 
+  "search-result-layout.customQuery#search-custom-gourmet": {
+    "props": {
+      "querySchema": {
+        "orderByField": "OrderByScoreDESC",
+        "hideUnavailableItems": true,
+        "maxItemsPerPage": 8,
+        "queryField": "147",
+        "mapField": "productClusterIds",
+        "pageType": "search"
+      }
+    },
+    "blocks": [
+      "search-result-layout.desktop",
+      "search-result-layout.mobile",
+      "search-not-found-layout"
+    ]
+  }
+}

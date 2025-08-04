@@ -39,7 +39,7 @@
   },
   "rich-text#vendas": {
     "props": {
-      "text": "A *CELDOM* possui Pontos de Venda no Rio de Janeiro e em São Paulo, situadas nos melhores points de decoração das cidades. No Rio de Janeiro fica localizado no CasaShopping, na Barra da Tijuca, no Studio LW, em Ipanema, e em São Paulo na Alameda Gabriel Monteiro da Silva, no Jardins, ambas com exposição completa das marcas, em espaços ambientados para facilitar ainda mais a escolha dos eletrodomésticos para seu projeto. \n\n *Atenção!* A CELDOM não vende via Mercado Livre, Shopee, OLX, ou em qualquer outro Marketplace.\n\n Fale com nosso time comercial pelo WhatsApp.  Nosso horário de atendimento é de 10:00 às 19:00hs, de Seg a Sab, e de 14:00 às 20:00hs, Dom e Feriados. ",
+      "text": "A *CELDOM* possui Pontos de Venda no Rio de Janeiro e em São Paulo, situadas nos melhores points de decoração das cidades. No Rio de Janeiro fica localizado no CasaShopping, na Barra da Tijuca, no Studio LW, em Ipanema, e em São Paulo na Alameda Gabriel Monteiro da Silva, no Jardins, ambas com exposição completa das marcas, em espaços ambientados para facilitar ainda mais a escolha dos eletrodomésticos para seu projeto. \n\n *Atenção!* A CELDOM não vende via Mercado Livre, Shopee, OLX, ou em qualquer outro Marketplace.\n\n Fale com nosso time comercial pelo [WhatsApp](https://wa.me/5521968024741). Nosso horário de atendimento é de 10:00 às 19:00hs, de Seg a Sab, e de 14:00 às 20:00hs, Dom e Feriados.",
       "textAlignment": "initial",
       "textPosition": "initial",
       "blockClass": ["cms-vendas"]
@@ -94,7 +94,7 @@
   "image#jardins2": { "props": { "src": "assets/institucional/celdom.jpg", "alt": "Jardins 2" } },
   "image#jardins3": { "props": { "src": "assets/institucional/celdom.jpg", "alt": "Jardins 3" } },
   "rich-text#jardins-titulo": { "props": { "blockClass": ["titulo-ponto"], "text": "Jardins<br>**São Paulo/SP**" } },
-  "rich-text#jardins-contato": { "props": { "blockClass": ["texto-infos"], "text": "**E-mail:** lojajardins@celdom.com.br \n **Telefone:** (11) 3135-9990 \n **Telefone/WhatsApp:** (11) 98977-3757 \n Seg a Sex 10h as 19h \n Sáb 10h às 16h" } },
+  "rich-text#jardins-contato": {"props": {"blockClass": ["texto-infos"],"text": "**E-mail:** [lojajardins@celdom.com.br](mailto:lojajardins@celdom.com.br) \n **Telefone:** [(11) 3135-9990](tel:1131359990) \n **Telefone/WhatsApp:** [(11) 98977-3757](https://wa.me/5511989773757) \n Seg a Sex 10h as 19h \n Sáb 10h às 16h"} },
 
   "flex-layout.col#barra": {
     "props": { "blockClass": ["ponto-venda"] },
@@ -131,8 +131,13 @@
   "image#barra2": { "props": { "src": "assets/institucional/barra.jpg", "alt": "Barra 2" } },
   "image#barra3": { "props": { "src": "assets/institucional/barra.jpg", "alt": "Barra 3" } },
   "rich-text#barra-titulo": { "props": { "blockClass": ["titulo-ponto"], "text": "Barra da Tijuca<br>**Rio de Janeiro/RJ**" } },
-  "rich-text#barra-contato": { "props": { "blockClass": ["texto-infos"], "text": "**E-mail:** lojaipanema@celdom.com.br \n **Telefone/WhatsApp:** (21) 96802-4741 \n Seg a Sex 10h as 19h \n Sáb 10h às 14h" } },
-
+  "rich-text#barra-contato": {
+    "props": {
+      "blockClass": ["texto-infos"],
+      "text": "**E-mail:** [lojaipanema@celdom.com.br](mailto:lojaipanema@celdom.com.br) \n **Telefone/WhatsApp:** [(21) 96802-4741](https://wa.me/5521968024741) \n Seg a Sex 10h as 19h \n Sáb 10h às 14h"
+    }
+  },
+ 
   "flex-layout.col#icarai": {
     "props": { "blockClass": ["ponto-venda"] },
     "children": [
@@ -168,7 +173,12 @@
   "image#icarai2": { "props": { "src": "assets/institucional/icarai.jpg", "alt": "Icarai 2" } },
   "image#icarai3": { "props": { "src": "assets/institucional/icarai.jpg", "alt": "Icarai 3" } },
   "rich-text#icarai-titulo": { "props": { "blockClass": ["titulo-ponto"],"text": "Icaraí<br>**Niterói/RJ**" } },
-  "rich-text#icarai-contato": { "props": { "blockClass": ["texto-infos"], "text": "**E-mail:** lojaniteroi@celdom.com.br \n **Telefone/WhatsApp:** (21) 96802-4741 \n Seg a Sex 10h as 19h \n Sáb 10h às 14h" } },
+    "rich-text#icarai-contato": {
+    "props": {
+      "blockClass": ["texto-infos"],
+      "text": "**E-mail:** [lojaniteroi@celdom.com.br](mailto:lojaniteroi@celdom.com.br) \n **Telefone/WhatsApp:** [(21) 96802-4741](https://wa.me/5521968024741) \n Seg a Sex 10h as 19h \n Sáb 10h às 14h"
+    }
+  },
 
   "flex-layout.col#ipanema": {
     "props": { "blockClass": ["ponto-venda"] },
@@ -205,5 +215,10 @@
   "image#ipanema2": { "props": { "src": "assets/institucional/ipanema.jpg", "alt": "Ipanema 2" } },
   "image#ipanema3": { "props": { "src": "assets/institucional/ipanema.jpg", "alt": "Ipanema 3" } },
   "rich-text#ipanema-titulo": { "props": { "blockClass": ["titulo-ponto"], "text": "Ipanema<br>**Rio de Janeiro/RJ**" } },
-  "rich-text#ipanema-contato": { "props": { "blockClass": ["texto-infos"], "text": "**E-mail:** lojaipanema@celdom.com.br \n **Telefone/WhatsApp:** (21) 96802-4741 \n Seg a Sex 10h as 19h \n Sáb 10h às 14h" } }
+  "rich-text#ipanema-contato": {
+    "props": {
+      "blockClass": ["texto-infos"],
+      "text": "**E-mail:** [lojaipanema@celdom.com.br](mailto:lojaipanema@celdom.com.br) \n **Telefone/WhatsApp:** [(21) 96802-4741](https://wa.me/5521968024741) \n Seg a Sex 10h as 19h \n Sáb 10h às 14h"
+    }
+  }
 }

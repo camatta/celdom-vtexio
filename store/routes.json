@@ -33,5 +33,29 @@
 
   "store.custom#faq": {
     "path": "/faq"
+  },
+
+  "store.custom#search-custom-cozinha": {
+    "path": "/cozinha"
+  },
+
+    "store.custom#search-custom-mais-vendidos": {
+    "path": "/mais-vendidos"
+  },
+
+    "store.custom#search-custom-imperdiveis": {
+    "path": "/imperdiveis"
+  },
+
+  "store.custom#search-custom-gourmet": {
+    "path": "/gourmet"
+  },
+
+  "store.custom#search-custom-outdoor": {
+    "path": "/outdoor"
+  },
+
+    "store.custom#search-custom-pronta-entrega": {
+    "path": "/pronta-entrega"
   }
 }

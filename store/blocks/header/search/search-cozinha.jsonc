@@ -1,0 +1,23 @@
+{
+  "store.custom#search-custom-cozinha": {
+    "blocks": ["search-result-layout.customQuery#search-custom-cozinha"]
+  },
+ 
+  "search-result-layout.customQuery#search-custom-cozinha": {
+    "props": {
+      "querySchema": {
+        "orderByField": "OrderByScoreDESC",
+        "hideUnavailableItems": true,
+        "maxItemsPerPage": 8,
+        "queryField": "143",
+        "mapField": "productClusterIds",
+        "pageType": "search"
+      }
+    },
+    "blocks": [
+      "search-result-layout.desktop",
+      "search-result-layout.mobile",
+      "search-not-found-layout"
+    ]
+  }
+}
