@@ -302,6 +302,11 @@
     color:#101010!important;
   }
 
+  :global(.celdom-store-theme-1-x-departmentList) li:nth-child(7) a{
+    color:#FE5000!important;
+    font-weight: 700!important;
+  }
+
 :global(.vtex-rich-text-0-x-paragraph--faq-content):not(:first-of-type),
 :global(.vtex-rich-text-0-x-heading--faq-content):not(:first-of-type),
 :global(.vtex-rich-text-0-x-heading--cms):not(:first-of-type),
