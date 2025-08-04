@@ -47,13 +47,20 @@ const MegaMenu = ({
     setSidebarVisible(prevVisible => !prevVisible)
   }
 
-  const departmentsIds = departments.map(dept => dept.id)
-  const departmentsSelected = categories.filter(category =>
-    departmentsIds.includes(category.id)
-  )
+  // normaliza para string para evitar mismatch "2" vs 2
+const departmentsIds = (departments || []).map(d => String(d.id))
 
-  const visibleDepartments =
-    (departmentsSelected.length && departmentsSelected) || categories
+// pega só os que você listou E na ordem que você definiu
+const departmentsSelected = (categories || [])
+  .filter(cat => departmentsIds.includes(String(cat.id)))
+  .sort((a, b) => {
+    return departmentsIds.indexOf(String(a.id)) - departmentsIds.indexOf(String(b.id))
+  })
+
+// se você passou departments, usa só eles; se não passou, cai na lista completa
+const visibleDepartments =
+  (departmentsIds.length ? departmentsSelected : categories) || []
+
 
   if (mobileMode) {
     return (
