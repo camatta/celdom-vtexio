@@ -296,6 +296,12 @@
 }
 
 /* PÁGINAS INSTITUCIONAIS*/
+
+ :global(.vtex-rich-text-0-x-link--cms-vendas),
+ :global(.vtex-rich-text-0-x-link--texto-infos){
+    color:#101010!important;
+  }
+
 :global(.vtex-rich-text-0-x-paragraph--faq-content):not(:first-of-type),
 :global(.vtex-rich-text-0-x-heading--faq-content):not(:first-of-type),
 :global(.vtex-rich-text-0-x-heading--cms):not(:first-of-type),

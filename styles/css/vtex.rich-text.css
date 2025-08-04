@@ -671,11 +671,6 @@
 
   /*Páginas institucionais*/
 
- :global(.vtex-rich-text-0-x-link--cms-vendas),
- :global(.vtex-rich-text-0-x-link--texto-infos){
-    color:#101010!important;
-  }
-
   .heading--side-cms-menu-title::before {
     content: 'Nossa história';
     font-size: 14px;
