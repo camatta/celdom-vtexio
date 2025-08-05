@@ -57,5 +57,9 @@
 
     "store.custom#search-custom-pronta-entrega": {
     "path": "/pronta-entrega"
+  },
+
+  "store.custom#search-custom-assinatura-paterna-evol": {
+    "path": "/assinatura-paterna-evol"
   }
 }

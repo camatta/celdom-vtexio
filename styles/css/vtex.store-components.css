@@ -867,6 +867,11 @@
 }
 
 @media screen and (max-width: 991px) {
+
+  .paragraph--info-card-loja{
+    height: 63px;
+  }
+
   .paragraph--main-banner {
     font-size: 16px;
   }

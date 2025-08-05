@@ -1277,7 +1277,7 @@
   .flexRow--summary-tags{
     max-width: 100%;
     width: 100%;
-    height: auto;
+    height:50px;
     margin-bottom:0.5rem;
     top:unset;
     left: unset;

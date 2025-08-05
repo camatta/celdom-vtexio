@@ -1,3 +1,11 @@
+/*Ocultando área logada*/
+
+:global(.vtex-render__container-id-aviso-projeto),
+:global(.vtex-flex-layout-0-x-flexRowContent--section-area-logada),
+:global(.vtex-flex-layout-0-x-flexColChild--footer-arquitetos-e-decoradores) .headingLevel4--footer-title{
+  display: none;
+}
+
 /* SCROLLBAR */
 ::-webkit-scrollbar {
   width: 5px;
@@ -302,7 +310,7 @@
     color:#101010!important;
   }
 
-  :global(.celdom-store-theme-1-x-departmentList) li:nth-child(7) a{
+  :global(.celdom-store-theme-1-x-departmentList) > li:nth-child(7) a{
     color:#FE5000!important;
     font-weight: 700!important;
   }

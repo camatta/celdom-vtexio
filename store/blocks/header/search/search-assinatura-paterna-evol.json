@@ -1,0 +1,23 @@
+{
+  "store.custom#search-custom-assinatura-paterna-evol": {
+    "blocks": ["search-result-layout.customQuery#search-custom-assinatura-paterna-evol"]
+  },
+ 
+  "search-result-layout.customQuery#search-custom-assinatura-paterna-evol": {
+    "props": {
+      "querySchema": {
+        "orderByField": "OrderByScoreDESC",
+        "hideUnavailableItems": true,
+        "maxItemsPerPage": 8,
+        "queryField": "151",
+        "mapField": "productClusterIds",
+        "pageType": "search"
+      }
+    },
+    "blocks": [
+      "search-result-layout.desktop",
+      "search-result-layout.mobile",
+      "search-not-found-layout"
+    ]
+  }
+}
