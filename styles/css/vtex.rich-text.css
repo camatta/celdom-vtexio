@@ -41,6 +41,7 @@
 .container--footer-texto{
   font-size: 12px;
   color:#2D2926;
+  position: relative;
 }
 .paragraph--footer-texto {
   margin: 0;
@@ -54,7 +55,7 @@
 .strong--footer-texto::after{
   content:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' viewBox='0 0 19 19' fill='none'%3E%3Cmask id='mask0_18666_4491' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='19' height='19'%3E%3Crect x='0.5' y='0.5' width='18.5' height='18.5' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_18666_4491)'%3E%3Cpath d='M4.43341 15.3748L3.35425 14.2957L10.7542 6.89567H4.12508V5.354H13.3751V14.604H11.8334V7.97484L4.43341 15.3748Z' fill='%23FE5000'/%3E%3C/g%3E%3C/svg%3E");
   position: absolute;
-  right: -21px;
+  right: 30%;
 }
 
 .paragraph--button-area-logada{
