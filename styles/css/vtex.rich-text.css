@@ -46,7 +46,7 @@
   margin: 0;
 }
 
-.strong--footer-texto{
+.strong--footer-texto :global(.vtex-rich-text-0-x-link--footer-texto){
   color:#FE5000!important;
   position: relative;
 }
@@ -69,7 +69,7 @@
   font-size: 14px;
   font-weight: 700;
   line-height: 22px;
-  margin: 0 0 16px;
+  margin: 1rem 0 16px;
   color: #2D2926;
 }
 .paragraph--newsletter-desc {

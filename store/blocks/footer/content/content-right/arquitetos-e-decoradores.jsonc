@@ -30,11 +30,12 @@
            "rich-text#cta-area-logada"
     ]
   },
-    "rich-text#texto-arquitetos-e-decoradores": {
-    "props": {
-      "blockClass": "footer-texto",
-      "text": "Faça parte do nosso programa de relacionamento **Celdom VIP!**"
-    }
+
+  "rich-text#texto-arquitetos-e-decoradores": {
+  "props": {
+    "blockClass": "footer-texto",
+    "text": "Faça parte do nosso programa de relacionamento **[Celdom VIP!](https://wa.me/5511990000479)**"
+  }
   },
 
   "rich-text#cta-area-logada": {

@@ -1,7 +1,7 @@
 /*Ocultando área logada*/
 
 :global(.vtex-render__container-id-aviso-projeto),
-:global(.vtex-flex-layout-0-x-flexRowContent--section-area-logada),
+:global(.vtex-flex-layout-0-x-flexRowContent--section-area-logada) :global(.vtex-rich-text-0-x-paragraph--button-area-logada),
 :global(.vtex-flex-layout-0-x-flexColChild--footer-arquitetos-e-decoradores) .headingLevel4--footer-title{
   display: none;
 }

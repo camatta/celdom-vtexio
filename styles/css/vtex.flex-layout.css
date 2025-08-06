@@ -848,6 +848,11 @@
 }
 
 /* PÁGINAS INSTITUCIONAIS */
+
+.flexRow--result-description-container{
+  display: none;
+}
+
 .flexRow--cms-page-container {
   margin: 40px 0 80px;
 }
@@ -1272,6 +1277,7 @@
 
   .flexRowContent--summary-tags .stretchChildrenWidth{
       flex-direction: column;
+      align-items: center;
   }
 
   .flexRow--summary-tags{
@@ -1725,6 +1731,11 @@
 
 @media screen and (max-width: 375px) {
   .flexRowContent--toolbar-mobile {
-    gap: 30px;
+    gap: 10px;
   }
+
+  .flexRowContent--summary-tags .stretchChildrenWidth{
+    align-items: center;
+  }
+
 }
