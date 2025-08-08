@@ -2,6 +2,7 @@
   "header-layout.mobile": {
     "title": "Cabeçalho Mobile",
     "children": [
+      "flex-layout.row#scriptrd",
       "aux-floating-container#mobi",
       "back-to-top-button"
     ]

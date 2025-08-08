@@ -8,8 +8,7 @@
       "flex-layout.row#bar-inspiration",
       "flex-layout.row#content",
       "flex-layout.row#services-flags",
-      "flex-layout.row#copy",
-      "flex-layout.row#scriptrd"
+      "flex-layout.row#copy"
     ]
   },
 
@@ -19,8 +18,7 @@
       "flex-layout.row#bar-inspiration",
       "flex-layout.row#content",
       "flex-layout.row#services-flags",
-      "flex-layout.row#copy",
-      "flex-layout.row#scriptrd"
+      "flex-layout.row#copy"
     ]
   }
 }
