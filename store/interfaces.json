@@ -64,5 +64,8 @@
   },
   "historia-home": {
     "component": "HistoriaHome"
+  },
+    "script-rd": {
+    "component": "RDScript"
   }
 }
