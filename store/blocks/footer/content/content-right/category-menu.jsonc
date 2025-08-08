@@ -29,9 +29,14 @@
     }
   },
   "rich-text#butto-all-category": {
-    "props": {
-      "blockClass": "button-all-category",
-      "text": " **Ver tudo** "
+  "props": {
+    "blockClass": "button-all-category",
+    "text": "**Ver tudo**",
+    "link": {
+      "url": "/todas-as-categorias",
+      "newTab": true
     }
   }
+}
+
 }

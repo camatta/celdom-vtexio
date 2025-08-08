@@ -714,6 +714,10 @@
 
 @media (max-width: 991px) {
 
+  .strong--footer-texto::after{
+    right:10%!important;
+  }
+
   .container--texto-infos{
     border-top:unset;
     padding-top:0!important;

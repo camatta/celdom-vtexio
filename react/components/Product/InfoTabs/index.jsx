@@ -28,7 +28,7 @@ const InfoTabs = () => {
  
     // Monta HTML com todas as especificações do grupo
     const especificacoesHTML = especificacoesGroup?.specifications
-      ?.map(spec => `<strong>${spec.name}:</strong> ${spec.values?.join(', ')}`)
+      ?.map(spec => `<strong>${spec.name}:<br></strong> ${spec.values?.join(', ')}`)
       .join('<br/>') || ''
  
     // Monta HTML das especificações do SKU
@@ -43,7 +43,7 @@ const InfoTabs = () => {
     const combinedSpecs = `${especificacoesHTML}${especificacoesHTML && skuSpecs ? '<br/><br/>' : ''}${skuSpecs}`
  
     if (combinedSpecs.trim()) {
-      tabs.push({ name: 'Especificações Técnicas', values: [combinedSpecs] })
+      tabs.push({ name: 'Especificações Técnicas', values: [combinedSpecs]})
     }
  
     // Aba Gabarito (se existir)
