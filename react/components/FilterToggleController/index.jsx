@@ -15,6 +15,35 @@ const FilterToggleController = () => {
     priceRangeContainer: '.vtex-search-result-3-x-filter__container--priceRange'
   };
 
+  useEffect(() => {
+  const formatFilterText = () => {
+    // Seleciona todos os textos dos filtros (ajuste os seletores conforme sua loja)
+    const filterItems = document.querySelectorAll(`
+      .vtex-search-result-3-x-filterItem .vtex-checkbox__label,
+      .vtex-search-result-3-x-selectedFilterItem
+    `);
+
+    filterItems.forEach(item => {
+      if (item.textContent === item.textContent.toUpperCase()) {
+        // Converte para minúsculas primeiro
+        item.textContent = item.textContent.toLowerCase();
+        // Aplica capitalize via CSS
+        item.style.textTransform = 'capitalize';
+      }
+    });
+  };
+
+  // Observa mudanças no DOM (os filtros podem carregar dinamicamente)
+  const observer = new MutationObserver(formatFilterText);
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  // Executa imediatamente ao carregar
+  formatFilterText();
+
+  return () => observer.disconnect();
+}, []);
+
+
   const IDS = {
     overlay: 'bg-transparent-filter',
     filterHeader: 'filter-custom-header',
