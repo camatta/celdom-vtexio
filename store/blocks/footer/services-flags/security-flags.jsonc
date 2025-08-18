@@ -5,7 +5,7 @@
         "blockClass": "security-flags-content",
         "preventVerticalStretch": true
       },
-      "children": ["image#lets-encrypt","image#google-sf"]
+      "children": ["image#lets-encrypt","image#google-sf","reclame-aqui"]
     },
   
     "image#google-sf": {

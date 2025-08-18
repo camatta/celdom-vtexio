@@ -849,10 +849,6 @@
 
 /* PÁGINAS INSTITUCIONAIS */
 
-.flexRow--result-description-container{
-  display: none;
-}
-
 .flexRow--cms-page-container {
   margin: 40px 0 80px;
 }
@@ -953,7 +949,6 @@
 .flexRowContent--bairro-localizacao{
   margin-top: 1rem;
   padding-top: 24px;
-  padding-bottom: 16px;
 }
 
 /*inserção plataforma e desenvolvimento*/

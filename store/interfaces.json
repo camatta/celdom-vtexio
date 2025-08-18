@@ -67,5 +67,8 @@
   },
     "script-rd": {
     "component": "RDScript"
+  },
+   "reclame-aqui": {
+   "component": "ReclameAqui"
   }
 }
