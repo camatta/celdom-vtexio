@@ -44,6 +44,12 @@
     "children": ["vtex.store-components:product-name"]
   },
 
+  "vtex.store-components:product-name": {
+    "props": {
+      "showSku": true
+    }
+  },
+
   "flex-layout.col#wish-pdp": {
     "props": {
       "blockClass": "wish-pdp-content"
