@@ -63,6 +63,10 @@
   margin-right: 5px;
 }
 
+:global(.vtex-flex-layout-0-x-flexRowContent--summary-price-container) .spotPriceValue--summary{
+  margin-right:0;
+}
+
 .currencyCode--summary {
   font-size: 14px;
   line-height: 21px;

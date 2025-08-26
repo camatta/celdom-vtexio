@@ -1,3 +1,7 @@
+:global(.vtex-flex-layout-0-x-flexCol--security-flags-content) :global(.vtex-flex-layout-0-x-flexColChild--security-flags-content):nth-child(3){
+  width: 100px;
+}
+
 /*Ocultando área logada*/
 
 :global(.vtex-render__container-id-aviso-projeto),
