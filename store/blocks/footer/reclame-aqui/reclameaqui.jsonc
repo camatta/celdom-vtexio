@@ -1,5 +1,8 @@
 {
     "flex-layout.row#reclameaqui": {
+      "props": {
+        "blockClass": "reclameaqui"
+      },
         "children": [
             "reclame-aqui"
         ]
