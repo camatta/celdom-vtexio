@@ -8,12 +8,52 @@ const AmbientImageButton = () => {
   const [isAmbientActive, setIsAmbientActive] = useState(false)
   const [filteredImages, setFilteredImages] = useState([])
   const [isHovering, setIsHovering] = useState(false)
+  const [isInitialized, setIsInitialized] = useState(false)
+  const [buttonReady, setButtonReady] = useState(false)
   const swiperInstance = useRef(null)
   const activeThumbRef = useRef(null)
   const updateInterval = useRef(null)
   const buttonContainerRef = useRef(null)
+  const initRetryCount = useRef(0)
 
-  // 1. Filtra imagens e encontra o índice relativo
+  // 1. Aguardar carregamento das imagens (mais tolerante)
+  const waitForImagesLoad = (images) => {
+    return new Promise((resolve) => {
+      if (!images || images.length === 0) {
+        resolve()
+        return
+      }
+
+      // Timeout para não travar indefinidamente
+      const timeout = setTimeout(() => {
+        console.log('Timeout no carregamento das imagens, continuando...')
+        resolve()
+      }, 5000)
+
+      const imagePromises = images.slice(0, 3).map(img => { // Só aguarda as 3 primeiras
+        return new Promise((resolveImg) => {
+          const image = new Image()
+          const timer = setTimeout(resolveImg, 2000) // 2s timeout por imagem
+          image.onload = () => {
+            clearTimeout(timer)
+            resolveImg()
+          }
+          image.onerror = () => {
+            clearTimeout(timer)
+            resolveImg()
+          }
+          image.src = img.imageUrl
+        })
+      })
+
+      Promise.all(imagePromises).then(() => {
+        clearTimeout(timeout)
+        resolve()
+      })
+    })
+  }
+
+  // 2. Filtra imagens e encontra o índice relativo
   useEffect(() => {
     if (!selectedItem?.images) return
 
@@ -28,10 +68,65 @@ const AmbientImageButton = () => {
 
     setAmbientIndex(relativeIndex >= 0 ? relativeIndex : null)
     setIsAmbientActive(false)
+    setIsInitialized(false)
+    setButtonReady(false)
+    initRetryCount.current = 0
+
+    if (relativeIndex >= 0) { // Só continua se tem imagem ambientada
+      // Setup do container do botão ANTES de aguardar imagens
+      setupButtonContainer()
+      
+      // Aguardar carregamento das imagens
+      waitForImagesLoad(filtered).then(() => {
+        setIsInitialized(true)
+        // Delay menor para inicialização
+        setTimeout(() => {
+          console.log('Sistema inicializado')
+        }, 200)
+      })
+    }
   }, [selectedItem])
 
-  // 2. Controle total das classes active
+  // 3. Setup do container do botão (função separada para reutilizar)
+  const setupButtonContainer = () => {
+    const findAndSetupContainer = () => {
+      const parentElement = document.querySelector('.vtex-store-components-3-x-carouselGaleryCursor')
+      if (!parentElement) {
+        setTimeout(findAndSetupContainer, 200)
+        return
+      }
+
+      // Remove container anterior se existir
+      if (buttonContainerRef.current && buttonContainerRef.current.parentNode) {
+        buttonContainerRef.current.parentNode.removeChild(buttonContainerRef.current)
+      }
+
+      // Cria um container para o botão
+      const buttonContainer = document.createElement('div')
+      buttonContainer.className = 'ambient-button-container'
+      buttonContainer.style.width = '100%'
+      buttonContainer.style.display = 'flex'
+      buttonContainer.style.justifyContent = 'start'
+      
+      // Insere antes do elemento de thumbs
+      const thumbsElement = parentElement.querySelector('.vtex-store-components-3-x-carouselGaleryThumbs')
+      if (thumbsElement) {
+        parentElement.insertBefore(buttonContainer, thumbsElement)
+        buttonContainerRef.current = buttonContainer
+        setButtonReady(true)
+        console.log('Container do botão criado')
+      } else {
+        setTimeout(findAndSetupContainer, 200)
+      }
+    }
+
+    findAndSetupContainer()
+  }
+
+  // 4. Controle das classes active (menos agressivo)
   const enforceActiveThumb = () => {
+    if (!isInitialized) return
+
     const allThumbs = [...document.querySelectorAll('.vtex-store-components-3-x-productImagesThumb')]
     const nonBannerThumbs = allThumbs.filter(thumb => 
       !thumb.querySelector('img')?.alt?.toLowerCase().includes('banner-pdp')
@@ -56,29 +151,36 @@ const AmbientImageButton = () => {
     }
   }
 
-  // 3. Configuração do controle do Swiper
+  // 5. Configuração do controle do Swiper com retry (só se necessário)
   useEffect(() => {
+    if (!isInitialized) return
+
     const initSwiperControl = () => {
       const container = document.querySelector('.vtex-store-components-3-x-productImagesGallerySwiperContainer')
-      if (!container || !container.swiper) return
-
-      swiperInstance.current = container.swiper
-
-      // Sobrescreve a função de update do Swiper
-      const originalUpdate = swiperInstance.current.update
-      swiperInstance.current.update = function() {
-        originalUpdate.apply(this)
-        enforceActiveThumb()
+      
+      if (!container || !container.swiper) {
+        initRetryCount.current++
+        
+        if (initRetryCount.current < 5) { // Menos tentativas
+          setTimeout(initSwiperControl, 300)
+        }
+        return
       }
 
-      // Monitora mudanças para manter nosso controle
+      swiperInstance.current = container.swiper
       swiperInstance.current.on('slideChange', enforceActiveThumb)
       
-      // Força verificação a cada 300ms para garantir domínio
-      updateInterval.current = setInterval(enforceActiveThumb, 300)
+      // Intervalo apenas se necessário
+      if (updateInterval.current) {
+        clearInterval(updateInterval.current)
+      }
+      updateInterval.current = setInterval(enforceActiveThumb, 3000)
+      
+      console.log('Swiper controlado')
     }
 
-    initSwiperControl()
+    // Delay para dar tempo do Swiper inicializar
+    setTimeout(initSwiperControl, 1000)
 
     return () => {
       if (swiperInstance.current) {
@@ -88,14 +190,13 @@ const AmbientImageButton = () => {
         clearInterval(updateInterval.current)
       }
     }
-  }, [filteredImages])
+  }, [isInitialized])
 
-  // 4. Navegação com controle absoluto
+  // 6. Navegação com controle absoluto
   const navigateToImage = (relativeIndex) => {
     if (relativeIndex === null) return
 
     activeThumbRef.current = relativeIndex
-    enforceActiveThumb() // Aplica imediatamente
 
     const allThumbs = [...document.querySelectorAll('.vtex-store-components-3-x-productImagesThumb')]
     const nonBannerThumbs = allThumbs.filter(thumb => 
@@ -103,14 +204,14 @@ const AmbientImageButton = () => {
     )
 
     if (nonBannerThumbs[relativeIndex] && swiperInstance.current) {
-      // Navega no Swiper usando o índice relativo
       swiperInstance.current.slideTo(relativeIndex)
+      setTimeout(enforceActiveThumb, 100)
     }
 
     setIsAmbientActive(relativeIndex === ambientIndex)
   }
 
-  // 5. Manipulador de clique que previne o comportamento padrão
+  // 7. Manipulador de clique
   const handleThumbClick = (e) => {
     const thumb = e.target.closest('.vtex-store-components-3-x-productImagesThumb')
     if (!thumb) return
@@ -135,34 +236,28 @@ const AmbientImageButton = () => {
     navigateToImage(relativeIndex)
   }
 
-  // 6. Configuração inicial
+  // 8. Event listener (só se inicializado)
   useEffect(() => {
-    document.addEventListener('click', handleThumbClick, true)
-    
-    return () => {
-      document.removeEventListener('click', handleThumbClick, true)
-    }
-  }, [])
+    if (!isInitialized) return
 
-  // 7. Encontrar o container pai e criar elemento para o botão
-  useEffect(() => {
-    const parentElement = document.querySelector('.vtex-store-components-3-x-carouselGaleryCursor')
-    if (!parentElement) return
-
-    // Cria um container para o botão
-    const buttonContainer = document.createElement('div')
-    buttonContainer.className = 'ambient-button-container'
-    buttonContainer.style.width = '100%'
-    buttonContainer.style.display = 'flex'
-    buttonContainer.style.justifyContent = 'start'
-    
-    // Insere antes do elemento de thumbs
-    const thumbsElement = parentElement.querySelector('.vtex-store-components-3-x-carouselGaleryThumbs')
-    if (thumbsElement) {
-      parentElement.insertBefore(buttonContainer, thumbsElement)
-      buttonContainerRef.current = buttonContainer
+    const setupEventListener = () => {
+      const thumbsContainer = document.querySelector('.vtex-store-components-3-x-carouselGaleryThumbs')
+      
+      if (thumbsContainer) {
+        thumbsContainer.addEventListener('click', handleThumbClick, true)
+        return () => thumbsContainer.removeEventListener('click', handleThumbClick, true)
+      } else {
+        document.addEventListener('click', handleThumbClick, true)
+        return () => document.removeEventListener('click', handleThumbClick, true)
+      }
     }
 
+    const cleanup = setupEventListener()
+    return cleanup
+  }, [isInitialized])
+
+  // Cleanup geral
+  useEffect(() => {
     return () => {
       if (buttonContainerRef.current && buttonContainerRef.current.parentNode) {
         buttonContainerRef.current.parentNode.removeChild(buttonContainerRef.current)
@@ -170,7 +265,10 @@ const AmbientImageButton = () => {
     }
   }, [])
 
-  if (ambientIndex === null || !buttonContainerRef.current) return null
+  // Renderiza o botão se tem índice ambientado E container pronto
+  if (ambientIndex === null || !buttonReady || !buttonContainerRef.current) {
+    return null
+  }
 
   return createPortal(
     <button
