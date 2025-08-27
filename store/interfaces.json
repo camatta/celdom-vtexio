@@ -70,5 +70,8 @@
   },
    "reclame-aqui": {
    "component": "ReclameAqui"
+  },
+   "nome-com-sku": {
+   "component": "NomeComSku"
   }
 }
