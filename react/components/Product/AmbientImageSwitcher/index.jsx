@@ -3,6 +3,14 @@ import { useProduct } from 'vtex.product-context'
 import { createPortal } from 'react-dom'
 
 const AmbientImageButton = () => {
+  // Componente temporariamente desabilitado
+  return null
+}
+
+/*
+// Todo o código comentado para referência futura:
+
+const AmbientImageButton = () => {
   const { selectedItem } = useProduct()
   const [ambientIndex, setAmbientIndex] = useState(null)
   const [isAmbientActive, setIsAmbientActive] = useState(false)
@@ -296,5 +304,6 @@ const AmbientImageButton = () => {
     buttonContainerRef.current
   )
 }
+*/
 
 export default AmbientImageButton
