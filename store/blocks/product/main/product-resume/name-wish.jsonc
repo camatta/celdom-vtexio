@@ -41,7 +41,7 @@
     "props": {
       "blockClass": "name-pdp-content"
     },
-    "children": ["vtex.store-components:product-name"]
+    "children": ["nome-com-sku"]
   },
 
   "vtex.store-components:product-name": {
