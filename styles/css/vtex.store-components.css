@@ -200,6 +200,10 @@
 
 /* PÁGINA DO PRODUTO */
 
+:global(.vtex-store-components-3-x-productImageTag--zoom){
+  opacity: 0;
+}
+
  :global(.vtex-store-components-3-x-productImageTag--pdp){
   width: unset!important;
  }
