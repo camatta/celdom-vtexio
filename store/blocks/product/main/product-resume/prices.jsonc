@@ -16,8 +16,8 @@
       "blockClass": "prices-pdp-content"
     },
     "children": [
-      "product-spot-price#pdp",
-      "pix-label" // componente na pasta react/components/Product/PixLabel
+      "product-spot-price#pdp"
+      //, "pix-label" // componente na pasta react/components/Product/PixLabel
     ]
   },
   "flex-layout.col#descontos-pdp": {
