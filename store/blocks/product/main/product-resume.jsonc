@@ -28,7 +28,8 @@
       "flex-layout.row#actions-pdp",
       "availability-notify",
       "flex-layout.row#shipping",
-      "flex-layout.row#wish-review"
+      "flex-layout.row#wish-review",
+      "flex-layout.row#orcamento"
     ]
   }
 }

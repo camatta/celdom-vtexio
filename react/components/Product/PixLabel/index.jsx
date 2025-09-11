@@ -1,32 +1,36 @@
 import { useProduct } from 'vtex.product-context'
-import { useState, useEffect } from 'react'
-
 import { Pix } from '../../Icons'
-
 import styles from './pix.label.css'
 
 const PixLabel = () => {
-  const [discountValue, setDiscountValue] = useState(0)
   const { product } = useProduct()
-  const sellers = product?.items[0]?.sellers
 
-  if (!sellers.length) return null
+  // sellers e teasers sempre como arrays
+  const sellers = product?.items?.[0]?.sellers ?? []
+  const teasers = sellers?.[0]?.commertialOffer?.teasers ?? []
 
-  useEffect(() => {
-    const teasers = sellers[0]?.commertialOffer?.teasers
+  let discountValue = 0
 
-    teasers.map(teaser => {
-      if (teaser.name.toLowerCase().includes('pix')) {
-        teaser.effects.parameters.map(param => {
-          if (param.name === 'PercentualDiscount' && discountValue === 0) {
-            setDiscountValue(parseFloat(param.value))
-          }
-        })
+  if (Array.isArray(teasers)) {
+    for (const teaser of teasers) {
+      const name = typeof teaser?.name === 'string' ? teaser.name.toLowerCase() : ''
+      if (!name.includes('pix')) continue
+
+      const params = teaser?.effects?.parameters ?? []
+      if (!Array.isArray(params)) continue
+
+      const percentParam = params.find(p => p?.name === 'PercentualDiscount')
+      if (percentParam?.value != null) {
+        const n = Number(String(percentParam.value).replace(',', '.'))
+        if (Number.isFinite(n)) {
+          discountValue = n
+          break
+        }
       }
-    })
-  }, [product.cacheId])
+    }
+  }
 
-  if (!discountValue) return null
+  if (discountValue <= 0) return null
 
   return (
     <p className={styles.pixLabel}>

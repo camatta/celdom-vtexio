@@ -73,5 +73,8 @@
   },
    "nome-com-sku": {
    "component": "NomeComSku"
+  },
+  "botao-orcamento": {
+   "component": "Orcamento"
   }
 }

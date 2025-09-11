@@ -1,0 +1,15 @@
+{
+  "flex-layout.row#orcamento": {
+    "props": {
+      "blockClass": ["botao-orcamento--container"]
+    },
+    "children": ["flex-layout.col#orcamento"]
+  },
+
+    "flex-layout.col#orcamento": {
+    "props": {
+      "blockClass": "botao-orcamento"
+    },
+    "children": ["botao-orcamento"]
+  }
+}
