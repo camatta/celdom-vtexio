@@ -97,7 +97,6 @@ const Orcamento = () => {
                     marginTop: '10px',
                     transition: 'border 0.3s ease, opacity 0.3s ease',
                     fontFamily: 'DM Sans, sans-serif',
-                    display:'none'
                 }}
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}

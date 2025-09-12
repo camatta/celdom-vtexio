@@ -2,7 +2,8 @@
     "flex-layout.row#telemarketing": {
     "children": ["telemarketing"],
     "props": {
-      "fullWidth": true
+      "fullWidth": true,
+      "props": { "blockClass": "telemarketing-debug" }
     }
   }
 
