@@ -4,7 +4,8 @@
     "children": [
       "flex-layout.row#scriptrd",
       "aux-floating-container#desktop",
-      "back-to-top-button"
+      "back-to-top-button",
+      "flex-layout.row#telemarketing"
     ]
   },
 

@@ -1,0 +1,9 @@
+{
+    "flex-layout.row#telemarketing": {
+    "children": ["telemarketing"],
+    "props": {
+      "fullWidth": true
+    }
+  }
+
+}

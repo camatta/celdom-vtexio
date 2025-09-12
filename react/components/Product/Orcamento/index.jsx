@@ -92,7 +92,7 @@ const Orcamento = () => {
                     fontSize: '12px',
                     backgroundColor: 'transparent',
                     width: '100%',
-                    height: '32px',
+                    height: '31.6px',
                     cursor: 'pointer',
                     marginTop: '10px',
                     transition: 'border 0.3s ease, opacity 0.3s ease',
