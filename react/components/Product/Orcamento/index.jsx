@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useProduct } from 'vtex.product-context' // 
 
 const Orcamento = () => {
     const [isModalOpen, setIsModalOpen] = useState(false)
@@ -11,12 +12,13 @@ const Orcamento = () => {
         mensagem: ''
     })
 
+    const productContext = useProduct()
+    const productName = productContext?.product?.productName || productContext?.selectedItem?.name || ''
+    const skuId = productContext?.selectedItem?.itemId || '' // itemId = SKU ID
+
     const handleInputChange = (e) => {
         const { name, value } = e.target
-        setFormData(prev => ({
-            ...prev,
-            [name]: value
-        }))
+        setFormData(prev => ({ ...prev, [name]: value }))
     }
 
     const handleSubmit = async (e) => {
@@ -31,7 +33,9 @@ const Orcamento = () => {
                 email: formData.email,
                 mensagem: formData.mensagem,
                 dataEnvio: new Date().toISOString(),
-                status: 'pending'
+                status: 'pending',
+                nomeProduct: productName,
+                skuProduct: skuId
             }
 
             console.log('Enviando dados:', orcamentoData)
