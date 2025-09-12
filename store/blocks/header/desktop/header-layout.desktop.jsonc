@@ -2,10 +2,11 @@
   "header-layout.desktop": {
     "title": "Cabeçalho Desktop",
     "children": [
+      "flex-layout.row#telemarketing",
       "flex-layout.row#scriptrd",
       "aux-floating-container#desktop",
-      "back-to-top-button",
-      "flex-layout.row#telemarketing"
+      "back-to-top-button"
+      
     ]
   },
 

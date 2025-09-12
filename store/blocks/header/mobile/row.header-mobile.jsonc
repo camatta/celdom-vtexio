@@ -2,10 +2,10 @@
   "flex-layout.row#header-mobile": {
     "title": "Cabeçalho Mobile",
     "children": [
+      "flex-layout.row#telemarketing",
       "flex-layout.col#drawer-mobile",
       "flex-layout.col#logo-mobile",
-      "flex-layout.col#minicart-mobile",
-      "flex-layout.row#telemarketing"
+      "flex-layout.col#minicart-mobile"
     ],
     "props": {
       "blockClass": ["header-container", "custom-container"],
