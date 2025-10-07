@@ -116,10 +116,6 @@
   display:flex;
 }
 
-.flexRowContent--marcas :global(.vtex-slider-layout-0-x-sliderArrows--categories){
-  display: none;
-}
-
 .flexRow--wrapper-area-gourmet :global(.vtex-store-components-3-x-container) {
   max-width: 100%;
 }
@@ -1561,6 +1557,10 @@
 }
 
 @media (max-width: 575px) {
+
+  .flexRowContent--marcas :global(.vtex-slider-layout-0-x-sliderArrows--categories){
+    display: none;
+  }
   .flexRowContent--toolbar-mobile {
     margin-top: 16px;
   }
