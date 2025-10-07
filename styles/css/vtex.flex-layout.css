@@ -112,6 +112,14 @@
   width: 100%;
 }
 
+.flexRowContent--tile-marca{
+  display:flex;
+}
+
+.flexRowContent--marcas :global(.vtex-slider-layout-0-x-sliderArrows--categories){
+  display: none;
+}
+
 .flexRow--wrapper-area-gourmet :global(.vtex-store-components-3-x-container) {
   max-width: 100%;
 }
