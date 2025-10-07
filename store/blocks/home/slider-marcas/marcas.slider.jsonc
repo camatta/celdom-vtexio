@@ -1,181 +1,197 @@
 {
-    "slider-layout#marcas": {
-      "props": {
-        "itemsPerPage": {
-          "desktop": 6,
-          "tablet": 4,
-          "phone": 3
-        },
-        "centerMode": {
-          "desktop": "disabled",
-          "mobile": "disabled",
-          "tablet": "disabled",
-          "phone": "disabled"
-        },
-        "navigationStep": 1,
-        "infinite": true,
-        "showNavigationArrows": "never",
-        "showPaginationDots": "never",
-        "blockClass": ["categories"]
+  "slider-layout#marcas": {
+    "props": {
+      "itemsPerPage": {
+        "desktop": 7,
+        "tablet": 4,
+        "phone": 3
       },
-      "children": [
-        "info-card#marca1",
-        "info-card#marca2",
-        "info-card#marca3",
-        "info-card#marca4",
-        "info-card#marca5",
-        "info-card#marca6"
-      ]
+      "centerMode": {
+        "desktop": "disabled",
+        "mobile": "disabled",
+        "tablet": "disabled",
+        "phone": "disabled"
+      },
+      "infinite": true,
+      "autoplay": {
+        "timeout": 4000,
+        "stopOnHover": true
+      },
+      "showNavigationArrows": "always",
+      "showPaginationDots": "never",
+      "blockClass": "categories",
+      "usePagination": true
     },
-    "info-card#marca1": {
-      "props": {
-        "id": "info-card-marca",
-        "isFullModeStyle": false,
-        "textPosition": "center",
-        "imageUrl": "assets/marcas/marca-raven.svg",
-        "callToActionText": "Raven",
-        "blockClass": "info-card-marca",
-        "callToActionMode": "Link",
-        "textMode": "rich-text",
-        "imageActionUrl": "/macacos-hidraulicos",
-        "callToActionUrl": "/macacos-hidraulicos"
-      }
-    },
-    "info-card#marca2": {
-      "props": {
-        "id": "info-card-marca",
-        "isFullModeStyle": false,
-        "textPosition": "center",
-        "imageUrl": "assets/marcas/marca-potente.svg",
-        "callToActionText": "Potente Brasil",
-        "blockClass": "info-card-marca",
-        "callToActionMode": "Link",
-        "textMode": "rich-text",
-        "imageActionUrl": "/macacos-hidraulicos",
-        "callToActionUrl": "/macacos-hidraulicos"
-      }
-    },
-    "info-card#marca3": {
-      "props": {
-        "id": "info-card-marca",
-        "isFullModeStyle": false,
-        "textPosition": "center",
-        "imageUrl": "assets/marcas/marca-bysigma.svg",
-        "callToActionText": "Sigma Tools",
-        "blockClass": "info-card-marca",
-        "callToActionMode": "Link",
-        "textMode": "rich-text",
-        "imageActionUrl": "/macacos-hidraulicos",
-        "callToActionUrl": "/macacos-hidraulicos"
-      }
-    },
-    "info-card#marca4": {
-      "props": {
-        "id": "info-card-marca",
-        "isFullModeStyle": false,
-        "textPosition": "center",
-        "imageUrl": "assets/marcas/marca-rotta.svg",
-        "callToActionText": "Rota 376",
-        "blockClass": "info-card-marca",
-        "callToActionMode": "Link",
-        "textMode": "rich-text",
-        "imageActionUrl": "/macacos-hidraulicos",
-        "callToActionUrl": "/macacos-hidraulicos"
-      }
-    },
-    "info-card#marca5": {
-      "props": {
-        "id": "info-card-marca",
-        "isFullModeStyle": false,
-        "textPosition": "center",
-        "imageUrl": "assets/marcas/marca-planatc.svg",
-        "callToActionText": "Planatc",
-        "blockClass": "info-card-marca",
-        "callToActionMode": "Link",
-        "textMode": "rich-text",
-        "imageActionUrl": "/macacos-hidraulicos",
-        "callToActionUrl": "/macacos-hidraulicos"
-      }
-    },
-    "info-card#marca6": {
-      "props": {
-        "id": "info-card-marca",
-        "isFullModeStyle": false,
-        "textPosition": "center",
-        "imageUrl": "assets/marcas/marca-kitron.svg",
-        "callToActionText": "Kitron Tech",
-        "blockClass": "info-card-marca",
-        "callToActionMode": "Link",
-        "textMode": "rich-text",
-        "imageActionUrl": "/macacos-hidraulicos",
-        "callToActionUrl": "/macacos-hidraulicos"
-      }
-    },
-    "image#marca1": {
-      "props": {
-        "src": "assets/marcas/marca1.png",
-        "maxHeight": 142,
-        "alt": "Montadora Fiat",
-        "title": "Montadora Fiat",
-        "link": {
-          "url": "/dosadoras"
-        }
-      }
-    },
-    "image#marca2": {
-      "props": {
-        "src": "assets/marcas/marca2.png",
-        "maxHeight": 144,
-        "alt": "Montadora Ford",
-        "title": "Montadora Ford",
-        "link": {
-          "url": "/datadores"
-        }
-      }
-    },
-    "image#marca3": {
-      "props": {
-        "src": "assets/marcas/marca3.png",
-        "maxHeight": 144,
-        "alt": "Montadora Renault",
-        "title": "Montadora Renault",
-        "link": {
-          "url": "/rosqueadeiras"
-        }
-      }
-    },
-    "image#marca4": {
-      "props": {
-        "src": "assets/marcas/marca4.png",
-        "maxHeight": 144,
-        "alt": "Montadora Jeep",
-        "title": "Montadora Jeep",
-        "link": {
-          "url": "/rotuladoras"
-        }
-      }
-    },
-    "image#marca5": {
-      "props": {
-        "src": "assets/marcas/marca5.png",
-        "maxHeight": 144,
-        "alt": "Montadora Nissan",
-        "title": "Montadora Nissan",
-        "link": {
-          "url": "/aplicadores-de-fita"
-        }
-      }
-    },
-    "image#marca6": {
-      "props": {
-        "src": "assets/marcas/marca6.png",
-        "maxHeight": 144,
-        "alt": "Montadora Honda",
-        "title": "Montadora Honda",
-        "link": {
-          "url": "/arqueadoras"
-        }
-      }
+    "children": [
+      "image#marca1",
+      "image#marca2",
+      "image#marca3",
+      "image#marca4",
+      "image#marca5",
+      "image#marca6",
+      "image#marca7",
+      "image#marca8",
+      "image#marca9",
+      "image#marca10",
+      "image#marca11",
+      "image#marca12",
+      "image#marca14",
+      "image#marca15",
+      "image#marca16",
+      "image#marca17",
+      "image#marca18",
+      "image#marca19",
+      "image#marca20",
+      "image#marca21",
+      "image#marca22"
+    ]
+  },
+
+  "image#marca1": {
+    "props": {
+      "src": "assets/marcas/bertazzoni.jpg",
+      "maxHeight": 100,
+      "alt": "Bertazzoni"
+    }
+  },
+  "image#marca2": {
+    "props": {
+      "src": "assets/marcas/celdom.jpg",
+      "maxHeight": 100,
+      "alt": "Celdom"
+    }
+  },
+  "image#marca3": {
+    "props": {
+      "src": "assets/marcas/coyote.jpg",
+      "maxHeight": 100,
+      "alt": "Coyote"
+    }
+  },
+  "image#marca4": {
+    "props": {
+      "src": "assets/marcas/crissair.jpg",
+      "maxHeight": 100,
+      "alt": "Crissair"
+    }
+  },
+  "image#marca5": {
+    "props": {
+      "src": "assets/marcas/cuisinart.jpg",
+      "maxHeight": 100,
+      "alt": "Cuisinart"
+    }
+  },
+  "image#marca6": {
+    "props": {
+      "src": "assets/marcas/debacco.jpg",
+      "maxHeight": 100,
+      "alt": "Debacco"
+    }
+  },
+  "image#marca7": {
+    "props": {
+      "src": "assets/marcas/dometic.jpg",
+      "maxHeight": 100,
+      "alt": "Dometic"
+    }
+  },
+  "image#marca8": {
+    "props": {
+      "src": "assets/marcas/elanto.png",
+      "maxHeight": 100,
+      "alt": "Elanto"
+    }
+  },
+  "image#marca9": {
+    "props": {
+      "src": "assets/marcas/elica.png",
+      "maxHeight": 100,
+      "alt": "Elica"
+    }
+  },
+  "image#marca10": {
+    "props": {
+      "src": "assets/marcas/evol.png",
+      "maxHeight": 100,
+      "alt": "Evol"
+    }
+  },
+  "image#marca11": {
+    "props": {
+      "src": "assets/marcas/franke.png",
+      "maxHeight": 100,
+      "alt": "Franke"
+    }
+  },
+  "image#marca12": {
+    "props": {
+      "src": "assets/marcas/gorenje.png",
+      "maxHeight": 100,
+      "alt": "Gorenje"
+    }
+  },
+  "image#marca14": {
+    "props": {
+      "src": "assets/marcas/lofra.png",
+      "maxHeight": 100,
+      "alt": "Lofra"
+    }
+  },
+  "image#marca15": {
+    "props": {
+      "src": "assets/marcas/lynxgrills.png",
+      "maxHeight": 100,
+      "alt": "Lynx Grills"
+    }
+  },
+  "image#marca16": {
+    "props": {
+      "src": "assets/marcas/ooni.png",
+      "maxHeight": 100,
+      "alt": "Ooni"
+    }
+  },
+  "image#marca17": {
+    "props": {
+      "src": "assets/marcas/samsung.png",
+      "maxHeight": 100,
+      "alt": "Samsung"
+    }
+  },
+  "image#marca18": {
+    "props": {
+      "src": "assets/marcas/sogna.png",
+      "maxHeight": 100,
+      "alt": "Sogna"
+    }
+  },
+  "image#marca19": {
+    "props": {
+      "src": "assets/marcas/speedqueen.png",
+      "maxHeight": 100,
+      "alt": "Speed Queen"
+    }
+  },
+  "image#marca20": {
+    "props": {
+      "src": "assets/marcas/tecno.png",
+      "maxHeight": 100,
+      "alt": "Tecno"
+    }
+  },
+  "image#marca21": {
+    "props": {
+      "src": "assets/marcas/tramontina.png",
+      "maxHeight": 100,
+      "alt": "Tramontina"
+    }
+  },
+  "image#marca22": {
+    "props": {
+      "src": "assets/marcas/uline.png",
+      "maxHeight": 100,
+      "alt": "U-Line"
     }
   }
-  
+}

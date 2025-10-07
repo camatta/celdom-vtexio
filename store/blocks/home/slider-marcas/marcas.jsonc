@@ -7,20 +7,33 @@
         "preventVerticalStretch": true
       },
       "children": [
-        "flex-layout.col#slider-marcas-title",
+        "flex-layout.row#slider-marcas-title",
         "flex-layout.col#slider-marcas"
       ]
     },
-    "flex-layout.col#slider-marcas-title": {
-      "children": ["rich-text#slider-marcas"]
+    "flex-layout.row#slider-marcas-title": {
+      "children": ["rich-text#slider-marcas","link#marcas-link"],
+      "props": {
+        "blockClass": ["tile-marca"],
+        "horizontalAlign": "between",
+        "colSizing": "auto"
+      }
+      
     },
     "rich-text#slider-marcas": {
       "title": "Título",
       "props": {
         "blockClass": ["best-sellers-title", "shelf-title", "marcas-title"],
-        "text": "#### Navegue por Marcas"
+        "text": "#### Compre por Marcas"
       }
     },
+    "link#marcas-link": {
+    "props": {
+      "href": "/marcas",
+      "label": "Ver tudo",
+      "blockClass": ["best-sellers-link", "shelf-link"]
+    }
+  },
     "flex-layout.col#slider-marcas": {
       "props": {
         "blockClass": ["categories"],

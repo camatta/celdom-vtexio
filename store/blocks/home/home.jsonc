@@ -3,6 +3,7 @@
     "blocks": [
       "banner-slider",
       //"__fold__",
+      "flex-layout.row#slider-marcas",
       "flex-layout.row#shelf-best-sellers",
       "flex-layout.row#carousel-area-gourmet",
       "flex-layout.row#aviso-projeto",

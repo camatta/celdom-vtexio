@@ -99,11 +99,19 @@
 }
 
 .flexRowContent--shelf-best-sellers-container {
-  margin-top: 80px;
   margin-bottom: 80px;
 }
 
+.flexRowContent--marcas{
+  margin-top:80px;
+}
+
 /* SLIDER DE CATEGORIAS */
+
+.flexRow--tile-marca{
+  width: 100%;
+}
+
 .flexRow--wrapper-area-gourmet :global(.vtex-store-components-3-x-container) {
   max-width: 100%;
 }
