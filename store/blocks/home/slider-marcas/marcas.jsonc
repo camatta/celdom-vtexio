@@ -12,7 +12,7 @@
       ]
     },
     "flex-layout.row#slider-marcas-title": {
-      "children": ["rich-text#slider-marcas","link#marcas-link"],
+      "children": ["rich-text#slider-marcas"],
       "props": {
         "blockClass": ["tile-marca"],
         "horizontalAlign": "between",
