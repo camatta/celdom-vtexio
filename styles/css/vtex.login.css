@@ -166,7 +166,7 @@
 
 :global(.vtex-flex-layout-0-x-flexRowContent--product-main-container)
   > :global(.vtex-flex-layout-0-x-stretchChildrenWidth):first-child {
-  max-width: 576px;
+  max-width: 635px;
   width: 100% !important;
 }
 :global(.vtex-flex-layout-0-x-flexRowContent--product-main-container)

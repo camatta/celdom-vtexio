@@ -5,7 +5,9 @@
     },
     "children": [
       "product-images#pdp",
-      "flex-layout.row#button-img-ambientada"
+      "flex-layout.row#button-img-ambientada",
+      "flex-layout.row#compre-junto"
+      
     ]
   },
 

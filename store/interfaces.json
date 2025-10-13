@@ -76,5 +76,8 @@
   },
   "botao-orcamento": {
    "component": "Orcamento"
+  },
+  "compre-junto": {
+   "component": "BuyTogether"
   }
 }

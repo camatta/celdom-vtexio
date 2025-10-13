@@ -1,0 +1,324 @@
+/* react/components/styles.css */
+
+/* Container Principal */
+.buyTogetherContainer {
+  background: transparent;
+  margin: 2rem 0;
+}
+
+/* Título */
+.buyTogetherTitle {
+  font-size:24px;
+  font-weight: 400;
+  color: #2D2926;
+  text-align: left;
+  margin-bottom: 2.5rem;
+  padding-bottom: 0;
+  border: none;
+}
+
+/* Layout dos Produtos */
+.buyTogetherProducts {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Produto Individual */
+.buyTogetherProduct {
+  flex: 0 0 201px;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 16px;
+  padding:16px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* Imagem do Produto */
+.buyTogetherProductImage {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  flex-shrink: 0;
+}
+
+.buyTogetherProductImage img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+/* Conteúdo do Produto */
+.buyTogetherProductContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Nome do Produto */
+.buyTogetherProductName {
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  min-height: 3.5em;
+}
+
+/* Descrição do Produto - Ocultar */
+.buyTogetherProductDescription {
+  display: none;
+}
+
+/* Preço do Produto */
+.buyTogetherProductPrice {
+  margin-top: auto;
+}
+
+.buyTogetherPriceHighlight {
+  display: block;
+  font-size:16px;
+  color: #ff5a00;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.buyTogetherInstallments {
+  font-size:12px;
+  color: #A2A2A2;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.discount{
+  font-weight:600;
+}
+
+/* Símbolos + e = */
+.buyTogetherPlus,
+.buyTogetherEqual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #ffffff;
+  background: #ff5a00;
+  min-width: 34px;
+  max-width: 34px;
+  min-height: 34px;
+  max-height: 35px;
+  border-radius: 50%;
+  align-self: center;
+  flex-shrink: 0;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  margin: 0 -26px;
+  position: relative;
+  z-index: 1;
+}
+
+.buyTogetherPlusSpan{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='21' viewBox='0 0 20 21' fill='none'%3E%3Cpath d='M10 2.16663L10 19.1666M1.5 10.6666L18.5 10.6666' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 17px;
+  height: 17px;
+}
+
+.buyTogetherEqual {
+  visibility: hidden;
+  width: 0;
+  min-width: 0;
+  margin: 0;
+}
+
+/* Seção Total */
+.buyTogetherTotal {
+  flex: 0 0 201px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #FE7333;
+  border-radius: 16px;
+  padding: 0 16px;
+  height: 429px;
+  border: none;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(255, 90, 0, 0.3);
+}
+
+.buyTogetherTotalProducts {
+  font-size:20px;
+  color:#3F3F3F;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.buyTogetherTotalPrice {
+  margin-bottom: 2rem;
+}
+
+.buyTogetherTotalPrice .buyTogetherPriceHighlight {
+  font-size:20px;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.buyTogetherTotalPrice .buyTogetherInstallments {
+  color: rgba(255, 255, 255, 0.9);
+  font-size:12px;
+}
+
+.buyTogetherButton{
+  max-width: 100%;
+  width: 100%;
+}
+
+.buyTogetherButton :global(.bg-action-primary){
+  background: transparent!important;
+  width: 100%;
+}
+
+/* Botão Compre Junto */
+.buyTogetherButton :global(.vtex-button__label) {
+  background: #EEEEEE;
+  border: none;
+  color: #3F3F3F;
+  font-weight: 700;
+  text-transform: none;
+  font-size:16px;
+  font-weight: 700;
+  height: auto;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 40px;
+  padding: 14px 0px !important
+}
+
+.buyTogetherButton:global(.vtex-button__label):hover {
+  background: #FE5000;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .buyTogetherProduct,
+  .buyTogetherTotal {
+    flex: 0 0 320px;
+  }
+  
+  .buyTogetherProductImage img {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .buyTogetherPlus {
+    margin: 0 1rem;
+    min-width: 50px;
+    max-width: 50px;
+    min-height: 50px;
+    max-height: 50px;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .buyTogetherProducts {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  
+  .buyTogetherProduct {
+    flex: 0 0 calc(50% - 3rem);
+    min-width: 280px;
+  }
+  
+  .buyTogetherPlus {
+    display: none;
+  }
+  
+  .buyTogetherTotal {
+    flex: 0 0 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .buyTogetherContainer {
+    padding: 1rem;
+  }
+  
+  .buyTogetherTitle {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .buyTogetherProducts {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .buyTogetherProduct {
+    flex: none;
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .buyTogetherProductImage img {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .buyTogetherProductName {
+    min-height: auto;
+    font-size: 0.95rem;
+  }
+  
+  .buyTogetherPriceHighlight {
+    font-size: 1.25rem;
+  }
+  
+  .buyTogetherPlus {
+    display: flex;
+    transform: rotate(90deg);
+    margin: 0 auto;
+  }
+  
+  .buyTogetherTotal {
+    flex: none;
+    width: 100%;
+    padding: 2rem 1.5rem;
+  }
+  
+  .buyTogetherButton {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .buyTogetherProduct {
+    padding: 1.5rem;
+  }
+  
+  .buyTogetherProductImage img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .buyTogetherTitle {
+    font-size: 1.25rem;
+  }
+  
+  .buyTogetherTotalPrice .buyTogetherPriceHighlight {
+    font-size: 1.5rem;
+  }
+}

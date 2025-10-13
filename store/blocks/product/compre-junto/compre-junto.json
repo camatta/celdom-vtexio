@@ -1,0 +1,8 @@
+{
+  "flex-layout.row#compre-junto": {
+    "props": {
+      "blockClass": ["compre-junto"]
+    },
+    "children": ["compre-junto"]
+  }
+}

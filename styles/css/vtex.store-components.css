@@ -223,7 +223,7 @@
 
 :global(.vtex-render__container-id-product-banner-slider){
   padding-top: 2rem;
-  margin-top: 1rem;
+  margin-top: 3.5rem;
 }
 
 :global(.vtex-render__container-id-product-info-tabs){
@@ -321,6 +321,10 @@
   
 */
 
+.productImagesGallerySlide--pdp{
+  width: 100%!important;
+}
+
 .carouselGaleryThumbs {
   width: 100% !important;
   max-width: 100%;
@@ -343,7 +347,7 @@
   display: none;
 }
 .productImage--pdp {
-  max-width: 526px;
+  max-width: 635px;
   margin-left: 10px;
 }
 .caretIcon--pdp {
@@ -547,8 +551,6 @@
 
 .carouselGaleryCursor{
   margin-left: 0%!important;
-  margin-bottom: 20%!important;
-
 }
 
 
