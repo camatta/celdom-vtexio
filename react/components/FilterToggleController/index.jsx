@@ -20,92 +20,47 @@ const FilterToggleController = () => {
     filterHeader: 'filter-custom-header',
     closeButton: 'close-filter-btn',
     clearButton: 'clear-filters-btn',
+    clearContainer: 'clear-filters-container',
   };
 
   const [hasSelectedFilters, setHasSelectedFilters] = useState(false);
+  const prevHasSelectedRef = useRef(false);
   const initialRangeValues = useRef({ min: 0, max: 0 });
   const clearingLock = useRef(false);
 
-  /** ---------- Utilitários ---------- */
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-  const getCanonical = () => {
-    const link = document.querySelector('link[rel="canonical"]');
-    return link?.href || null;
-  };
-
-  const getCleanURL = () => {
-    // Remove parâmetros facetas comuns se canonical não existir
-    const url = new URL(window.location.href);
-    const paramsToDrop = [
-      'map',
-      'fq',
-      'ft',
-      'query',
-      'priceRange',
-      'page',
-      'order',
-      'O',
-      'specificationFilter_',
-      'brand',
-      'category-1',
-      'category-2',
-      'category-3',
-    ];
-
-    // remove conhecidos e qualquer specificationFilter_* dinâmico
-    [...url.searchParams.keys()].forEach((k) => {
-      if (paramsToDrop.includes(k) || k.startsWith('specificationFilter_')) {
-        url.searchParams.delete(k);
-      }
-    });
-
-    // Mantém apenas pathname + params restantes (ex: sort, se quiser)
-    url.hash = '';
-    return url.toString();
-  };
-
-  const navigateBase = () => {
-    const canonical = getCanonical();
-    const to = canonical || getCleanURL();
-    if (window.__RUNTIME__ && typeof window.__RUNTIME__.navigate === 'function') {
-      window.__RUNTIME__.navigate({ to, replace: true });
-    } else {
-      window.location.assign(to);
-    }
-  };
-
-  /** ---------- Formatação de labels (segura) ---------- */
+  // Normaliza labels de filtros sem loop
   useEffect(() => {
     let scheduled = false;
-    const formatFilterText = () => {
+    const format = () => {
       if (scheduled) return;
       scheduled = true;
       setTimeout(() => {
         scheduled = false;
-        const nodes = document.querySelectorAll(`
-          .vtex-search-result-3-x-filterItem .vtex-checkbox__label,
-          .vtex-search-result-3-x-selectedFilterItem
-        `);
-        nodes.forEach((n) => {
-          if (n.dataset.nrzFormatted === '1') return;
-          const t = n.textContent || '';
-          if (t === t.toUpperCase()) {
-            n.textContent = t.toLowerCase();
-            n.style.textTransform = 'capitalize';
-          }
-          n.dataset.nrzFormatted = '1';
-        });
-      }, 60);
+        document
+          .querySelectorAll(`
+            .vtex-search-result-3-x-filterItem .vtex-checkbox__label,
+            .vtex-search-result-3-x-selectedFilterItem
+          `)
+          .forEach((n) => {
+            if (n.dataset.nrzFormatted === '1') return;
+            const t = n.textContent || '';
+            if (t === t.toUpperCase()) {
+              n.textContent = t.toLowerCase();
+              n.style.textTransform = 'capitalize';
+            }
+            n.dataset.nrzFormatted = '1';
+          });
+      }, 80);
     };
 
-    const obs = new MutationObserver(formatFilterText);
+    const obs = new MutationObserver(format);
     obs.observe(document.body, { childList: true, subtree: true });
-    formatFilterText();
+    format();
     return () => obs.disconnect();
   }, []);
 
-  /** ---------- Captura range inicial ---------- */
   const captureInitialRangeValues = useCallback(() => {
     const box = document.querySelector(CLASS_NAMES.priceRangeContainer);
     if (!box) return;
@@ -114,8 +69,7 @@ const FilterToggleController = () => {
     if (l && r) initialRangeValues.current = { min: parseFloat(l), max: parseFloat(r) };
   }, []);
 
-  /** ---------- Há filtros ativos? ---------- */
-  const checkSelectedFilters = useCallback(() => {
+  const computeHasSelectedFilters = useCallback(() => {
     const selectedCheckboxes = document.querySelectorAll(`${CLASS_NAMES.selectedCheckbox}:checked`);
     const selectedChips = document.querySelectorAll('.vtex-search-result-3-x-selectedFilterItem');
 
@@ -146,12 +100,18 @@ const FilterToggleController = () => {
       }
     }
 
-    const has = selectedCheckboxes.length > 0 || selectedChips.length > 0 || hasInContainer || hasActiveInputs || hasActiveSlider;
-    setHasSelectedFilters(has);
-    return has;
+    return selectedCheckboxes.length > 0 || selectedChips.length > 0 || hasInContainer || hasActiveInputs || hasActiveSlider;
   }, []);
 
-  /** ---------- Fechar painel ---------- */
+  const setHasSelectedIfChanged = useCallback(() => {
+    const has = computeHasSelectedFilters();
+    if (prevHasSelectedRef.current !== has) {
+      prevHasSelectedRef.current = has;
+      setHasSelectedFilters(has);
+    }
+    return has;
+  }, [computeHasSelectedFilters]);
+
   const closeFilter = useCallback(() => {
     const filterContent = document.querySelector(CLASS_NAMES.filterContent);
     if (filterContent) {
@@ -164,13 +124,31 @@ const FilterToggleController = () => {
     if (overlay) overlay.style.display = 'none';
   }, []);
 
-  /** ---------- Limpar tudo (definitivo) ---------- */
+  // Fallback final: navega para mesma rota com only map (+ mantém sort O se tiver)
+  const hardResetByNavigation = useCallback(() => {
+    const url = new URL(window.location.href);
+    const pathname = url.pathname || '/';
+    const map = url.searchParams.get('map');
+    const order = url.searchParams.get('O') || url.searchParams.get('order');
+    const next = new URL(pathname, window.location.origin);
+    if (map) next.searchParams.set('map', map);
+    if (order) next.searchParams.set('O', order);
+
+    const to = next.pathname + (next.search ? next.search : '');
+    const nav = window.__RUNTIME__ && window.__RUNTIME__.navigate;
+    if (typeof nav === 'function') {
+      window.__RUNTIME__.navigate({ to, replace: true, fetchRouteData: true });
+    } else {
+      window.location.assign(to);
+    }
+  }, []);
+
   const clearAllFilters = useCallback(async () => {
     if (clearingLock.current) return;
     clearingLock.current = true;
 
     try {
-      // 1) Tenta clears nativos (diversos temas)
+      // 1) Controles nativos (varia por tema)
       const nativeSelectors = [
         '.vtex-search-result-3-x-clearAllFilters',
         '.vtex-search-result-3-x-totalProductsMessage--clearFilters',
@@ -179,67 +157,73 @@ const FilterToggleController = () => {
         '[data-testid="clearAllFilters"]',
         '[class*="clearAllFilters"] button',
       ];
-
       let clickedNative = false;
       nativeSelectors.forEach((sel) => {
         document.querySelectorAll(sel).forEach((el) => {
-          el.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-          clickedNative = true;
+          try {
+            el.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+            clickedNative = true;
+          } catch {}
         });
       });
+      if (clickedNative) await sleep(240);
 
-      if (clickedNative) {
-        await sleep(200);
-      }
-
-      // 2) Fallback agressivo: remover chips e desmarcar checkboxes em várias passadas
-      const maxPasses = 12;
-      for (let pass = 0; pass < maxPasses; pass++) {
+      // 2) Remoção agressiva: chips, checkboxes, e preço
+      const maxPasses = 8;
+      for (let i = 0; i < maxPasses; i++) {
         let acted = false;
 
-        // 2a) remover chips selecionados
-        const chipRemovers = document.querySelectorAll(
-          '.vtex-search-result-3-x-filterItem__remove,' +
-            '.vtex-search-result-3-x-selectedFilterItem .vtex-tag__close,' +
-            '.vtex-search-result-3-x-selectedFilterItem .vtex-tag__close-icon'
-        );
-        chipRemovers.forEach((b) => {
-          b.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-          acted = true;
-        });
+        // chips
+        document
+          .querySelectorAll(
+            '.vtex-search-result-3-x-filterItem__remove,' +
+              '.vtex-search-result-3-x-selectedFilterItem .vtex-tag__close,' +
+              '.vtex-search-result-3-x-selectedFilterItem .vtex-tag__close-icon'
+          )
+          .forEach((btn) => {
+            try {
+              btn.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+              acted = true;
+            } catch {}
+          });
 
-        // 2b) desmarcar checkboxes via label para acionar React
-        const checkedInputs = document.querySelectorAll(
-          '.vtex-search-result-3-x-filterItem input[type="checkbox"]:checked, .vtex-checkbox__input:checked'
-        );
-        checkedInputs.forEach((inp) => {
-          const label = inp.closest('label');
-          (label || inp).dispatchEvent(new MouseEvent('click', { bubbles: true }));
-          acted = true;
-        });
+        // checkboxes
+        document
+          .querySelectorAll(
+            '.vtex-search-result-3-x-filterItem input[type="checkbox"]:checked, .vtex-checkbox__input:checked'
+          )
+          .forEach((inp) => {
+            try {
+              const label = inp.closest('label');
+              (label || inp).dispatchEvent(new MouseEvent('click', { bubbles: true }));
+              acted = true;
+            } catch {}
+          });
 
-        // 2c) limpar faixa de preço (slider e inputs)
-        const pr = document.querySelector(CLASS_NAMES.priceRangeContainer);
-        if (pr) {
-          const innerClear = Array.from(pr.querySelectorAll('button,a,[role="button"]')).find((el) =>
+        // preço
+        const box = document.querySelector(CLASS_NAMES.priceRangeContainer);
+        if (box) {
+          const innerClear = Array.from(box.querySelectorAll('button,a,[role="button"]')).find((el) =>
             /limpar|clear|reset/i.test(el.textContent || '')
           );
           if (innerClear) {
-            innerClear.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-            acted = true;
+            try {
+              innerClear.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+              acted = true;
+            } catch {}
           } else {
-            const priceMinInput = document.querySelector('input[name="priceMin"]');
-            const priceMaxInput = document.querySelector('input[name="priceMax"]');
-            if (priceMinInput && priceMaxInput) {
-              const minPossible = priceMinInput.min || '0';
-              const maxPossible = priceMaxInput.max || priceMaxInput.value || '0';
-              if (priceMinInput.value !== minPossible || priceMaxInput.value !== maxPossible) {
-                priceMinInput.value = minPossible;
-                priceMaxInput.value = maxPossible;
-                priceMinInput.dispatchEvent(new Event('input', { bubbles: true }));
-                priceMinInput.dispatchEvent(new Event('change', { bubbles: true }));
-                priceMaxInput.dispatchEvent(new Event('input', { bubbles: true }));
-                priceMaxInput.dispatchEvent(new Event('change', { bubbles: true }));
+            const minI = document.querySelector('input[name="priceMin"]');
+            const maxI = document.querySelector('input[name="priceMax"]');
+            if (minI && maxI) {
+              const minPossible = minI.min || '0';
+              const maxPossible = maxI.max || maxI.value || '0';
+              if (minI.value !== minPossible || maxI.value !== maxPossible) {
+                minI.value = minPossible;
+                maxI.value = maxPossible;
+                minI.dispatchEvent(new Event('input', { bubbles: true }));
+                minI.dispatchEvent(new Event('change', { bubbles: true }));
+                maxI.dispatchEvent(new Event('input', { bubbles: true }));
+                maxI.dispatchEvent(new Event('change', { bubbles: true }));
                 acted = true;
               }
             }
@@ -247,67 +231,78 @@ const FilterToggleController = () => {
         }
 
         if (!acted) break;
-        await sleep(250);
+        await sleep(220);
       }
 
-      // 3) Se ainda houver filtros, último recurso: navegar para base
-      const stillHas = checkSelectedFilters();
-      if (stillHas) {
-        navigateBase();
-        return;
-      }
-
-      // 4) Se existir botão aplicar, clica; se não, navega base para garantir
+      // 3) Aplica se existir botão Apply
       const applyButton = document.querySelector(CLASS_NAMES.applyButton);
       if (applyButton) {
-        applyButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-      } else {
-        navigateBase();
+        try {
+          applyButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+          await sleep(260);
+        } catch {}
       }
 
-      setHasSelectedFilters(false);
-      closeFilter();
+      // 4) Confirma se limpou. Se não, faz fallback navegando.
+      const stillHas = setHasSelectedIfChanged();
+      if (stillHas) {
+        hardResetByNavigation();
+      } else {
+        // garante esconder botão e fechar painel
+        setHasSelectedFilters(false);
+        const has = computeHasSelectedFilters();
+        const wrapper = document.querySelector(CLASS_NAMES.filtersWrapper);
+        const host = document.getElementById(IDS.clearContainer);
+        if (wrapper && host) host.style.display = has ? '' : 'none';
+        closeFilter();
+      }
     } finally {
-      // solta o lock com pequena folga
       setTimeout(() => (clearingLock.current = false), 300);
     }
-  }, [checkSelectedFilters, closeFilter]);
+  }, [
+    CLASS_NAMES.applyButton,
+    CLASS_NAMES.filtersWrapper,
+    CLASS_NAMES.priceRangeContainer,
+    computeHasSelectedFilters,
+    hardResetByNavigation,
+    setHasSelectedIfChanged,
+    closeFilter,
+  ]);
 
-  /** ---------- Botão “Remover filtros” ---------- */
-  const addClearFiltersButton = useCallback(() => {
-    const wrapper = document.querySelector(CLASS_NAMES.filtersWrapper);
-    if (!wrapper) return;
+  const ensureClearButton = useCallback(
+    (visible) => {
+      const wrapper = document.querySelector(CLASS_NAMES.filtersWrapper);
+      if (!wrapper) return;
 
-    const anySelected = checkSelectedFilters();
-    const exists = document.getElementById(IDS.clearButton);
+      let host = document.getElementById(IDS.clearContainer);
+      if (!host) {
+        host = document.createElement('div');
+        host.id = IDS.clearContainer;
+        host.className = 'vtex-search-result-3-x-filter__container bb b--muted-4';
+        host.innerHTML = `
+          <div class="vtex-search-result-3-x-filter pv5" style="margin:0">
+            <div class="vtex-search-result-3-x-filterTitle f5 flex items-center justify-between" style="border-bottom:unset;margin-bottom:0;padding-bottom:0">
+              <button id="${IDS.clearButton}" type="button"
+                class="vtex-button bw0 bg-transparent pointer"
+                style="color:#2D2926;border-bottom:1px solid #2D2926;padding:0;font-weight:700;font-size:14px">
+                Remover filtros
+              </button>
+            </div>
+          </div>
+        `;
+        wrapper.appendChild(host);
 
-    if (!anySelected && exists) {
-      exists.closest('.vtex-search-result-3-x-filter__container')?.remove();
-      return;
-    }
-    if (anySelected && exists) return;
+        const btn = host.querySelector('#' + IDS.clearButton);
+        btn?.addEventListener('click', async (e) => {
+          e.preventDefault();
+          await clearAllFilters();
+        });
+      }
+      host.style.display = visible ? '' : 'none';
+    },
+    [clearAllFilters, CLASS_NAMES.filtersWrapper, IDS.clearButton, IDS.clearContainer]
+  );
 
-    const containers = wrapper.querySelectorAll(CLASS_NAMES.filterContainer);
-    const last = containers[containers.length - 1];
-    if (!last) return;
-
-    const block = document.createElement('div');
-    block.className = 'vtex-search-result-3-x-filter__container bb b--muted-4';
-    block.innerHTML = `
-      <div class="vtex-search-result-3-x-filter pv5" style="margin:0">
-        <div class="vtex-search-result-3-x-filterTitle f5 flex items-center justify-between" style="border-bottom:unset;margin-bottom:0;padding-bottom:0">
-          <button id="${IDS.clearButton}" type="button"
-            class="vtex-button bw0 bg-transparent pointer"
-            style="color:#2D2926;border-bottom:1px solid #2D2926;padding:0;font-weight:700;font-size:14px">
-            Remover filtros
-          </button>
-        </div>
-      </div>
-    `;
-    last.parentNode.insertBefore(block, last.nextSibling);
-  }, [checkSelectedFilters]);
-
-  /** ---------- Header e Overlay ---------- */
   const addFilterHeader = useCallback(() => {
     const wrapper = document.querySelector(CLASS_NAMES.filtersWrapper);
     if (!wrapper || document.getElementById(IDS.filterHeader)) return;
@@ -329,7 +324,7 @@ const FilterToggleController = () => {
 
     const closeBtn = document.getElementById(IDS.closeButton);
     if (closeBtn) closeBtn.addEventListener('click', closeFilter);
-  }, [closeFilter]);
+  }, [CLASS_NAMES.filtersWrapper, closeFilter, IDS.closeButton, IDS.filterHeader]);
 
   const createOverlay = useCallback(() => {
     let overlay = document.getElementById(IDS.overlay);
@@ -343,7 +338,7 @@ const FilterToggleController = () => {
       document.body.appendChild(overlay);
     }
     return overlay;
-  }, []);
+  }, [IDS.overlay]);
 
   const handleFilterClick = useCallback(() => {
     const sticky = document.querySelector(CLASS_NAMES.stickyHeader);
@@ -359,41 +354,49 @@ const FilterToggleController = () => {
       setTimeout(() => {
         addFilterHeader();
         captureInitialRangeValues();
-        addClearFiltersButton();
-      }, 300);
+        const has = setHasSelectedIfChanged();
+        ensureClearButton(has);
+      }, 280);
     }
-  }, [addFilterHeader, addClearFiltersButton, captureInitialRangeValues, createOverlay]);
+  }, [
+    CLASS_NAMES.filterContent,
+    CLASS_NAMES.stickyHeader,
+    IDS.overlay,
+    addFilterHeader,
+    captureInitialRangeValues,
+    createOverlay,
+    ensureClearButton,
+    setHasSelectedIfChanged,
+  ]);
 
-  /** ---------- Lifecycle / Delegations ---------- */
+  // Lifecycle
   useEffect(() => {
     const overlay = createOverlay();
     const onOverlayClick = () => closeFilter();
     overlay.addEventListener('click', onOverlayClick);
 
-    // Observer com throttling
+    // Observer com throttle
     let scheduled = false;
-    const tick = () => {
+    const pump = () => {
       if (scheduled) return;
       scheduled = true;
       setTimeout(() => {
         scheduled = false;
-        if (document.querySelector(CLASS_NAMES.filtersWrapper)) {
-          addFilterHeader();
-          captureInitialRangeValues();
-          checkSelectedFilters();
-          addClearFiltersButton();
-        }
-      }, 100);
+        if (!document.querySelector(CLASS_NAMES.filtersWrapper)) return;
+        addFilterHeader();
+        captureInitialRangeValues();
+        const has = setHasSelectedIfChanged();
+        ensureClearButton(has);
+      }, 120);
     };
-    const obs = new MutationObserver(tick);
+    const obs = new MutationObserver(pump);
     obs.observe(document.body, { childList: true, subtree: true });
 
-    // Delegations
     const onChange = (e) => {
       if (e.target.closest(CLASS_NAMES.filterItem)) {
         setTimeout(() => {
-          checkSelectedFilters();
-          addClearFiltersButton();
+          const has = setHasSelectedIfChanged();
+          ensureClearButton(has);
         }, 100);
         if (e.target.type === 'checkbox' && e.target.checked) closeFilter();
       }
@@ -405,32 +408,27 @@ const FilterToggleController = () => {
         t.closest(CLASS_NAMES.priceRangeContainer)
       ) {
         setTimeout(() => {
-          checkSelectedFilters();
-          addClearFiltersButton();
+          const has = setHasSelectedIfChanged();
+          ensureClearButton(has);
         }, 100);
       }
     };
     const onClickRemoveChip = (e) => {
       if (e.target.closest(CLASS_NAMES.removeFilterButton)) {
         setTimeout(() => {
-          checkSelectedFilters();
-          addClearFiltersButton();
-        }, 250);
+          const has = setHasSelectedIfChanged();
+          ensureClearButton(has);
+        }, 220);
       }
-    };
-    const onDelegatedClear = (e) => {
-      const btn = e.target.closest('#' + IDS.clearButton);
-      if (!btn) return;
-      e.preventDefault();
-      clearAllFilters();
     };
 
     document.addEventListener('change', onChange);
     document.addEventListener('input', onInput);
     document.addEventListener('click', onClickRemoveChip);
-    document.addEventListener('click', onDelegatedClear);
 
-    checkSelectedFilters();
+    // Estado inicial
+    const initialHas = setHasSelectedIfChanged();
+    ensureClearButton(initialHas);
 
     return () => {
       overlay.removeEventListener('click', onOverlayClick);
@@ -438,21 +436,22 @@ const FilterToggleController = () => {
       document.removeEventListener('change', onChange);
       document.removeEventListener('input', onInput);
       document.removeEventListener('click', onClickRemoveChip);
-      document.removeEventListener('click', onDelegatedClear);
       const closeBtn = document.getElementById(IDS.closeButton);
       if (closeBtn) closeBtn.removeEventListener('click', closeFilter);
     };
   }, [
-    addClearFiltersButton,
     addFilterHeader,
     captureInitialRangeValues,
-    checkSelectedFilters,
-    clearAllFilters,
+    CLASS_NAMES.filterItem,
+    CLASS_NAMES.filtersWrapper,
+    CLASS_NAMES.priceRangeContainer,
+    CLASS_NAMES.removeFilterButton,
     closeFilter,
     createOverlay,
+    ensureClearButton,
+    setHasSelectedIfChanged,
   ]);
 
-  /** ---------- Botão principal ---------- */
   return (
     <button
       onClick={handleFilterClick}
