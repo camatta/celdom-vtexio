@@ -3,6 +3,7 @@
     "title": "Cabeçalho Mobile",
     "children": [
       "flex-layout.row#scriptrd",
+      "flex-layout.row#telemarketing",
       "aux-floating-container#mobi",
       "back-to-top-button"
     ]
