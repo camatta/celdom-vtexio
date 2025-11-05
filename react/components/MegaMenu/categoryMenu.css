@@ -292,7 +292,7 @@
   background: #FFF8EB;
 }
 
-.sidebarDepartment:last-child .sideBarItemTitleClasses {
+.sidebarDepartment:nth-child(16) .sideBarItemTitleClasses {
   color: #EA5A1C;
   font-weight: 700;
 }
