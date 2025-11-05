@@ -1,73 +1,64 @@
-import React, { useState, useEffect, useLayoutEffect, useRef, useCallback } from 'react'
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import { useProduct } from 'vtex.product-context'
 import styles from './infoTabs.css'
 
 const InfoTabs = () => {
-  const productContext = useProduct()
-  const product = productContext && productContext.product
-  const productId = product && product.cacheId
-  const productDescription = (product && product.description) || ''
-  const skuSpecifications = (product && product.skuSpecifications) || []
+  const { product } = useProduct() || {}
+  const productId = product?.cacheId
+  const productDescription = product?.description || ''
+  const skuSpecifications = product?.skuSpecifications || []
 
   const [productSpecifications, setProductSpecifications] = useState({
     activeSpecification: 0,
     specificationsTabs: [],
-    specificationContent: productDescription,
+    specificationContent: '',
   })
 
   const [isExpanded, setIsExpanded] = useState(false)
   const [showSeeMore, setShowSeeMore] = useState(false)
-  const contentRef = useRef(null)
-  const pollRef = useRef(null)
 
-  const checkContentHeight = useCallback(() => {
+  const contentRef = useRef(null)
+
+  // ===== Helpers otimizados de medição =====
+  const measuringScheduled = useRef(false)
+  const fallbackTimeout = useRef(null)
+
+  const doMeasure = useCallback(() => {
+    measuringScheduled.current = false
     const el = contentRef.current
     if (!el) return
-    // Detecta overflow real e também aplica um mínimo de 306px se você usa esse limite no CSS
-    const hasOverflow = el.scrollHeight - el.clientHeight > 1
-    const overMin = el.scrollHeight > 306
-    setShowSeeMore(hasOverflow || overMin)
+
+    // overflow real ou altura mínima (caso seu CSS use max-height: 306px)
+    const hasOverflow = (el.scrollHeight - el.clientHeight) > 1 || el.scrollHeight > 306
+
+    // só atualiza o estado se realmente mudou
+    setShowSeeMore(prev => (prev !== hasOverflow ? hasOverflow : prev))
   }, [])
 
-  // Agenda medições em várias fases para garantir que pegue HTML, imagens e estilos
-  const measureSoon = useCallback(() => {
-    if (pollRef.current) clearInterval(pollRef.current)
+  const scheduleMeasure = useCallback(() => {
+    if (measuringScheduled.current) return
+    measuringScheduled.current = true
 
-    // imediato
-    checkContentHeight()
-
-    // dois frames
+    // mede em ~2 frames (depois que CSS/imagens podem ter interferido)
     requestAnimationFrame(() => {
-      checkContentHeight()
-      requestAnimationFrame(checkContentHeight)
+      requestAnimationFrame(() => {
+        doMeasure()
+      })
     })
 
-    // timers em cascata
-    setTimeout(checkContentHeight, 0)
-    setTimeout(checkContentHeight, 200)
-    setTimeout(checkContentHeight, 600)
-    setTimeout(checkContentHeight, 1200)
-
-    // polling curto para casos extremos de hidratação
-    let tries = 0
-    pollRef.current = setInterval(() => {
-      tries += 1
-      checkContentHeight()
-      if (tries > 10) {
-        clearInterval(pollRef.current)
-        pollRef.current = null
-      }
-    }, 250)
-  }, [checkContentHeight])
+    // fallback único (casos de late layout/lazy)
+    if (fallbackTimeout.current) clearTimeout(fallbackTimeout.current)
+    fallbackTimeout.current = setTimeout(doMeasure, 800)
+  }, [doMeasure])
 
   useEffect(() => {
     return () => {
-      if (pollRef.current) clearInterval(pollRef.current)
+      if (fallbackTimeout.current) clearTimeout(fallbackTimeout.current)
     }
   }, [])
 
-  // Monta as abas quando o produto muda
-  useEffect(() => {
+  // ===== Montagem de abas (memo + setState único) =====
+  const tabsMemo = useMemo(() => {
     const tabs = [{ name: 'Descrição', values: [productDescription] }]
 
     const especificacoesGroup = product?.specificationGroups?.find(
@@ -87,7 +78,8 @@ const InfoTabs = () => {
         })
         .join('<br/>') || ''
 
-    const combined = `${especificacoesHTML}${especificacoesHTML && skuSpecs ? '<br/><br/>' : ''}${skuSpecs}`
+    const combined =
+      `${especificacoesHTML}${especificacoesHTML && skuSpecs ? '<br/><br/>' : ''}${skuSpecs}`
 
     if (combined.trim()) {
       tabs.push({ name: 'Especificações Técnicas', values: [combined] })
@@ -98,78 +90,94 @@ const InfoTabs = () => {
       tabs.push({ name: 'Gabarito', values: [gabarito.values[0]] })
     }
 
+    return tabs
+  }, [product, productDescription, skuSpecifications])
+
+  useEffect(() => {
+    const firstContent = tabsMemo[0]?.values?.[0] || ''
     setProductSpecifications({
       activeSpecification: 0,
-      specificationsTabs: tabs,
-      specificationContent: tabs[0]?.values?.[0] || '',
+      specificationsTabs: tabsMemo,
+      specificationContent: firstContent,
     })
-
     setIsExpanded(false)
     setShowSeeMore(false)
-    // mede depois que o novo conteúdo for renderizado
-    setTimeout(measureSoon, 0)
-  }, [productId, productDescription, skuSpecifications, product, measureSoon])
+    scheduleMeasure()
+  }, [tabsMemo, scheduleMeasure])
 
-  // Medir após render do HTML no DOM
-  useLayoutEffect(() => {
-    measureSoon()
-  }, [productSpecifications.specificationContent, measureSoon])
-
-  // Observadores de tamanho, mutação, imagens, fontes e resize
+  // ===== Observadores leves (throttle por RAF) =====
   useEffect(() => {
     const el = contentRef.current
     if (!el) return
 
-    // ResizeObserver detecta mudanças de tamanho
+    // ResizeObserver: só agenda medição (não mede direto)
     let ro
     if ('ResizeObserver' in window) {
-      ro = new ResizeObserver(() => checkContentHeight())
+      ro = new ResizeObserver(() => {
+        scheduleMeasure()
+      })
       ro.observe(el)
     }
 
-    // MutationObserver pega alterações no innerHTML
-    const mo = new MutationObserver(() => measureSoon())
-    mo.observe(el, { childList: true, subtree: true, characterData: true })
+    // MutationObserver: restringe escopo (sem characterData)
+    const mo = new MutationObserver(() => {
+      scheduleMeasure()
+    })
+    mo.observe(el, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['src', 'sizes', 'srcset', 'class', 'style']
+    })
 
-    // Recalcula quando imagens internas carregarem
+    // Imagens internas (lazy-load): mede quando carregar
     const imgs = Array.from(el.querySelectorAll('img'))
-    const onLoad = () => measureSoon()
+    const onImg = () => scheduleMeasure()
     imgs.forEach(img => {
       if (!img.complete) {
-        img.addEventListener('load', onLoad, { once: true })
-        img.addEventListener('error', onLoad, { once: true })
+        img.addEventListener('load', onImg, { once: true })
+        img.addEventListener('error', onImg, { once: true })
       }
     })
 
-    // Web fonts podem alterar quebras de linha
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(measureSoon).catch(() => {})
+    // Fonts
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(scheduleMeasure).catch(() => {})
     }
 
-    // Resize da janela
-    const onResize = () => measureSoon()
+    // Resize janela
+    const onResize = () => scheduleMeasure()
     window.addEventListener('resize', onResize)
+
+    // primeira medição pós-mount
+    scheduleMeasure()
 
     return () => {
       ro && ro.disconnect()
       mo.disconnect()
       window.removeEventListener('resize', onResize)
       imgs.forEach(img => {
-        img.removeEventListener('load', onLoad)
-        img.removeEventListener('error', onLoad)
+        img.removeEventListener('load', onImg)
+        img.removeEventListener('error', onImg)
       })
     }
-  }, [measureSoon, checkContentHeight])
+  }, [scheduleMeasure])
 
+  // Troca de aba
   const handleBtnControl = (tabIndex) => {
-    setProductSpecifications(prev => ({
-      ...prev,
-      activeSpecification: tabIndex,
-      specificationContent: prev.specificationsTabs[tabIndex]?.values?.[0] || '',
-    }))
+    setProductSpecifications(prev => {
+      const nextContent = prev.specificationsTabs[tabIndex]?.values?.[0] || ''
+      return prev.activeSpecification === tabIndex && prev.specificationContent === nextContent
+        ? prev
+        : {
+            ...prev,
+            activeSpecification: tabIndex,
+            specificationContent: nextContent,
+          }
+    })
     setIsExpanded(false)
     setShowSeeMore(false)
-    setTimeout(measureSoon, 0)
+    scheduleMeasure()
   }
 
   const activeTab = productSpecifications.specificationsTabs[productSpecifications.activeSpecification]
