@@ -7,7 +7,7 @@
     },
     "children": [
       "product-availability#message-summary",
-      "vtex.product-highlights@2.x:product-highlights", // testar
+      
       "vtex.product-highlights@2.x:product-highlights#collections-summary"
     ]
   },
@@ -17,24 +17,6 @@
       "blockClass": ["summary"],
       "threshold": "100",
       "lowStockMessage": "Últimas unidades"
-    }
-  },
-
-  "vtex.product-highlights@2.x:product-highlights": {
-    "props": {
-      "blockClass": ["summary"],
-      "type": "teaser",
-      "filter": {
-        "type": "show",
-        "highlightNames": ["Frete Grátis"]
-      }
-    },
-    "children": ["product-highlight-text"]
-  },
-  "product-highlight-text": {
-    "props": {
-      "message": "{highlightName}",
-      "blockClass": ["summary", "free-shipping"]
     }
   },
 

@@ -8,8 +8,29 @@
     "children": [
       "product-availability#message",
       "vtex.product-highlights@2.x:product-highlights#free-shipping", // testar
-      "vtex.product-highlights@2.x:product-highlights#collections"
+      "vtex.product-highlights@2.x:product-highlights#collections" //teste
     ]
+  },
+
+
+  "vtex.product-highlights@2.x:product-highlights#collections": {
+    "props": {
+      "blockClass": ["summary"],
+      "type": "collection",
+      "filter": {
+        //"type": "hide",
+        "type": "show",
+        //"highlightNames": ["Mais vendidos", "Lançamento", "Últimas unidades", "Novidades", "Pronta Entrega"]
+        "highlightNames": ["▶ Vídeo"]
+      }
+    },
+    "children": ["product-highlight-text#collections-summary"]
+  },
+  "product-highlight-text#collections-summary": {
+    "props": {
+      "message": "{highlightName}",
+      "blockClass": ["summary", "collections"]
+    }
   },
 
   "product-availability#message": {
@@ -35,24 +56,6 @@
     "props": {
       "message": "{highlightName}",
       "blockClass": ["pdp", "free-shipping"]
-    }
-  },
-
-  "vtex.product-highlights@2.x:product-highlights#collections": {
-    "props": {
-      "blockClass": ["pdp"],
-      "type": "collection",
-      "filter": {
-        "type": "show",
-        "highlightNames": ["Últimas unidades"]
-      }
-    },
-    "children": ["product-highlight-text#collections"]
-  },
-  "product-highlight-text#collections": {
-    "props": {
-      "message": "{highlightName}",
-      "blockClass": ["pdp", "collections"]
     }
   }
 }

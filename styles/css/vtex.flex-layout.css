@@ -230,7 +230,7 @@
   top: 0;
   left: 7px;
   width: fit-content;
-  height: 20px;
+  height: 30px;
   margin: 0 0 27px;
   text-align: center;
 }
@@ -242,6 +242,7 @@
 .flexRowContent--summary-tags {
   display: flex;
   flex-direction: column;
+  flex-wrap:wrap;
 }
 .flexCol--list-selling-price-summary {
   flex-direction: row;
@@ -351,6 +352,7 @@
 
 .flexRowContent--summary-tags .stretchChildrenWidth{
   gap:0.5rem!important;
+  flex-wrap: wrap;
 }
 
 /*PRODUTO*/
