@@ -20,8 +20,8 @@
       "filter": {
         //"type": "hide",
         "type": "show",
-        //"highlightNames": ["Mais vendidos", "Lançamento", "Últimas unidades", "Novidades", "Pronta Entrega"]
-        "highlightNames": ["▶ Vídeo"]
+        "highlightNames": ["Lançamento", "Últimas unidades", "Novidades"]
+        //"highlightNames": ["▶ Vídeo"]
       }
     },
     "children": ["product-highlight-text#collections-summary"]
