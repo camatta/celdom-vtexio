@@ -1,0 +1,14 @@
+{
+  "flex-layout.row#product-info-tabs": {
+    "props": {
+      "blockClass": ["info-tabs-container", "custom-container"]
+    },
+    "children": ["flex-layout.col#product-info-tabs"]
+  },
+  "flex-layout.col#product-info-tabs": {
+    "props": {
+      "blockClass": "info-tabs-content"
+    },
+    "children": ["info-tabs"] // Componente na pasta react
+  }
+}

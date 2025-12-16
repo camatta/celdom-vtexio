@@ -9,6 +9,58 @@
     "props": {
       "blockClass": "info-tabs-content"
     },
-    "children": ["info-tabs"] // Componente na pasta react
+    "children": ["tab-layout#tabs-produto"] // Componente na pasta react
+  },
+
+  "tab-layout#tabs-produto": {
+    "children": [
+      "tab-list#home",
+      "tab-content#home"
+    ],
+    "props": {
+      "blockClass": "home",
+      "defaultActiveTabId": "home1"
+    }
+  },
+  "tab-list#home": {
+    "props": {
+      "blockClass": ["product-tabs"]
+    },
+    "children": [
+      "tab-list.item#home1",
+      "tab-list.item#home2"
+    ]
+  },
+  "tab-list.item#home1": {
+    "props": {
+      "tabId": "home1",
+      "label": "Descrição",
+      "blockClass": ["product-tab"],
+      "defaultActiveTab": true
+    }
+  },
+  "tab-list.item#home2": {
+    "props": {
+      "tabId": "home2",
+      "label": "Especificações Técnicas",
+      "blockClass": ["product-tab"]
+    }
+  },
+  "tab-content#home": {
+    "props": {
+      "blockClass": ["product-tabs-contents"]
+    },
+    "children": [
+      "tab-content.item#home1",
+      "tab-content.item#home2"
+    ]
+  },
+  "tab-content.item#home1": {
+    "props": { "tabId": "home1" },
+    "children": ["product-description"]
+  },
+  "tab-content.item#home2": {
+    "props": { "tabId": "home2" },
+    "children": ["product-specification-group"]
   }
 }

@@ -1,0 +1,79 @@
+.listContainer--product-tabs {
+    justify-content: flex-start;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.listItem--product-tab {
+    padding: 0;
+    margin: 0;
+}
+
+.listItem--product-tab :global(.vtex-button) {
+    padding: 7px 16px;
+    border-radius: 4px;
+    background: transparent;
+    border: 1px solid #CCCCCC;
+    color: #696969;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    cursor: pointer;
+    outline: none !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.listItem--product-tab.listItemActive  :global(.vtex-button),
+.listItem--product-tab :global(.vtex-button):hover {
+  color: #2D2926;
+  border-color: #FE5000;
+}
+
+.listItem--product-tab :global(.vtex-button) :global(.vtex-button__label) {
+    padding: 0 !important;
+} 
+
+.contentContainer--product-tabs-contents .contentItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.contentContainer--product-tabs-contents :global(.vtex-store-components-3-x-content),
+.contentContainer--product-tabs-contents .contentItem {
+    font-size: 14px;
+    line-height: 20px;
+    color: #2d2926;
+}
+
+.contentContainer--product-tabs-contents .contentItem :global(.vtex-store-components-3-x-fadeBottom) {
+    background-image: linear-gradient(transparent, #F3F3F3);
+}
+
+.contentContainer--product-tabs-contents .contentItem :global(.vtex-store-components-3-x-pointerEventsAuto) {
+    text-align: left;
+    background-color: #F3F3F3;
+}
+
+.contentContainer--product-tabs-contents .contentItem :global(.vtex-store-components-3-x-pointerEventsAuto) :global(.vtex-store-components-3-x-showMoreButton) {
+    margin: 0;
+    padding: 0;
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: transparent;
+    color: #2d2926;
+    border-bottom: 1px solid #2d2926;
+}
+
+.contentContainer--product-tabs-contents :global(.vtex-product-specifications-1-x-specificationName) {
+    font-weight: 700;
+}
+
+.contentContainer--product-tabs-contents :global(.vtex-product-specifications-1-x-specificationName)::after {
+    content: ":";
+}
+
+.contentContainer--product-tabs-contents :global(.vtex-store-components-3-x-productDescriptionTitle),
+.contentContainer--product-tabs-contents :global(.vtex-product-specifications-1-x-groupName) {
+    display: none;
+}
