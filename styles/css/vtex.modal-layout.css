@@ -1,6 +1,10 @@
 .backdrop {
   background: #212121;
 }
+.backdropContainer--box-modal-product {
+  background-color: #000;
+  opacity: .9!important;
+}
 .triggerContainer--helper {
   position: fixed;
   right: 35px;
@@ -31,4 +35,17 @@
 }
 .closeButton--search {
   color: #fff;
+}
+
+.paper--box-modal-product {
+  background: transparent;
+  overflow: visible;
+}
+
+.paper--box-modal-product :global(.vtex-flex-layout-0-x-flexRow--text-image-modal) {
+  width: 622px;
+  position: absolute;
+  right: 50%;
+  bottom: -80px;
+  transform: translateX(50%);
 }

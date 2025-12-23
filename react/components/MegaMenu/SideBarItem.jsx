@@ -21,13 +21,12 @@ const SideBarItem = ({
 }) => {
   const [open, setOpen] = useState(false)
 
-  const subCategoriesVisible =
-    showSubcategories && children && children.length > 0
+  const subCategoriesVisible = showSubcategories && children && children.length > 0
 
   const href = buildHref(linkValues)
 
   const handleItemClick = () => {
-    if (subCategoriesVisible) setOpen(prev => !prev)
+    setOpen(!open);
   }
 
   const sideBarContainerClasses = classNames(
@@ -50,15 +49,10 @@ const SideBarItem = ({
 
   return (
     <ul className={sideBarItemClasses}>
-      <li
-        className={sideBarContainerClasses}
-        onClick={subCategoriesVisible ? handleItemClick : undefined}
-      >
+      <li className={sideBarContainerClasses} onClick={subCategoriesVisible ? handleItemClick : undefined}>
         {subCategoriesVisible ? (
           <>
-            <span
-              className={`${styles.sideBarItemTitleClasses} ${sideBarItemTitleClasses}`}
-            >
+            <span className={`${styles.sideBarItemTitleClasses} ${sideBarItemTitleClasses}`}>
               {item.name}
             </span>
 
@@ -67,29 +61,18 @@ const SideBarItem = ({
             </span>
           </>
         ) : (
-          <a
-            href={href}
-            className="flex justify-between items-center w-100 no-underline"
-            onClick={onClose}
-          >
-            <span
-              className={`${styles.sideBarItemTitleClasses} ${sideBarItemTitleClasses}`}
-            >
+          <a href={href} className="flex justify-between items-center w-100 no-underline" onClick={onClose}>
+            <span className={`${styles.sideBarItemTitleClasses} ${sideBarItemTitleClasses}`}>
               {item.name}
             </span>
           </a>
         )}
       </li>
 
-      {subCategoriesVisible && open && (
-        <>
-          {[...children]
-            .sort((a, b) => a.name.localeCompare(b.name))
-            .map(child => (
-              <li
-                key={child.id}
-                className={`list ma0 pa0 ${styles.subCategoryContainer}`}
-              >
+      {subCategoriesVisible && (
+        <ul className={!open ? styles.hidden : ''}>
+          {[...children].sort((a, b) => a.name.localeCompare(b.name)).map(child => (
+              <li key={child.id} className={`list ma0 pa0 ${styles.subCategoryContainer}`}>
                 <SideBarItem
                   showSubcategories={showSubcategories}
                   item={child}
@@ -101,17 +84,13 @@ const SideBarItem = ({
             ))}
 
           <li className="list ma0 pa0">
-            <a
-              href={href}
-              className={`${styles.pointerNavigate} pointer t-body c-muted-2 ma0 list pl4 no-underline`}
-              onClick={onClose}
-            >
+            <a href={href} className={`${styles.pointerNavigate} pointer t-body c-muted-2 ma0 list pl4 no-underline`} onClick={onClose}>
               <FormattedMessage id="store/category-menu.all-category.title">
                 {txt => <span>{txt}</span>}
               </FormattedMessage>
             </a>
           </li>
-        </>
+        </ul>
       )}
     </ul>
   )

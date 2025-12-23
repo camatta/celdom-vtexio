@@ -21,9 +21,29 @@
       "displayThumbnailsArrows": true,
       "maxHeight": 489,                      // base desktop
       "thumbnailMaxHeight": 72,
-      "zoomMode": "in-place-hover",
+      "zoomMode": "in-place-hover", // "open-modal"
       "thumbnailsOrientation": "horizontal",
       "hiddenImages": ["Cor"]
+      // "ModalZoom": "modal-layout#example"
     }
+  },
+  "modal-layout#example": {
+    "props": {
+      "blockClass": ["box-modal-product"]
+    },
+    "children": [
+      "flex-layout.row#image-modal-product-zoom",
+      "flex-layout.row#text-modal-product-zoom"
+    ]
+  },
+  "flex-layout.row#image-modal-product-zoom": {
+    "props": {},
+    "children": ["product-images.high-quality-image"]
+  },
+  "flex-layout.row#text-modal-product-zoom": {
+    "props": {
+      "blockClass": "text-image-modal"
+    },
+    "children": ["product-attribute-image-zoom"] // Componente na pasta react
   }
 }

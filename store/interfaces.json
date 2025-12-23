@@ -79,5 +79,8 @@
   },
   "compre-junto": {
    "component": "BuyTogether"
+  },
+  "product-attribute-image-zoom": {
+    "component": "ProductAttributeImageZoom"
   }
 }

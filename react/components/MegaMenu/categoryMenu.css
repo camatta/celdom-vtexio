@@ -1,3 +1,7 @@
+.hidden {
+  display: none;
+}
+
 .itemContainer:not(.allCategories):nth-child(8) .departmentLink {
   color: #FE5000;
   font-weight: 700;

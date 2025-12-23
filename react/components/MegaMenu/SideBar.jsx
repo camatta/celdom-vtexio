@@ -43,49 +43,23 @@ const SideBar = ({
         type="drawerRight"
         className={`${styles.animation} fixed w-80 top-0 z-max`}
       >
-        <aside
-          className={`${styles.sidebar} w-100 bg-base z-max vh-100 shadow-5 overflow-scroll`}
-        >
+        <aside className={`${styles.sidebar} w-100 bg-base z-max vh-100 shadow-5 overflow-scroll`}>
           <div className={styles.sidebarHeader}>
             {CustomComponent && <CustomComponent />}
 
-            <div
-              className={`${styles.iconContainer} pointer`}
-              onClick={onClose}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="15"
-                height="14"
-                fill="none"
-                viewBox="0 0 15 14"
-              >
-                <path
-                  stroke="#EA5A1C"
-                  strokeLinecap="round"
-                  strokeWidth="2.5"
-                  d="M1.783 12.732l11.06-11.088M12.863 12.732L1.803 1.644"
-                ></path>
+            <div className={`${styles.iconContainer} pointer`} onClick={onClose}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" fill="none" viewBox="0 0 15 14">
+                <path stroke="#EA5A1C" strokeLinecap="round" strokeWidth="2.5" d="M1.783 12.732l11.06-11.088M12.863 12.732L1.803 1.644"></path>
               </svg>
             </div>
           </div>
 
           <ul className={`${styles.sidebarContent} list`}>
-{departments
-  .sort((a, b) => a.name.localeCompare(b.name))
-  .map(department => (
-    <li
-      key={department.id}
-      className={`${styles.sidebarDepartment} list`}
-    >
-      <SideBarItem
-        item={department}
-        linkValues={[department.slug]}
-        onClose={onClose}
-        showSubcategories={showSubcategories}
-      />
-    </li>
-))}
+            {departments.sort((a, b) => a.name.localeCompare(b.name)).map(department => (
+                <li key={department.id} className={`${styles.sidebarDepartment} list`}>
+                  <SideBarItem item={department} linkValues={[department.slug]} onClose={onClose} showSubcategories={showSubcategories} />
+                </li>
+            ))}
           </ul>
 
           {children && children}
