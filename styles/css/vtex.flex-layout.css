@@ -1751,3 +1751,7 @@
   }
 
 }
+
+.flexRowContent--cms-monte-sua-coifa .stretchChildrenWidth {
+  width: 100% !important;
+}

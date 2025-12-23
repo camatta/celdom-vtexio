@@ -61,5 +61,9 @@
 
   "store.custom#search-custom-assinatura-paterna-evol": {
     "path": "/assinatura-paterna-evol"
+  },
+
+    "store.custom#monte-sua-coifa": {
+    "path": "/monte-sua-coifa"
   }
 }

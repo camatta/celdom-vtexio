@@ -1,0 +1,18 @@
+{
+    "store.custom#monte-sua-coifa": {
+      "children": ["flex-layout.row#linha-bread","flex-layout.row#monte-sua-coifa"]
+    },
+    "flex-layout.row#monte-sua-coifa": {
+      "props": {
+        "blockClass": ["custom-container", "cms-page-container", "cms-monte-sua-coifa"],
+        "colSizing": "auto"
+      },
+      "children": [
+        "flex-layout.col#monte-sua-coifa"
+      ]
+    },
+
+    "flex-layout.col#monte-sua-coifa": {
+        "children": ["monte-sua-coifa"]
+    }
+}

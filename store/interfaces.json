@@ -82,5 +82,8 @@
   },
   "product-attribute-image-zoom": {
     "component": "ProductAttributeImageZoom"
+  },
+  "monte-sua-coifa": {
+   "component": "MonteSuaCoifa"
   }
 }
