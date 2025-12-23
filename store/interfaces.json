@@ -79,5 +79,8 @@
   },
   "compre-junto": {
    "component": "BuyTogether"
+  },
+  "monte-sua-coifa": {
+   "component": "MonteSuaCoifa"
   }
 }
