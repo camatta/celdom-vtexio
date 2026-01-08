@@ -38,7 +38,6 @@
       "image#marca14",
       "image#marca15",
       "image#marca16",
-      "image#marca17",
       "image#marca18",
       "image#marca19",
       "image#marca20",
@@ -150,13 +149,6 @@
       "src": "assets/marcas/ooni.png",
       "maxHeight": 100,
       "alt": "Ooni"
-    }
-  },
-  "image#marca17": {
-    "props": {
-      "src": "assets/marcas/samsung.png",
-      "maxHeight": 100,
-      "alt": "Samsung"
     }
   },
   "image#marca18": {
