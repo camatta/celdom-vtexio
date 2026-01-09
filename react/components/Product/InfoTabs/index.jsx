@@ -2,24 +2,15 @@ import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import { useProduct } from 'vtex.product-context'
 import styles from './infoTabs.css'
 
-const InfoTabs = () => {
-  const { product } = useProduct() || {}
-  const productId = product?.cacheId
-  const productDescription = product?.description || ''
-  const skuSpecifications = product?.skuSpecifications || []
 
-  const [productSpecifications, setProductSpecifications] = useState({
-    activeSpecification: 0,
-    specificationsTabs: [],
-    specificationContent: '',
-  })
-
+const InfoTabsView = ({ tabs }) => {
+  const [activeIndex, setActiveIndex] = useState(0)
   const [isExpanded, setIsExpanded] = useState(false)
   const [showSeeMore, setShowSeeMore] = useState(false)
 
   const contentRef = useRef(null)
 
-  // ===== Helpers otimizados de medição =====
+  // ===== Helpers de medição (client-only) =====
   const measuringScheduled = useRef(false)
   const fallbackTimeout = useRef(null)
 
@@ -28,10 +19,8 @@ const InfoTabs = () => {
     const el = contentRef.current
     if (!el) return
 
-    // overflow real ou altura mínima (caso seu CSS use max-height: 306px)
+    
     const hasOverflow = (el.scrollHeight - el.clientHeight) > 1 || el.scrollHeight > 306
-
-    // só atualiza o estado se realmente mudou
     setShowSeeMore(prev => (prev !== hasOverflow ? hasOverflow : prev))
   }, [])
 
@@ -39,14 +28,10 @@ const InfoTabs = () => {
     if (measuringScheduled.current) return
     measuringScheduled.current = true
 
-    // mede em ~2 frames (depois que CSS/imagens podem ter interferido)
     requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        doMeasure()
-      })
+      requestAnimationFrame(() => doMeasure())
     })
 
-    // fallback único (casos de late layout/lazy)
     if (fallbackTimeout.current) clearTimeout(fallbackTimeout.current)
     fallbackTimeout.current = setTimeout(doMeasure, 800)
   }, [doMeasure])
@@ -57,9 +42,124 @@ const InfoTabs = () => {
     }
   }, [])
 
-  // ===== Montagem de abas (memo + setState único) =====
-  const tabsMemo = useMemo(() => {
-    const tabs = [{ name: 'Descrição', values: [productDescription] }]
+  
+  useEffect(() => {
+    const el = contentRef.current
+    if (!el) return
+
+    let ro
+    if (typeof window !== 'undefined' && 'ResizeObserver' in window) {
+      ro = new ResizeObserver(() => scheduleMeasure())
+      ro.observe(el)
+    }
+
+    const mo = new MutationObserver(() => scheduleMeasure())
+    mo.observe(el, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['src', 'sizes', 'srcset', 'class', 'style'],
+    })
+
+    const imgs = Array.from(el.querySelectorAll('img'))
+    const onImg = () => scheduleMeasure()
+    imgs.forEach(img => {
+      if (!img.complete) {
+        img.addEventListener('load', onImg, { once: true })
+        img.addEventListener('error', onImg, { once: true })
+      }
+    })
+
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(scheduleMeasure).catch(() => {})
+    }
+
+    const onResize = () => scheduleMeasure()
+    window.addEventListener('resize', onResize)
+
+    scheduleMeasure()
+
+    return () => {
+      ro && ro.disconnect()
+      mo.disconnect()
+      window.removeEventListener('resize', onResize)
+      imgs.forEach(img => {
+        img.removeEventListener('load', onImg)
+        img.removeEventListener('error', onImg)
+      })
+    }
+  }, [scheduleMeasure])
+
+  const activeTab = tabs[activeIndex]
+  const activeHtml = activeTab?.values?.[0] || ''
+
+  const handleTabClick = (index) => {
+    if (index === activeIndex) return
+    setActiveIndex(index)
+    setIsExpanded(false)
+    setShowSeeMore(false)
+    scheduleMeasure()
+  }
+
+  return (
+    <div className={styles.productInfoTabs}>
+      <div className={styles.tabHeader}>
+        {tabs.map((info, index) => (
+          <button
+            type="button"
+            onClick={() => handleTabClick(index)}
+            key={info.name || `tab-${index}`}
+            className={`${styles.infoControl} ${activeIndex === index ? styles.active : ''}`}
+          >
+            {info.name}
+          </button>
+        ))}
+      </div>
+
+      <div className={styles.tabContent}>
+        {activeTab?.name === 'Gabarito' ? (
+          <a
+            href={activeHtml}
+            download
+            className={styles.downloadButton}
+            target="_blank"
+            rel="noopener"
+          >
+            Gabarito do Produto
+          </a>
+        ) : (
+          <>
+            <div
+              ref={contentRef}
+              className={`${styles.contentBox} ${isExpanded ? styles.expanded : ''}`}
+              dangerouslySetInnerHTML={{ __html: activeHtml }}
+            />
+            {showSeeMore && !isExpanded && (
+              <button
+                type="button"
+                className={styles.seeMoreButton}
+                onClick={() => setIsExpanded(true)}
+              >
+                Ver mais
+              </button>
+            )}
+          </>
+        )}
+      </div>
+    </div>
+  )
+}
+
+const InfoTabs = () => {
+  const { product } = useProduct() || {}
+
+  const productId = product?.cacheId
+  const productDescription = product?.description || ''
+  const skuSpecifications = product?.skuSpecifications || []
+
+
+  const tabs = useMemo(() => {
+    const nextTabs = [{ name: 'Descrição', values: [productDescription] }]
 
     const especificacoesGroup = product?.specificationGroups?.find(
       g => g?.name === 'Especificações' || g?.name === 'allSpecifications'
@@ -82,155 +182,21 @@ const InfoTabs = () => {
       `${especificacoesHTML}${especificacoesHTML && skuSpecs ? '<br/><br/>' : ''}${skuSpecs}`
 
     if (combined.trim()) {
-      tabs.push({ name: 'Especificações Técnicas', values: [combined] })
+      nextTabs.push({ name: 'Especificações Técnicas', values: [combined] })
     }
 
     const gabarito = especificacoesGroup?.specifications?.find(s => s?.name === 'Gabarito')
     if (gabarito?.values?.[0]) {
-      tabs.push({ name: 'Gabarito', values: [gabarito.values[0]] })
+      nextTabs.push({ name: 'Gabarito', values: [gabarito.values[0]] })
     }
 
-    return tabs
+    return nextTabs
   }, [product, productDescription, skuSpecifications])
 
-  useEffect(() => {
-    const firstContent = tabsMemo[0]?.values?.[0] || ''
-    setProductSpecifications({
-      activeSpecification: 0,
-      specificationsTabs: tabsMemo,
-      specificationContent: firstContent,
-    })
-    setIsExpanded(false)
-    setShowSeeMore(false)
-    scheduleMeasure()
-  }, [tabsMemo, scheduleMeasure])
+  if (!tabs?.length) return null
 
-  // ===== Observadores leves (throttle por RAF) =====
-  useEffect(() => {
-    const el = contentRef.current
-    if (!el) return
-
-    // ResizeObserver: só agenda medição (não mede direto)
-    let ro
-    if ('ResizeObserver' in window) {
-      ro = new ResizeObserver(() => {
-        scheduleMeasure()
-      })
-      ro.observe(el)
-    }
-
-    // MutationObserver: restringe escopo (sem characterData)
-    const mo = new MutationObserver(() => {
-      scheduleMeasure()
-    })
-    mo.observe(el, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ['src', 'sizes', 'srcset', 'class', 'style']
-    })
-
-    // Imagens internas (lazy-load): mede quando carregar
-    const imgs = Array.from(el.querySelectorAll('img'))
-    const onImg = () => scheduleMeasure()
-    imgs.forEach(img => {
-      if (!img.complete) {
-        img.addEventListener('load', onImg, { once: true })
-        img.addEventListener('error', onImg, { once: true })
-      }
-    })
-
-    // Fonts
-    if (document.fonts?.ready) {
-      document.fonts.ready.then(scheduleMeasure).catch(() => {})
-    }
-
-    // Resize janela
-    const onResize = () => scheduleMeasure()
-    window.addEventListener('resize', onResize)
-
-    // primeira medição pós-mount
-    scheduleMeasure()
-
-    return () => {
-      ro && ro.disconnect()
-      mo.disconnect()
-      window.removeEventListener('resize', onResize)
-      imgs.forEach(img => {
-        img.removeEventListener('load', onImg)
-        img.removeEventListener('error', onImg)
-      })
-    }
-  }, [scheduleMeasure])
-
-  // Troca de aba
-  const handleBtnControl = (tabIndex) => {
-    setProductSpecifications(prev => {
-      const nextContent = prev.specificationsTabs[tabIndex]?.values?.[0] || ''
-      return prev.activeSpecification === tabIndex && prev.specificationContent === nextContent
-        ? prev
-        : {
-            ...prev,
-            activeSpecification: tabIndex,
-            specificationContent: nextContent,
-          }
-    })
-    setIsExpanded(false)
-    setShowSeeMore(false)
-    scheduleMeasure()
-  }
-
-  const activeTab = productSpecifications.specificationsTabs[productSpecifications.activeSpecification]
-
-  return (
-    <>
-      {!!productSpecifications.specificationsTabs.length && (
-        <div className={styles.productInfoTabs} key={productId}>
-          <div className={styles.tabHeader}>
-            {productSpecifications.specificationsTabs.map((info, index) => (
-              <button
-                type="button"
-                onClick={() => handleBtnControl(index)}
-                key={info.name || `tab-${index}`}
-                className={`${styles.infoControl} ${
-                  productSpecifications.activeSpecification === index ? styles.active : ''
-                }`}
-              >
-                {info.name}
-              </button>
-            ))}
-          </div>
-
-          <div className={styles.tabContent}>
-            {activeTab?.name === 'Gabarito' ? (
-              <a
-                href={productSpecifications.specificationContent}
-                download
-                className={styles.downloadButton}
-                target="_blank"
-                rel="noopener"
-              >
-                Gabarito do Produto
-              </a>
-            ) : (
-              <>
-                <div
-                  ref={contentRef}
-                  className={`${styles.contentBox} ${isExpanded ? styles.expanded : ''}`}
-                  dangerouslySetInnerHTML={{ __html: productSpecifications.specificationContent || '' }}
-                />
-                {showSeeMore && !isExpanded && (
-                  <button className={styles.seeMoreButton} onClick={() => setIsExpanded(true)}>
-                    Ver mais
-                  </button>
-                )}
-              </>
-            )}
-          </div>
-        </div>
-      )}
-    </>
-  )
+  
+  return <InfoTabsView key={productId || 'product'} tabs={tabs} />
 }
 
 export default InfoTabs

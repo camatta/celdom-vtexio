@@ -9,7 +9,7 @@
     "props": {
       "blockClass": "info-tabs-content"
     },
-    "children": ["tab-layout#tabs-produto"] // Componente na pasta react
+    "children": ["info-tabs"] // Componente na pasta react
   },
 
   "tab-layout#tabs-produto": {
