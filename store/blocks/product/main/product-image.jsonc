@@ -5,6 +5,7 @@
     },
     "children": [
       "product-images#pdp",
+      "product-current-image-text", // Componente na pasta react
       "flex-layout.row#button-img-ambientada",
       "flex-layout.row#compre-junto"
       
@@ -21,10 +22,10 @@
       "displayThumbnailsArrows": true,
       "maxHeight": 489,                      // base desktop
       "thumbnailMaxHeight": 72,
-      "zoomMode": "in-place-hover", // "open-modal"
+      "zoomMode": "open-modal", // "in-place-hover"
+      "ModalZoom": "modal-layout#example",
       "thumbnailsOrientation": "horizontal",
       "hiddenImages": ["Cor"]
-      // "ModalZoom": "modal-layout#example"
     }
   },
   "modal-layout#example": {

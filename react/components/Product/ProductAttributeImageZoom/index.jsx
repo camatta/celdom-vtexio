@@ -12,7 +12,7 @@ const ProductAttributeImageZoom = () => {
     const arrayImages = selectedItem.images;
     const imgObj = arrayImages.find(img => img.imageId === imageId || img.cacheId === imageId);
 
-    return <div className={style.textAttribute}>{ imgObj.imageLabel }</div>;
+    return <div className={style.textAttribute}>{ imgObj.imageText }</div>;
 }
 
 export default ProductAttributeImageZoom;

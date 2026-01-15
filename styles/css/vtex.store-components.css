@@ -208,6 +208,10 @@
   width: unset!important;
  }
 
+ :global(.vtex-store-components-3-x-highQualityProductImageImgElement) {
+  max-height: 330px;
+ }
+
  .productImagesGallerySwiperContainer{
   text-align: center;
  }

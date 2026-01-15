@@ -1,0 +1,30 @@
+:global(.product-image-text-overlay) {
+    display: flex;
+    justify-content: center;
+}
+
+.boxTextOverlay {
+    max-width: 468px;
+    background-color: #2D292699;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.textAttributeOverlay {
+    max-width: 448px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .boxTextOverlay {
+        max-width: 326px;
+    }
+    .textAttributeOverlay {
+        max-width: 300px;
+    }
+}
