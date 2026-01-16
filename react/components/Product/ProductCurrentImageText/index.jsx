@@ -87,9 +87,10 @@ const ProductCurrentImageTextOverlay = () => {
 
     const container = ensureOverlayContainer(slideEl)
     const text = getTextByImageId(imageId)
+    const textNormalized = text.includes("-") ? text.replaceAll("-", " ") : text;
 
     setPortalTarget(container)
-    setActiveText(text)
+    setActiveText(textNormalized)
   }, [getActiveSlideEl, getActiveImageIdFromDOM, ensureOverlayContainer, getTextByImageId])
 
   // 1) Preferencial: hook no Swiper (slideChange)
