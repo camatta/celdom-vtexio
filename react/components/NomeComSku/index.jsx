@@ -66,7 +66,7 @@ const NomeComSku = () => {
 
   if (!combined) return null
 
-  return <span className={styles.nomeComSku}>{combined}</span>
+  return <h1 className={styles.nomeComSku}>{combined}</h1>
 }
 
 export default NomeComSku

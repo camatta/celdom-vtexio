@@ -11,9 +11,9 @@ const ProductAttributeImageZoom = () => {
     const imageId = imgUrl.match(/\/ids\/(\d+)/)?.[1]; // "pega o ID da imagem"
     const arrayImages = selectedItem.images;
     const imgObj = arrayImages.find(img => img.imageId === imageId || img.cacheId === imageId);
-    const textNormalized = imgObj.imageText.includes("-") ? imgObj.imageText.replaceAll("-", " ") : imgObj.imageText;
+    // const textNormalized = imgObj.imageLabel.includes("-") ? imgObj.imageLabel.replaceAll("-", " ") : imgObj.imageLabel;
 
-    return <div className={style.textAttribute}>{ textNormalized }</div>;
+    return <div className={style.textAttribute}>{ imgObj.imageLabel }</div>;
 }
 
 export default ProductAttributeImageZoom;

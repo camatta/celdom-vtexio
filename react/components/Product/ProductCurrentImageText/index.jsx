@@ -69,7 +69,7 @@ const ProductCurrentImageTextOverlay = () => {
       const imgObj = images.find(
         (img) => img?.imageId === imageId || img?.cacheId === imageId
       )
-      return imgObj?.imageText?.trim() || null
+      return imgObj?.imageLabel?.trim() || null
     },
     [images]
   )
@@ -87,10 +87,10 @@ const ProductCurrentImageTextOverlay = () => {
 
     const container = ensureOverlayContainer(slideEl)
     const text = getTextByImageId(imageId)
-    const textNormalized = text.includes("-") ? text.replaceAll("-", " ") : text;
+    // const textNormalized = text.includes("-") ? text.replaceAll("-", " ") : text;
 
     setPortalTarget(container)
-    setActiveText(textNormalized)
+    setActiveText(text)
   }, [getActiveSlideEl, getActiveImageIdFromDOM, ensureOverlayContainer, getTextByImageId])
 
   // 1) Preferencial: hook no Swiper (slideChange)
