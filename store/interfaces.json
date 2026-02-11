@@ -1,8 +1,4 @@
 {
-  "logo-celdom": {
-    "component": "LogoLoja"
-  },
-
   "aux-floating-container": {
     "component": "AuxFloatingContainer",
     "composition": "children"

@@ -17,7 +17,19 @@
     "props": {
       "blockClass": "logo-desktop-container"
     },
-    "children": ["logo-celdom"] // Arquivo logo.jsonc
+    "children": ["image#logo-celdom"] // Arquivo logo.jsonc
+  },
+
+  "image#logo-celdom": {
+    "props": {
+      "src": "assets/logos/logo.svg",
+      "link": {
+        "url": "/"
+      },
+      "title": "Celdom",
+      "maxWidth": 159,
+      "maxHeight": 38
+    }
   },
 
   "flex-layout.row#search-desktop": {
