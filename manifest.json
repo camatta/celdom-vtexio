@@ -1,7 +1,7 @@
 {
   "vendor": "celdom",
   "name": "store-theme",
-  "version": "1.0.93",
+  "version": "1.0.94",
   "builders": {
     "styles": "2.x",
     "store": "0.x",
