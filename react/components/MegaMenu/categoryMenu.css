@@ -296,18 +296,18 @@
   background: #FFF8EB;
 }
 
-.sidebarDepartment:nth-child(16) .sideBarItemTitleClasses {
+.sidebarDepartment:nth-child(17) .sideBarItemTitleClasses {
   color: #EA5A1C;
   font-weight: 700;
 }
 
-.sidebarDepartment:nth-child(16){
+/* .sidebarDepartment:nth-child(16){
   order: 17;
 }
 
 .sidebarDepartment:nth-child(17){
   order: 16;
-}
+} */
 
 .sidebar :global(.vtex-overlay-layout-0-x-trigger) {
   margin-left: 12px;
