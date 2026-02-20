@@ -157,9 +157,27 @@ const InfoTabs = () => {
   const productDescription = product?.description || ''
   const skuSpecifications = product?.skuSpecifications || []
 
+  function brToParagraphs(html) {
+    if(html) {
+      return html
+      // normaliza <br>, <br/>, <br /> em um único formato
+      .replace(/<br\s*\/?>/gi, '<br>')
+      // divide por "duas quebras" (parágrafo)
+      .split(/(?:<br>\s*){2,}/i)
+      // limpa espaços e remove blocos vazios
+      .map(s => s.trim())
+      .filter(Boolean)
+      // envolve em <p>
+      .map(s => `<p>${s}</p>`)
+      // junta tudo
+      .join('');
+    } else {
+      return "";
+    }
+  }
 
   const tabs = useMemo(() => {
-    const nextTabs = [{ name: 'Descrição', values: [productDescription] }]
+    const nextTabs = [{ name: 'Descrição', values: [brToParagraphs(productDescription)] }]
 
     const especificacoesGroup = product?.specificationGroups?.find(
       g => g?.name === 'Especificações' || g?.name === 'allSpecifications'
