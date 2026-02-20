@@ -24,8 +24,8 @@
       "thumbnailMaxHeight": 72,
       "zoomMode": "open-modal", // "in-place-hover"
       "ModalZoom": "modal-layout#example",
-      "thumbnailsOrientation": "horizontal",
-      "hiddenImages": ["Cor"]
+      "thumbnailsOrientation": "horizontal"
+      // "hiddenImages": ["Cor"]
     }
   },
   "modal-layout#example": {
