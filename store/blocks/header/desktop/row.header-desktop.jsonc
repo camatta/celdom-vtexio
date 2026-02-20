@@ -17,7 +17,7 @@
     "props": {
       "blockClass": "logo-desktop-container"
     },
-    "children": ["image#logo-celdom"] // Arquivo logo.jsonc
+    "children": ["logo-celdom"] // Arquivo logo.jsonc
   },
 
   "image#logo-celdom": {
