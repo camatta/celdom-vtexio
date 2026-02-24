@@ -158,22 +158,43 @@ const InfoTabs = () => {
   const skuSpecifications = product?.skuSpecifications || []
 
   function brToParagraphs(html) {
-    if(html) {
-      return html
-      // normaliza <br>, <br/>, <br /> em um único formato
+    if (!html) return ''
+
+    const source = String(html).trim()
+    if (!source) return ''
+    if (!/<br\s*\/?>/i.test(source)) return source
+
+    const blocks = source
       .replace(/<br\s*\/?>/gi, '<br>')
-      // divide por "duas quebras" (parágrafo)
+      // corrige casos como "<strong>Titulo:<br></strong> Texto"
+      .replace(/<br>\s*<\/(strong|b)>/gi, '</$1><br>')
+      // quebra em blocos somente quando houver 2+ <br>
       .split(/(?:<br>\s*){2,}/i)
-      // limpa espaços e remove blocos vazios
-      .map(s => s.trim())
+      .map(chunk => chunk.replace(/^(?:<br>\s*)+|(?:<br>\s*)+$/gi, '').trim())
       .filter(Boolean)
-      // envolve em <p>
-      .map(s => `<p>${s}</p>`)
-      // junta tudo
-      .join('');
-    } else {
-      return "";
+
+    if (!blocks.length) return ''
+
+    const firstBlock = blocks[0]
+    const firstTitleMatch = firstBlock.match(/^<(strong|b)[^>]*>[\s\S]*?<\/\1>/i)
+
+    if (!firstTitleMatch) {
+      return blocks.map(chunk => `<p>${chunk}</p>`).join('')
     }
+
+    const firstTitle = firstTitleMatch[0]
+    const firstRemainder = firstBlock.slice(firstTitle.length).trim()
+    const rendered = [firstTitle]
+
+    if (firstRemainder) {
+      rendered.push(`<p>${firstRemainder}</p>`)
+    }
+
+    if (blocks.length > 1) {
+      rendered.push(...blocks.slice(1).map(chunk => `<p>${chunk}</p>`))
+    }
+
+    return rendered.join('')
   }
 
   const tabs = useMemo(() => {
@@ -185,7 +206,7 @@ const InfoTabs = () => {
 
     const especificacoesHTML =
       especificacoesGroup?.specifications
-        ?.map(spec => `<strong>${spec?.name || ''}:<br></strong> ${spec?.values?.join(', ') || ''}`)
+        ?.map(spec => `<strong>${spec?.name || ''}:</strong> ${spec?.values?.join(', ') || ''}`)
         .join('<br/>') || ''
 
     const skuSpecs =
@@ -200,7 +221,7 @@ const InfoTabs = () => {
       `${especificacoesHTML}${especificacoesHTML && skuSpecs ? '<br/><br/>' : ''}${skuSpecs}`
 
     if (combined.trim()) {
-      nextTabs.push({ name: 'Especificações Técnicas', values: [combined] })
+      nextTabs.push({ name: 'Especificações Técnicas', values: [brToParagraphs(combined)] })
     }
 
     const gabarito = especificacoesGroup?.specifications?.find(s => s?.name === 'Gabarito')

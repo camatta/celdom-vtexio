@@ -44,6 +44,11 @@
   margin-top: 15px;
 }
 
+.contentBox > strong:first-of-type {
+  display: block;
+  margin-bottom: 15px;
+}
+
 .downloadButton {
   display: inline-block;
   width: 188px;
