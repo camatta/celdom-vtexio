@@ -42,7 +42,8 @@
       "image#marca19",
       "image#marca20",
       "image#marca21",
-      "image#marca22"
+      "image#marca22",
+      "image#marca23"
     ]
   },
 
@@ -185,5 +186,12 @@
       "maxHeight": 100,
       "alt": "U-Line"
     }
+  },
+    "image#marca23": {
+    "props": {
+      "src": "assets/marcas/morelli.png",
+      "maxHeight": 100,
+      "alt": "Morelli"
+    } 
   }
 }
