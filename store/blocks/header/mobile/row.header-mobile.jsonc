@@ -46,7 +46,7 @@
       "preventVerticalStretch": true,
       "blockClass": ["logo-mobile-content"]
     },
-    "children": ["logo"]
+    "children": ["logo-celdom"]
   },
 
   "flex-layout.col#minicart-mobile": {
