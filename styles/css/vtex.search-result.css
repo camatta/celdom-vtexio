@@ -5,7 +5,7 @@
   line-height: 26px;
   margin-bottom: 2px;
   color:#FE5000;
-  text-transform: lowercase;
+  /* text-transform: lowercase; */
 }
 .galleryTitle--layout::first-letter {
   text-transform: capitalize;
