@@ -997,6 +997,7 @@
 }
 
 :global(.vtex-render__container-id-historia-home),
+:global(.vtex-render__container-id-home-intro),
 :global(.vtex-render__container-id-carrossel-lojas) {
   margin-top: 80px;
 }
@@ -1573,6 +1574,7 @@
     margin: 0 -7.5px;
   }
   :global(.vtex-render__container-id-historia-home),
+  :global(.vtex-render__container-id-home-intro),
   :global(.vtex-render__container-id-carrossel-lojas) {
     margin-top: 48px;
   } 

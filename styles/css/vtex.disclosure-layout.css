@@ -48,6 +48,83 @@
   margin-top: 16px;
 }
 
+.trigger.trigger--home-intro-text {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: auto;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+.trigger.trigger--home-intro-text::after {
+  display: none;
+}
+.trigger--home-intro-text :global(.vtex-rich-text-0-x-container--home-intro-rich),
+.trigger--home-intro-text :global(.vtex-rich-text-0-x-wrapper--home-intro-rich) {
+  pointer-events: auto;
+  cursor: text;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+.trigger--home-intro-text :global(.vtex-rich-text-0-x-headingLevel1--home-intro-rich),
+.trigger--home-intro-text :global(.vtex-rich-text-0-x-paragraph--home-intro-rich),
+.trigger--home-intro-text :global(.vtex-rich-text-0-x-listItem--home-intro-rich) {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+.trigger--home-intro-text :global(.vtex-rich-text-0-x-container--home-intro-more-label) {
+  width: auto;
+  display: flex;
+  justify-content: flex-start !important;
+  text-align: left;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.trigger--home-intro-text :global(.vtex-rich-text-0-x-wrapper--home-intro-more-label) {
+  width: fit-content !important;
+  margin: 0 !important;
+  align-self: flex-start !important;
+}
+
+.content--home-intro-text--hidden,
+.content--home-intro-text--visible {
+  display: block !important;
+}
+.trigger--home-intro-text--hidden :global(.vtex-rich-text-0-x-wrapper--home-intro-rich) {
+  position: relative;
+  overflow: hidden;
+  max-height: 190px;
+}
+.trigger--home-intro-text--visible :global(.vtex-rich-text-0-x-wrapper--home-intro-rich) {
+  max-height: none;
+}
+.trigger--home-intro-text--hidden :global(.vtex-rich-text-0-x-wrapper--home-intro-rich)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 34px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff 75%);
+}
+.content--home-intro-text {
+  margin-top: 0 !important;
+  display: none !important;
+  cursor: text;
+}
+:global(.vtex-disclosure-layout-1-x-disclosureLayout--home-intro-text) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 @media (max-width: 1025px) {
   .trigger--cms-menu {
     pointer-events: initial;
@@ -102,6 +179,10 @@
 
   .trigger:not(.trigger--cms-menu) {
     align-items: baseline;
+  }
+
+  .trigger.trigger--home-intro-text {
+    align-items: flex-start;
   }
 
   .content--cms-menu--hidden {

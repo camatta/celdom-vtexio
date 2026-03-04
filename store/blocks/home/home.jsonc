@@ -10,6 +10,7 @@
       "flex-layout.row#lancamentos-section",
       "flex-layout.row#historia-home",
       "flex-layout.row#destaques-section",
+      "flex-layout.row#home-intro",
       "flex-layout.row#carrossel-lojas"
     ]
   }
