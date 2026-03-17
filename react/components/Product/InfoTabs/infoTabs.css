@@ -9,6 +9,9 @@
   text-wrap: nowrap;
   overflow-x: auto;
 }
+.tabHeading {
+  margin: 0;
+}
 .tabHeader::-webkit-scrollbar {
   display: none;
 }
@@ -47,6 +50,9 @@
 .contentBox > strong:first-of-type {
   display: block;
   margin-bottom: 15px;
+}
+.contentBox h2 {
+  margin-top: 0;
 }
 
 .downloadButton {

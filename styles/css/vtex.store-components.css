@@ -297,18 +297,6 @@
   padding: 0;
 }
 
-:global(.vtex-render__container-id-ratings)::before{
-    content: "Avalie este produto";
-    font-size: 24px;
-    color: #2D2926;
-    font-weight: 400;
-    display: block;
-    max-width: 1140px;
-    width: 100% !important;
-    margin: auto;
-    margin-bottom: 2rem;
-}
-
 :global(.vtex-reviews-and-ratings-3-x-reviewAuthorName),
 :global(.vtex-reviews-and-ratings-3-x-reviewDateValue){
   font-size: 14px;

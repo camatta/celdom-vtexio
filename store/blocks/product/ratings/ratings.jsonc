@@ -4,6 +4,19 @@
     "props": {
       "blockClass": ["ratings"]
     },
-    "children": ["product-reviews"]
+    "children": ["flex-layout.col#ratings-content"]
+  },
+  "flex-layout.col#ratings-content": {
+    "props": {
+      "blockClass": "ratings-content"
+    },
+    "children": ["rich-text#ratings-title", "product-reviews"]
+  },
+  "rich-text#ratings-title": {
+    "props": {
+      "text": "## Avalie este produto",
+      "blockClass": "ratings-title"
+    }
   }
 }
+

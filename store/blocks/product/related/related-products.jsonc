@@ -31,7 +31,7 @@
   "rich-text#related-products-title": {
     "props": {
       "blockClass": ["related-title", "shelf-title"],
-      "text": "#### Leve também"
+      "text": "### Leve também"
     }
   },
 

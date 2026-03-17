@@ -105,14 +105,15 @@ const InfoTabsView = ({ tabs }) => {
     <div className={styles.productInfoTabs}>
       <div className={styles.tabHeader}>
         {tabs.map((info, index) => (
-          <button
-            type="button"
-            onClick={() => handleTabClick(index)}
-            key={info.name || `tab-${index}`}
-            className={`${styles.infoControl} ${activeIndex === index ? styles.active : ''}`}
-          >
-            {info.name}
-          </button>
+          <h2 className={styles.tabHeading} key={info.name || `tab-${index}`}>
+            <button
+              type="button"
+              onClick={() => handleTabClick(index)}
+              className={`${styles.infoControl} ${activeIndex === index ? styles.active : ''}`}
+            >
+              {info.name}
+            </button>
+          </h2>
         ))}
       </div>
 
