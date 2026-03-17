@@ -1,0 +1,65 @@
+{
+  "flex-layout.row#home-intro": {
+    "title": "Home Intro",
+    "props": {
+      "blockClass": ["custom-container", "home-intro"]
+    },
+    "children": ["flex-layout.col#home-intro"]
+  },
+
+  "flex-layout.col#home-intro": {
+    "props": {
+      "width": "100%",
+      "blockClass": "home-intro-content"
+    },
+    "children": ["disclosure-layout#home-intro-text-v5"]
+  },
+
+  "disclosure-layout#home-intro-text-v5": {
+    "props": {
+      "blockClass": "home-intro-text"
+    },
+    "children": [
+      "disclosure-trigger#home-intro-text-v5",
+      "disclosure-content#home-intro-text-v5"
+    ]
+  },
+
+  "disclosure-trigger#home-intro-text-v5": {
+    "props": {
+      "blockClass": "home-intro-text"
+    },
+    "children": [
+      "rich-text#home-intro-rich-v8",
+      "rich-text#home-intro-more-label-v5"
+    ]
+  },
+
+  "disclosure-content#home-intro-text-v5": {
+    "props": {
+      "blockClass": "home-intro-text"
+    },
+    "children": ["rich-text#home-intro-hidden-helper-v5"]
+  },
+
+  "rich-text#home-intro-rich-v8": {
+    "props": {
+      "text": "# Encontre tudo para construcao, eletro e moveis nas nossas lojas\n\nA Celdom oferece uma curadoria completa para transformar ambientes com design, tecnologia e funcionalidade em cada detalhe.\n\n# Atendimento especializado em cada etapa\n\nCom lojas fisicas em pontos estrategicos e um e-commerce completo, reunimos desde eletrodomesticos premium ate mobiliario e itens de decoracao para diferentes estilos de projeto. Nossa equipe acompanha cada etapa da jornada para facilitar sua escolha, com atendimento consultivo e marcas reconhecidas.",
+      "blockClass": "home-intro-rich"
+    }
+  },
+
+  "rich-text#home-intro-more-label-v5": {
+    "props": {
+      "text": "Ver mais",
+      "blockClass": "home-intro-more-label"
+    }
+  },
+
+  "rich-text#home-intro-hidden-helper-v5": {
+    "props": {
+      "text": "",
+      "blockClass": "home-intro-hidden-helper"
+    }
+  }
+}

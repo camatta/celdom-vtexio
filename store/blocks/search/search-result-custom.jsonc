@@ -1,0 +1,27 @@
+{
+  "store.custom#search-custom": {
+    "blocks": [
+      "search-result-layout.customQuery#search-custom"
+    ]
+  },
+  
+  "search-result-layout.customQuery#search-custom": {
+    "props": {
+      "querySchema": {
+        "orderByField": "OrderByTopSaleDESC",
+        "hideUnavailableItems": true,
+        "maxItemsPerPage": 18,
+        "queryField": "137",
+        "mapField": "productClusterIds",
+        "skusFilter": "FIRST_AVAILABLE",
+        "installmentCriteria": "MAX_WITH_INTEREST",
+        "simulationBehavior": "default"
+      } 
+    },
+    "blocks": [
+      "search-result-layout.desktop",
+      "search-result-layout.mobile",
+      "search-not-found-layout"
+    ]
+  }
+}

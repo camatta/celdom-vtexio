@@ -1,4 +1,8 @@
 {
+   "store.custom#search-custom": {
+    "path": "/colecao"
+  },
+  
   "store.custom#sobre-nos": {
     "path": "/nossa-historia"
   },
