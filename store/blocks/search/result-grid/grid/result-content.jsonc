@@ -9,8 +9,8 @@
       "flex-layout.row#search-banner-desk",
       "flex-layout.row#search-toolbar",
       "flex-layout.row#search-products",
-      "flex-layout.row#search-fetchmore"
-      // "flex-layout.row#result-description"
+      "flex-layout.row#search-fetchmore",
+      "flex-layout.row#result-description"
     ]
   }
 }
