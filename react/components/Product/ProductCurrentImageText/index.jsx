@@ -16,6 +16,17 @@ const ProductCurrentImageTextOverlay = () => {
 
   const images = selectedItem?.images || []
 
+  const resolveImageDisplayText = useCallback((imgObj) => {
+    const imageLabel = imgObj?.imageLabel?.trim() || ''
+    const imageText = imgObj?.imageText?.trim() || ''
+    const isNumeric = (value) => /^\d+$/.test(value)
+
+    if (isNumeric(imageLabel)) return imageLabel
+    if (isNumeric(imageText)) return imageText
+
+    return imageLabel || imageText || null
+  }, [])
+
   const safeQuerySelector = useCallback((selector) => {
     try {
       return document.querySelector(selector)
@@ -69,9 +80,9 @@ const ProductCurrentImageTextOverlay = () => {
       const imgObj = images.find(
         (img) => img?.imageId === imageId || img?.cacheId === imageId
       )
-      return imgObj?.imageLabel?.trim() || null
+      return resolveImageDisplayText(imgObj)
     },
-    [images]
+    [images, resolveImageDisplayText]
   )
 
   // Sincroniza target + texto baseado no slide ativo atual

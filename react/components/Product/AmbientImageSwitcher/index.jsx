@@ -3,13 +3,40 @@ import { useProduct } from 'vtex.product-context'
 import { createPortal } from 'react-dom'
 
 const AMBIENT_IMAGE_TEXT = 'img-ambientada'
+const FRONT_VIEW_IMAGE_TEXT = 'front-view'
 
 const normalize = (v) => (v ?? '').toLowerCase().trim()
+const normalizeMarker = (v) => normalize(v).replace(/[\s_]+/g, '-')
+const matchesAmbientMarker = (img) => {
+  const imageText = normalizeMarker(img?.imageText)
+  const imageLabel = normalizeMarker(img?.imageLabel)
+  const ambientMarker = normalizeMarker(AMBIENT_IMAGE_TEXT)
+
+  return (
+    imageText === ambientMarker ||
+    imageLabel === ambientMarker ||
+    imageText.includes(ambientMarker) ||
+    imageLabel.includes(ambientMarker)
+  )
+}
+const matchesFrontViewMarker = (img) => {
+  const imageText = normalizeMarker(img?.imageText)
+  const imageLabel = normalizeMarker(img?.imageLabel)
+  const frontViewMarker = normalizeMarker(FRONT_VIEW_IMAGE_TEXT)
+
+  return (
+    imageText === frontViewMarker ||
+    imageLabel === frontViewMarker ||
+    imageText.includes(frontViewMarker) ||
+    imageLabel.includes(frontViewMarker)
+  )
+}
 
 const AmbientImageSwitcher = () => {
   const { selectedItem } = useProduct()
 
   const [ambientIndex, setAmbientIndex] = useState(null)
+  const [frontViewIndex, setFrontViewIndex] = useState(null)
   const [videoIndex, setVideoIndex] = useState(null)
   const [isAmbientActive, setIsAmbientActive] = useState(false)
   const [isVideoActive, setIsVideoActive] = useState(false)
@@ -27,6 +54,8 @@ const AmbientImageSwitcher = () => {
   const buttonContainerRef = useRef(null)
   const initRetryCount = useRef(0)
   const currentSlideRef = useRef(0)
+  const pendingNavigationRef = useRef(null)
+  const initialMediaAppliedRef = useRef(false)
 
   const safeQuerySelector = useCallback((selector) => {
     try {
@@ -126,12 +155,16 @@ const AmbientImageSwitcher = () => {
     try {
       const nonBannerImages = getNonBannerImagesFromProduct()
       const nonBannerThumbs = getThumbsWithoutBanners()
+      const frontViewFromProduct = nonBannerImages.findIndex((img) => matchesFrontViewMarker(img))
 
       // ambient pelo imageText (produto)
-      const ambientFromProduct = nonBannerImages.findIndex((img) => {
-        const t = normalize(img?.imageText)
-        return t === normalize(AMBIENT_IMAGE_TEXT)
-      })
+      const ambientFromProduct = nonBannerImages.findIndex((img) => matchesAmbientMarker(img))
+
+      const frontViewIndexFinal =
+        frontViewFromProduct >= 0 &&
+        (nonBannerThumbs.length === 0 || frontViewFromProduct < nonBannerThumbs.length)
+          ? frontViewFromProduct
+          : null
 
       const ambientIndexFinal =
         ambientFromProduct >= 0 &&
@@ -158,11 +191,12 @@ const AmbientImageSwitcher = () => {
 
       return {
         ambientIndex: ambientIndexFinal,
+        frontViewIndex: frontViewIndexFinal,
         videoIndex: videoThumbIndex >= 0 ? videoThumbIndex : null,
       }
     } catch (error) {
       console.warn('Erro ao buscar índices de mídia:', error)
-      return { ambientIndex: null, videoIndex: null }
+      return { ambientIndex: null, frontViewIndex: null, videoIndex: null }
     }
   }, [getNonBannerImagesFromProduct, getThumbsWithoutBanners])
 
@@ -176,6 +210,10 @@ const AmbientImageSwitcher = () => {
       return { isAmbientActive: false, isVideoActive: false }
     }
   }, [ambientIndex, videoIndex])
+
+  const isSwiperReady = useCallback(() => {
+    return Boolean(swiperInstance.current && typeof swiperInstance.current.slideTo === 'function')
+  }, [])
 
   const scrollToThumb = useCallback(
     (index) => {
@@ -284,12 +322,16 @@ const AmbientImageSwitcher = () => {
       if (index === null) return
 
       try {
+        if (!isSwiperReady()) {
+          pendingNavigationRef.current = index
+          return
+        }
+
         activeThumbRef.current = index
         currentSlideRef.current = index
+        pendingNavigationRef.current = null
 
-        if (swiperInstance.current) {
-          swiperInstance.current.slideTo(index)
-        }
+        swiperInstance.current.slideTo(index)
 
         setTimeout(() => scrollToThumb(index), 300)
         setTimeout(() => enforceActiveThumb(), 100)
@@ -301,7 +343,7 @@ const AmbientImageSwitcher = () => {
         console.warn('Erro na navegação de mídia:', error)
       }
     },
-    [enforceActiveThumb, checkMediaActiveStates, scrollToThumb]
+    [enforceActiveThumb, checkMediaActiveStates, scrollToThumb, isSwiperReady]
   )
 
   const handleThumbClick = useCallback(
@@ -377,6 +419,21 @@ const AmbientImageSwitcher = () => {
         setIsAmbientActive(isAmbientActive)
         setIsVideoActive(isVideoActive)
 
+        if (
+          pendingNavigationRef.current === null &&
+          frontViewIndex !== null &&
+          !initialMediaAppliedRef.current &&
+          currentSlideRef.current !== frontViewIndex
+        ) {
+          initialMediaAppliedRef.current = true
+          setTimeout(() => navigateToMedia(frontViewIndex), 50)
+        }
+
+        if (pendingNavigationRef.current !== null) {
+          const pendingIndex = pendingNavigationRef.current
+          setTimeout(() => navigateToMedia(pendingIndex), 50)
+        }
+
         if (updateInterval.current) clearInterval(updateInterval.current)
         updateInterval.current = setInterval(enforceActiveThumb, 2000)
       } catch (error) {
@@ -394,7 +451,7 @@ const AmbientImageSwitcher = () => {
         console.warn('Erro no cleanup do Swiper:', error)
       }
     }
-  }, [isInitialized, enforceActiveThumb, checkMediaActiveStates, safeQuerySelector])
+  }, [isInitialized, enforceActiveThumb, checkMediaActiveStates, safeQuerySelector, navigateToMedia, frontViewIndex])
 
   useEffect(() => {
     if (!isInitialized) return
@@ -426,9 +483,10 @@ const AmbientImageSwitcher = () => {
 
       const initializeMediaIndexes = () => {
         try {
-          const { ambientIndex: a, videoIndex: v } = findMediaIndexes()
+          const { ambientIndex: a, frontViewIndex: f, videoIndex: v } = findMediaIndexes()
 
           setAmbientIndex(a)
+          setFrontViewIndex(f)
           setVideoIndex(v)
           setIsAmbientActive(false)
           setIsVideoActive(false)
@@ -436,9 +494,13 @@ const AmbientImageSwitcher = () => {
           setButtonReady(false)
           setHasError(false)
           initRetryCount.current = 0
+          pendingNavigationRef.current = null
+          initialMediaAppliedRef.current = false
 
-          if (a !== null || v !== null) {
-            setupButtonContainer()
+          if (a !== null || v !== null || f !== null) {
+            if (a !== null || v !== null) {
+              setupButtonContainer()
+            }
             waitForImagesLoad(nonBanner).then(() => setIsInitialized(true))
           }
         } catch (error) {
@@ -469,7 +531,12 @@ const AmbientImageSwitcher = () => {
 
   if (hasError) return null
 
-  if ((ambientIndex === null && videoIndex === null) || !buttonReady || !buttonContainerRef.current) {
+  if (
+    (ambientIndex === null && videoIndex === null) ||
+    !buttonReady ||
+    !buttonContainerRef.current ||
+    !isInitialized
+  ) {
     return null
   }
 

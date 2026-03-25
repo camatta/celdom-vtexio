@@ -37,7 +37,7 @@ function ImageComponent({ imageItems }) {
                   className="image-banner"
                   src={item.imageDesktop}
                   alt={`Desktop Banner ${index}`}
-                  loading="lazy"
+                  loading="eager" fetchpriority="high"
                 />
 
                 {/* Texto e CTA adaptados do código antigo */} 
@@ -59,7 +59,7 @@ function ImageComponent({ imageItems }) {
                   className="image-banner"
                   src={item.imageMobile}
                   alt={`Mobile Banner ${index}`}
-                  loading="lazy"
+                  loading="eager" fetchpriority="high"
                 />
 
                 {/* Texto e CTA (Mobile) */}
