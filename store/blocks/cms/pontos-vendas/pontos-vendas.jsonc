@@ -90,7 +90,14 @@
     "children": ["image#jardins1", "image#jardins2", "image#jardins3"]
   },
 
-  "image#jardins1": { "props": { "src": "assets/institucional/celdom.jpg", "alt": "Jardins 1" } },
+  "image#jardins1": {
+    "props": {
+      "src": "assets/institucional/celdom.jpg",
+      "alt": "Jardins 1",
+      "fetchpriority": "high",
+      "preload": true
+    }
+  },
   "image#jardins2": { "props": { "src": "assets/institucional/celdom.jpg", "alt": "Jardins 2" } },
   "image#jardins3": { "props": { "src": "assets/institucional/celdom.jpg", "alt": "Jardins 3" } },
   "rich-text#jardins-titulo": { "props": { "blockClass": ["titulo-ponto"], "text": "Jardins<br>**São Paulo/SP**" } },
@@ -127,7 +134,14 @@
     "children": ["image#barra1", "image#barra2", "image#barra3"]
   },
 
-  "image#barra1": { "props": { "src": "assets/institucional/barra.jpg", "alt": "Barra 1" } },
+  "image#barra1": {
+    "props": {
+      "src": "assets/institucional/barra.jpg",
+      "alt": "Barra 1",
+      "fetchpriority": "high",
+      "preload": true
+    }
+  },
   "image#barra2": { "props": { "src": "assets/institucional/barra.jpg", "alt": "Barra 2" } },
   "image#barra3": { "props": { "src": "assets/institucional/barra.jpg", "alt": "Barra 3" } },
   "rich-text#barra-titulo": { "props": { "blockClass": ["titulo-ponto"], "text": "Barra da Tijuca<br>**Rio de Janeiro/RJ**" } },
@@ -169,7 +183,14 @@
     "children": ["image#icarai1", "image#icarai2", "image#icarai3"]
   },
 
-  "image#icarai1": { "props": { "src": "assets/institucional/icarai.jpg", "alt": "Icarai 1" } },
+  "image#icarai1": {
+    "props": {
+      "src": "assets/institucional/icarai.jpg",
+      "alt": "Icarai 1",
+      "fetchpriority": "high",
+      "preload": true
+    }
+  },
   "image#icarai2": { "props": { "src": "assets/institucional/icarai.jpg", "alt": "Icarai 2" } },
   "image#icarai3": { "props": { "src": "assets/institucional/icarai.jpg", "alt": "Icarai 3" } },
   "rich-text#icarai-titulo": { "props": { "blockClass": ["titulo-ponto"],"text": "Icaraí<br>**Niterói/RJ**" } },
@@ -211,7 +232,14 @@
     "children": ["image#ipanema1", "image#ipanema2", "image#ipanema3"]
   },
 
-  "image#ipanema1": { "props": { "src": "assets/institucional/ipanema.jpg", "alt": "Ipanema 1" } },
+  "image#ipanema1": {
+    "props": {
+      "src": "assets/institucional/ipanema.jpg",
+      "alt": "Ipanema 1",
+      "fetchpriority": "high",
+      "preload": true
+    }
+  },
   "image#ipanema2": { "props": { "src": "assets/institucional/ipanema.jpg", "alt": "Ipanema 2" } },
   "image#ipanema3": { "props": { "src": "assets/institucional/ipanema.jpg", "alt": "Ipanema 3" } },
   "rich-text#ipanema-titulo": { "props": { "blockClass": ["titulo-ponto"], "text": "Ipanema<br>**Rio de Janeiro/RJ**" } },

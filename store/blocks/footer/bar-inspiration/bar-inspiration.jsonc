@@ -23,6 +23,7 @@
             "blockClass": "logo-bar-inspiration",
             "src": "assets/logos/celdom-inspiration.svg",
             "alt": "Celdom - Alto grau de inspiração",
+            "loading": "lazy",
             "maxWidth": 195
         }
     }

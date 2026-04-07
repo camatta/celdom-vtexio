@@ -13,6 +13,7 @@
         "src": "assets/logos/google-sf.svg",
         "alt": "Google Safe Browsing",
         "title": "Google Safe Browsing",
+        "loading": "lazy",
         "link": {
           "newTab": "true",
           "url": "https://transparencyreport.google.com/safe-browsing/search?url=https:%2F%2Fferon.com.br%2F"
@@ -24,6 +25,7 @@
       "props": {
         "src": "assets/logos/lets-encrypt.svg",
         "alt": "Let's Encrypt",
+        "loading": "lazy",
         "title": "Let's Encrypt"
       }
     }

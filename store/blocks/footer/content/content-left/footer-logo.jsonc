@@ -5,6 +5,7 @@
       "blockClass": "footer-logo",
       "src": "assets/logos/logo-footer.svg",
       "alt": "Feron",
+      "loading": "lazy",
       "maxWidth": 385,
       "link": {
         "url": "/"

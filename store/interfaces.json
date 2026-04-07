@@ -42,6 +42,9 @@
     "component": "FilterToggleController",
     "composition": "children"
   },
+  "category-search-image-priority": {
+    "component": "CategorySearchImagePriority"
+  },
   "product-button-img-ambientada": {
     "component": "AmbientImageSwitcher",
     "composition": "children"
@@ -89,6 +92,12 @@
   },
   "product-current-image-text": {
     "component": "ProductCurrentImageText"
+  },
+  "product-thumb-image-priority": {
+    "component": "ProductThumbImagePriority"
+  },
+  "brand-slider-image-priority": {
+    "component": "BrandSliderImagePriority"
   },
   "monte-sua-coifa": {
    "component": "MonteSuaCoifa"

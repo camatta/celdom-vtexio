@@ -51,6 +51,8 @@
     "props": {
       "src": "assets/marcas/bertazzoni.jpg",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Bertazzoni"
     }
   },
@@ -58,6 +60,8 @@
     "props": {
       "src": "assets/marcas/celdom.jpg",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Celdom"
     }
   },
@@ -65,6 +69,8 @@
     "props": {
       "src": "assets/marcas/coyote.jpg",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Coyote"
     }
   },
@@ -72,6 +78,8 @@
     "props": {
       "src": "assets/marcas/crissair.jpg",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Crissair"
     }
   },
@@ -79,6 +87,8 @@
     "props": {
       "src": "assets/marcas/cuisinart.jpg",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Cuisinart"
     }
   },
@@ -86,6 +96,8 @@
     "props": {
       "src": "assets/marcas/debacco.jpg",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Debacco"
     }
   },
@@ -93,6 +105,8 @@
     "props": {
       "src": "assets/marcas/dometic.jpg",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Dometic"
     }
   },
@@ -100,6 +114,8 @@
     "props": {
       "src": "assets/marcas/elanto.png",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Elanto"
     }
   },
@@ -107,6 +123,8 @@
     "props": {
       "src": "assets/marcas/elica.png",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Elica"
     }
   },
@@ -114,6 +132,8 @@
     "props": {
       "src": "assets/marcas/evol.png",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Evol"
     }
   },
@@ -121,6 +141,8 @@
     "props": {
       "src": "assets/marcas/franke.png",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Franke"
     }
   },
@@ -128,6 +150,8 @@
     "props": {
       "src": "assets/marcas/gorenje.png",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Gorenje"
     }
   },
@@ -135,6 +159,8 @@
     "props": {
       "src": "assets/marcas/lofra.png",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Lofra"
     }
   },
@@ -142,6 +168,8 @@
     "props": {
       "src": "assets/marcas/lynxgrills.png",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Lynx Grills"
     }
   },
@@ -149,6 +177,8 @@
     "props": {
       "src": "assets/marcas/ooni.png",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Ooni"
     }
   },
@@ -156,6 +186,8 @@
     "props": {
       "src": "assets/marcas/sogna.png",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Sogna"
     }
   },
@@ -163,6 +195,8 @@
     "props": {
       "src": "assets/marcas/speedqueen.png",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Speed Queen"
     }
   },
@@ -170,6 +204,8 @@
     "props": {
       "src": "assets/marcas/tecno.png",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Tecno"
     }
   },
@@ -177,6 +213,8 @@
     "props": {
       "src": "assets/marcas/tramontina.png",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Tramontina"
     }
   },
@@ -184,6 +222,8 @@
     "props": {
       "src": "assets/marcas/uline.png",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "U-Line"
     }
   },
@@ -191,6 +231,8 @@
     "props": {
       "src": "assets/marcas/morelli.png",
       "maxHeight": 100,
+      "loading": "eager",
+      "fetchpriority": "high",
       "alt": "Morelli"
     } 
   }

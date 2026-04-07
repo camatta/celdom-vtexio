@@ -23,9 +23,11 @@
       "src": "assets/logos/nairuz.svg",
       "alt": "Nairuz",
       "title": "Nairuz",
+      "loading": "lazy",
       "textAlignment": "center",
       "width": 51,
       "height": 20,
+      "loading": "lazy",
       "link": {
         "newTab": "true",
         "url": "https://nairuz.com.br"

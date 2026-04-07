@@ -21,6 +21,7 @@
       "showBadge": false,
       "aspectRatio": "1:1",
       "maxHeight": 212,
+      "fetchpriority": "high",
       "hoverImage": {"criteria": "index", "index": 2}
     }
   }

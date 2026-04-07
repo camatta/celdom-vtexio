@@ -39,7 +39,7 @@
         "blockClass": ["categories"],
         "width": "100%"
       },
-      "children": ["slider-layout#marcas"]
+      "children": ["slider-layout#marcas", "brand-slider-image-priority"]
     }
   }
   

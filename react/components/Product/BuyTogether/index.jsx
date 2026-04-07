@@ -1,4 +1,3 @@
-// react/components/Product/BuyTogether/index.jsx
 import React, { useState, useMemo, useEffect } from 'react'
 import { useProduct } from 'vtex.product-context'
 import { useOrderForm } from 'vtex.order-manager/OrderForm'
@@ -26,7 +25,7 @@ const CSS_HANDLES = [
 ]
 
 const BuyTogether = ({ title = 'Compre Junto' }) => {
-  const handles = useCssHandles(CSS_HANDLES)
+  useCssHandles(CSS_HANDLES)
   const { product: mainProduct } = useProduct() || {}
   const { orderForm, setOrderForm } = useOrderForm()
 
@@ -34,22 +33,132 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
   const [recommendedProduct, setRecommendedProduct] = useState(null)
   const [loading, setLoading] = useState(false)
 
+  const fetchProductById = async (productId) => {
+    if (!productId) return null
+
+    try {
+      const response = await fetch(
+        `/api/catalog_system/pub/products/search/?fq=productId:${productId}`
+      )
+
+      if (!response.ok) return null
+
+      const products = await response.json()
+      return products?.[0] || null
+    } catch (error) {
+      console.error('Erro ao buscar produto completo:', error)
+      return null
+    }
+  }
+
   const formatPrice = (price) =>
     new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(price || 0)
 
-  const calculateInstallments = (price, installments = 10) => {
-    const total = (price || 0) * 1.053
-    const installmentValue = installments > 0 ? total / installments : total
-    return { total: formatPrice(total), installment: formatPrice(installmentValue) }
+  const getCommercialOffer = (product) => product?.items?.[0]?.sellers?.[0]?.commertialOffer
+
+  const getSpotDiscountPercent = (product) => {
+    const teasers = getCommercialOffer(product)?.teasers || []
+
+    return teasers.reduce((highestDiscount, teaser) => {
+      const teaserName = teaser?.name?.toLowerCase?.() || ''
+      const isSpotPaymentPromotion =
+        teaserName.includes('pix') || teaserName.includes('boleto')
+
+      if (!isSpotPaymentPromotion) return highestDiscount
+
+      const teaserDiscount = (teaser?.effects?.parameters || []).reduce(
+        (currentDiscount, parameter) => {
+          if (parameter?.name !== 'PercentualDiscount') return currentDiscount
+
+          const parsedDiscount = parseFloat(parameter?.value)
+
+          return Number.isFinite(parsedDiscount)
+            ? Math.max(currentDiscount, parsedDiscount)
+            : currentDiscount
+        },
+        0
+      )
+
+      return Math.max(highestDiscount, teaserDiscount)
+    }, 0)
   }
 
-  const getImageUrl = (product) =>
-    product?.items?.[0]?.images?.[0]?.imageUrl || '/arquivos/no-image.png'
+  const getCashPriceData = (product) => {
+    const offer = getCommercialOffer(product)
+    const basePrice = offer?.Price || product?.priceRange?.sellingPrice?.highPrice || 0
+    const discountPercent = getSpotDiscountPercent(product)
+    const finalPrice =
+      discountPercent > 0 ? basePrice * (1 - discountPercent / 100) : basePrice
 
-  const getProductPrice = (product) =>
-    product?.priceRange?.sellingPrice?.highPrice ||
-    product?.items?.[0]?.sellers?.[0]?.commertialOffer?.Price ||
-    0
+    return {
+      basePrice,
+      discountPercent,
+      finalPrice,
+    }
+  }
+
+  const getInstallmentData = (product, preferredInstallments = 10) => {
+    const offer = getCommercialOffer(product)
+    const cashPrice = getCashPriceData(product).finalPrice
+    const installmentOptions = offer?.Installments || []
+
+    const preferredOption = installmentOptions.find(
+      (option) => option?.NumberOfInstallments === preferredInstallments
+    )
+
+    const fallbackOption = [...installmentOptions].sort(
+      (a, b) => (b?.NumberOfInstallments || 0) - (a?.NumberOfInstallments || 0)
+    )[0]
+
+    const selectedOption = preferredOption || fallbackOption
+
+    if (selectedOption) {
+      const installments = selectedOption?.NumberOfInstallments || preferredInstallments
+      const total =
+        selectedOption?.TotalValuePlusInterestRate ||
+        (selectedOption?.Value || 0) * installments
+
+      return {
+        total,
+        installment: selectedOption?.Value || total / installments,
+        installments,
+      }
+    }
+
+    const listPrice = offer?.ListPrice
+    const total = listPrice && listPrice >= cashPrice ? listPrice : cashPrice
+
+    return {
+      total,
+      installment: preferredInstallments > 0 ? total / preferredInstallments : total,
+      installments: preferredInstallments,
+    }
+  }
+
+  const getImageUrl = (product) => {
+    const images = product?.items?.[0]?.images || []
+    const rasterImage = images.find(
+      (image) => image?.imageUrl && !/\.svg(?:\?|$)/i.test(image.imageUrl)
+    )
+
+    return rasterImage?.imageUrl || images?.[0]?.imageUrl || '/arquivos/no-image.png'
+  }
+
+  const getCartImageUrl = (product) => {
+    const imageUrl = getImageUrl(product)
+
+    if (!imageUrl) return '/arquivos/no-image.png'
+
+    if (/ids\/\d+-\d+-\d+/i.test(imageUrl)) {
+      return imageUrl.replace(/ids\/(\d+)-\d+-\d+/i, 'ids/$1-512-512')
+    }
+
+    if (/ids\/\d+/i.test(imageUrl)) {
+      return imageUrl.replace(/ids\/(\d+)/i, 'ids/$1-512-512')
+    }
+
+    return imageUrl
+  }
 
   const getProductSku = (product) => product?.items?.[0]?.itemId || product?.productId
 
@@ -64,13 +173,52 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
     if (btn) btn.click()
   }
 
-  // sempre pega o orderForm mais recente
+  const syncMinicart = (latestOrderForm) => {
+    if (!latestOrderForm) return
+
+    const productImageMap = {
+      [String(getProductSku(mainProduct))]: getCartImageUrl(mainProduct),
+      [String(getProductSku(recommendedProduct))]: getCartImageUrl(recommendedProduct),
+    }
+
+    const syncedOrderForm = {
+      ...latestOrderForm,
+      items: (latestOrderForm.items || []).map((item) => {
+        const imageUrl = productImageMap[String(item.id)]
+
+        if (!imageUrl) return item
+
+        return {
+          ...item,
+          imageUrl,
+          imageUrls: {
+            at1x: imageUrl,
+            at2x: imageUrl,
+            at3x: imageUrl,
+          },
+        }
+      }),
+    }
+
+    window.postMessage(
+      { eventName: 'vtex:orderFormUpdated', orderForm: syncedOrderForm },
+      window.origin
+    )
+    window.dispatchEvent(new Event('orderFormUpdated.vtex'))
+    window.postMessage(
+      { eventName: 'vtex:addToCart', items: syncedOrderForm.items || [] },
+      window.origin
+    )
+    setOrderForm(syncedOrderForm)
+  }
+
   const refreshOrderForm = async () => {
     try {
       const res = await fetch('/api/checkout/pub/orderForm', {
         method: 'GET',
         credentials: 'include',
       })
+
       if (res.ok) {
         const latest = await res.json()
         setOrderForm(latest)
@@ -79,10 +227,10 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
     } catch (e) {
       console.error('Erro ao atualizar orderForm:', e)
     }
+
     return orderForm
   }
 
-  // Usa SEMPRE o orderFormId recebido
   const addItem = async (orderFormId, product, sku, seller = '1') => {
     try {
       const imageUrl = getImageUrl(product)
@@ -123,20 +271,10 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
 
       const newOrderForm = await response.json()
       setOrderForm(newOrderForm)
-
-      // força re-render do minicart
-      window.postMessage({ eventName: 'vtex:addToCart', items: payload.items }, window.origin)
-      window.postMessage(
-        { eventName: 'vtex:orderFormUpdated', orderForm: newOrderForm },
-        window.origin
-      )
-      window.dispatchEvent(new Event('orderFormUpdated.vtex'))
-
-      openMinicart()
-      return true
+      return newOrderForm
     } catch (err) {
       console.error('Erro em addItem:', err)
-      return false
+      return null
     }
   }
 
@@ -144,31 +282,31 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
     if (!mainProduct || !recommendedProduct || isAdding) return
 
     setIsAdding(true)
+
     try {
-      // usa SEMPRE o id mais recente
       const current = await refreshOrderForm()
       const currentId = current?.id || orderForm?.id
-      if (!currentId) throw new Error('orderForm.id indisponível')
+
+      if (!currentId) throw new Error('orderForm.id indisponivel')
 
       const mainSku = getProductSku(mainProduct)
       const recSku = getProductSku(recommendedProduct)
 
-      const ok1 = await addItem(currentId, mainProduct, mainSku)
-      const ok2 = await addItem(currentId, recommendedProduct, recSku)
+      const updatedMainOrderForm = await addItem(currentId, mainProduct, mainSku)
+      const updatedRecOrderForm = await addItem(currentId, recommendedProduct, recSku)
 
-      if (!ok1 || !ok2) {
-        // fallback via redirect, mantendo sc=1
+      if (!updatedMainOrderForm || !updatedRecOrderForm) {
         await fetch(`/checkout/cart/add?sku=${mainSku}&qty=1&seller=1&sc=1`, {
           credentials: 'include',
         })
         await fetch(`/checkout/cart/add?sku=${recSku}&qty=1&seller=1&sc=1`, {
           credentials: 'include',
         })
-        openMinicart()
-        await refreshOrderForm()
-      } else {
-        await refreshOrderForm()
       }
+
+      const latestOrderForm = await refreshOrderForm()
+      syncMinicart(latestOrderForm)
+      openMinicart()
     } catch (e) {
       console.error('Erro no handleAddToCart:', e)
     } finally {
@@ -176,22 +314,30 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
     }
   }
 
-  // Buscar produtos recomendados
   useEffect(() => {
     if (!mainProduct?.productId) return
 
     const fetchSuggestions = async () => {
       setLoading(true)
+
       try {
         const res = await fetch(
           `/api/catalog_system/pub/products/crossselling/suggestions/${mainProduct.productId}`
         )
+
         if (res.ok) {
           const products = await res.json()
-          if (products.length) setRecommendedProduct(products[0])
+          if (products.length) {
+            const suggestedProduct = products[0]
+            const completeSuggestedProduct = await fetchProductById(
+              suggestedProduct?.productId
+            )
+
+            setRecommendedProduct(completeSuggestedProduct || suggestedProduct)
+          }
         }
       } catch (e) {
-        console.error('Erro ao buscar sugestões:', e)
+        console.error('Erro ao buscar sugestoes:', e)
       } finally {
         setLoading(false)
       }
@@ -200,24 +346,71 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
     fetchSuggestions()
   }, [mainProduct?.productId])
 
-  // Preços individuais
-  const mainPrice = useMemo(() => getProductPrice(mainProduct), [mainProduct])
-  const recPrice = useMemo(() => getProductPrice(recommendedProduct), [recommendedProduct])
+  const mainCashPrice = useMemo(() => getCashPriceData(mainProduct), [mainProduct])
+  const recCashPrice = useMemo(
+    () => getCashPriceData(recommendedProduct),
+    [recommendedProduct]
+  )
 
-  // Parcelas individuais
-  const mainInstallments = useMemo(() => calculateInstallments(mainPrice), [mainPrice])
-  const recInstallments = useMemo(() => calculateInstallments(recPrice), [recPrice])
+  const mainInstallments = useMemo(() => getInstallmentData(mainProduct), [mainProduct])
+  const recInstallments = useMemo(
+    () => getInstallmentData(recommendedProduct),
+    [recommendedProduct]
+  )
 
-  // Total
+  const totalSpotDiscountPercent = useMemo(
+    () => Math.max(mainCashPrice.discountPercent || 0, recCashPrice.discountPercent || 0),
+    [mainCashPrice, recCashPrice]
+  )
+
+  const mainDisplayedCashPrice = useMemo(() => {
+    if (!mainInstallments.total) return mainCashPrice.finalPrice
+
+    return totalSpotDiscountPercent > 0
+      ? mainInstallments.total * (1 - totalSpotDiscountPercent / 100)
+      : mainCashPrice.finalPrice
+  }, [mainCashPrice, mainInstallments, totalSpotDiscountPercent])
+
+  const recDisplayedCashPrice = useMemo(() => {
+    if (!recInstallments.total) return recCashPrice.finalPrice
+
+    return totalSpotDiscountPercent > 0
+      ? recInstallments.total * (1 - totalSpotDiscountPercent / 100)
+      : recCashPrice.finalPrice
+  }, [recCashPrice, recInstallments, totalSpotDiscountPercent])
+
   const totalPrice = useMemo(() => {
     if (!mainProduct || !recommendedProduct) return 0
-    return mainPrice + recPrice
-  }, [mainPrice, recPrice, mainProduct, recommendedProduct])
 
-  const totalInstallments = useMemo(
-    () => calculateInstallments(totalPrice),
-    [totalPrice]
-  )
+    const installmentTotal = (mainInstallments.total || 0) + (recInstallments.total || 0)
+
+    return totalSpotDiscountPercent > 0
+      ? installmentTotal * (1 - totalSpotDiscountPercent / 100)
+      : mainCashPrice.finalPrice + recCashPrice.finalPrice
+  }, [
+    mainCashPrice,
+    recCashPrice,
+    mainInstallments,
+    recInstallments,
+    mainProduct,
+    recommendedProduct,
+    totalSpotDiscountPercent,
+  ])
+
+  const totalInstallments = useMemo(() => {
+    const installmentCount =
+      mainInstallments.installments === recInstallments.installments
+        ? mainInstallments.installments
+        : Math.min(mainInstallments.installments || 10, recInstallments.installments || 10)
+
+    const total = (mainInstallments.total || 0) + (recInstallments.total || 0)
+
+    return {
+      total,
+      installment: installmentCount > 0 ? total / installmentCount : total,
+      installments: installmentCount || 10,
+    }
+  }, [mainInstallments, recInstallments])
 
   if (!mainProduct || !recommendedProduct || loading) return null
 
@@ -227,7 +420,6 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
         <h2 className={styles.buyTogetherTitle}>{title}</h2>
 
         <div className={styles.buyTogetherProducts}>
-          {/* Produto Principal */}
           <div className={styles.buyTogetherProduct}>
             <div className={styles.buyTogetherProductImage}>
               <img
@@ -238,27 +430,25 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
             </div>
 
             <div className={styles.buyTogetherProductContent}>
-              <h3 className={styles.buyTogetherProductName}>
-                {mainProduct?.productName}
-              </h3>
+              <h3 className={styles.buyTogetherProductName}>{mainProduct?.productName}</h3>
 
               <div className={styles.buyTogetherProductPrice}>
                 <strong className={styles.buyTogetherPriceHighlight}>
-                  {formatPrice(mainPrice)} no boleto ou pix
+                  {formatPrice(mainDisplayedCashPrice)} no boleto ou pix
                 </strong>
                 <p className={styles.buyTogetherInstallments}>
-                  ou <strong>{mainInstallments.total}</strong> em 10x de {mainInstallments.installment} sem juros
+                  ou <strong>{formatPrice(mainInstallments.total)}</strong> em{' '}
+                  {mainInstallments.installments}x de{' '}
+                  {formatPrice(mainInstallments.installment)} sem juros
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Sinal de + */}
           <div className={styles.buyTogetherPlus}>
             <span>+</span>
           </div>
 
-          {/* Produto Recomendado */}
           <div className={styles.buyTogetherProduct}>
             <div className={styles.buyTogetherProductImage}>
               <img
@@ -275,16 +465,17 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
 
               <div className={styles.buyTogetherProductPrice}>
                 <strong className={styles.buyTogetherPriceHighlight}>
-                  {formatPrice(recPrice)} no boleto ou pix
+                  {formatPrice(recDisplayedCashPrice)} no boleto ou pix
                 </strong>
                 <p className={styles.buyTogetherInstallments}>
-                  ou <strong>{recInstallments.total}</strong> em 10x de {recInstallments.installment} sem juros
+                  ou <strong>{formatPrice(recInstallments.total)}</strong> em{' '}
+                  {recInstallments.installments}x de{' '}
+                  {formatPrice(recInstallments.installment)} sem juros
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Total e Botão */}
           <div className={styles.buyTogetherTotal}>
             <div className={styles.buyTogetherTotalProducts}>2 produtos</div>
 
@@ -293,7 +484,9 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
                 {formatPrice(totalPrice)} no boleto ou pix
               </strong>
               <p className={styles.buyTogetherInstallments}>
-                ou <strong>{totalInstallments.total}</strong> em 10x de {totalInstallments.installment} sem juros
+                ou <strong>{formatPrice(totalInstallments.total)}</strong> em até{' '}
+                {totalInstallments.installments}x de{' '}
+                {formatPrice(totalInstallments.installment)} sem juros
               </p>
             </div>
 

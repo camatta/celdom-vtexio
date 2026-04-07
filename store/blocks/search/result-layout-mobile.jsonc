@@ -2,6 +2,7 @@
   "search-result-layout.mobile": {
     "title": "Layout Mobile",
     "children": [
+      "category-search-image-priority",
       "flex-layout.row#search-bread",
       "flex-layout.row#search-banner-desk",
       "flex-layout.row#search-title",

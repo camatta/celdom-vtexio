@@ -2,7 +2,7 @@ import React from "react";
 
 function LogoLoja() {
     return (
-        <h1 style={{"marginBlock":"0"}}>
+        <div style={{"marginBlock":"0"}}>
             <a href="/" className="logoLink" aria-label="Celdom">
                 <svg width="160" height="38" viewBox="0 0 160 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_12156_456)">
@@ -22,7 +22,7 @@ function LogoLoja() {
                     </defs>
                 </svg>
             </a>
-        </h1>
+        </div>
     )
 }
 

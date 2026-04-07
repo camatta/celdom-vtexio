@@ -105,6 +105,7 @@
     "props": {
       "src": "assets/areas/gourmet.png",
       "alt": "Área Gourmet",
+      "loading": "lazy",
       "link": {
         "url": "/adegas-de-embutir"
       }

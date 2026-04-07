@@ -2,6 +2,7 @@
   "search-result-layout.desktop": {
     "title": "Layout Desktop",
     "children": [
+      "category-search-image-priority",
       "flex-layout.row#search-bread",
       "flex-layout.row#result-grid"
     ],

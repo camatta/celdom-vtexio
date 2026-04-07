@@ -71,6 +71,7 @@
     "blockClass": "institucional",
     "src": "assets/institucional/celdom.jpg",
     "alt": "Celdom",
+    "loading": "lazy",
     "link": {
     "url": "/"
 
