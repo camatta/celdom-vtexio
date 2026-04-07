@@ -30,7 +30,7 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
   const { orderForm, setOrderForm } = useOrderForm()
 
   const [isAdding, setIsAdding] = useState(false)
-  const [recommendedProduct, setRecommendedProduct] = useState(null)
+  const [recommendedProducts, setRecommendedProducts] = useState([])
   const [loading, setLoading] = useState(false)
 
   const fetchProductById = async (productId) => {
@@ -161,6 +161,7 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
   }
 
   const getProductSku = (product) => product?.items?.[0]?.itemId || product?.productId
+  const getSellerId = (product) => product?.items?.[0]?.sellers?.[0]?.sellerId || '1'
 
   const openMinicart = () => {
     window.dispatchEvent(new CustomEvent('openMinicart', { detail: { open: true } }))
@@ -176,10 +177,13 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
   const syncMinicart = (latestOrderForm) => {
     if (!latestOrderForm) return
 
-    const productImageMap = {
-      [String(getProductSku(mainProduct))]: getCartImageUrl(mainProduct),
-      [String(getProductSku(recommendedProduct))]: getCartImageUrl(recommendedProduct),
-    }
+    const productImageMap = [mainProduct, ...recommendedProducts].reduce((acc, product) => {
+      const sku = String(getProductSku(product) || '')
+
+      if (sku) acc[sku] = getCartImageUrl(product)
+
+      return acc
+    }, {})
 
     const syncedOrderForm = {
       ...latestOrderForm,
@@ -279,7 +283,7 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
   }
 
   const handleAddToCart = async () => {
-    if (!mainProduct || !recommendedProduct || isAdding) return
+    if (!mainProduct || !recommendedProducts.length || isAdding) return
 
     setIsAdding(true)
 
@@ -289,19 +293,16 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
 
       if (!currentId) throw new Error('orderForm.id indisponivel')
 
-      const mainSku = getProductSku(mainProduct)
-      const recSku = getProductSku(recommendedProduct)
+      for (const product of [mainProduct, ...recommendedProducts]) {
+        const sku = getProductSku(product)
+        const seller = getSellerId(product)
+        const updatedOrderForm = await addItem(currentId, product, sku, seller)
 
-      const updatedMainOrderForm = await addItem(currentId, mainProduct, mainSku)
-      const updatedRecOrderForm = await addItem(currentId, recommendedProduct, recSku)
-
-      if (!updatedMainOrderForm || !updatedRecOrderForm) {
-        await fetch(`/checkout/cart/add?sku=${mainSku}&qty=1&seller=1&sc=1`, {
-          credentials: 'include',
-        })
-        await fetch(`/checkout/cart/add?sku=${recSku}&qty=1&seller=1&sc=1`, {
-          credentials: 'include',
-        })
+        if (!updatedOrderForm) {
+          await fetch(`/checkout/cart/add?sku=${sku}&qty=1&seller=${seller}&sc=1`, {
+            credentials: 'include',
+          })
+        }
       }
 
       const latestOrderForm = await refreshOrderForm()
@@ -327,17 +328,36 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
 
         if (res.ok) {
           const products = await res.json()
-          if (products.length) {
-            const suggestedProduct = products[0]
-            const completeSuggestedProduct = await fetchProductById(
-              suggestedProduct?.productId
-            )
+          const uniqueSuggestedProducts = products.filter(
+            (product, index, currentProducts) =>
+              product?.productId &&
+              String(product.productId) !== String(mainProduct.productId) &&
+              currentProducts.findIndex(
+                (currentProduct) =>
+                  String(currentProduct?.productId) === String(product.productId)
+              ) === index
+          )
 
-            setRecommendedProduct(completeSuggestedProduct || suggestedProduct)
+          if (!uniqueSuggestedProducts.length) {
+            setRecommendedProducts([])
+            return
           }
+
+          const completeSuggestedProducts = await Promise.all(
+            uniqueSuggestedProducts.map(async (suggestedProduct) => {
+              const completeSuggestedProduct = await fetchProductById(
+                suggestedProduct?.productId
+              )
+
+              return completeSuggestedProduct || suggestedProduct
+            })
+          )
+
+          setRecommendedProducts(completeSuggestedProducts.filter(Boolean))
         }
       } catch (e) {
         console.error('Erro ao buscar sugestoes:', e)
+        setRecommendedProducts([])
       } finally {
         setLoading(false)
       }
@@ -346,73 +366,78 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
     fetchSuggestions()
   }, [mainProduct?.productId])
 
-  const mainCashPrice = useMemo(() => getCashPriceData(mainProduct), [mainProduct])
-  const recCashPrice = useMemo(
-    () => getCashPriceData(recommendedProduct),
-    [recommendedProduct]
+  const allProducts = useMemo(
+    () => (mainProduct ? [mainProduct, ...recommendedProducts] : []),
+    [mainProduct, recommendedProducts]
   )
 
-  const mainInstallments = useMemo(() => getInstallmentData(mainProduct), [mainProduct])
-  const recInstallments = useMemo(
-    () => getInstallmentData(recommendedProduct),
-    [recommendedProduct]
-  )
+  const pricingData = useMemo(() => {
+    const productCards = allProducts.map((product) => {
+      const cashPrice = getCashPriceData(product)
+      const installments = getInstallmentData(product)
 
-  const totalSpotDiscountPercent = useMemo(
-    () => Math.max(mainCashPrice.discountPercent || 0, recCashPrice.discountPercent || 0),
-    [mainCashPrice, recCashPrice]
-  )
+      return {
+        product,
+        cashPrice,
+        installments,
+      }
+    })
 
-  const mainDisplayedCashPrice = useMemo(() => {
-    if (!mainInstallments.total) return mainCashPrice.finalPrice
+    const totalSpotDiscountPercent = productCards.reduce(
+      (highestDiscount, productData) =>
+        Math.max(highestDiscount, productData.cashPrice.discountPercent || 0),
+      0
+    )
 
-    return totalSpotDiscountPercent > 0
-      ? mainInstallments.total * (1 - totalSpotDiscountPercent / 100)
-      : mainCashPrice.finalPrice
-  }, [mainCashPrice, mainInstallments, totalSpotDiscountPercent])
+    const productsWithDisplayPrice = productCards.map((productData) => {
+      const displayedCashPrice = productData.installments.total
+        ? totalSpotDiscountPercent > 0
+          ? productData.installments.total * (1 - totalSpotDiscountPercent / 100)
+          : productData.cashPrice.finalPrice
+        : productData.cashPrice.finalPrice
 
-  const recDisplayedCashPrice = useMemo(() => {
-    if (!recInstallments.total) return recCashPrice.finalPrice
+      return {
+        ...productData,
+        displayedCashPrice,
+      }
+    })
 
-    return totalSpotDiscountPercent > 0
-      ? recInstallments.total * (1 - totalSpotDiscountPercent / 100)
-      : recCashPrice.finalPrice
-  }, [recCashPrice, recInstallments, totalSpotDiscountPercent])
+    const totalInstallmentValue = productsWithDisplayPrice.reduce(
+      (total, productData) => total + (productData.installments.total || 0),
+      0
+    )
 
-  const totalPrice = useMemo(() => {
-    if (!mainProduct || !recommendedProduct) return 0
+    const totalCashValue = productsWithDisplayPrice.reduce(
+      (total, productData) => total + (productData.cashPrice.finalPrice || 0),
+      0
+    )
 
-    const installmentTotal = (mainInstallments.total || 0) + (recInstallments.total || 0)
+    const validInstallmentCounts = productsWithDisplayPrice
+      .map((productData) => productData.installments.installments || 10)
+      .filter(Boolean)
 
-    return totalSpotDiscountPercent > 0
-      ? installmentTotal * (1 - totalSpotDiscountPercent / 100)
-      : mainCashPrice.finalPrice + recCashPrice.finalPrice
-  }, [
-    mainCashPrice,
-    recCashPrice,
-    mainInstallments,
-    recInstallments,
-    mainProduct,
-    recommendedProduct,
-    totalSpotDiscountPercent,
-  ])
-
-  const totalInstallments = useMemo(() => {
-    const installmentCount =
-      mainInstallments.installments === recInstallments.installments
-        ? mainInstallments.installments
-        : Math.min(mainInstallments.installments || 10, recInstallments.installments || 10)
-
-    const total = (mainInstallments.total || 0) + (recInstallments.total || 0)
+    const totalInstallmentsCount = validInstallmentCounts.length
+      ? Math.min(...validInstallmentCounts)
+      : 10
 
     return {
-      total,
-      installment: installmentCount > 0 ? total / installmentCount : total,
-      installments: installmentCount || 10,
+      productCards: productsWithDisplayPrice,
+      totalPrice:
+        totalSpotDiscountPercent > 0
+          ? totalInstallmentValue * (1 - totalSpotDiscountPercent / 100)
+          : totalCashValue,
+      totalInstallments: {
+        total: totalInstallmentValue,
+        installment:
+          totalInstallmentsCount > 0
+            ? totalInstallmentValue / totalInstallmentsCount
+            : totalInstallmentValue,
+        installments: totalInstallmentsCount,
+      },
     }
-  }, [mainInstallments, recInstallments])
+  }, [allProducts])
 
-  if (!mainProduct || !recommendedProduct || loading) return null
+  if (!mainProduct || !recommendedProducts.length || loading) return null
 
   return (
     <div className={styles.buyTogetherContainer}>
@@ -420,73 +445,50 @@ const BuyTogether = ({ title = 'Compre Junto' }) => {
         <h2 className={styles.buyTogetherTitle}>{title}</h2>
 
         <div className={styles.buyTogetherProducts}>
-          <div className={styles.buyTogetherProduct}>
-            <div className={styles.buyTogetherProductImage}>
-              <img
-                src={getImageUrl(mainProduct)}
-                alt={mainProduct?.productName}
-                loading="lazy"
-              />
-            </div>
+          {pricingData.productCards.map(({ product, displayedCashPrice, installments }, index) => (
+            <React.Fragment key={getProductSku(product)}>
+              <div className={styles.buyTogetherProduct}>
+                <div className={styles.buyTogetherProductImage}>
+                  <img src={getImageUrl(product)} alt={product?.productName} loading="lazy" />
+                </div>
 
-            <div className={styles.buyTogetherProductContent}>
-              <h3 className={styles.buyTogetherProductName}>{mainProduct?.productName}</h3>
+                <div className={styles.buyTogetherProductContent}>
+                  <h3 className={styles.buyTogetherProductName}>{product?.productName}</h3>
 
-              <div className={styles.buyTogetherProductPrice}>
-                <strong className={styles.buyTogetherPriceHighlight}>
-                  {formatPrice(mainDisplayedCashPrice)} no boleto ou pix
-                </strong>
-                <p className={styles.buyTogetherInstallments}>
-                  ou <strong>{formatPrice(mainInstallments.total)}</strong> em{' '}
-                  {mainInstallments.installments}x de{' '}
-                  {formatPrice(mainInstallments.installment)} sem juros
-                </p>
+                  <div className={styles.buyTogetherProductPrice}>
+                    <strong className={styles.buyTogetherPriceHighlight}>
+                      {formatPrice(displayedCashPrice)} no boleto ou pix
+                    </strong>
+                    <p className={styles.buyTogetherInstallments}>
+                      ou <strong>{formatPrice(installments.total)}</strong> em{' '}
+                      {installments.installments}x de {formatPrice(installments.installment)} sem
+                      juros
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div className={styles.buyTogetherPlus}>
-            <span>+</span>
-          </div>
-
-          <div className={styles.buyTogetherProduct}>
-            <div className={styles.buyTogetherProductImage}>
-              <img
-                src={getImageUrl(recommendedProduct)}
-                alt={recommendedProduct?.productName}
-                loading="lazy"
-              />
-            </div>
-
-            <div className={styles.buyTogetherProductContent}>
-              <h3 className={styles.buyTogetherProductName}>
-                {recommendedProduct?.productName}
-              </h3>
-
-              <div className={styles.buyTogetherProductPrice}>
-                <strong className={styles.buyTogetherPriceHighlight}>
-                  {formatPrice(recDisplayedCashPrice)} no boleto ou pix
-                </strong>
-                <p className={styles.buyTogetherInstallments}>
-                  ou <strong>{formatPrice(recInstallments.total)}</strong> em{' '}
-                  {recInstallments.installments}x de{' '}
-                  {formatPrice(recInstallments.installment)} sem juros
-                </p>
-              </div>
-            </div>
-          </div>
+              {index < pricingData.productCards.length - 1 ? (
+                <div className={styles.buyTogetherPlus}>
+                  <span>+</span>
+                </div>
+              ) : null}
+            </React.Fragment>
+          ))}
 
           <div className={styles.buyTogetherTotal}>
-            <div className={styles.buyTogetherTotalProducts}>2 produtos</div>
+            <div className={styles.buyTogetherTotalProducts}>
+              {pricingData.productCards.length} produtos
+            </div>
 
             <div className={styles.buyTogetherTotalPrice}>
               <strong className={styles.buyTogetherPriceHighlight}>
-                {formatPrice(totalPrice)} no boleto ou pix
+                {formatPrice(pricingData.totalPrice)} no boleto ou pix
               </strong>
               <p className={styles.buyTogetherInstallments}>
-                ou <strong>{formatPrice(totalInstallments.total)}</strong> em até{' '}
-                {totalInstallments.installments}x de{' '}
-                {formatPrice(totalInstallments.installment)} sem juros
+                ou <strong>{formatPrice(pricingData.totalInstallments.total)}</strong> em até{' '}
+                {pricingData.totalInstallments.installments}x de{' '}
+                {formatPrice(pricingData.totalInstallments.installment)} sem juros
               </p>
             </div>
 
