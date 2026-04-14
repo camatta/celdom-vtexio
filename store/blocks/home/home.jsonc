@@ -1,6 +1,7 @@
 {
   "store.home": {
     "blocks": [
+      "home-slider-lazy-images",
       "banner-slider",
       //"__fold__",
       "flex-layout.row#slider-marcas",

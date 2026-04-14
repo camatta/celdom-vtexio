@@ -45,6 +45,9 @@
   "category-search-image-priority": {
     "component": "CategorySearchImagePriority"
   },
+  "home-slider-lazy-images": {
+    "component": "HomeSliderLazyImages"
+  },
   "product-button-img-ambientada": {
     "component": "AmbientImageSwitcher",
     "composition": "children"

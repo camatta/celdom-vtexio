@@ -6,9 +6,13 @@ const GALLERY_IMAGE_SELECTOR = [
   '.vtex-search-result-3-x-galleryItem img',
 ].join(', ')
 
-const FIRST_ROW_TOLERANCE = 8
+const EAGER_IMAGES_COUNT = 3
+const CATEGORY_LAYOUT_SELECTOR =
+  '.vtex-search-result-3-x-loadingOverlay--search-result-layout'
 
 const isCategoryPage = () => {
+  if (document.querySelector(CATEGORY_LAYOUT_SELECTOR)) return true
+
   const searchParams = new URLSearchParams(window.location.search)
   const map = searchParams.get('map')
 
@@ -17,7 +21,7 @@ const isCategoryPage = () => {
   return map.split(',').some((segment) => segment.trim() === 'c')
 }
 
-const promoteFirstRowImages = () => {
+const applyCategoryImageLoading = () => {
   if (!isCategoryPage()) return
 
   const images = Array.from(document.querySelectorAll(GALLERY_IMAGE_SELECTOR)).filter(
@@ -26,44 +30,26 @@ const promoteFirstRowImages = () => {
 
   if (!images.length) return
 
-  images.forEach((image) => {
-    if (image.dataset.categoryPriorityManaged !== '1') return
+  images.forEach((image, index) => {
+    const shouldLoadEagerly = index < EAGER_IMAGES_COUNT
 
-    image.setAttribute('fetchpriority', 'auto')
-
-    if (image.getAttribute('loading') === 'eager') {
-      image.setAttribute('loading', 'lazy')
-    }
-
-    delete image.dataset.categoryPriorityManaged
-  })
-
-  const firstImageTop = images[0].getBoundingClientRect().top
-
-  images.forEach((image) => {
-    const imageTop = image.getBoundingClientRect().top
-    const isFirstRow = Math.abs(imageTop - firstImageTop) <= FIRST_ROW_TOLERANCE
-
-    if (!isFirstRow) return
-
-    image.setAttribute('fetchpriority', 'high')
-    image.setAttribute('loading', 'eager')
-    image.dataset.categoryPriorityManaged = '1'
+    image.setAttribute('loading', shouldLoadEagerly ? 'eager' : 'lazy')
+    image.setAttribute('fetchpriority', shouldLoadEagerly ? 'high' : 'auto')
   })
 }
 
-const schedulePromotion = () => {
+const scheduleLoadingUpdate = () => {
   window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(promoteFirstRowImages)
+    window.requestAnimationFrame(applyCategoryImageLoading)
   })
 }
 
 const CategorySearchImagePriority = () => {
   useEffect(() => {
-    schedulePromotion()
+    scheduleLoadingUpdate()
 
     const observer = new MutationObserver(() => {
-      schedulePromotion()
+      scheduleLoadingUpdate()
     })
 
     observer.observe(document.body, {
@@ -71,11 +57,11 @@ const CategorySearchImagePriority = () => {
       subtree: true,
     })
 
-    window.addEventListener('popstate', schedulePromotion)
+    window.addEventListener('popstate', scheduleLoadingUpdate)
 
     return () => {
       observer.disconnect()
-      window.removeEventListener('popstate', schedulePromotion)
+      window.removeEventListener('popstate', scheduleLoadingUpdate)
     }
   }, [])
 
