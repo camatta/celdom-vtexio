@@ -3,6 +3,10 @@
     "component": "LogoLoja"
   },
 
+  "summary-name-heading": {
+    "component": "SummaryNameHeading"
+  },
+
   "aux-floating-container": {
     "component": "AuxFloatingContainer",
     "composition": "children"
@@ -47,6 +51,12 @@
   },
   "home-slider-lazy-images": {
     "component": "HomeSliderLazyImages"
+  },
+  "product-related-lazy-images": {
+    "component": "ProductRelatedLazyImages"
+  },
+  "url-property-cleaner": {
+    "component": "UrlPropertyCleaner"
   },
   "product-button-img-ambientada": {
     "component": "AmbientImageSwitcher",

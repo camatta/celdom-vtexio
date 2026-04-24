@@ -1,5 +1,6 @@
 {
   "store.product": {
+    "blocks": ["product-related-lazy-images"],
     "children": [
       "flex-layout.row#product-breadcrumb",
       "flex-layout.row#product-main",

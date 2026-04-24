@@ -1,9 +1,21 @@
 {
   "product-summary.shelf": {
     "children": [
+      "url-property-cleaner",
       "flex-layout.row#summary-tags",
       "flex-layout.row#summary-wish-image",
       "flex-layout.row#summary-name",
+      "flex-layout.row#summary-price",
+      "condition-layout.product#summary",
+      "flex-layout.row#summary-action"
+    ]
+  },
+  "product-summary.shelf#home": {
+    "children": [
+      "url-property-cleaner",
+      "flex-layout.row#summary-tags",
+      "flex-layout.row#summary-wish-image",
+      "flex-layout.row#summary-name-home",
       "flex-layout.row#summary-price",
       "condition-layout.product#summary",
       "flex-layout.row#summary-action"

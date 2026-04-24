@@ -118,7 +118,7 @@
   line-height: 19px;
 }
 
-.heading--footer-title {
+.heading--footer-title, .paragraph--footer-title {
   margin: 0 0 32px;
   font-size: 14px;
   font-weight: 700;
@@ -628,7 +628,7 @@
   margin-top: 32px;
 }
 
-.headingLevel1--home-intro-rich {
+.headingLevel1--home-intro-rich, .headingLevel2--home-intro-rich, .headingLevel3--home-intro-rich {
   font-size: 26px;
   line-height: 34px;
   font-weight: 700;
@@ -724,7 +724,7 @@
     width: 300px;
   }
 
-  .headingLevel1--home-intro-rich {
+  .headingLevel1--home-intro-rich, .headingLevel2--home-intro-rich, .headingLevel3--home-intro-rich {
     font-size: 24px;
     line-height: 32px;
   }
@@ -880,7 +880,7 @@
     font-size: 14px;
   }
 
-  .headingLevel1--home-intro-rich {
+  .headingLevel1--home-intro-rich, .headingLevel2--home-intro-rich, .headingLevel3--home-intro-rich {
     font-size: 22px;
     line-height: 30px;
   }

@@ -24,7 +24,7 @@
       "title": "Título",
       "props": {
         "blockClass": ["best-sellers-title", "shelf-title", "marcas-title"],
-        "text": "#### Compre por Marcas"
+        "text": "## Compre por Marcas"
       }
     },
     "link#marcas-link": {

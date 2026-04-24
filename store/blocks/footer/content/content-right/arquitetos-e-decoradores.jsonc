@@ -18,7 +18,7 @@
     "rich-text#title-arquitetos-e-decoradores": {
     "props": {
       "blockClass": "footer-title",
-      "text": "#### Arquitetos e Decoradores"
+      "text": "Arquitetos e Decoradores"
     }
   },
   "flex-layout.row#area-logada": {

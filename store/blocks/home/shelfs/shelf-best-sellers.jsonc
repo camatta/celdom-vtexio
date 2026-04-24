@@ -33,7 +33,7 @@
   "rich-text#best-sellers-title": {
     "title": "Título",
     "props": {
-      "text": "#### Mais vendidos",
+      "text": "## Mais vendidos",
       "blockClass": ["best-sellers-title", "shelf-title"]
     }
   },
@@ -62,7 +62,7 @@
       "listName": "Destaques",
       "installmentCriteria": "MAX_WITH_INTEREST"
     },
-    "blocks": ["product-summary.shelf"],
+    "blocks": ["product-summary.shelf#home"],
     "children": ["slider-layout#best-sellers-products"]
   },
   "slider-layout#best-sellers-products": {

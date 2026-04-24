@@ -44,7 +44,7 @@
 
   "rich-text#home-intro-rich-v8": {
     "props": {
-      "text": "# Encontre tudo para construcao, eletro e moveis nas nossas lojas\n\nA Celdom oferece uma curadoria completa para transformar ambientes com design, tecnologia e funcionalidade em cada detalhe.\n\n# Atendimento especializado em cada etapa\n\nCom lojas fisicas em pontos estrategicos e um e-commerce completo, reunimos desde eletrodomesticos premium ate mobiliario e itens de decoracao para diferentes estilos de projeto. Nossa equipe acompanha cada etapa da jornada para facilitar sua escolha, com atendimento consultivo e marcas reconhecidas.",
+      "text": "## Encontre tudo para construcao, eletro e moveis nas nossas lojas\n\nA Celdom oferece uma curadoria completa para transformar ambientes com design, tecnologia e funcionalidade em cada detalhe.\n\n### Atendimento especializado em cada etapa\n\nCom lojas fisicas em pontos estrategicos e um e-commerce completo, reunimos desde eletrodomesticos premium ate mobiliario e itens de decoracao para diferentes estilos de projeto. Nossa equipe acompanha cada etapa da jornada para facilitar sua escolha, com atendimento consultivo e marcas reconhecidas.",
       "blockClass": "home-intro-rich"
     }
   },

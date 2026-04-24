@@ -17,5 +17,25 @@
     "props": {
       "blockClass": "summary-name"
     }
+  },
+
+  "flex-layout.row#summary-name-home": {
+    "props": {
+      "blockClass": ["summary-name"]
+    },
+    "children": ["flex-layout.col#summary-name-home"]
+  },
+
+  "flex-layout.col#summary-name-home": {
+    "props": {
+      "blockClass": ["summary-name-content"]
+    },
+    "children": ["summary-name-heading#summary-name-home"]
+  },
+
+  "summary-name-heading#summary-name-home": {
+    "props": {
+      "blockClass": "summary-name"
+    }
   }
 }

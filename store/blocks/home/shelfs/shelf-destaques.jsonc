@@ -74,7 +74,7 @@
     "props": {
       "installmentCriteria": "MAX_WITH_INTEREST"
     },
-    "blocks": ["product-summary.shelf"],
+    "blocks": ["product-summary.shelf#home"],
     "children": ["slider-layout#destaques-products"]
   },
 

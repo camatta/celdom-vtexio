@@ -8,7 +8,7 @@
 
   "rich-text#cms-menu-title": {
     "props": {
-      "text": "#### Institucional",
+      "text": "Institucional",
       "blockClass": "footer-title"
     }
   },
