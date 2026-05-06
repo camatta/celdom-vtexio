@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 
+const GALLERY_ITEM_SELECTOR = '.vtex-search-result-3-x-galleryItem'
 const GALLERY_IMAGE_SELECTOR = [
-  '.vtex-search-result-3-x-galleryItem img.vtex-product-summary-2-x-imageNormal',
-  '.vtex-search-result-3-x-galleryItem img.vtex-product-summary-2-x-image',
-  '.vtex-search-result-3-x-galleryItem img',
+  'img.vtex-product-summary-2-x-imageNormal',
+  'img.vtex-product-summary-2-x-image',
 ].join(', ')
 
 const EAGER_IMAGES_COUNT = 3
@@ -24,17 +24,23 @@ const isCategoryPage = () => {
 const applyCategoryImageLoading = () => {
   if (!isCategoryPage()) return
 
-  const images = Array.from(document.querySelectorAll(GALLERY_IMAGE_SELECTOR)).filter(
-    (image) => image instanceof HTMLImageElement
+  const galleryItems = Array.from(document.querySelectorAll(GALLERY_ITEM_SELECTOR)).filter(
+    (item) => item instanceof HTMLElement
   )
 
-  if (!images.length) return
+  if (!galleryItems.length) return
 
-  images.forEach((image, index) => {
+  galleryItems.forEach((item, index) => {
     const shouldLoadEagerly = index < EAGER_IMAGES_COUNT
+    const images = Array.from(item.querySelectorAll(GALLERY_IMAGE_SELECTOR)).filter(
+      (image) => image instanceof HTMLImageElement
+    )
 
-    image.setAttribute('loading', shouldLoadEagerly ? 'eager' : 'lazy')
-    image.setAttribute('fetchpriority', shouldLoadEagerly ? 'high' : 'auto')
+    images.forEach((image) => {
+      image.setAttribute('loading', shouldLoadEagerly ? 'eager' : 'lazy')
+      image.setAttribute('fetchpriority', shouldLoadEagerly ? 'high' : 'auto')
+      image.fetchPriority = shouldLoadEagerly ? 'high' : 'auto'
+    })
   })
 }
 
