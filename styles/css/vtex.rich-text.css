@@ -35,6 +35,17 @@
   margin: 0 0 24px;
   position: relative;
 }
+.container--home-main-heading {
+  justify-content: center;
+}
+.headingLevel1--home-main-heading {
+  margin: 24px 0 0;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #2D2926;
+  text-align: center;
+}
 .heading--ratings-title,
 .headingLevel2--ratings-title {
   font-size: 24px;

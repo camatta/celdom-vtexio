@@ -103,7 +103,10 @@
 }
 
 .flexRowContent--marcas{
-  margin-top:80px;
+  margin-top:32px;
+}
+.flexRowContent--home-main-heading {
+  justify-content: center;
 }
 
 /* SLIDER DE CATEGORIAS */

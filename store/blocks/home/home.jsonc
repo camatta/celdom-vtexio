@@ -3,6 +3,7 @@
     "blocks": [
       "home-slider-lazy-images",
       "banner-slider",
+      "flex-layout.row#home-main-heading",
       //"__fold__",
       "flex-layout.row#slider-marcas",
       "flex-layout.row#shelf-best-sellers",
@@ -14,5 +15,19 @@
       "flex-layout.row#home-intro",
       "flex-layout.row#carrossel-lojas"
     ]
+  },
+  "flex-layout.row#home-main-heading": {
+    "props": {
+      "blockClass": ["custom-container", "home-main-heading"],
+      "preventHorizontalStretch": true,
+      "preventVerticalStretch": true
+    },
+    "children": ["rich-text#home-main-heading"]
+  },
+  "rich-text#home-main-heading": {
+    "props": {
+      "blockClass": "home-main-heading",
+      "text": "# Celdom | O melhor do design e tecnologia para sua cozinha"
+    }
   }
 }
