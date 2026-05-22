@@ -8,7 +8,8 @@
       "flex-layout.row#search-title",
       "flex-layout.row#search-toolbar-mobile",
       "flex-layout.row#search-products",
-      "flex-layout.row#search-fetchmore"
+      "flex-layout.row#search-fetchmore",
+      "flex-layout.row#category-faq"
       // "flex-layout.row#result-description"
     ],
     "props": {

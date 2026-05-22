@@ -1,5 +1,8 @@
 {
   "product-summary.shelf": {
+    "props": {
+      "trackListName": false
+    },
     "children": [
       "url-property-cleaner",
       "flex-layout.row#summary-tags",
@@ -11,6 +14,9 @@
     ]
   },
   "product-summary.shelf#home": {
+    "props": {
+      "trackListName": false
+    },
     "children": [
       "url-property-cleaner",
       "flex-layout.row#summary-tags",

@@ -9,5 +9,11 @@
       //"total-products.v2",
       "filter-navigator.v3"
     ]
+  },
+
+  "filter-navigator.v3": {
+    "props": {
+      "categoryFiltersMode": "default"
+    }
   }
 }

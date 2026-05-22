@@ -1,0 +1,34 @@
+{
+  "flex-layout.row#category-faq": {
+    "props": {
+      "blockClass": ["category-faq-container"]
+    },
+    "children": ["faq-accordion#category-default"]
+  },
+
+  "faq-accordion#category-default": {
+    "props": {
+      "isVisible": false,
+      "title": "Perguntas frequentes",
+      "blockClass": "categoryFaq",
+      "items": [
+        {
+          "question": "Como escolher o produto ideal para o meu projeto?",
+          "answer": "Considere as medidas do ambiente, o tipo de instalacao, a infraestrutura disponivel e a frequencia de uso. Em caso de duvida, a equipe Celdom pode orientar a escolha de acordo com o seu projeto e as especificacoes dos produtos."
+        },
+        {
+          "question": "A Celdom ajuda com especificacoes tecnicas antes da compra?",
+          "answer": "Sim. Voce pode consultar as informacoes disponiveis na pagina do produto e solicitar atendimento para confirmar medidas, compatibilidade, acabamento, voltagem, tipo de gas ou outros detalhes importantes antes de finalizar o pedido."
+        },
+        {
+          "question": "Os produtos precisam de instalacao profissional?",
+          "answer": "Muitos produtos exigem instalacao especializada para garantir seguranca, desempenho e preservacao da garantia. Sempre verifique o manual do fabricante e, quando necessario, conte com um profissional qualificado."
+        },
+        {
+          "question": "Como funcionam entrega e disponibilidade?",
+          "answer": "A disponibilidade, os prazos e os valores de entrega podem variar conforme o produto e o CEP informado. Para conferir as opcoes disponiveis para a sua regiao, simule o frete na pagina do produto ou no carrinho."
+        }
+      ]
+    }
+  }
+}

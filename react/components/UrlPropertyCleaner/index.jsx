@@ -1,7 +1,15 @@
 import { useEffect } from 'react'
 
-const PROPERTY_QUERY_PREFIX = 'property__'
-const LINK_SELECTOR = 'a[href*="property__"]'
+const QUERY_PARAMS_TO_REMOVE = ['map', 'order', 'PS', 'segment', 'routing']
+const QUERY_PARAM_PREFIXES_TO_REMOVE = ['property__']
+const LINK_SELECTOR = [
+  'a[href*="property__"]',
+  'a[href*="segment="]',
+  'a[href*="routing="]',
+  'a[href*="map="]',
+  'a[href*="order="]',
+  'a[href*="PS="]',
+].join(',')
 
 let activeInstances = 0
 let observer = null
@@ -14,7 +22,11 @@ const getCleanUrl = (urlValue) => {
   let changed = false
 
   Array.from(url.searchParams.keys()).forEach((key) => {
-    if (!key.startsWith(PROPERTY_QUERY_PREFIX)) return
+    const shouldRemove =
+      QUERY_PARAMS_TO_REMOVE.includes(key) ||
+      QUERY_PARAM_PREFIXES_TO_REMOVE.some((prefix) => key.startsWith(prefix))
+
+    if (!shouldRemove) return
 
     url.searchParams.delete(key)
     changed = true

@@ -114,5 +114,8 @@
   },
   "monte-sua-coifa": {
    "component": "MonteSuaCoifa"
+  },
+  "faq-accordion": {
+    "component": "FaqAccordion"
   }
 }

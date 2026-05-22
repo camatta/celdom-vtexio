@@ -200,7 +200,17 @@
 }
 
 :global(.vtex-search-result-3-x-galleryItem--normal:hover) :global(.flexRow--summary-price-container){
-  opacity: 0;
+  opacity: 1;
+}
+
+:global(.vtex-search-result-3-x-galleryItem--normal) :global(.vtex-flex-layout-0-x-flexRow--summary-action-container) {
+  position: initial;
+  opacity: 1;
+  margin: 12px 25px 0;
+}
+
+:global(.vtex-search-result-3-x-galleryItem--normal:hover) :global(.vtex-flex-layout-0-x-flexCol--summary-price-content) {
+  opacity: 1;
 }
 
 :global(.vtex-flex-layout-0-x-flexRowContent--search-banner-container) :global(.items-stretch){
@@ -437,5 +447,10 @@
   :global(.vtex-flex-layout-0-x-flexRowContent--lancamentosSection) > :global(.vtex-flex-layout-0-x-stretchChildrenWidth):first-child,
   :global(.vtex-flex-layout-0-x-flexRowContent--destaquesSection) > :global(.vtex-flex-layout-0-x-stretchChildrenWidth):last-child {
     min-width: 257px;
+  }
+
+  :global(.vtex-search-result-3-x-galleryItem--normal) :global(.vtex-flex-layout-0-x-flexRow--summary-action-container) {
+    display: block;
+    margin: 10px 0 0;
   }
 }

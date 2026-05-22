@@ -39,7 +39,7 @@
   },
   "link#best-sellers": {
     "props": {
-      "href": "/adegas-de-embutir?map=c",
+      "href": "/adegas-de-embutir",
       "label": "Ver tudo",
       "blockClass": ["best-sellers-link", "shelf-link"]
     }

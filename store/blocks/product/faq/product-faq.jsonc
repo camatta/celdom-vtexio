@@ -1,0 +1,34 @@
+{
+  "flex-layout.row#product-faq": {
+    "props": {
+      "blockClass": ["product-faq-container"]
+    },
+    "children": ["faq-accordion#product-default"]
+  },
+
+  "faq-accordion#product-default": {
+    "props": {
+      "isVisible": false,
+      "title": "Perguntas frequentes sobre o produto",
+      "blockClass": "productFaq",
+      "items": [
+        {
+          "question": "Como confirmar se este produto e adequado para o meu projeto?",
+          "answer": "Confira as medidas, especificacoes tecnicas, tipo de instalacao e requisitos de infraestrutura informados na pagina. Se precisar de apoio, solicite atendimento da equipe Celdom para validar compatibilidade com o seu ambiente."
+        },
+        {
+          "question": "O produto precisa de instalacao especializada?",
+          "answer": "Alguns produtos exigem instalacao profissional para garantir seguranca, desempenho e preservacao da garantia. Consulte o manual do fabricante e verifique as orientacoes tecnicas antes da instalacao."
+        },
+        {
+          "question": "Como funcionam prazo e valor de entrega?",
+          "answer": "O prazo e o valor de entrega dependem do produto, da disponibilidade em estoque e do CEP informado. Simule o frete na pagina do produto ou no carrinho para ver as opcoes disponiveis para a sua regiao."
+        },
+        {
+          "question": "Como solicitar orcamento ou atendimento sobre este produto?",
+          "answer": "Use o botao de solicitacao de orcamento ou os canais de atendimento disponiveis no site. A equipe Celdom pode orientar sobre disponibilidade, prazos, especificacoes e escolha do produto ideal."
+        }
+      ]
+    }
+  }
+}

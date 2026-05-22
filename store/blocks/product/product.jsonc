@@ -6,6 +6,7 @@
       "flex-layout.row#product-main",
       "flex-layout.row#product-banner-slider",
       "flex-layout.row#product-info-tabs",
+      "flex-layout.row#product-faq",
       "flex-layout.row#ratings",
       "flex-layout.row#related-products"
     ]
