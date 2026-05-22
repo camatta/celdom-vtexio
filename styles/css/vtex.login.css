@@ -439,3 +439,11 @@
     min-width: 257px;
   }
 }
+
+:global(.celdom-store-theme-1-x-firstLevelList:has(> a[href="/coifas/coifas-sob-medida"])) {
+    display: none;
+}
+
+:global(.celdom-store-theme-1-x-sidebarItemContainer:has(> a[href="/coifas/coifas-sob-medida"])) {
+    display: none;
+}

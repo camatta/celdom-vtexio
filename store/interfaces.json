@@ -45,6 +45,9 @@
   "category-search-image-priority": {
     "component": "CategorySearchImagePriority"
   },
+  "coifas-sob-medida-product-guard": {
+    "component": "CoifasSobMedidaProductGuard"
+  },
   "home-slider-lazy-images": {
     "component": "HomeSliderLazyImages"
   },

@@ -9,6 +9,22 @@ const GALLERY_IMAGE_SELECTOR = [
 const EAGER_IMAGES_COUNT = 3
 const CATEGORY_LAYOUT_SELECTOR =
   '.vtex-search-result-3-x-loadingOverlay--search-result-layout'
+const CATEGORY_FILTER_ITEM_SELECTOR =
+  '.vtex-search-result-3-x-filter__container[class*="--category"] .vtex-search-result-3-x-filterItem'
+const HIDDEN_CATEGORY_SLUG = 'coifas-sob-medida'
+
+const normalizeText = (value = '') =>
+  String(value)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim()
+    .toLowerCase()
+
+const isCoifasCategoryPage = () => {
+  if (!isCategoryPage()) return false
+
+  return normalizeText(window.location.pathname).includes('/coifas')
+}
 
 const isCategoryPage = () => {
   if (document.querySelector(CATEGORY_LAYOUT_SELECTOR)) return true
@@ -38,9 +54,33 @@ const applyCategoryImageLoading = () => {
   })
 }
 
+const hideSobMedidaCategoryFacet = () => {
+  if (!isCoifasCategoryPage()) return
+
+  const items = Array.from(document.querySelectorAll(CATEGORY_FILTER_ITEM_SELECTOR))
+
+  items.forEach((item) => {
+    const element = item
+
+    if (!(element instanceof HTMLElement)) return
+
+    const label = element.querySelector('.vtex-checkbox__label')?.textContent || ''
+    const normalizedLabel = normalizeText(label)
+    const hasTargetClass = element.className.includes(HIDDEN_CATEGORY_SLUG)
+
+    if (!hasTargetClass && !normalizedLabel.includes('coifas sob medida')) return
+
+    element.style.display = 'none'
+    element.setAttribute('aria-hidden', 'true')
+  })
+}
+
 const scheduleLoadingUpdate = () => {
   window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(applyCategoryImageLoading)
+    window.requestAnimationFrame(() => {
+      applyCategoryImageLoading()
+      hideSobMedidaCategoryFacet()
+    })
   })
 }
 

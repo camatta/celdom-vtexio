@@ -30,7 +30,7 @@
           "hideUnavailableItems" : true
         }
       ],
-      "GridSummary": "product-summary.shelf"
+      "GridSummary": "product-summary.shelf#search"
     }
   }
 }

@@ -10,6 +10,22 @@
       "pagination": "show-more",
       "preventRouteChange": true,
       "showFacetQuantity": true,
+      "hiddenFacets": {
+        "specificationFilters": {
+          "hiddenFilters": [
+            { "name": "Ambiente" },
+            { "name": "Instalação" },
+            { "name": "Formato" },
+            { "name": "Modelo" },
+            { "name": "Medida ideal" },
+            { "name": "Acabamento" },
+            { "name": "Tipo de Instalação" },
+            { "name": "Tipo de Comando" },
+            { "name": "Filtro" },
+            { "name": "Iluminação" }
+          ]
+        }
+      },
       "defaultGalleryLayout": "grid",
       "blockClass": "search-result-layout",
       "search-result-layout": "grid"

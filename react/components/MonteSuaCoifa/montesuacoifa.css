@@ -1,6 +1,12 @@
+* {
+  font-family: "DM Sans", sans-serif;
+}
+
 .mscContainer {
   margin: 0 auto;
   font-family: inherit;
+  border-bottom: 1px solid #A2A2A2;
+  padding-bottom: 32px;
 }
 
 .mscHeader {
@@ -21,6 +27,9 @@
   margin: 0;
   line-height: 18px;
 }
+.mscSubtitle + .mscSubtitle {
+  margin-top: 12px;
+}
 
 .mscProgressBarWrapper {
   margin-top: 40px;
@@ -32,6 +41,7 @@
   border-radius: 999px;
   background: #FFF8EB;
   overflow: hidden;
+  position: relative;
 }
 
 .mscProgressBarFill {
@@ -39,6 +49,18 @@
   border-radius: inherit;
   background: #FE5000;
   transition: width 0.3s ease;
+}
+
+.mscProgressBarPercent {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  color: #000;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .mscProgressLabel {
@@ -58,6 +80,7 @@
   color: #1C1C1C;
   font-weight: 700;
   margin-bottom: 8px;
+  margin-top: 32px;
 }
 
 .mscStepDescription {
@@ -65,33 +88,35 @@
   color: #000;
 }
 
+.mscStepLoading,
+.mscStepEmpty {
+  padding: 0 17px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: #2D2926;
+  text-align: center;
+}
+
 .mscOptionsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, 202px);
+  justify-content: center; /* centraliza as colunas reais */
   gap: 24px;
   margin-bottom: 32px;
   padding: 0 17px;
 }
 
 .mscOptionCard {
-  border: 1px solid #eee;
   border-radius: 16px;
-  padding: 8px 8px 12px;
   background: #fff;
   cursor: pointer;
   text-align: left;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease,
-    transform 0.1s ease;
-}
-
-.mscOptionCard:hover {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-  transform: translateY(-2px);
-}
-
-.mscOptionCardSelected {
-  border-color: #FE5000;
-  box-shadow: 0 12px 28px rgba(255, 90, 31, 0.18);
+  border: unset;
+  width: 202px;
+  color: #000;
+  -webkit-text-fill-color: #000;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .mscOptionImageWrapper {
@@ -110,23 +135,32 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 12px;
-  padding: 0 17px;
-}
-
-.mscOptionRadio {
-  width: 18px;
-  height: 18px;
-  border-radius: 999px;
-  border: 2px solid #FE5000;
-  display: flex;
-  align-items: center;
+  margin-top: 32px;
   justify-content: center;
 }
 
+.mscOptionRadio {
+  width: 23px;
+  height: 23px;
+  min-width: 23px;
+  min-height: 23px;
+  max-width: 23px;
+  max-height: 23px;
+  flex: 0 0 23px;
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  border: 1px solid #A2A2A2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0;
+  background: #fff;
+}
+
 .mscOptionCardSelected .mscOptionRadioInner {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border-radius: 999px;
   background: #FE5000;
 }
@@ -134,41 +168,58 @@
 .mscOptionLabel {
   font-size: 14px;
   font-weight: 500;
+  color: #000;
+  -webkit-text-fill-color: #000;
 }
 
 .mscFooter {
   display: flex;
   justify-content: space-between;
   gap: 16px;
+  justify-content: center;
 }
 
-.mscNavButton,
-.mscPrimaryButton {
-  border-radius: 999px;
-  padding: 12px 28px;
-  font-size: 14px;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
-}
 
 .mscNavButton {
-  background: #f3f3f3;
-  color: #444;
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: inherit;
+  background: unset;
+  border: unset;
+  padding: 0;
+  padding-left: 17px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.mscNavButton span {
+  display: flex;
 }
 
 .mscNavButtonDisabled {
-  opacity: 0.5;
+  opacity: 0;
   cursor: default;
 }
 
 .mscPrimaryButton {
-  background: #FE5000;
-  color: #fff;
+  background: #fff;
+  border: 1px solid #FE5000;
+  border-radius: 100px;
+  font-size: 14px;
+  color: #2D2926;
+  font-weight: 700;
+  font-family: inherit;
+  padding: 12px 62px;
+  cursor: pointer;
+  transition: all .3s;
 }
 
 .mscPrimaryButton:disabled {
-  opacity: 0.5;
+  opacity: 0;
   cursor: default;
 }
 
@@ -189,6 +240,11 @@
   gap: 24px;
 }
 
+.mscShelfSingle {
+  grid-template-columns: minmax(280px, 33.333%);
+  justify-content: center;
+}
+
 .mscProductCard {
   border-radius: 20px;
   background: #fff;
@@ -200,9 +256,9 @@
 
 .mscProductTags {
   display: flex;
-  justify-content: flex-start;
   gap: 10px;
   margin-bottom: 12px;
+  justify-content: center;
 }
 
 .mscTag,
@@ -238,9 +294,14 @@
 }
 
 .mscProductName {
-  font-size: 15px;
-  font-weight: 500;
-  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  max-width: 60%;
+  margin: auto;
+  margin-bottom: 16px;
+  height: 52px;
+  overflow: hidden;
 }
 
 .mscProductPriceBlock {
@@ -248,6 +309,7 @@
   align-items: baseline;
   gap: 8px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .mscProductListPrice {
@@ -280,6 +342,8 @@
   background: #FE5000;
   color: #fff;
   text-decoration: none;
+  display: block;
+  width: 100%;
 }
 
 .mscLoading,
@@ -288,3 +352,144 @@
   font-size: 15px;
   color: #555;
 }
+
+.mscColorPickerWrapper {
+  padding: 0 17px;
+  margin-top: -8px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.mscColorPickerText {
+  font-size: 14px;
+  color: #000;
+  margin: 0 0 16px;
+}
+
+.mscColorDotsRow {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: nowrap;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.mscColorItem {
+  width: 84px;
+  min-width: 84px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.mscColorDot {
+  width: 84px;
+  height: 84px;
+  min-width: 84px;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  flex: 0 0 84px;
+  margin-bottom: 12px;
+}
+
+.mscColorDotSelected {
+  border-color: #FE5000;
+  box-shadow: 0 0 0 4px rgba(254, 80, 0, 0.12);
+}
+
+.mscColorLabel {
+  color: #2D2926;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.mscColorPickerHint {
+  font-size: 12px;
+  color: #777;
+  margin: 12px 0 0;
+}
+
+.mscProductInstallments {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #777;
+  text-align: center;
+  line-height: 16px;
+}
+
+@media (max-width: 1024px) {
+  .mscColorDotsRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(78px, 1fr));
+    justify-content: stretch;
+    align-items: start;
+    justify-items: center;
+    width: 100%;
+  }
+
+  .mscColorItem {
+    width: 100%;
+    min-width: 0;
+    max-width: 84px;
+  }
+
+  .mscColorDot {
+    width: 84px;
+    height: 84px;
+    min-width: 84px;
+    flex: initial;
+  }
+}
+
+@media (max-width: 768px) {
+  .mscContainer {
+    padding-top: 72px;
+  }
+
+  .mscShelfSingle {
+    grid-template-columns: minmax(260px, 1fr);
+  }
+
+  .mscOptionsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    justify-content: stretch;
+  }
+
+  .mscOptionCard {
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+    color: #000;
+    -webkit-text-fill-color: #000;
+  }
+
+  .mscOptionImageWrapper {
+    height: auto;
+    aspect-ratio: 202 / 220;
+  }
+
+  .mscOptionFooter {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .mscOptionLabel {
+    width: auto;
+    text-align: center;
+    line-height: 1.2;
+    color: #000;
+    -webkit-text-fill-color: #000;
+  }
+}
+
