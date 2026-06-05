@@ -8,7 +8,7 @@
 
   "faq-accordion#product-default": {
     "props": {
-      "isVisible": false,
+      "isVisible": true,
       "title": "Perguntas frequentes sobre o produto",
       "blockClass": "productFaq",
       "items": [

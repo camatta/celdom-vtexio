@@ -59,6 +59,21 @@ const FaqAccordion = ({
     () => items.filter((item) => item?.question && item?.answer),
     [items]
   )
+  const structuredData = useMemo(
+    () => ({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: visibleItems.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    }),
+    [visibleItems]
+  )
 
   if (
     !isVisible ||
@@ -80,6 +95,11 @@ const FaqAccordion = ({
 
   return (
     <section className={`${styles.faqAccordion} ${blockClassName}`} aria-label={title}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
       <div className={styles.container}>
         <h2 className={styles.title}>{title}</h2>
 
