@@ -3,6 +3,22 @@ import { useProduct } from 'vtex.product-context'
 import styles from './infoTabs.css'
 
 
+const normalizeText = (text = '') =>
+  String(text)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .trim()
+
+const hiddenSpecificationsForCoifasSobMedida = new Set([
+  'codigo',
+  'sku',
+  'cor',
+  'garantia',
+  'modelo',
+  'tamanho',
+])
+
 const InfoTabsView = ({ tabs }) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isExpanded, setIsExpanded] = useState(false)
@@ -158,6 +174,18 @@ const InfoTabs = () => {
   const productDescription = product?.description || ''
   const skuSpecifications = product?.skuSpecifications || []
 
+  const isCoifasSobMedida = useMemo(() => {
+    const categoryNames = [
+      ...(product?.categoryTree?.map(category => category?.name) || []),
+      ...(product?.categories || []),
+      product?.categoryId,
+    ]
+
+    return categoryNames
+      .filter(Boolean)
+      .some(category => normalizeText(category).includes('coifas sob medida'))
+  }, [product])
+
   function brToParagraphs(html) {
     if (!html) return ''
 
@@ -205,13 +233,19 @@ const InfoTabs = () => {
       g => g?.name === 'Especificações' || g?.name === 'allSpecifications'
     )
 
+    const shouldShowSpecification = specName =>
+      !isCoifasSobMedida ||
+      !hiddenSpecificationsForCoifasSobMedida.has(normalizeText(specName))
+
     const especificacoesHTML =
       especificacoesGroup?.specifications
+        ?.filter(spec => shouldShowSpecification(spec?.name))
         ?.map(spec => `<strong>${spec?.name || ''}:</strong> ${spec?.values?.join(', ') || ''}`)
         .join('<br/>') || ''
 
     const skuSpecs =
       skuSpecifications
+        ?.filter(spec => shouldShowSpecification(spec?.field?.name))
         ?.map(spec => {
           const fieldName = spec?.field?.name === 'Sku' ? 'Código' : spec?.field?.name
           return `<strong>${fieldName || ''}:</strong> ${spec?.values?.[0]?.name || ''}`
@@ -231,7 +265,7 @@ const InfoTabs = () => {
     }
 
     return nextTabs
-  }, [product, productDescription, skuSpecifications])
+  }, [isCoifasSobMedida, product, productDescription, skuSpecifications])
 
   if (!tabs?.length) return null
 
