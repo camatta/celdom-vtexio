@@ -11,8 +11,6 @@ const normalizeText = (text = '') =>
     .trim()
 
 const hiddenSpecificationsForCoifasSobMedida = new Set([
-  'codigo',
-  'sku',
   'cor',
   'garantia',
   'modelo',
