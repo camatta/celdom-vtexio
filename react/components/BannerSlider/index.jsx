@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/swiper-react.mjs'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import { LinkArrow } from '../Icons'
@@ -8,16 +8,6 @@ import './swiper-bundle.css'
 import './bannerslider.css'
 
 function ImageComponent({ imageItems }) {
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    // Detecta mobile via tamanho de viewport
-    const handleResize = () => setIsMobile(window.innerWidth <= 768)
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
@@ -29,67 +19,58 @@ function ImageComponent({ imageItems }) {
     >
       {imageItems &&
         imageItems.length > 0 &&
-        imageItems.map((item, index) =>
-          !isMobile ? (
+        imageItems.map((item, index) => {
+          const descricao = item.descricao || item.description || item.badgeDesconto
+
+          return (
             item.imageDesktop && (
-              <SwiperSlide className="desktop" key={index}>
-                <img
-                  className="image-banner"
-                  src={item.imageDesktop}
-                  alt={`Desktop Banner ${index}`}
-                  loading="eager" fetchpriority="high"
-                />
+              <SwiperSlide key={index}>
+                <picture>
+                  {item.imageMobile && (
+                    <source media="(max-width: 768px)" srcSet={item.imageMobile} />
+                  )}
+                  <source media="(min-width: 769px)" srcSet={item.imageDesktop} />
+                  <img
+                    className="image-banner"
+                    src={item.imageDesktop}
+                    alt={item.alt || `Banner principal ${index + 1}`}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    fetchPriority={index === 0 ? 'high' : 'low'}
+                  />
+                </picture>
 
-                {/* Texto e CTA adaptados do código antigo */} 
-                {item.linha1 && item.textoBotao && ( 
-                  <div className={styles.textoBanner}> 
-                  <div className={styles.bannerCta}> 
-                    <p className={styles.textoBannerCta} dangerouslySetInnerHTML={{ __html: item.linha1 }} /> 
-                    <a href={item.linkDesktop} rel="noopener noreferrer" className={styles.textoBannerCtaLink} > 
-                      <span>{item.textoBotao}</span> <LinkArrow /> </a> 
-                      </div> 
-                      </div> 
-                    )}
-              </SwiperSlide>
-            )
-          ) : (
-            item.imageMobile && (
-              <SwiperSlide className="mobile" key={index}>
-                <img
-                  className="image-banner"
-                  src={item.imageMobile}
-                  alt={`Mobile Banner ${index}`}
-                  loading="eager" fetchpriority="high"
-                />
-
-                {/* Texto e CTA (Mobile) */}
-                {item.linha1 && item.textoBotao && (
+                {(item.linha1 || item.linha2 || descricao) && (
                   <div className={styles.textoBanner}>
                     <div className={styles.bannerCta}>
-                     <p className={styles.textoBannerCta} dangerouslySetInnerHTML={{ __html: item.linha1 }} /> 
+                      {item.linha1 && (
+                        <p
+                          className={styles.textoBannerEyebrow}
+                          dangerouslySetInnerHTML={{ __html: item.linha1 }}
+                        />
+                      )}
                       {item.linha2 && (
-                        <p className="linha2-textoBanner">{item.linha2}</p>
+                        <p className={styles.textoBannerTitulo}>{item.linha2}</p>
                       )}
-                      {item.badgeDesconto && (
-                        <span className="badgeDesconto-textoBanner">
-                          {item.badgeDesconto}
-                        </span>
+                      {descricao && (
+                        <p className={styles.textoBannerDescricao}>{descricao}</p>
                       )}
-                      <a
-                        href={item.linkMobile}
-                        rel="noopener noreferrer"
-                        className={styles.textoBannerCtaLink}
-                      >
-                        <span>{item.textoBotao}</span>
-                        <LinkArrow />
-                      </a>
+                      {item.textoBotao && (
+                        <a
+                          href={item.linkDesktop || item.linkMobile}
+                          rel="noopener noreferrer"
+                          className={styles.textoBannerCtaLink}
+                        >
+                          <span>{item.textoBotao}</span>
+                          <LinkArrow />
+                        </a>
+                      )}
                     </div>
                   </div>
                 )}
               </SwiperSlide>
             )
           )
-        )}
+        })}
     </Swiper>
   )
 }
@@ -133,19 +114,27 @@ ImageComponent.schema = {
           },
           linha1: {
             type: 'string',
-            title: 'Linha 1 texto do banner (HTML permitido)',
+            title: 'Chamada superior do banner (HTML permitido)',
           },
           linha2: {
             type: 'string',
-            title: 'Linha 2 texto do banner (opcional)',
+            title: 'Titulo principal do banner',
+          },
+          descricao: {
+            type: 'string',
+            title: 'Descricao do banner',
           },
           badgeDesconto: {
             type: 'string',
-            title: 'Texto da tag de desconto (opcional)',
+            title: 'Descricao do banner (legado)',
           },
           textoBotao: {
             type: 'string',
-            title: 'Texto do botão (ex: "Saiba mais")',
+            title: 'Texto do botao (ex: "Conheca")',
+          },
+          alt: {
+            type: 'string',
+            title: 'Texto alternativo da imagem',
           },
         },
         required: ['imageDesktop'],

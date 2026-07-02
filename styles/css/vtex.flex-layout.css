@@ -1760,3 +1760,13 @@
 .flexRowContent--cms-monte-sua-coifa .stretchChildrenWidth {
   width: 100% !important;
 }
+
+.flexRow--monte-sua-coifa-faq-container {
+  margin-top: 48px;
+}
+
+@media (max-width: 991px) {
+  .flexRow--monte-sua-coifa-faq-container {
+    margin-top: 32px;
+  }
+}

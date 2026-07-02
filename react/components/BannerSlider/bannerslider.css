@@ -116,6 +116,7 @@
 :global(.swiper-slide){
   flex-shrink:0;
   width:100%;
+  position: relative;
 }
 
 /* Estilos para o carrossel */
@@ -192,9 +193,15 @@
 
 :global(.swiper-slide) :global(.image-banner) {
   width: 100%;
-  max-height: 561px;
+  height: 507px;
+  display: block;
   object-fit: cover;
   object-position: center;
+}
+
+:global(.swiper-slide) picture {
+  display: block;
+  line-height: 0;
 }
 
 /* Estilo do texto central do primeiro banner */
@@ -244,12 +251,6 @@
   text-decoration: none;
 }
 
-@media (min-width: 1600px) {
-  :global(.swiper-slide) :global(.image-banner) {
-    max-height: 765px;
-  }
-}
-
 @media (max-width: 1025px) {
   .containerCentral-textoBanner .linha1-textoBanner {
     font-size: 40px;
@@ -268,14 +269,9 @@
 }
 
 @media (max-width: 768px) {
-  .desktop {
-    display: none;
-  }
-}
-
-@media (min-width: 769px) {
-  .mobile {
-    display: none;
+  :global(.swiper-slide) :global(.image-banner) {
+    height: 520px;
+    object-position: center;
   }
 }
 

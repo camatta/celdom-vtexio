@@ -481,7 +481,7 @@ const MonteSuaCoifa = () => {
   return (
     <section className={styles.mscContainer}>
       <header className={styles.mscHeader}>
-        <h2 className={styles.mscTitle}>Monte sua coifa</h2>
+        <h1 className={styles.mscTitle}>Monte sua coifa</h1>
         <p className={styles.mscSubtitle}>
           Responda a algumas perguntas rápidas sobre seu espaço e suas
           preferências. Com base nas suas escolhas, vamos indicar a coifa ideal

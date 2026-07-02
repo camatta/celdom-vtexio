@@ -1,52 +1,103 @@
-/* Estilo do texto central do primeiro banner */
-.singleBanner {}
-
-.containerCentral-textoBanner {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 35%;
-}
-.bannerCta {
-  position: relative;
-  z-index: 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 24px;
-  height: 100%;
-  padding: 26px;
-  color: #fff;
-  font-size: 20px;
-  line-height: 26px;
-}
-.bannerCta::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-}
 .textoBanner {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 35%;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding-left: clamp(24px, 11.7vw, 160px);
+  padding-right: 24px;
+  pointer-events: none;
 }
 
-.textoBannerCta strong {
+.bannerCta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: min(490px, 100%);
+  gap: 16px;
+  font-family: 'DM Sans', sans-serif;
+  color: #fff;
+  text-align: left;
+  pointer-events: auto;
+}
+
+.textoBannerEyebrow,
+.textoBannerTitulo,
+.textoBannerDescricao {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  line-height: normal;
+}
+
+.textoBannerEyebrow {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 11.2px;
+  text-transform: uppercase;
+}
+
+.textoBannerTitulo {
+  width: 100%;
+  max-width: 490px;
+  color: #fe5000;
+  font-size: 32px;
   font-weight: 900;
 }
+
+.textoBannerDescricao {
+  width: 100%;
+  max-width: 490px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
 .textoBannerCtaLink {
-  color: inherit;
-  text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 2px;
-  padding-bottom: 2px;
+  margin-top: 16px;
+  padding-bottom: 3px;
   border-bottom: 1px solid #fff;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
 }
+
 .textoBannerCtaLink svg {
-  color: #FE5000;
+  width: 18px;
+  height: 18px;
+  color: #fe5000;
+}
+
+@media (max-width: 768px) {
+  .textoBanner {
+    align-items: flex-end;
+    padding: 0 24px 56px;
+  }
+
+  .bannerCta {
+    gap: 12px;
+  }
+
+  .textoBannerEyebrow {
+    font-size: 12px;
+    letter-spacing: 7px;
+  }
+
+  .textoBannerTitulo {
+    font-size: 24px;
+  }
+
+  .textoBannerDescricao,
+  .textoBannerCtaLink {
+    font-size: 16px;
+  }
+
+  .textoBannerCtaLink {
+    margin-top: 8px;
+  }
 }

@@ -3,18 +3,37 @@
     "props": {
       "imageItems": [
         {
-          "imageDesktop": "assets/slider-principal/banner-ambiente.png",
-          "imageMobile": "assets/slider-principal/banner-ambiente-mobile.png",
-          "linha1": "seleção de destaques: <strong>cozinha</strong>",
-          "textoBotao": "confira",
-          "linkDesktop": "/adegas-de-embutir"
+          "imageDesktop": "assets/slider-principal/home-design-tecnologia.jpg",
+          "imageMobile": "assets/slider-principal/home-design-tecnologia.jpg",
+          "linha1": "O MELHOR",
+          "linha2": "Do design e tecnologia para cozinhas de alto padrão",
+          "descricao": "Eletros premium, curadoria especializada e soluções para projetos completos.",
+          "textoBotao": "Conheça",
+          "linkDesktop": "/cozinha",
+          "linkMobile": "/cozinha",
+          "alt": "Cozinha de alto padrão com eletrodomésticos premium Celdom"
         },
         {
-          "imageDesktop": "assets/slider-principal/banner-ambiente.png",
-          "imageMobile": "assets/slider-principal/banner-ambiente-mobile.png",
-          "linha1": "seleção de destaques: <strong>cozinha</strong>",
-          "textoBotao": "confira",
-          "linkDesktop": "/adegas-de-embutir"
+          "imageDesktop": "assets/slider-principal/home-cooktop-invisivel.jpg",
+          "imageMobile": "assets/slider-principal/home-cooktop-invisivel.jpg",
+          "linha1": "NOVIDADE",
+          "linha2": "Cooktop invisível",
+          "descricao": "Tecnologia integrada à bancada para projetos elegantes, funcionais e surpreendentes.",
+          "textoBotao": "Conheça",
+          "linkDesktop": "/cooktop",
+          "linkMobile": "/cooktop",
+          "alt": "Bancada gourmet com cooktop invisível integrado"
+        },
+        {
+          "imageDesktop": "assets/slider-principal/home-pronta-entrega.jpg",
+          "imageMobile": "assets/slider-principal/home-pronta-entrega.jpg",
+          "linha1": "SELEÇÃO",
+          "linha2": "Pronta entrega",
+          "descricao": "Escolhas prontas para transformar cozinhas e áreas gourmet sem atrasar o cronograma.",
+          "textoBotao": "Conheça",
+          "linkDesktop": "/pronta-entrega",
+          "linkMobile": "/pronta-entrega",
+          "alt": "Cozinha premium com eletrodomésticos disponíveis para pronta entrega"
         }
       ]
     }
