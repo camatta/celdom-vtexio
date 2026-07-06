@@ -3,89 +3,68 @@
     "path": "/colecao",
     "isSitemapEntry": true
   },
-  
   "store.custom#sobre-nos": {
     "path": "/nossa-historia",
     "isSitemapEntry": true
   },
-
   "store.custom#politica-frete": {
     "path": "/politica-frete",
     "isSitemapEntry": true
   },
-
   "store.custom#politica-de-garantia": {
     "path": "/politica-de-garantia",
     "isSitemapEntry": true
   },
-
   "store.custom#pontos-vendas": {
     "path": "/pontos-vendas",
     "isSitemapEntry": true
   },
-
   "store.custom#politica-privacidade": {
     "path": "/politica-de-privacidade",
     "isSitemapEntry": true
   },
-
   "store.custom#formas-pagamento": {
     "path": "/formas-pagamento",
     "isSitemapEntry": true
   },
-
   "store.custom#trocas-e-devolucoes": {
     "path": "/trocas-e-devolucoes",
     "isSitemapEntry": true
   },
-
   "store.custom#arquitetos-e-decoracoes": {
     "path": "/arquitetos-e-decoracoes",
     "isSitemapEntry": true
   },
-
   "store.custom#faq": {
     "path": "/faq",
     "isSitemapEntry": true
   },
-
   "store.custom#search-custom-cozinha": {
     "path": "/cozinha",
     "isSitemapEntry": true
   },
-
   "store.custom#search-custom-mais-vendidos": {
     "path": "/mais-vendidos",
     "isSitemapEntry": true
   },
-
   "store.custom#search-custom-imperdiveis": {
     "path": "/imperdiveis",
     "isSitemapEntry": true
   },
-
   "store.custom#search-custom-gourmet": {
     "path": "/gourmet",
     "isSitemapEntry": true
   },
-
   "store.custom#search-custom-outdoor": {
     "path": "/outdoor",
     "isSitemapEntry": true
   },
-
   "store.custom#search-custom-pronta-entrega": {
     "path": "/pronta-entrega",
     "isSitemapEntry": true
   },
-
   "store.custom#search-custom-assinatura-paterna-evol": {
     "path": "/assinatura-paterna-evol",
-    "isSitemapEntry": true
-  },
-
-  "store.custom#monte-sua-coifa": {
-    "path": "/monte-sua-coifa",
     "isSitemapEntry": true
   }
 }
