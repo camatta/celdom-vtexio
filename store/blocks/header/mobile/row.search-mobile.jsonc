@@ -10,6 +10,6 @@
     "props": {
       "blockClass": ["search-mobile-content"]
     },
-    "children": ["search-bar"]
+    "children": ["search-bar", "search-hidden-products-guard"]
   }
 }

@@ -42,7 +42,7 @@
     "props": {
       "blockClass": "search-desktop-container"
     },
-    "children": ["search-bar"] // Arquivo search/search-bar.jsonc
+    "children": ["search-bar", "search-hidden-products-guard"] // Arquivo search/search-bar.jsonc
   },
 
   "flex-layout.col#utils-desktop": {

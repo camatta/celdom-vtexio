@@ -11,15 +11,15 @@ const normalizeText = (value = '') =>
     .trim()
     .toLowerCase()
 
-const isCoifasCategoryPage = () => {
-  const params = new URLSearchParams(window.location.search)
-  const map = (params.get('map') || '')
-    .split(',')
-    .map((segment) => segment.trim())
+const isSearchListingPage = () => {
+  if (typeof window === 'undefined') return false
 
-  if (!map.includes('c')) return false
+  const path = normalizeText(window.location.pathname)
 
-  return normalizeText(window.location.pathname).includes('/coifas')
+  // Não pode ser página de produto (que termina com "/p")
+  if (path.endsWith('/p') || path.includes('/p/')) return false
+
+  return true
 }
 
 const collectCategoryValues = (product) => {
@@ -68,7 +68,7 @@ const CoifasSobMedidaProductGuard = () => {
 
     if (!(galleryItem instanceof HTMLElement)) return undefined
 
-    const shouldHide = isCoifasCategoryPage() && belongsToSobMedida(product)
+    const shouldHide = isSearchListingPage() && belongsToSobMedida(product)
 
     galleryItem.style.display = shouldHide ? 'none' : ''
     galleryItem.dataset.nrzCoifasSobMedidaHidden = shouldHide ? 'true' : 'false'

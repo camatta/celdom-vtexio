@@ -107,5 +107,11 @@
   },
   "monte-sua-coifa": {
    "component": "MonteSuaCoifa"
+  },
+  "visible-product-count": {
+    "component": "VisibleProductCount"
+  },
+  "search-hidden-products-guard": {
+    "component": "SearchHiddenProductsGuard"
   }
 }

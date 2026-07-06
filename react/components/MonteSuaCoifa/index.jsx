@@ -887,6 +887,7 @@ const MonteSuaCoifa = ({ questions, colorPicker }) => {
       }
       stepNavDirectionRef.current = 'next'
       setCurrentStep((prev) => prev + 1)
+      scrollTop()
       return
     }
 
@@ -1137,9 +1138,9 @@ const MonteSuaCoifa = ({ questions, colorPicker }) => {
                     </div>
                   )}
 
-                  {addToCartLink && (
+                  {product.link && (
                     <a
-                      href={addToCartLink}
+                      href={product.link}
                       className={styles.mscProductButton}
                     >
                       Comprar Coifa Sob Medida
