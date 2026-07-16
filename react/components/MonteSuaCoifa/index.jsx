@@ -157,6 +157,7 @@ const QUESTION_SPECIFICATION_NAMES = {
 }
 
 const COLOR_SPECIFICATION_NAME = 'Cor'
+const PROGRESS_BAR_SCROLL_OFFSET = 180
 
 const normalizeComparisonValue = (value) =>
   String(value ?? '')
@@ -527,6 +528,7 @@ const MonteSuaCoifa = ({ questions, colorPicker }) => {
   const [isLoadingStepOptions, setIsLoadingStepOptions] = useState(false)
   const [stepContentMinHeight, setStepContentMinHeight] = useState(null)
   const [readyOptionImages, setReadyOptionImages] = useState({})
+  const progressBarRef = useRef(null)
   const stepHeaderRef = useRef(null)
   const stepContentRef = useRef(null)
   const didMountStepRef = useRef(false)
@@ -838,16 +840,30 @@ const MonteSuaCoifa = ({ questions, colorPicker }) => {
     }
   }, [isLoadingStepOptions])
 
+  // MANTER seu scrollTop
+  const scrollTop = () => {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
+  const scrollToProgressBar = () => {
+    if (typeof window === 'undefined') return
+
+    const target = progressBarRef.current
+    const top = target
+      ? target.getBoundingClientRect().top + window.scrollY - PROGRESS_BAR_SCROLL_OFFSET
+      : 0
+
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
+  }
+
   useEffect(() => {
     if (stepNavDirectionRef.current !== 'next') return
     if (isLoadingStepOptions) return
     if (typeof window === 'undefined') return
-    if (!window.matchMedia('(max-width: 768px)').matches) {
-      stepNavDirectionRef.current = null
-      return
-    }
 
-    const target = stepHeaderRef.current
+    const target = progressBarRef.current
     if (!target) {
       stepNavDirectionRef.current = null
       return
@@ -855,8 +871,7 @@ const MonteSuaCoifa = ({ questions, colorPicker }) => {
 
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
-        const top = target.getBoundingClientRect().top + window.scrollY - 148
-        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
+        scrollToProgressBar()
         stepNavDirectionRef.current = null
       })
     })
@@ -873,13 +888,6 @@ const MonteSuaCoifa = ({ questions, colorPicker }) => {
     img.src = addCacheBust(originalSrc)
   }
 
-  // MANTER seu scrollTop
-  const scrollTop = () => {
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
-  }
-
   const handleNext = async () => {
     if (currentStep < totalSteps - 1) {
       if (stepContentRef.current) {
@@ -887,7 +895,7 @@ const MonteSuaCoifa = ({ questions, colorPicker }) => {
       }
       stepNavDirectionRef.current = 'next'
       setCurrentStep((prev) => prev + 1)
-      scrollTop()
+      scrollToProgressBar()
       return
     }
 
@@ -1169,7 +1177,7 @@ const MonteSuaCoifa = ({ questions, colorPicker }) => {
           combina com o seu estilo.
         </p>
 
-        <div className={styles.mscProgressBarWrapper}>
+        <div ref={progressBarRef} className={styles.mscProgressBarWrapper}>
           <div className={styles.mscProgressBarTrack}>
             <div
               className={styles.mscProgressBarFill}

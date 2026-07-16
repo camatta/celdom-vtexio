@@ -2,25 +2,20 @@
   "logo-celdom": {
     "component": "LogoLoja"
   },
-
   "aux-floating-container": {
     "component": "AuxFloatingContainer",
     "composition": "children"
   },
-
   "mega-menu": {
     "component": "MegaMenu",
     "composition": "children"
   },
-
-   "minicart-coupon": {
+  "minicart-coupon": {
     "component": "MinicartCoupon"
   },
-    
   "minicart-subtotal": {
     "component": "MinicartSubtotal"
-  }, 
-
+  },
   "product-model": {
     "component": "ProductModel"
   },
@@ -55,7 +50,7 @@
     "component": "AmbientImageSwitcher",
     "composition": "children"
   },
-    "product-banner-slider": {
+  "product-banner-slider": {
     "component": "ProductBannerSlider",
     "composition": "children"
   },
@@ -78,20 +73,20 @@
   "historia-home": {
     "component": "HistoriaHome"
   },
-    "script-rd": {
+  "script-rd": {
     "component": "RDScript"
   },
-   "reclame-aqui": {
-   "component": "ReclameAqui"
+  "reclame-aqui": {
+    "component": "ReclameAqui"
   },
-   "nome-com-sku": {
-   "component": "NomeComSku"
+  "nome-com-sku": {
+    "component": "NomeComSku"
   },
   "botao-orcamento": {
-   "component": "Orcamento"
+    "component": "Orcamento"
   },
   "compre-junto": {
-   "component": "BuyTogether"
+    "component": "BuyTogether"
   },
   "product-attribute-image-zoom": {
     "component": "ProductAttributeImageZoom"
@@ -106,12 +101,15 @@
     "component": "BrandSliderImagePriority"
   },
   "monte-sua-coifa": {
-   "component": "MonteSuaCoifa"
+    "component": "MonteSuaCoifa"
   },
   "visible-product-count": {
     "component": "VisibleProductCount"
   },
   "search-hidden-products-guard": {
     "component": "SearchHiddenProductsGuard"
+  },
+  "faq-accordion": {
+    "component": "FaqAccordion"
   }
 }

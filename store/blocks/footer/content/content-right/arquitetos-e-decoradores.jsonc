@@ -1,21 +1,25 @@
 {
   "flex-layout.col#arquitetos-e-decoradores": {
-    "title": "Arquitetos e decoradores",
+    "title": "Arquitetos e monte sua coifa",
     "props": {
       "blockClass": ["footer-arquitetos-e-decoradores"],
       "colSizing": "auto"
     },
     "children": [
-            "rich-text#title-arquitetos-e-decoradores",
-            "flex-layout.row#area-logada",
-            "flex-layout.row#newsletter",
-            "flex-layout.row#social-networks"
-           
-
-
+      "experimental__visibility-layout#arquitetos-e-decoradores",
+      "experimental__visibility-layout#monte-sua-coifa",
+      "flex-layout.row#newsletter",
+      "flex-layout.row#social-networks"
     ]
   },
-    "rich-text#title-arquitetos-e-decoradores": {
+  "experimental__visibility-layout#arquitetos-e-decoradores": {
+    "title": "Arquitetos e Decoradores",
+    "children": [
+      "rich-text#title-arquitetos-e-decoradores",
+      "flex-layout.row#area-logada"
+    ]
+  },
+  "rich-text#title-arquitetos-e-decoradores": {
     "props": {
       "blockClass": "footer-title",
       "text": "#### Arquitetos e Decoradores"
@@ -26,23 +30,60 @@
       "blockClass": ["section-area-logada"]
     },
     "children": [
-           "rich-text#texto-arquitetos-e-decoradores",
-           "rich-text#cta-area-logada"
+      "rich-text#texto-arquitetos-e-decoradores",
+      "rich-text#cta-area-logada"
     ]
   },
 
   "rich-text#texto-arquitetos-e-decoradores": {
-  "props": {
-    "blockClass": "footer-texto",
-    "text": "Faça parte do nosso programa de relacionamento **[Celdom VIP!](https://wa.me/5511990000479)**"
-  }
+    "props": {
+      "blockClass": "footer-texto",
+      "text": "Faça parte do nosso programa de relacionamento **[Celdom VIP!](https://wa.me/5511990000479)**"
+    }
   },
 
   "rich-text#cta-area-logada": {
-  "props": {
-    "text": "Área logada",
-    "blockClass": "button-area-logada"
+    "props": {
+      "text": "Área logada",
+      "blockClass": "button-area-logada"
+    }
+  },
+
+  "experimental__visibility-layout#monte-sua-coifa": {
+    "title": "Monte sua coifa",
+    "children": [
+      "rich-text#title-monte-sua-coifa",
+      "flex-layout.row#texto-cta-monte-sua-coifa"
+    ]
+  },
+  "rich-text#title-monte-sua-coifa": {
+    "props": {
+      "blockClass": "footer-title",
+      "text": "#### Monte sua coifa"
+    }
+  },
+  "flex-layout.row#texto-cta-monte-sua-coifa": {
+    "props": {
+      "blockClass": ["section-area-logada", "section-monte-sua-coifa"]
+    },
+    "children": [
+      "rich-text#texto-monte-sua-coifa",
+      "rich-text#cta-monte-sua-coifa"
+    ]
+  },
+
+  "rich-text#texto-monte-sua-coifa": {
+    "props": {
+      "blockClass": "footer-texto",
+      "text": "Encontre a opção ideal para sua cozinha em poucos passos."
+    }
+  },
+
+  "rich-text#cta-monte-sua-coifa": {
+    "props": {
+      "text": "[Começar agora](/monte-sua-coifa)",
+      "blockClass": "button-area-logada"
+    }
   }
-}
 
 }
