@@ -5,7 +5,7 @@
 /*Ocultando área logada*/
 
 :global(.vtex-render__container-id-aviso-projeto),
-:global(.vtex-flex-layout-0-x-flexRowContent--section-area-logada) :global(.vtex-rich-text-0-x-paragraph--button-area-logada),
+:global(.vtex-flex-layout-0-x-flexRowContent--section-area-logada):not(:global(.vtex-flex-layout-0-x-flexRowContent--section-monte-sua-coifa)) :global(.vtex-rich-text-0-x-paragraph--button-area-logada),
 :global(.vtex-flex-layout-0-x-flexColChild--footer-arquitetos-e-decoradores) .headingLevel4--footer-title{
   display: none;
 }
@@ -453,4 +453,13 @@
     display: block;
     margin: 10px 0 0;
   }
+}
+
+
+:global(.celdom-store-theme-1-x-firstLevelList:has(> a[href="/coifas/coifas-sob-medida"])) {
+    display: none;
+}
+
+:global(.celdom-store-theme-1-x-sidebarItemContainer:has(> a[href="/coifas/coifas-sob-medida"])) {
+    display: none;
 }

@@ -135,6 +135,8 @@
   color: #A2A2A2;
   text-transform: lowercase;
   border: none;
+  /* Escondido: o componente VisibleProductCount exibe o total ajustado */
+  display: none !important;
 }
 .totalProductsMessage {
   color: inherit;

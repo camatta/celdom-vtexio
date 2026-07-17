@@ -92,6 +92,11 @@
     margin: 16px 0 24px;
 }
 
+.paragraph--button-area-logada .link--button-area-logada {
+  text-decoration: none;
+  color: #2D2926;
+}
+
 .paragraph--newsletter-cta {
   font-size: 14px;
   font-weight: 700;

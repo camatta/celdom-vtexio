@@ -140,17 +140,17 @@ const FaqAccordion = ({
 
 FaqAccordion.schema = {
   title: 'FAQ em acordeon',
-  description: 'Controle a exibicao da secao de perguntas frequentes.',
+  description: 'Controle a exibição da seção de perguntas frequentes.',
   type: 'object',
   properties: {
     isVisible: {
       title: 'Exibir FAQ',
-      description: 'Ative para mostrar esta secao na pagina.',
+      description: 'Ative para mostrar esta seção na página.',
       type: 'boolean',
       default: true,
     },
     title: {
-      title: 'Titulo da secao',
+      title: 'Titulo da seção',
       type: 'string',
       default: 'Perguntas frequentes',
     },

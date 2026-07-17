@@ -1,57 +1,62 @@
 {
-    "store.custom#monte-sua-coifa": {
-      "children": [
-        "flex-layout.row#linha-bread",
-        "flex-layout.row#monte-sua-coifa"
+  "store.custom#monte-sua-coifa": {
+    "children": [
+      "flex-layout.row#linha-bread",
+      "flex-layout.row#monte-sua-coifa"
+    ]
+  },
+  "flex-layout.row#monte-sua-coifa": {
+    "props": {
+      "blockClass": [
+        "custom-container",
+        "cms-page-container",
+        "cms-monte-sua-coifa"
+      ],
+      "colSizing": "auto"
+    },
+    "children": [
+      "flex-layout.col#monte-sua-coifa"
+    ]
+  },
+  "flex-layout.col#monte-sua-coifa": {
+    "children": [
+      "monte-sua-coifa",
+      "flex-layout.row#monte-sua-coifa-faq"
+    ]
+  },
+  "flex-layout.row#monte-sua-coifa-faq": {
+    "props": {
+      "blockClass": [
+        "monte-sua-coifa-faq-container"
       ]
     },
-    "flex-layout.row#monte-sua-coifa": {
-      "props": {
-        "blockClass": ["custom-container", "cms-page-container", "cms-monte-sua-coifa"],
-        "colSizing": "auto"
-      },
-      "children": [
-        "flex-layout.col#monte-sua-coifa"
+    "children": [
+      "faq-accordion#monte-sua-coifa"
+    ]
+  },
+  "faq-accordion#monte-sua-coifa": {
+    "props": {
+      "isVisible": false,
+      "title": "Perguntas frequentes sobre coifas",
+      "blockClass": "monteSuaCoifaFaq",
+      "items": [
+        {
+          "question": "Como funciona o quiz Monte sua Coifa?",
+          "answer": "O quiz faz perguntas sobre o ambiente, o tipo de instalacao e as necessidades do projeto para indicar modelos de coifa mais adequados ao seu espaco."
+        },
+        {
+          "question": "Qual coifa escolher para cozinha residencial?",
+          "answer": "A escolha depende das medidas do ambiente, do tipo de fogao ou cooktop, da possibilidade de duto externo e da frequencia de uso. O quiz ajuda a filtrar essas informacoes."
+        },
+        {
+          "question": "Coifa de parede, ilha ou embutir: qual a diferenca?",
+          "answer": "A coifa de parede e indicada para cooktops junto a parede, a coifa de ilha fica sobre bancadas centrais e a coifa de embutir e integrada ao mobiliario ou ao projeto arquitetonico."
+        },
+        {
+          "question": "Preciso de instalacao profissional para a coifa?",
+          "answer": "Sim. A instalacao profissional ajuda a garantir seguranca, desempenho, acabamento correto e preservacao da garantia do produto."
+        }
       ]
-    },
-
-    "flex-layout.col#monte-sua-coifa": {
-        "children": [
-          "monte-sua-coifa",
-          "flex-layout.row#monte-sua-coifa-faq"
-        ]
-    },
-
-    "flex-layout.row#monte-sua-coifa-faq": {
-      "props": {
-        "blockClass": ["monte-sua-coifa-faq-container"]
-      },
-      "children": ["faq-accordion#monte-sua-coifa"]
-    },
-
-    "faq-accordion#monte-sua-coifa": {
-      "props": {
-        "isVisible": false,
-        "title": "Perguntas frequentes sobre coifas",
-        "blockClass": "monteSuaCoifaFaq",
-        "items": [
-          {
-            "question": "Como funciona o quiz Monte sua Coifa?",
-            "answer": "O quiz faz perguntas sobre o ambiente, o tipo de instalacao e as necessidades do projeto para indicar modelos de coifa mais adequados ao seu espaco."
-          },
-          {
-            "question": "Qual coifa escolher para cozinha residencial?",
-            "answer": "A escolha depende das medidas do ambiente, do tipo de fogao ou cooktop, da possibilidade de duto externo e da frequencia de uso. O quiz ajuda a filtrar essas informacoes."
-          },
-          {
-            "question": "Coifa de parede, ilha ou embutir: qual a diferenca?",
-            "answer": "A coifa de parede e indicada para cooktops junto a parede, a coifa de ilha fica sobre bancadas centrais e a coifa de embutir e integrada ao mobiliario ou ao projeto arquitetonico."
-          },
-          {
-            "question": "Preciso de instalacao profissional para a coifa?",
-            "answer": "Sim. A instalacao profissional ajuda a garantir seguranca, desempenho, acabamento correto e preservacao da garantia do produto."
-          }
-        ]
-      }
     }
+  }
 }

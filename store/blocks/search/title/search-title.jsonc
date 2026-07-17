@@ -4,6 +4,6 @@
       "colSizing": "auto",
       "blockClass": "search-title-content"
     },
-    "children": ["search-title.v2", "total-products.v2"]
+    "children": ["search-title.v2", "total-products.v2", "visible-product-count"]
   }
 }

@@ -67,6 +67,7 @@
     "vtex.store-newsletter": "1.x",
     "vtex.store-link": "0.x",
     "vtex.modal-layout": "0.x",
+    "vtex.visibility-layout": "0.x",
     "vtex.css-handles": "1.x",
     "vtex.product-context": "0.x",
     "vtex.session-client": "1.x",
