@@ -24,6 +24,15 @@
       "flex-layout.row#monte-sua-coifa-faq"
     ]
   },
+  "monte-sua-coifa": {
+    "props": {
+      "resultContent": {
+        "title": "Selecionamos o produto ideal para você",
+        "firstParagraph": "Com base nas suas escolhas, encontramos a coifa que melhor atende ao seu projeto, com potencial de personalização sob medida para o seu ambiente.",
+        "secondParagraph": "Após a confirmação da compra do produto abaixo, entraremos em contato para validar as personalizações sob medida e alinhar os detalhes finais do seu projeto."
+      }
+    }
+  },
   "flex-layout.row#monte-sua-coifa-faq": {
     "props": {
       "blockClass": [

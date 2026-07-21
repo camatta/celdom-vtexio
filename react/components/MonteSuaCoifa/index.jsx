@@ -483,7 +483,15 @@ options: [
 ],
 }
 
-const MonteSuaCoifa = ({ questions, colorPicker }) => {
+const DEFAULT_RESULT_CONTENT = {
+  title: 'Selecionamos o produto ideal para você',
+  firstParagraph:
+    'Com base nas suas escolhas, encontramos a coifa que melhor atende ao seu projeto, com potencial de personalização sob medida para o seu ambiente.',
+  secondParagraph:
+    'Após a confirmação da compra do produto abaixo, entraremos em contato para validar as personalizações sob medida e alinhar os detalhes finais do seu projeto.',
+}
+
+const MonteSuaCoifa = ({ questions, colorPicker, resultContent }) => {
   // 1) resolve perguntas (Site Editor sobrescreve, senão usa defaults oficiais)
   const QUESTIONS = useMemo(() => {
     const sourceQuestions =
@@ -518,6 +526,16 @@ const MonteSuaCoifa = ({ questions, colorPicker }) => {
       normalizeColorOption(c, colorIndex)
     )
   }, [colorCfg])
+
+  const resultCfg = useMemo(
+    () => ({
+      ...DEFAULT_RESULT_CONTENT,
+      ...(resultContent && typeof resultContent === 'object'
+        ? resultContent
+        : {}),
+    }),
+    [resultContent]
+  )
 
   const [currentStep, setCurrentStep] = useState(0)
   const [answers, setAnswers] = useState({})
@@ -1051,16 +1069,12 @@ const MonteSuaCoifa = ({ questions, colorPicker }) => {
         </button>
 
         <header className={styles.mscHeader}>
-          <h2 className={styles.mscTitle}>Selecionamos o produto ideal para você</h2>
+          <h2 className={styles.mscTitle}>{resultCfg.title}</h2>
           <p className={styles.mscSubtitle}>
-            Com base nas suas escolhas, encontramos a coifa que melhor atende
-            ao seu projeto, com potencial de personalização sob medida para o
-            seu ambiente.
+            {resultCfg.firstParagraph}
           </p>
           <p className={styles.mscSubtitle}>
-            Após a confirmação da compra do produto abaixo, entraremos em
-            contato para validar as personalizações sob medida e alinhar os
-            detalhes finais do seu projeto.
+            {resultCfg.secondParagraph}
           </p>
         </header>
 
@@ -1366,11 +1380,38 @@ const MonteSuaCoifa = ({ questions, colorPicker }) => {
 MonteSuaCoifa.schema = {
   title: 'Monte Sua Coifa (Quiz)',
   description:
-    'Edite perguntas, respostas, imagens e filtros de produtos via Site Editor.',
+    'Edite a tela de resultados, perguntas, respostas, imagens e filtros de produtos via Site Editor.',
   type: 'object',
   properties: {
+    resultContent: {
+      title: '01 — Tela de resultados',
+      description:
+        'Edite os textos exibidos acima dos produtos recomendados ao final do quiz.',
+      type: 'object',
+      properties: {
+        title: {
+          title: 'Título principal',
+          type: 'string',
+          default: DEFAULT_RESULT_CONTENT.title,
+        },
+        firstParagraph: {
+          title: 'Primeiro parágrafo',
+          type: 'string',
+          widget: { 'ui:widget': 'textarea' },
+          default: DEFAULT_RESULT_CONTENT.firstParagraph,
+        },
+        secondParagraph: {
+          title: 'Segundo parágrafo',
+          type: 'string',
+          widget: { 'ui:widget': 'textarea' },
+          default: DEFAULT_RESULT_CONTENT.secondParagraph,
+        },
+      },
+      default: DEFAULT_RESULT_CONTENT,
+    },
+
     questions: {
-      title: 'Perguntas (10)',
+      title: '02 — Perguntas do quiz (10)',
       type: 'array',
       minItems: 10,
       maxItems: 10,
@@ -1428,7 +1469,7 @@ MonteSuaCoifa.schema = {
     },
 
     colorPicker: {
-      title: 'Seletor de cores (opcional)',
+      title: '03 — Seletor de cores (opcional)',
       type: 'object',
       properties: {
         enabled: {
