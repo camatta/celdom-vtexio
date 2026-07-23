@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react'
 import { useRuntime } from 'vtex.render-runtime'
+import RichText from 'vtex.rich-text/index'
 
 import styles from './faqAccordion.css'
 
@@ -127,7 +128,9 @@ const FaqAccordion = ({
                   hidden={!isOpen}
                   id={contentId}
                 >
-                  <p className={styles.answer}>{item.answer}</p>
+                  <div className={styles.answer}>
+                    <RichText text={item.answer} />
+                  </div>
                 </div>
               </div>
             )
