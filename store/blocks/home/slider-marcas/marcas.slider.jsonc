@@ -42,7 +42,6 @@
       "image#marca19",
       "image#marca20",
       "image#marca21",
-      "image#marca22",
       "image#marca23"
     ]
   },
@@ -218,16 +217,7 @@
       "alt": "Tramontina"
     }
   },
-  "image#marca22": {
-    "props": {
-      "src": "assets/marcas/uline.png",
-      "maxHeight": 100,
-      "loading": "eager",
-      "fetchpriority": "high",
-      "alt": "U-Line"
-    }
-  },
-    "image#marca23": {
+  "image#marca23": {
     "props": {
       "src": "assets/marcas/morelli.png",
       "maxHeight": 100,
